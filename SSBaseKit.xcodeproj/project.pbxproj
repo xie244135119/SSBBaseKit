@@ -64,8 +64,6 @@
 		CB47CCC01EE6471A00D81CA3 /* SSGlobalVar.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC631EE6471A00D81CA3 /* SSGlobalVar.h */; };
 		CB47CCC11EE6471A00D81CA3 /* UIView+AMDExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC641EE6471A00D81CA3 /* UIView+AMDExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CCC21EE6471A00D81CA3 /* UIView+AMDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */; };
-		CB47CCC31EE6471A00D81CA3 /* xcodebuild.sh in Resources */ = {isa = PBXBuildFile; fileRef = CB47CC661EE6471A00D81CA3 /* xcodebuild.sh */; };
-		CB47CCC41EE6471A00D81CA3 /* XcodeBuildExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB47CC671EE6471A00D81CA3 /* XcodeBuildExportOptions.plist */; };
 		CB47CCC51EE6471A00D81CA3 /* AMDBackControl.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC691EE6471A00D81CA3 /* AMDBackControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CCC61EE6471A00D81CA3 /* AMDBackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC6A1EE6471A00D81CA3 /* AMDBackControl.m */; };
 		CB47CCC71EE6471A00D81CA3 /* AMDBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC6B1EE6471A00D81CA3 /* AMDBaseCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -211,8 +209,6 @@
 		CB47CC631EE6471A00D81CA3 /* SSGlobalVar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGlobalVar.h; sourceTree = "<group>"; };
 		CB47CC641EE6471A00D81CA3 /* UIView+AMDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AMDExtension.h"; sourceTree = "<group>"; };
 		CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AMDExtension.m"; sourceTree = "<group>"; };
-		CB47CC661EE6471A00D81CA3 /* xcodebuild.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = xcodebuild.sh; sourceTree = "<group>"; };
-		CB47CC671EE6471A00D81CA3 /* XcodeBuildExportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XcodeBuildExportOptions.plist; sourceTree = "<group>"; };
 		CB47CC691EE6471A00D81CA3 /* AMDBackControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDBackControl.h; sourceTree = "<group>"; };
 		CB47CC6A1EE6471A00D81CA3 /* AMDBackControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDBackControl.m; sourceTree = "<group>"; };
 		CB47CC6B1EE6471A00D81CA3 /* AMDBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDBaseCell.h; sourceTree = "<group>"; };
@@ -416,8 +412,6 @@
 				CB47CC631EE6471A00D81CA3 /* SSGlobalVar.h */,
 				CB47CC641EE6471A00D81CA3 /* UIView+AMDExtension.h */,
 				CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */,
-				CB47CC661EE6471A00D81CA3 /* xcodebuild.sh */,
-				CB47CC671EE6471A00D81CA3 /* XcodeBuildExportOptions.plist */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -695,9 +689,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB47CCC41EE6471A00D81CA3 /* XcodeBuildExportOptions.plist in Resources */,
 				CB1DF4B91EE6563E00B93F81 /* blueArrowDown.png in Resources */,
-				CB47CCC31EE6471A00D81CA3 /* xcodebuild.sh in Resources */,
 				CB1DF4B71EE6563E00B93F81 /* blueArrow@2x.png in Resources */,
 				CB1DF4BA1EE6563E00B93F81 /* blueArrowDown@2x.png in Resources */,
 				CB47CCE31EE6471A00D81CA3 /* AYESheetCell.xib in Resources */,
