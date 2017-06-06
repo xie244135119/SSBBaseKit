@@ -51,7 +51,7 @@
     CGFloat bth = 216.0/4.0;
     for (NSInteger i = 0; i < 12; i++) {
         AMDButton *bt = [[AMDButton alloc]initWithFrame:CGRectMake(btw*(i%3), barheight+bth*(i/3), btw, bth)];
-        NSString *imagename = [[NSString alloc]initWithFormat:@"%i.png",(NSInteger)i+1];
+        NSString *imagename = [[NSString alloc]initWithFormat:@"%li.png",(long)i+1];
 //        NSString *imagepath = [NSHomeDirectory() stringByAppendingFormat:@"/%@/%@",@"KeyBoardIcon.bundle",imagename];
         NSString *strResourcesBundle = GetFilePath(@"KeyBoardIcon.bundle");
         UIImage *image = [[UIImage alloc]initWithContentsOfFile:[strResourcesBundle stringByAppendingPathComponent:imagename]];
