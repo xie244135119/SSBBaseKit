@@ -1,6 +1,6 @@
 //
-//  MJRefreshBaseView.m
-//  MJRefresh
+//  AMDMJRefreshBaseView.m
+//  AMDMJRefresh
 //
 //  Created by mj on 13-3-4.
 //  Copyright (c) 2013年 itcast. All rights reserved.
@@ -10,13 +10,13 @@
 // http://code4app.com (cn) http://code4app.net (en)
 // 发布代码于最专业的源码分享网站: Code4App.com
 
-#import "MJRefreshBaseView.h"
-#import "MJRefreshConst.h"
-#import "UIView+MJExtension.h"
-#import "UIScrollView+MJExtension.h"
+#import "AMDMJRefreshBaseView.h"
+#import "AMDMJRefreshConst.h"
+#import "UIView+AMDMJExtension.h"
+#import "UIScrollView+AMDMJExtension.h"
 #import <objc/message.h>
 
-@interface  MJRefreshBaseView()
+@interface  AMDMJRefreshBaseView()
 {
     __weak UILabel *_statusLabel;
     __weak UIImageView *_arrowImage;
@@ -24,7 +24,7 @@
 }
 @end
 
-@implementation MJRefreshBaseView
+@implementation AMDMJRefreshBaseView
 #pragma mark - 控件初始化
 /**
  *  状态标签
@@ -35,7 +35,7 @@
         UILabel *statusLabel = [[UILabel alloc] init];
         statusLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         statusLabel.font = [UIFont boldSystemFontOfSize:13];
-        statusLabel.textColor = MJRefreshLabelTextColor;
+        statusLabel.textColor = AMDMJRefreshLabelTextColor;
         statusLabel.backgroundColor = [UIColor clearColor];
         statusLabel.textAlignment = NSTextAlignmentCenter;
 //        statusLabel.layer.borderWidth = 1;
@@ -50,7 +50,7 @@
 - (UIImageView *)arrowImage
 {
     if (!_arrowImage) {
-        UIImageView *arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:MJRefreshSrcName(@"blueArrow.png")]];
+        UIImageView *arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:AMDMJRefreshSrcName(@"blueArrow.png")]];
         arrowImage.frame = CGRectMake(0, 0, 32, 32);
         arrowImage.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 //        arrowImage.layer.borderWidth = 1;
@@ -77,14 +77,14 @@
 
 #pragma mark - 初始化方法
 - (instancetype)initWithFrame:(CGRect)frame {
-    frame.size.height = MJRefreshViewHeight;
+    frame.size.height = AMDMJRefreshViewHeight;
     if (self = [super initWithFrame:frame]) {
         // 1.自己的属性
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         self.backgroundColor = [UIColor clearColor];
 //        self.layer.borderWidth = 1;
         // 2.设置默认状态
-        self.state = MJRefreshStateNormal;
+        self.state = AMDMJRefreshStateNormal;
     }
     return self;
 }
@@ -107,10 +107,10 @@
     [super willMoveToSuperview:newSuperview];
     
     // 旧的父控件
-    [self.superview removeObserver:self forKeyPath:MJRefreshContentOffset context:nil];
+    [self.superview removeObserver:self forKeyPath:AMDMJRefreshContentOffset context:nil];
     
     if (newSuperview) { // 新的父控件
-        [newSuperview addObserver:self forKeyPath:MJRefreshContentOffset options:NSKeyValueObservingOptionNew context:nil];
+        [newSuperview addObserver:self forKeyPath:AMDMJRefreshContentOffset options:NSKeyValueObservingOptionNew context:nil];
         
         // 设置宽度
         self.mj_width = newSuperview.mj_width;
@@ -127,8 +127,8 @@
 #pragma mark - 显示到屏幕上
 - (void)drawRect:(CGRect)rect
 {
-    if (self.state == MJRefreshStateWillRefreshing) {
-        self.state = MJRefreshStateRefreshing;
+    if (self.state == AMDMJRefreshStateWillRefreshing) {
+        self.state = AMDMJRefreshStateRefreshing;
     }
 }
 
@@ -136,14 +136,14 @@
 #pragma mark 是否正在刷新
 - (BOOL)isRefreshing
 {
-    return MJRefreshStateRefreshing == self.state;
+    return AMDMJRefreshStateRefreshing == self.state;
 }
 
 #pragma mark 开始刷新
 typedef void (*send_type)(void *, SEL, UIView *);
 - (void)beginRefreshing
 {
-    if (self.state == MJRefreshStateRefreshing) {
+    if (self.state == AMDMJRefreshStateRefreshing) {
         // 回调
         if ([self.beginRefreshingTaget respondsToSelector:self.beginRefreshingAction]) {
             msgSend((__bridge void *)(self.beginRefreshingTaget), self.beginRefreshingAction, self);
@@ -154,10 +154,10 @@ typedef void (*send_type)(void *, SEL, UIView *);
         }
     } else {
         if (self.window) {
-            self.state = MJRefreshStateRefreshing;
+            self.state = AMDMJRefreshStateRefreshing;
         } else {
 //    #warning 不能调用set方法
-            _state = MJRefreshStateWillRefreshing;
+            _state = AMDMJRefreshStateWillRefreshing;
             [super setNeedsDisplay];
         }
     }
@@ -169,7 +169,7 @@ typedef void (*send_type)(void *, SEL, UIView *);
     double delayInSeconds = 0.3;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        self.state = MJRefreshStateNormal;
+        self.state = AMDMJRefreshStateNormal;
     });
 }
 
@@ -192,15 +192,15 @@ typedef void (*send_type)(void *, SEL, UIView *);
 - (void)settingLabelText
 {
 	switch (self.state) {
-		case MJRefreshStateNormal:
+		case AMDMJRefreshStateNormal:
             // 设置文字
             self.statusLabel.text = self.pullToRefreshText;
 			break;
-		case MJRefreshStatePulling:
+		case AMDMJRefreshStatePulling:
             // 设置文字
             self.statusLabel.text = self.releaseToRefreshText;
 			break;
-        case MJRefreshStateRefreshing:
+        case AMDMJRefreshStateRefreshing:
             // 设置文字
             self.statusLabel.text = self.refreshingText;
 			break;
@@ -209,10 +209,10 @@ typedef void (*send_type)(void *, SEL, UIView *);
 	}
 }
 
-- (void)setState:(MJRefreshState)state
+- (void)setState:(AMDMJRefreshState)state
 {
     // 0.存储当前的contentInset
-    if (self.state != MJRefreshStateRefreshing) {
+    if (self.state != AMDMJRefreshStateRefreshing) {
         _scrollViewOriginalInset = self.scrollView.contentInset;
     }
     
@@ -221,10 +221,10 @@ typedef void (*send_type)(void *, SEL, UIView *);
     
     // 2.根据状态执行不同的操作
     switch (state) {
-		case MJRefreshStateNormal: // 普通状态
+		case AMDMJRefreshStateNormal: // 普通状态
         {
-            if (self.state == MJRefreshStateRefreshing) {
-                [UIView animateWithDuration:MJRefreshSlowAnimationDuration * 0.6 animations:^{
+            if (self.state == AMDMJRefreshStateRefreshing) {
+                [UIView animateWithDuration:AMDMJRefreshSlowAnimationDuration * 0.6 animations:^{
                     self.activityView.alpha = 0.0;
                 } completion:^(BOOL finished) {
                     // 停止转圈圈
@@ -233,10 +233,10 @@ typedef void (*send_type)(void *, SEL, UIView *);
                     // 恢复alpha
                     self.activityView.alpha = 1.0;
                 }];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(MJRefreshSlowAnimationDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(AMDMJRefreshSlowAnimationDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     // 再次设置回normal
-                    _state = MJRefreshStatePulling;
-                    self.state = MJRefreshStateNormal;
+                    _state = AMDMJRefreshStatePulling;
+                    self.state = AMDMJRefreshStateNormal;
                 });
                 // 直接返回
                 return;
@@ -250,11 +250,11 @@ typedef void (*send_type)(void *, SEL, UIView *);
 			break;
         }
         
-        case MJRefreshStateWillRefreshing:
-        case MJRefreshStatePulling:
+        case AMDMJRefreshStateWillRefreshing:
+        case AMDMJRefreshStatePulling:
             break;
             
-		case MJRefreshStateRefreshing:
+		case AMDMJRefreshStateRefreshing:
         {
             // 开始转圈圈
 			[self.activityView startAnimating];

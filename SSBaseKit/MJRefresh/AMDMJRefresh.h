@@ -2,7 +2,7 @@
 // http://code4app.com (cn) http://code4app.net (en)
 // 发布代码于最专业的源码分享网站: Code4App.com
 
-#import "UIScrollView+MJRefresh.h"
+#import "UIScrollView+AMDMJRefresh.h"
 
 /**
  MJ友情提示：
@@ -16,7 +16,7 @@
  或者
  [self.tableView addFooterWithCallback:^{ }];
  
- 3. 可以在MJRefreshConst.h和MJRefreshConst.m文件中自定义显示的文字内容和文字颜色
+ 3. 可以在AMDMJRefreshConst.h和AMDMJRefreshConst.m文件中自定义显示的文字内容和文字颜色
  
  4. 本框架兼容iOS6\iOS7，iPhone\iPad横竖屏
  

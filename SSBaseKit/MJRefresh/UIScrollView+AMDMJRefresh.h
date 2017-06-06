@@ -1,6 +1,6 @@
 //
-//  UIScrollView+MJRefresh.h
-//  MJRefreshExample
+//  UIScrollView+AMDMJRefresh.h
+//  AMDMJRefreshExample
 //
 //  Created by MJ Lee on 14-5-28.
 //  Copyright (c) 2014年 itcast. All rights reserved.
@@ -11,10 +11,10 @@
 // 发布代码于最专业的源码分享网站: Code4App.com
 
 #import <UIKit/UIKit.h>
-#import "MJRefreshHeaderView.h"
-#import "MJRefreshFooterView.h"
+#import "AMDMJRefreshHeaderView.h"
+#import "AMDMJRefreshFooterView.h"
 
-@interface UIScrollView (MJRefresh)
+@interface UIScrollView (AMDMJRefresh)
 #pragma mark - 下拉刷新
 /**
  *  添加一个下拉刷新头部控件
@@ -88,8 +88,8 @@
 - (void)footerEndRefreshing;
 
 // 头部和尾部
-@property (weak, nonatomic) MJRefreshHeaderView *header;
-@property (weak, nonatomic) MJRefreshFooterView *footer;
+@property (weak, nonatomic) AMDMJRefreshHeaderView *header;
+@property (weak, nonatomic) AMDMJRefreshFooterView *footer;
 
 /**
  *  上拉刷新头部控件的可见性

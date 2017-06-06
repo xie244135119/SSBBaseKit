@@ -1,6 +1,6 @@
 //
-//  UIScrollView+MJRefresh.m
-//  MJRefreshExample
+//  UIScrollView+AMDMJRefresh.m
+//  AMDMJRefreshExample
 //
 //  Created by MJ Lee on 14-5-28.
 //  Copyright (c) 2014年 itcast. All rights reserved.
@@ -10,7 +10,7 @@
 // http://code4app.com (cn) http://code4app.net (en)
 // 发布代码于最专业的源码分享网站: Code4App.com
 
-#import "UIScrollView+MJRefresh.h"
+#import "UIScrollView+AMDMJRefresh.h"
 #import <objc/runtime.h>
 
 @interface UIScrollView()
@@ -18,34 +18,34 @@
 @end
 
 
-@implementation UIScrollView (MJRefresh)
+@implementation UIScrollView (AMDMJRefresh)
 
 #pragma mark - 运行时相关
-static char MJRefreshHeaderViewKey;
-static char MJRefreshFooterViewKey;
+static char AMDMJRefreshHeaderViewKey;
+static char AMDMJRefreshFooterViewKey;
 
-- (void)setHeader:(MJRefreshHeaderView *)header {
-    [self willChangeValueForKey:@"MJRefreshHeaderViewKey"];
-    objc_setAssociatedObject(self, &MJRefreshHeaderViewKey,
+- (void)setHeader:(AMDMJRefreshHeaderView *)header {
+    [self willChangeValueForKey:@"AMDMJRefreshHeaderViewKey"];
+    objc_setAssociatedObject(self, &AMDMJRefreshHeaderViewKey,
                              header,
                              OBJC_ASSOCIATION_ASSIGN);
-    [self didChangeValueForKey:@"MJRefreshHeaderViewKey"];
+    [self didChangeValueForKey:@"AMDMJRefreshHeaderViewKey"];
 }
 
-- (MJRefreshHeaderView *)header {
-    return objc_getAssociatedObject(self, &MJRefreshHeaderViewKey);
+- (AMDMJRefreshHeaderView *)header {
+    return objc_getAssociatedObject(self, &AMDMJRefreshHeaderViewKey);
 }
 
-- (void)setFooter:(MJRefreshFooterView *)footer {
-    [self willChangeValueForKey:@"MJRefreshFooterViewKey"];
-    objc_setAssociatedObject(self, &MJRefreshFooterViewKey,
+- (void)setFooter:(AMDMJRefreshFooterView *)footer {
+    [self willChangeValueForKey:@"AMDMJRefreshFooterViewKey"];
+    objc_setAssociatedObject(self, &AMDMJRefreshFooterViewKey,
                              footer,
                              OBJC_ASSOCIATION_ASSIGN);
-    [self didChangeValueForKey:@"MJRefreshFooterViewKey"];
+    [self didChangeValueForKey:@"AMDMJRefreshFooterViewKey"];
 }
 
-- (MJRefreshFooterView *)footer {
-    return objc_getAssociatedObject(self, &MJRefreshFooterViewKey);
+- (AMDMJRefreshFooterView *)footer {
+    return objc_getAssociatedObject(self, &AMDMJRefreshFooterViewKey);
 }
 
 #pragma mark - 下拉刷新
@@ -58,7 +58,7 @@ static char MJRefreshFooterViewKey;
 {
     // 1.创建新的header
     if (!self.header) {
-        MJRefreshHeaderView *header = [MJRefreshHeaderView header];
+        AMDMJRefreshHeaderView *header = [AMDMJRefreshHeaderView header];
         [self addSubview:header];
         self.header = header;
     }
@@ -77,7 +77,7 @@ static char MJRefreshFooterViewKey;
 {
     // 1.创建新的header
     if (!self.header) {
-        MJRefreshHeaderView *header = [MJRefreshHeaderView header];
+        AMDMJRefreshHeaderView *header = [AMDMJRefreshHeaderView header];
 //        header.arrowImage.layer.borderWidth = 1;
 //        header.arrowImage.hidden = YES;
         [self addSubview:header];
@@ -129,7 +129,7 @@ static char MJRefreshFooterViewKey;
 
 - (BOOL)isHeaderRefreshing
 {
-    return self.header.state == MJRefreshStateRefreshing;
+    return self.header.state == AMDMJRefreshStateRefreshing;
 }
 
 #pragma mark - 上拉刷新
@@ -142,7 +142,7 @@ static char MJRefreshFooterViewKey;
 {
     // 1.创建新的footer
     if (!self.footer) {
-        MJRefreshFooterView *footer = [MJRefreshFooterView footer];
+        AMDMJRefreshFooterView *footer = [AMDMJRefreshFooterView footer];
         [self addSubview:footer];
         self.footer = footer;
     }
@@ -161,7 +161,7 @@ static char MJRefreshFooterViewKey;
 {
     // 1.创建新的footer
     if (!self.footer) {
-        MJRefreshFooterView *footer = [MJRefreshFooterView footer];
+        AMDMJRefreshFooterView *footer = [AMDMJRefreshFooterView footer];
         [self addSubview:footer];
         self.footer = footer;
     }
@@ -211,7 +211,7 @@ static char MJRefreshFooterViewKey;
 
 - (BOOL)isFooterRefreshing
 {
-    return self.footer.state == MJRefreshStateRefreshing;
+    return self.footer.state == AMDMJRefreshStateRefreshing;
 }
 
 /**

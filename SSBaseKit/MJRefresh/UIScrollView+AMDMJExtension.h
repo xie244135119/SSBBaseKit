@@ -1,6 +1,6 @@
 //
 //  UIScrollView+Extension.h
-//  MJRefreshExample
+//  AMDMJRefreshExample
 //
 //  Created by MJ Lee on 14-5-28.
 //  Copyright (c) 2014年 itcast. All rights reserved.
@@ -12,7 +12,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIScrollView (MJExtension)
+@interface UIScrollView (AMDMJExtension)
 @property (assign, nonatomic) CGFloat mj_contentInsetTop;
 @property (assign, nonatomic) CGFloat mj_contentInsetBottom;
 @property (assign, nonatomic) CGFloat mj_contentInsetLeft;

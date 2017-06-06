@@ -9,7 +9,7 @@
 #import "CustomTableView.h"
 
 #import "GeneralTableView.h"
-#import "MJRefresh.h"
+#import "AMDMJRefresh.h"
 
 @implementation CustomTableView
 

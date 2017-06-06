@@ -1,6 +1,6 @@
 //
-//  MJRefreshBaseView.h
-//  MJRefresh
+//  AMDMJRefreshBaseView.h
+//  AMDMJRefresh
 //  
 //  Created by mj on 13-3-4.
 //  Copyright (c) 2013年 itcast. All rights reserved.
@@ -11,26 +11,26 @@
 
 #import <UIKit/UIKit.h>
 
-@class MJRefreshBaseView;
+@class AMDMJRefreshBaseView;
 
 #pragma mark - 控件的刷新状态
 typedef enum {
-	MJRefreshStatePulling = 1, // 松开就可以进行刷新的状态
-	MJRefreshStateNormal = 2, // 普通状态
-	MJRefreshStateRefreshing = 3, // 正在刷新中的状态
-    MJRefreshStateWillRefreshing = 4
-} MJRefreshState;
+	AMDMJRefreshStatePulling = 1, // 松开就可以进行刷新的状态
+	AMDMJRefreshStateNormal = 2, // 普通状态
+	AMDMJRefreshStateRefreshing = 3, // 正在刷新中的状态
+    AMDMJRefreshStateWillRefreshing = 4
+} AMDMJRefreshState;
 
 #pragma mark - 控件的类型
 typedef enum {
-    MJRefreshViewTypeHeader = -1, // 头部控件
-    MJRefreshViewTypeFooter = 1 // 尾部控件
-} MJRefreshViewType;
+    AMDMJRefreshViewTypeHeader = -1, // 头部控件
+    AMDMJRefreshViewTypeFooter = 1 // 尾部控件
+} AMDMJRefreshViewType;
 
 /**
  类的声明
  */
-@interface MJRefreshBaseView : UIView
+@interface AMDMJRefreshBaseView : UIView
 #pragma mark - 父控件
 @property (nonatomic, weak, readonly) UIScrollView *scrollView;
 @property (nonatomic, assign, readonly) UIEdgeInsets scrollViewOriginalInset;
@@ -69,7 +69,7 @@ typedef enum {
 - (void)endRefreshing;
 
 #pragma mark - 交给子类去实现 和 调用
-@property (assign, nonatomic) MJRefreshState state;
+@property (assign, nonatomic) AMDMJRefreshState state;
 
 /**
  *  文字

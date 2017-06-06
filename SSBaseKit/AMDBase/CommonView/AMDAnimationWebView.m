@@ -15,7 +15,7 @@
 //#import "AASPlatformAuthorize.h"
 //#import "AASWebOauthAuthorize.h"
 //#import "AMDCommonClass.h"
-#import "MJRefresh.h"
+#import "AMDMJRefresh.h"
 #import "Masonry.h"
 
 
