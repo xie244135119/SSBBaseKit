@@ -1,0 +1,848 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B4665530605D24E7EBBFF5C /* Pods_SSBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */; };
+		CB47CC2A1EE6471000D81CA3 /* SSBaseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC281EE6471000D81CA3 /* SSBaseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB47CC921EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC321EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.h */; };
+		CB47CC931EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC331EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.m */; };
+		CB47CC941EE6471A00D81CA3 /* AMDAnimationWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC351EE6471A00D81CA3 /* AMDAnimationWebView.h */; };
+		CB47CC951EE6471A00D81CA3 /* AMDAnimationWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC361EE6471A00D81CA3 /* AMDAnimationWebView.m */; };
+		CB47CC961EE6471A00D81CA3 /* AMDCommonPopupView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC371EE6471A00D81CA3 /* AMDCommonPopupView.h */; };
+		CB47CC971EE6471A00D81CA3 /* AMDCommonPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC381EE6471A00D81CA3 /* AMDCommonPopupView.m */; };
+		CB47CC981EE6471A00D81CA3 /* AMDImgViewLabelView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC391EE6471A00D81CA3 /* AMDImgViewLabelView.h */; };
+		CB47CC991EE6471A00D81CA3 /* AMDImgViewLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC3A1EE6471A00D81CA3 /* AMDImgViewLabelView.m */; };
+		CB47CC9A1EE6471A00D81CA3 /* AMDKeyboradView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC3B1EE6471A00D81CA3 /* AMDKeyboradView.h */; };
+		CB47CC9B1EE6471A00D81CA3 /* AMDKeyboradView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC3C1EE6471A00D81CA3 /* AMDKeyboradView.m */; };
+		CB47CC9C1EE6471A00D81CA3 /* AMDLabelFieldView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC3D1EE6471A00D81CA3 /* AMDLabelFieldView.h */; };
+		CB47CC9D1EE6471A00D81CA3 /* AMDLabelFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC3E1EE6471A00D81CA3 /* AMDLabelFieldView.m */; };
+		CB47CC9E1EE6471A00D81CA3 /* AMDLabelShowView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC3F1EE6471A00D81CA3 /* AMDLabelShowView.h */; };
+		CB47CC9F1EE6471A00D81CA3 /* AMDLabelShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC401EE6471A00D81CA3 /* AMDLabelShowView.m */; };
+		CB47CCA01EE6471A00D81CA3 /* AMDLabelSwitchView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC411EE6471A00D81CA3 /* AMDLabelSwitchView.h */; };
+		CB47CCA11EE6471A00D81CA3 /* AMDLabelSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC421EE6471A00D81CA3 /* AMDLabelSwitchView.m */; };
+		CB47CCA21EE6471A00D81CA3 /* AMDLabelTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC431EE6471A00D81CA3 /* AMDLabelTextView.h */; };
+		CB47CCA31EE6471A00D81CA3 /* AMDLabelTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC441EE6471A00D81CA3 /* AMDLabelTextView.m */; };
+		CB47CCA41EE6471A00D81CA3 /* AMDLoadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC451EE6471A00D81CA3 /* AMDLoadingView.h */; };
+		CB47CCA51EE6471A00D81CA3 /* AMDLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC461EE6471A00D81CA3 /* AMDLoadingView.m */; };
+		CB47CCA61EE6471A00D81CA3 /* AMDMultipleTypeView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC471EE6471A00D81CA3 /* AMDMultipleTypeView.h */; };
+		CB47CCA71EE6471A00D81CA3 /* AMDMultipleTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC481EE6471A00D81CA3 /* AMDMultipleTypeView.m */; };
+		CB47CCA81EE6471A00D81CA3 /* AMDSetAmountView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC491EE6471A00D81CA3 /* AMDSetAmountView.h */; };
+		CB47CCA91EE6471A00D81CA3 /* AMDSetAmountView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC4A1EE6471A00D81CA3 /* AMDSetAmountView.m */; };
+		CB47CCAA1EE6471A00D81CA3 /* AMDWebViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC4B1EE6471A00D81CA3 /* AMDWebViewDelegate.h */; };
+		CB47CCAB1EE6471A00D81CA3 /* AMDWebViewPopverView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC4C1EE6471A00D81CA3 /* AMDWebViewPopverView.h */; };
+		CB47CCAC1EE6471A00D81CA3 /* AMDWebViewPopverView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC4D1EE6471A00D81CA3 /* AMDWebViewPopverView.m */; };
+		CB47CCAD1EE6471A00D81CA3 /* AMDRootProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC4F1EE6471A00D81CA3 /* AMDRootProtocol.h */; };
+		CB47CCAE1EE6471A00D81CA3 /* AMDRootViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC501EE6471A00D81CA3 /* AMDRootViewController.h */; };
+		CB47CCAF1EE6471A00D81CA3 /* AMDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC511EE6471A00D81CA3 /* AMDRootViewController.m */; };
+		CB47CCB01EE6471A00D81CA3 /* AMDTabbarController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC521EE6471A00D81CA3 /* AMDTabbarController.h */; };
+		CB47CCB11EE6471A00D81CA3 /* AMDTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC531EE6471A00D81CA3 /* AMDTabbarController.m */; };
+		CB47CCB21EE6471A00D81CA3 /* AMDTabbarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC541EE6471A00D81CA3 /* AMDTabbarItem.h */; };
+		CB47CCB31EE6471A00D81CA3 /* AMDTabbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC551EE6471A00D81CA3 /* AMDTabbarItem.m */; };
+		CB47CCB41EE6471A00D81CA3 /* AMDWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC561EE6471A00D81CA3 /* AMDWebViewController.h */; };
+		CB47CCB51EE6471A00D81CA3 /* AMDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC571EE6471A00D81CA3 /* AMDWebViewController.m */; };
+		CB47CCB61EE6471A00D81CA3 /* AMDControllerTransitionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC591EE6471A00D81CA3 /* AMDControllerTransitionDelegate.h */; };
+		CB47CCB71EE6471A00D81CA3 /* AMDEntityProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC5A1EE6471A00D81CA3 /* AMDEntityProtocol.h */; };
+		CB47CCB81EE6471A00D81CA3 /* AMDErrorLogTool.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC5B1EE6471A00D81CA3 /* AMDErrorLogTool.h */; };
+		CB47CCB91EE6471A00D81CA3 /* AMDErrorLogTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC5C1EE6471A00D81CA3 /* AMDErrorLogTool.m */; };
+		CB47CCBA1EE6471A00D81CA3 /* AMDWebViewProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC5D1EE6471A00D81CA3 /* AMDWebViewProgress.h */; };
+		CB47CCBB1EE6471A00D81CA3 /* AMDWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC5E1EE6471A00D81CA3 /* AMDWebViewProgress.m */; };
+		CB47CCBC1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC5F1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h */; };
+		CB47CCBD1EE6471A00D81CA3 /* AMDYLEncryptSignTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC601EE6471A00D81CA3 /* AMDYLEncryptSignTool.m */; };
+		CB47CCBE1EE6471A00D81CA3 /* NSURLProtocolCustom.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC611EE6471A00D81CA3 /* NSURLProtocolCustom.h */; };
+		CB47CCBF1EE6471A00D81CA3 /* NSURLProtocolCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC621EE6471A00D81CA3 /* NSURLProtocolCustom.m */; };
+		CB47CCC01EE6471A00D81CA3 /* SSGlobalVar.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC631EE6471A00D81CA3 /* SSGlobalVar.h */; };
+		CB47CCC11EE6471A00D81CA3 /* UIView+AMDExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC641EE6471A00D81CA3 /* UIView+AMDExtension.h */; };
+		CB47CCC21EE6471A00D81CA3 /* UIView+AMDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */; };
+		CB47CCC31EE6471A00D81CA3 /* xcodebuild.sh in Resources */ = {isa = PBXBuildFile; fileRef = CB47CC661EE6471A00D81CA3 /* xcodebuild.sh */; };
+		CB47CCC41EE6471A00D81CA3 /* XcodeBuildExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB47CC671EE6471A00D81CA3 /* XcodeBuildExportOptions.plist */; };
+		CB47CCC51EE6471A00D81CA3 /* AMDBackControl.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC691EE6471A00D81CA3 /* AMDBackControl.h */; };
+		CB47CCC61EE6471A00D81CA3 /* AMDBackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC6A1EE6471A00D81CA3 /* AMDBackControl.m */; };
+		CB47CCC71EE6471A00D81CA3 /* AMDBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC6B1EE6471A00D81CA3 /* AMDBaseCell.h */; };
+		CB47CCC81EE6471A00D81CA3 /* AMDBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC6C1EE6471A00D81CA3 /* AMDBaseCell.m */; };
+		CB47CCC91EE6471A00D81CA3 /* AMDBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC6D1EE6471A00D81CA3 /* AMDBaseView.h */; };
+		CB47CCCA1EE6471A00D81CA3 /* AMDBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC6E1EE6471A00D81CA3 /* AMDBaseView.m */; };
+		CB47CCCB1EE6471A00D81CA3 /* AMDButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC6F1EE6471A00D81CA3 /* AMDButton.h */; };
+		CB47CCCC1EE6471A00D81CA3 /* AMDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC701EE6471A00D81CA3 /* AMDButton.m */; };
+		CB47CCCD1EE6471A00D81CA3 /* AMDCopyLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC711EE6471A00D81CA3 /* AMDCopyLabel.h */; };
+		CB47CCCE1EE6471A00D81CA3 /* AMDCopyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC721EE6471A00D81CA3 /* AMDCopyLabel.m */; };
+		CB47CCCF1EE6471A00D81CA3 /* AMDImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC731EE6471A00D81CA3 /* AMDImageView.h */; };
+		CB47CCD01EE6471A00D81CA3 /* AMDImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC741EE6471A00D81CA3 /* AMDImageView.m */; };
+		CB47CCD11EE6471A00D81CA3 /* AMDLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC751EE6471A00D81CA3 /* AMDLineView.h */; };
+		CB47CCD21EE6471A00D81CA3 /* AMDLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC761EE6471A00D81CA3 /* AMDLineView.m */; };
+		CB47CCD31EE6471A00D81CA3 /* AMDNoDataView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC771EE6471A00D81CA3 /* AMDNoDataView.h */; };
+		CB47CCD41EE6471A00D81CA3 /* AMDNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC781EE6471A00D81CA3 /* AMDNoDataView.m */; };
+		CB47CCD51EE6471A00D81CA3 /* AMDProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC791EE6471A00D81CA3 /* AMDProgressView.h */; };
+		CB47CCD61EE6471A00D81CA3 /* AMDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC7A1EE6471A00D81CA3 /* AMDProgressView.m */; };
+		CB47CCD71EE6471A00D81CA3 /* AMDRootNavgationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC7B1EE6471A00D81CA3 /* AMDRootNavgationBar.h */; };
+		CB47CCD81EE6471A00D81CA3 /* AMDRootNavgationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC7C1EE6471A00D81CA3 /* AMDRootNavgationBar.m */; };
+		CB47CCD91EE6471A00D81CA3 /* AMDScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC7D1EE6471A00D81CA3 /* AMDScrollView.h */; };
+		CB47CCDA1EE6471A00D81CA3 /* AMDScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC7E1EE6471A00D81CA3 /* AMDScrollView.m */; };
+		CB47CCDB1EE6471A00D81CA3 /* AMDSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC7F1EE6471A00D81CA3 /* AMDSegmentedControl.h */; };
+		CB47CCDC1EE6471A00D81CA3 /* AMDSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC801EE6471A00D81CA3 /* AMDSegmentedControl.m */; };
+		CB47CCDD1EE6471A00D81CA3 /* AMDTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC811EE6471A00D81CA3 /* AMDTextField.h */; };
+		CB47CCDE1EE6471A00D81CA3 /* AMDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC821EE6471A00D81CA3 /* AMDTextField.m */; };
+		CB47CCDF1EE6471A00D81CA3 /* AYEActionSheetView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC831EE6471A00D81CA3 /* AYEActionSheetView.h */; };
+		CB47CCE01EE6471A00D81CA3 /* AYEActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC841EE6471A00D81CA3 /* AYEActionSheetView.m */; };
+		CB47CCE11EE6471A00D81CA3 /* AYESheetCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC851EE6471A00D81CA3 /* AYESheetCell.h */; };
+		CB47CCE21EE6471A00D81CA3 /* AYESheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC861EE6471A00D81CA3 /* AYESheetCell.m */; };
+		CB47CCE31EE6471A00D81CA3 /* AYESheetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB47CC871EE6471A00D81CA3 /* AYESheetCell.xib */; };
+		CB47CCE41EE6471A00D81CA3 /* AMDWeChatTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC891EE6471A00D81CA3 /* AMDWeChatTableView.h */; };
+		CB47CCE51EE6471A00D81CA3 /* AMDWeChatTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC8A1EE6471A00D81CA3 /* AMDWeChatTableView.m */; };
+		CB47CCE61EE6471A00D81CA3 /* CustomTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC8B1EE6471A00D81CA3 /* CustomTableView.h */; };
+		CB47CCE71EE6471A00D81CA3 /* CustomTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC8C1EE6471A00D81CA3 /* CustomTableView.m */; };
+		CB47CCE81EE6471A00D81CA3 /* CustomTableViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC8D1EE6471A00D81CA3 /* CustomTableViewDelegate.h */; };
+		CB47CCE91EE6471A00D81CA3 /* GeneralTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC8E1EE6471A00D81CA3 /* GeneralTableView.h */; };
+		CB47CCEA1EE6471A00D81CA3 /* GeneralTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC8F1EE6471A00D81CA3 /* GeneralTableView.m */; };
+		CB47CCEB1EE6471A00D81CA3 /* CustomTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC901EE6471A00D81CA3 /* CustomTextView.h */; };
+		CB47CCEC1EE6471A00D81CA3 /* CustomTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC911EE6471A00D81CA3 /* CustomTextView.m */; };
+		CB47CCFE1EE6480B00D81CA3 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB47CCEE1EE6480B00D81CA3 /* MJRefresh.bundle */; };
+		CB47CCFF1EE6480B00D81CA3 /* MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CCEF1EE6480B00D81CA3 /* MJRefresh.h */; };
+		CB47CD001EE6480B00D81CA3 /* MJRefreshBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CCF01EE6480B00D81CA3 /* MJRefreshBaseView.h */; };
+		CB47CD011EE6480B00D81CA3 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CCF11EE6480B00D81CA3 /* MJRefreshBaseView.m */; };
+		CB47CD021EE6480B00D81CA3 /* MJRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CCF21EE6480B00D81CA3 /* MJRefreshConst.h */; };
+		CB47CD031EE6480B00D81CA3 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CCF31EE6480B00D81CA3 /* MJRefreshConst.m */; };
+		CB47CD041EE6480B00D81CA3 /* MJRefreshFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CCF41EE6480B00D81CA3 /* MJRefreshFooterView.h */; };
+		CB47CD051EE6480B00D81CA3 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CCF51EE6480B00D81CA3 /* MJRefreshFooterView.m */; };
+		CB47CD061EE6480B00D81CA3 /* MJRefreshHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CCF61EE6480B00D81CA3 /* MJRefreshHeaderView.h */; };
+		CB47CD071EE6480B00D81CA3 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CCF71EE6480B00D81CA3 /* MJRefreshHeaderView.m */; };
+		CB47CD081EE6480B00D81CA3 /* UIScrollView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CCF81EE6480B00D81CA3 /* UIScrollView+MJExtension.h */; };
+		CB47CD091EE6480B00D81CA3 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CCF91EE6480B00D81CA3 /* UIScrollView+MJExtension.m */; };
+		CB47CD0A1EE6480B00D81CA3 /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CCFA1EE6480B00D81CA3 /* UIScrollView+MJRefresh.h */; };
+		CB47CD0B1EE6480B00D81CA3 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CCFB1EE6480B00D81CA3 /* UIScrollView+MJRefresh.m */; };
+		CB47CD0C1EE6480B00D81CA3 /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CCFC1EE6480B00D81CA3 /* UIView+MJExtension.h */; };
+		CB47CD0D1EE6480B00D81CA3 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CCFD1EE6480B00D81CA3 /* UIView+MJExtension.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6BA5DF9FE8CEC90D619B909F /* Pods-SSBaseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.release.xcconfig"; sourceTree = "<group>"; };
+		8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB47CC281EE6471000D81CA3 /* SSBaseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSBaseKit.h; sourceTree = "<group>"; };
+		CB47CC291EE6471000D81CA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB47CC321EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+AMDBlockTimer.h"; sourceTree = "<group>"; };
+		CB47CC331EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+AMDBlockTimer.m"; sourceTree = "<group>"; };
+		CB47CC351EE6471A00D81CA3 /* AMDAnimationWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDAnimationWebView.h; sourceTree = "<group>"; };
+		CB47CC361EE6471A00D81CA3 /* AMDAnimationWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDAnimationWebView.m; sourceTree = "<group>"; };
+		CB47CC371EE6471A00D81CA3 /* AMDCommonPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDCommonPopupView.h; sourceTree = "<group>"; };
+		CB47CC381EE6471A00D81CA3 /* AMDCommonPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDCommonPopupView.m; sourceTree = "<group>"; };
+		CB47CC391EE6471A00D81CA3 /* AMDImgViewLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDImgViewLabelView.h; sourceTree = "<group>"; };
+		CB47CC3A1EE6471A00D81CA3 /* AMDImgViewLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDImgViewLabelView.m; sourceTree = "<group>"; };
+		CB47CC3B1EE6471A00D81CA3 /* AMDKeyboradView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDKeyboradView.h; sourceTree = "<group>"; };
+		CB47CC3C1EE6471A00D81CA3 /* AMDKeyboradView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDKeyboradView.m; sourceTree = "<group>"; };
+		CB47CC3D1EE6471A00D81CA3 /* AMDLabelFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDLabelFieldView.h; sourceTree = "<group>"; };
+		CB47CC3E1EE6471A00D81CA3 /* AMDLabelFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDLabelFieldView.m; sourceTree = "<group>"; };
+		CB47CC3F1EE6471A00D81CA3 /* AMDLabelShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDLabelShowView.h; sourceTree = "<group>"; };
+		CB47CC401EE6471A00D81CA3 /* AMDLabelShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDLabelShowView.m; sourceTree = "<group>"; };
+		CB47CC411EE6471A00D81CA3 /* AMDLabelSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDLabelSwitchView.h; sourceTree = "<group>"; };
+		CB47CC421EE6471A00D81CA3 /* AMDLabelSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDLabelSwitchView.m; sourceTree = "<group>"; };
+		CB47CC431EE6471A00D81CA3 /* AMDLabelTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDLabelTextView.h; sourceTree = "<group>"; };
+		CB47CC441EE6471A00D81CA3 /* AMDLabelTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDLabelTextView.m; sourceTree = "<group>"; };
+		CB47CC451EE6471A00D81CA3 /* AMDLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDLoadingView.h; sourceTree = "<group>"; };
+		CB47CC461EE6471A00D81CA3 /* AMDLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDLoadingView.m; sourceTree = "<group>"; };
+		CB47CC471EE6471A00D81CA3 /* AMDMultipleTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDMultipleTypeView.h; sourceTree = "<group>"; };
+		CB47CC481EE6471A00D81CA3 /* AMDMultipleTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDMultipleTypeView.m; sourceTree = "<group>"; };
+		CB47CC491EE6471A00D81CA3 /* AMDSetAmountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSetAmountView.h; sourceTree = "<group>"; };
+		CB47CC4A1EE6471A00D81CA3 /* AMDSetAmountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSetAmountView.m; sourceTree = "<group>"; };
+		CB47CC4B1EE6471A00D81CA3 /* AMDWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDWebViewDelegate.h; sourceTree = "<group>"; };
+		CB47CC4C1EE6471A00D81CA3 /* AMDWebViewPopverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDWebViewPopverView.h; sourceTree = "<group>"; };
+		CB47CC4D1EE6471A00D81CA3 /* AMDWebViewPopverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDWebViewPopverView.m; sourceTree = "<group>"; };
+		CB47CC4F1EE6471A00D81CA3 /* AMDRootProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDRootProtocol.h; sourceTree = "<group>"; };
+		CB47CC501EE6471A00D81CA3 /* AMDRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDRootViewController.h; sourceTree = "<group>"; };
+		CB47CC511EE6471A00D81CA3 /* AMDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDRootViewController.m; sourceTree = "<group>"; };
+		CB47CC521EE6471A00D81CA3 /* AMDTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDTabbarController.h; sourceTree = "<group>"; };
+		CB47CC531EE6471A00D81CA3 /* AMDTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDTabbarController.m; sourceTree = "<group>"; };
+		CB47CC541EE6471A00D81CA3 /* AMDTabbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDTabbarItem.h; sourceTree = "<group>"; };
+		CB47CC551EE6471A00D81CA3 /* AMDTabbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDTabbarItem.m; sourceTree = "<group>"; };
+		CB47CC561EE6471A00D81CA3 /* AMDWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDWebViewController.h; sourceTree = "<group>"; };
+		CB47CC571EE6471A00D81CA3 /* AMDWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDWebViewController.m; sourceTree = "<group>"; };
+		CB47CC591EE6471A00D81CA3 /* AMDControllerTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDControllerTransitionDelegate.h; sourceTree = "<group>"; };
+		CB47CC5A1EE6471A00D81CA3 /* AMDEntityProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDEntityProtocol.h; sourceTree = "<group>"; };
+		CB47CC5B1EE6471A00D81CA3 /* AMDErrorLogTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDErrorLogTool.h; sourceTree = "<group>"; };
+		CB47CC5C1EE6471A00D81CA3 /* AMDErrorLogTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDErrorLogTool.m; sourceTree = "<group>"; };
+		CB47CC5D1EE6471A00D81CA3 /* AMDWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDWebViewProgress.h; sourceTree = "<group>"; };
+		CB47CC5E1EE6471A00D81CA3 /* AMDWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDWebViewProgress.m; sourceTree = "<group>"; };
+		CB47CC5F1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDYLEncryptSignTool.h; sourceTree = "<group>"; };
+		CB47CC601EE6471A00D81CA3 /* AMDYLEncryptSignTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDYLEncryptSignTool.m; sourceTree = "<group>"; };
+		CB47CC611EE6471A00D81CA3 /* NSURLProtocolCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLProtocolCustom.h; sourceTree = "<group>"; };
+		CB47CC621EE6471A00D81CA3 /* NSURLProtocolCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLProtocolCustom.m; sourceTree = "<group>"; };
+		CB47CC631EE6471A00D81CA3 /* SSGlobalVar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGlobalVar.h; sourceTree = "<group>"; };
+		CB47CC641EE6471A00D81CA3 /* UIView+AMDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AMDExtension.h"; sourceTree = "<group>"; };
+		CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AMDExtension.m"; sourceTree = "<group>"; };
+		CB47CC661EE6471A00D81CA3 /* xcodebuild.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = xcodebuild.sh; sourceTree = "<group>"; };
+		CB47CC671EE6471A00D81CA3 /* XcodeBuildExportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XcodeBuildExportOptions.plist; sourceTree = "<group>"; };
+		CB47CC691EE6471A00D81CA3 /* AMDBackControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDBackControl.h; sourceTree = "<group>"; };
+		CB47CC6A1EE6471A00D81CA3 /* AMDBackControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDBackControl.m; sourceTree = "<group>"; };
+		CB47CC6B1EE6471A00D81CA3 /* AMDBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDBaseCell.h; sourceTree = "<group>"; };
+		CB47CC6C1EE6471A00D81CA3 /* AMDBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDBaseCell.m; sourceTree = "<group>"; };
+		CB47CC6D1EE6471A00D81CA3 /* AMDBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDBaseView.h; sourceTree = "<group>"; };
+		CB47CC6E1EE6471A00D81CA3 /* AMDBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDBaseView.m; sourceTree = "<group>"; };
+		CB47CC6F1EE6471A00D81CA3 /* AMDButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDButton.h; sourceTree = "<group>"; };
+		CB47CC701EE6471A00D81CA3 /* AMDButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDButton.m; sourceTree = "<group>"; };
+		CB47CC711EE6471A00D81CA3 /* AMDCopyLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDCopyLabel.h; sourceTree = "<group>"; };
+		CB47CC721EE6471A00D81CA3 /* AMDCopyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDCopyLabel.m; sourceTree = "<group>"; };
+		CB47CC731EE6471A00D81CA3 /* AMDImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDImageView.h; sourceTree = "<group>"; };
+		CB47CC741EE6471A00D81CA3 /* AMDImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDImageView.m; sourceTree = "<group>"; };
+		CB47CC751EE6471A00D81CA3 /* AMDLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDLineView.h; sourceTree = "<group>"; };
+		CB47CC761EE6471A00D81CA3 /* AMDLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDLineView.m; sourceTree = "<group>"; };
+		CB47CC771EE6471A00D81CA3 /* AMDNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDNoDataView.h; sourceTree = "<group>"; };
+		CB47CC781EE6471A00D81CA3 /* AMDNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDNoDataView.m; sourceTree = "<group>"; };
+		CB47CC791EE6471A00D81CA3 /* AMDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDProgressView.h; sourceTree = "<group>"; };
+		CB47CC7A1EE6471A00D81CA3 /* AMDProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDProgressView.m; sourceTree = "<group>"; };
+		CB47CC7B1EE6471A00D81CA3 /* AMDRootNavgationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDRootNavgationBar.h; sourceTree = "<group>"; };
+		CB47CC7C1EE6471A00D81CA3 /* AMDRootNavgationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDRootNavgationBar.m; sourceTree = "<group>"; };
+		CB47CC7D1EE6471A00D81CA3 /* AMDScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDScrollView.h; sourceTree = "<group>"; };
+		CB47CC7E1EE6471A00D81CA3 /* AMDScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDScrollView.m; sourceTree = "<group>"; };
+		CB47CC7F1EE6471A00D81CA3 /* AMDSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSegmentedControl.h; sourceTree = "<group>"; };
+		CB47CC801EE6471A00D81CA3 /* AMDSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSegmentedControl.m; sourceTree = "<group>"; };
+		CB47CC811EE6471A00D81CA3 /* AMDTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDTextField.h; sourceTree = "<group>"; };
+		CB47CC821EE6471A00D81CA3 /* AMDTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDTextField.m; sourceTree = "<group>"; };
+		CB47CC831EE6471A00D81CA3 /* AYEActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYEActionSheetView.h; sourceTree = "<group>"; };
+		CB47CC841EE6471A00D81CA3 /* AYEActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYEActionSheetView.m; sourceTree = "<group>"; };
+		CB47CC851EE6471A00D81CA3 /* AYESheetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYESheetCell.h; sourceTree = "<group>"; };
+		CB47CC861EE6471A00D81CA3 /* AYESheetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYESheetCell.m; sourceTree = "<group>"; };
+		CB47CC871EE6471A00D81CA3 /* AYESheetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYESheetCell.xib; sourceTree = "<group>"; };
+		CB47CC891EE6471A00D81CA3 /* AMDWeChatTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDWeChatTableView.h; sourceTree = "<group>"; };
+		CB47CC8A1EE6471A00D81CA3 /* AMDWeChatTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDWeChatTableView.m; sourceTree = "<group>"; };
+		CB47CC8B1EE6471A00D81CA3 /* CustomTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableView.h; sourceTree = "<group>"; };
+		CB47CC8C1EE6471A00D81CA3 /* CustomTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableView.m; sourceTree = "<group>"; };
+		CB47CC8D1EE6471A00D81CA3 /* CustomTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewDelegate.h; sourceTree = "<group>"; };
+		CB47CC8E1EE6471A00D81CA3 /* GeneralTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralTableView.h; sourceTree = "<group>"; };
+		CB47CC8F1EE6471A00D81CA3 /* GeneralTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralTableView.m; sourceTree = "<group>"; };
+		CB47CC901EE6471A00D81CA3 /* CustomTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextView.h; sourceTree = "<group>"; };
+		CB47CC911EE6471A00D81CA3 /* CustomTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextView.m; sourceTree = "<group>"; };
+		CB47CCEE1EE6480B00D81CA3 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		CB47CCEF1EE6480B00D81CA3 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		CB47CCF01EE6480B00D81CA3 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		CB47CCF11EE6480B00D81CA3 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		CB47CCF21EE6480B00D81CA3 /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
+		CB47CCF31EE6480B00D81CA3 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
+		CB47CCF41EE6480B00D81CA3 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		CB47CCF51EE6480B00D81CA3 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		CB47CCF61EE6480B00D81CA3 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		CB47CCF71EE6480B00D81CA3 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		CB47CCF81EE6480B00D81CA3 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
+		CB47CCF91EE6480B00D81CA3 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
+		CB47CCFA1EE6480B00D81CA3 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		CB47CCFB1EE6480B00D81CA3 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
+		CB47CCFC1EE6480B00D81CA3 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
+		CB47CCFD1EE6480B00D81CA3 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		DF4D764CA25168F83786CBD9 /* Pods-SSBaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB47CC211EE6471000D81CA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B4665530605D24E7EBBFF5C /* Pods_SSBaseKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB47CC1B1EE6471000D81CA3 = {
+			isa = PBXGroup;
+			children = (
+				CB47CC271EE6471000D81CA3 /* SSBaseKit */,
+				CB47CC261EE6471000D81CA3 /* Products */,
+				D2256BCD79D60BB95CC08E1E /* Pods */,
+				EF8E193FBEAB9F08F0C2EF4D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CB47CC261EE6471000D81CA3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB47CC271EE6471000D81CA3 /* SSBaseKit */ = {
+			isa = PBXGroup;
+			children = (
+				CB47CCED1EE6480B00D81CA3 /* MJRefresh */,
+				CB47CC301EE6471A00D81CA3 /* AMDBase */,
+				CB47CC281EE6471000D81CA3 /* SSBaseKit.h */,
+				CB47CC291EE6471000D81CA3 /* Info.plist */,
+			);
+			path = SSBaseKit;
+			sourceTree = "<group>";
+		};
+		CB47CC301EE6471A00D81CA3 /* AMDBase */ = {
+			isa = PBXGroup;
+			children = (
+				CB47CC311EE6471A00D81CA3 /* Category */,
+				CB47CC341EE6471A00D81CA3 /* CommonView */,
+				CB47CC4E1EE6471A00D81CA3 /* Controller */,
+				CB47CC581EE6471A00D81CA3 /* Utility */,
+				CB47CC681EE6471A00D81CA3 /* View */,
+			);
+			path = AMDBase;
+			sourceTree = "<group>";
+		};
+		CB47CC311EE6471A00D81CA3 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				CB47CC321EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.h */,
+				CB47CC331EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		CB47CC341EE6471A00D81CA3 /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				CB47CC351EE6471A00D81CA3 /* AMDAnimationWebView.h */,
+				CB47CC361EE6471A00D81CA3 /* AMDAnimationWebView.m */,
+				CB47CC371EE6471A00D81CA3 /* AMDCommonPopupView.h */,
+				CB47CC381EE6471A00D81CA3 /* AMDCommonPopupView.m */,
+				CB47CC391EE6471A00D81CA3 /* AMDImgViewLabelView.h */,
+				CB47CC3A1EE6471A00D81CA3 /* AMDImgViewLabelView.m */,
+				CB47CC3B1EE6471A00D81CA3 /* AMDKeyboradView.h */,
+				CB47CC3C1EE6471A00D81CA3 /* AMDKeyboradView.m */,
+				CB47CC3D1EE6471A00D81CA3 /* AMDLabelFieldView.h */,
+				CB47CC3E1EE6471A00D81CA3 /* AMDLabelFieldView.m */,
+				CB47CC3F1EE6471A00D81CA3 /* AMDLabelShowView.h */,
+				CB47CC401EE6471A00D81CA3 /* AMDLabelShowView.m */,
+				CB47CC411EE6471A00D81CA3 /* AMDLabelSwitchView.h */,
+				CB47CC421EE6471A00D81CA3 /* AMDLabelSwitchView.m */,
+				CB47CC431EE6471A00D81CA3 /* AMDLabelTextView.h */,
+				CB47CC441EE6471A00D81CA3 /* AMDLabelTextView.m */,
+				CB47CC451EE6471A00D81CA3 /* AMDLoadingView.h */,
+				CB47CC461EE6471A00D81CA3 /* AMDLoadingView.m */,
+				CB47CC471EE6471A00D81CA3 /* AMDMultipleTypeView.h */,
+				CB47CC481EE6471A00D81CA3 /* AMDMultipleTypeView.m */,
+				CB47CC491EE6471A00D81CA3 /* AMDSetAmountView.h */,
+				CB47CC4A1EE6471A00D81CA3 /* AMDSetAmountView.m */,
+				CB47CC4B1EE6471A00D81CA3 /* AMDWebViewDelegate.h */,
+				CB47CC4C1EE6471A00D81CA3 /* AMDWebViewPopverView.h */,
+				CB47CC4D1EE6471A00D81CA3 /* AMDWebViewPopverView.m */,
+			);
+			path = CommonView;
+			sourceTree = "<group>";
+		};
+		CB47CC4E1EE6471A00D81CA3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB47CC4F1EE6471A00D81CA3 /* AMDRootProtocol.h */,
+				CB47CC501EE6471A00D81CA3 /* AMDRootViewController.h */,
+				CB47CC511EE6471A00D81CA3 /* AMDRootViewController.m */,
+				CB47CC521EE6471A00D81CA3 /* AMDTabbarController.h */,
+				CB47CC531EE6471A00D81CA3 /* AMDTabbarController.m */,
+				CB47CC541EE6471A00D81CA3 /* AMDTabbarItem.h */,
+				CB47CC551EE6471A00D81CA3 /* AMDTabbarItem.m */,
+				CB47CC561EE6471A00D81CA3 /* AMDWebViewController.h */,
+				CB47CC571EE6471A00D81CA3 /* AMDWebViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB47CC581EE6471A00D81CA3 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CB47CC591EE6471A00D81CA3 /* AMDControllerTransitionDelegate.h */,
+				CB47CC5A1EE6471A00D81CA3 /* AMDEntityProtocol.h */,
+				CB47CC5B1EE6471A00D81CA3 /* AMDErrorLogTool.h */,
+				CB47CC5C1EE6471A00D81CA3 /* AMDErrorLogTool.m */,
+				CB47CC5D1EE6471A00D81CA3 /* AMDWebViewProgress.h */,
+				CB47CC5E1EE6471A00D81CA3 /* AMDWebViewProgress.m */,
+				CB47CC5F1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h */,
+				CB47CC601EE6471A00D81CA3 /* AMDYLEncryptSignTool.m */,
+				CB47CC611EE6471A00D81CA3 /* NSURLProtocolCustom.h */,
+				CB47CC621EE6471A00D81CA3 /* NSURLProtocolCustom.m */,
+				CB47CC631EE6471A00D81CA3 /* SSGlobalVar.h */,
+				CB47CC641EE6471A00D81CA3 /* UIView+AMDExtension.h */,
+				CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */,
+				CB47CC661EE6471A00D81CA3 /* xcodebuild.sh */,
+				CB47CC671EE6471A00D81CA3 /* XcodeBuildExportOptions.plist */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		CB47CC681EE6471A00D81CA3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB47CC691EE6471A00D81CA3 /* AMDBackControl.h */,
+				CB47CC6A1EE6471A00D81CA3 /* AMDBackControl.m */,
+				CB47CC6B1EE6471A00D81CA3 /* AMDBaseCell.h */,
+				CB47CC6C1EE6471A00D81CA3 /* AMDBaseCell.m */,
+				CB47CC6D1EE6471A00D81CA3 /* AMDBaseView.h */,
+				CB47CC6E1EE6471A00D81CA3 /* AMDBaseView.m */,
+				CB47CC6F1EE6471A00D81CA3 /* AMDButton.h */,
+				CB47CC701EE6471A00D81CA3 /* AMDButton.m */,
+				CB47CC711EE6471A00D81CA3 /* AMDCopyLabel.h */,
+				CB47CC721EE6471A00D81CA3 /* AMDCopyLabel.m */,
+				CB47CC731EE6471A00D81CA3 /* AMDImageView.h */,
+				CB47CC741EE6471A00D81CA3 /* AMDImageView.m */,
+				CB47CC751EE6471A00D81CA3 /* AMDLineView.h */,
+				CB47CC761EE6471A00D81CA3 /* AMDLineView.m */,
+				CB47CC771EE6471A00D81CA3 /* AMDNoDataView.h */,
+				CB47CC781EE6471A00D81CA3 /* AMDNoDataView.m */,
+				CB47CC791EE6471A00D81CA3 /* AMDProgressView.h */,
+				CB47CC7A1EE6471A00D81CA3 /* AMDProgressView.m */,
+				CB47CC7B1EE6471A00D81CA3 /* AMDRootNavgationBar.h */,
+				CB47CC7C1EE6471A00D81CA3 /* AMDRootNavgationBar.m */,
+				CB47CC7D1EE6471A00D81CA3 /* AMDScrollView.h */,
+				CB47CC7E1EE6471A00D81CA3 /* AMDScrollView.m */,
+				CB47CC7F1EE6471A00D81CA3 /* AMDSegmentedControl.h */,
+				CB47CC801EE6471A00D81CA3 /* AMDSegmentedControl.m */,
+				CB47CC811EE6471A00D81CA3 /* AMDTextField.h */,
+				CB47CC821EE6471A00D81CA3 /* AMDTextField.m */,
+				CB47CC831EE6471A00D81CA3 /* AYEActionSheetView.h */,
+				CB47CC841EE6471A00D81CA3 /* AYEActionSheetView.m */,
+				CB47CC851EE6471A00D81CA3 /* AYESheetCell.h */,
+				CB47CC861EE6471A00D81CA3 /* AYESheetCell.m */,
+				CB47CC871EE6471A00D81CA3 /* AYESheetCell.xib */,
+				CB47CC881EE6471A00D81CA3 /* CustomTableView */,
+				CB47CC901EE6471A00D81CA3 /* CustomTextView.h */,
+				CB47CC911EE6471A00D81CA3 /* CustomTextView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB47CC881EE6471A00D81CA3 /* CustomTableView */ = {
+			isa = PBXGroup;
+			children = (
+				CB47CC891EE6471A00D81CA3 /* AMDWeChatTableView.h */,
+				CB47CC8A1EE6471A00D81CA3 /* AMDWeChatTableView.m */,
+				CB47CC8B1EE6471A00D81CA3 /* CustomTableView.h */,
+				CB47CC8C1EE6471A00D81CA3 /* CustomTableView.m */,
+				CB47CC8D1EE6471A00D81CA3 /* CustomTableViewDelegate.h */,
+				CB47CC8E1EE6471A00D81CA3 /* GeneralTableView.h */,
+				CB47CC8F1EE6471A00D81CA3 /* GeneralTableView.m */,
+			);
+			path = CustomTableView;
+			sourceTree = "<group>";
+		};
+		CB47CCED1EE6480B00D81CA3 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				CB47CCEE1EE6480B00D81CA3 /* MJRefresh.bundle */,
+				CB47CCEF1EE6480B00D81CA3 /* MJRefresh.h */,
+				CB47CCF01EE6480B00D81CA3 /* MJRefreshBaseView.h */,
+				CB47CCF11EE6480B00D81CA3 /* MJRefreshBaseView.m */,
+				CB47CCF21EE6480B00D81CA3 /* MJRefreshConst.h */,
+				CB47CCF31EE6480B00D81CA3 /* MJRefreshConst.m */,
+				CB47CCF41EE6480B00D81CA3 /* MJRefreshFooterView.h */,
+				CB47CCF51EE6480B00D81CA3 /* MJRefreshFooterView.m */,
+				CB47CCF61EE6480B00D81CA3 /* MJRefreshHeaderView.h */,
+				CB47CCF71EE6480B00D81CA3 /* MJRefreshHeaderView.m */,
+				CB47CCF81EE6480B00D81CA3 /* UIScrollView+MJExtension.h */,
+				CB47CCF91EE6480B00D81CA3 /* UIScrollView+MJExtension.m */,
+				CB47CCFA1EE6480B00D81CA3 /* UIScrollView+MJRefresh.h */,
+				CB47CCFB1EE6480B00D81CA3 /* UIScrollView+MJRefresh.m */,
+				CB47CCFC1EE6480B00D81CA3 /* UIView+MJExtension.h */,
+				CB47CCFD1EE6480B00D81CA3 /* UIView+MJExtension.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		D2256BCD79D60BB95CC08E1E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF4D764CA25168F83786CBD9 /* Pods-SSBaseKit.debug.xcconfig */,
+				6BA5DF9FE8CEC90D619B909F /* Pods-SSBaseKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EF8E193FBEAB9F08F0C2EF4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CB47CC221EE6471000D81CA3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB47CC961EE6471A00D81CA3 /* AMDCommonPopupView.h in Headers */,
+				CB47CCEB1EE6471A00D81CA3 /* CustomTextView.h in Headers */,
+				CB47CCBC1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h in Headers */,
+				CB47CD001EE6480B00D81CA3 /* MJRefreshBaseView.h in Headers */,
+				CB47CC921EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.h in Headers */,
+				CB47CCE41EE6471A00D81CA3 /* AMDWeChatTableView.h in Headers */,
+				CB47CCE81EE6471A00D81CA3 /* CustomTableViewDelegate.h in Headers */,
+				CB47CCE11EE6471A00D81CA3 /* AYESheetCell.h in Headers */,
+				CB47CCB71EE6471A00D81CA3 /* AMDEntityProtocol.h in Headers */,
+				CB47CCC51EE6471A00D81CA3 /* AMDBackControl.h in Headers */,
+				CB47CCA61EE6471A00D81CA3 /* AMDMultipleTypeView.h in Headers */,
+				CB47CD081EE6480B00D81CA3 /* UIScrollView+MJExtension.h in Headers */,
+				CB47CCD11EE6471A00D81CA3 /* AMDLineView.h in Headers */,
+				CB47CCB81EE6471A00D81CA3 /* AMDErrorLogTool.h in Headers */,
+				CB47CCC11EE6471A00D81CA3 /* UIView+AMDExtension.h in Headers */,
+				CB47CCE61EE6471A00D81CA3 /* CustomTableView.h in Headers */,
+				CB47CC981EE6471A00D81CA3 /* AMDImgViewLabelView.h in Headers */,
+				CB47CCE91EE6471A00D81CA3 /* GeneralTableView.h in Headers */,
+				CB47CC9A1EE6471A00D81CA3 /* AMDKeyboradView.h in Headers */,
+				CB47CCC71EE6471A00D81CA3 /* AMDBaseCell.h in Headers */,
+				CB47CCA21EE6471A00D81CA3 /* AMDLabelTextView.h in Headers */,
+				CB47CCD51EE6471A00D81CA3 /* AMDProgressView.h in Headers */,
+				CB47CCAA1EE6471A00D81CA3 /* AMDWebViewDelegate.h in Headers */,
+				CB47CCBE1EE6471A00D81CA3 /* NSURLProtocolCustom.h in Headers */,
+				CB47CCFF1EE6480B00D81CA3 /* MJRefresh.h in Headers */,
+				CB47CC9C1EE6471A00D81CA3 /* AMDLabelFieldView.h in Headers */,
+				CB47CCCB1EE6471A00D81CA3 /* AMDButton.h in Headers */,
+				CB47CCDD1EE6471A00D81CA3 /* AMDTextField.h in Headers */,
+				CB47CCCF1EE6471A00D81CA3 /* AMDImageView.h in Headers */,
+				CB47CD021EE6480B00D81CA3 /* MJRefreshConst.h in Headers */,
+				CB47CCBA1EE6471A00D81CA3 /* AMDWebViewProgress.h in Headers */,
+				CB47CCA41EE6471A00D81CA3 /* AMDLoadingView.h in Headers */,
+				CB47CCA01EE6471A00D81CA3 /* AMDLabelSwitchView.h in Headers */,
+				CB47CCA81EE6471A00D81CA3 /* AMDSetAmountView.h in Headers */,
+				CB47CD0C1EE6480B00D81CA3 /* UIView+MJExtension.h in Headers */,
+				CB47CCB41EE6471A00D81CA3 /* AMDWebViewController.h in Headers */,
+				CB47CCD91EE6471A00D81CA3 /* AMDScrollView.h in Headers */,
+				CB47CD061EE6480B00D81CA3 /* MJRefreshHeaderView.h in Headers */,
+				CB47CCB61EE6471A00D81CA3 /* AMDControllerTransitionDelegate.h in Headers */,
+				CB47CCDB1EE6471A00D81CA3 /* AMDSegmentedControl.h in Headers */,
+				CB47CCD71EE6471A00D81CA3 /* AMDRootNavgationBar.h in Headers */,
+				CB47CCAB1EE6471A00D81CA3 /* AMDWebViewPopverView.h in Headers */,
+				CB47CC2A1EE6471000D81CA3 /* SSBaseKit.h in Headers */,
+				CB47CCCD1EE6471A00D81CA3 /* AMDCopyLabel.h in Headers */,
+				CB47CCC91EE6471A00D81CA3 /* AMDBaseView.h in Headers */,
+				CB47CCC01EE6471A00D81CA3 /* SSGlobalVar.h in Headers */,
+				CB47CCD31EE6471A00D81CA3 /* AMDNoDataView.h in Headers */,
+				CB47CC9E1EE6471A00D81CA3 /* AMDLabelShowView.h in Headers */,
+				CB47CCAE1EE6471A00D81CA3 /* AMDRootViewController.h in Headers */,
+				CB47CD0A1EE6480B00D81CA3 /* UIScrollView+MJRefresh.h in Headers */,
+				CB47CC941EE6471A00D81CA3 /* AMDAnimationWebView.h in Headers */,
+				CB47CCAD1EE6471A00D81CA3 /* AMDRootProtocol.h in Headers */,
+				CB47CCB01EE6471A00D81CA3 /* AMDTabbarController.h in Headers */,
+				CB47CCB21EE6471A00D81CA3 /* AMDTabbarItem.h in Headers */,
+				CB47CCDF1EE6471A00D81CA3 /* AYEActionSheetView.h in Headers */,
+				CB47CD041EE6480B00D81CA3 /* MJRefreshFooterView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CB47CC241EE6471000D81CA3 /* SSBaseKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB47CC2D1EE6471000D81CA3 /* Build configuration list for PBXNativeTarget "SSBaseKit" */;
+			buildPhases = (
+				CAEBE1195A52C1D4B2027427 /* [CP] Check Pods Manifest.lock */,
+				CB47CC201EE6471000D81CA3 /* Sources */,
+				CB47CC211EE6471000D81CA3 /* Frameworks */,
+				CB47CC221EE6471000D81CA3 /* Headers */,
+				CB47CC231EE6471000D81CA3 /* Resources */,
+				DAB4B2CE0BB12DBC62094B7E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSBaseKit;
+			productName = SSBaseKit;
+			productReference = CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB47CC1C1EE6471000D81CA3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = SunSet;
+				TargetAttributes = {
+					CB47CC241EE6471000D81CA3 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CB47CC1F1EE6471000D81CA3 /* Build configuration list for PBXProject "SSBaseKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CB47CC1B1EE6471000D81CA3;
+			productRefGroup = CB47CC261EE6471000D81CA3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB47CC241EE6471000D81CA3 /* SSBaseKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB47CC231EE6471000D81CA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB47CCC41EE6471A00D81CA3 /* XcodeBuildExportOptions.plist in Resources */,
+				CB47CCC31EE6471A00D81CA3 /* xcodebuild.sh in Resources */,
+				CB47CCFE1EE6480B00D81CA3 /* MJRefresh.bundle in Resources */,
+				CB47CCE31EE6471A00D81CA3 /* AYESheetCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CAEBE1195A52C1D4B2027427 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DAB4B2CE0BB12DBC62094B7E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB47CC201EE6471000D81CA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB47CD051EE6480B00D81CA3 /* MJRefreshFooterView.m in Sources */,
+				CB47CCE01EE6471A00D81CA3 /* AYEActionSheetView.m in Sources */,
+				CB47CC931EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.m in Sources */,
+				CB47CCE71EE6471A00D81CA3 /* CustomTableView.m in Sources */,
+				CB47CCEC1EE6471A00D81CA3 /* CustomTextView.m in Sources */,
+				CB47CCCA1EE6471A00D81CA3 /* AMDBaseView.m in Sources */,
+				CB47CD071EE6480B00D81CA3 /* MJRefreshHeaderView.m in Sources */,
+				CB47CD0D1EE6480B00D81CA3 /* UIView+MJExtension.m in Sources */,
+				CB47CCD81EE6471A00D81CA3 /* AMDRootNavgationBar.m in Sources */,
+				CB47CC9F1EE6471A00D81CA3 /* AMDLabelShowView.m in Sources */,
+				CB47CCB91EE6471A00D81CA3 /* AMDErrorLogTool.m in Sources */,
+				CB47CCBB1EE6471A00D81CA3 /* AMDWebViewProgress.m in Sources */,
+				CB47CCBF1EE6471A00D81CA3 /* NSURLProtocolCustom.m in Sources */,
+				CB47CCA91EE6471A00D81CA3 /* AMDSetAmountView.m in Sources */,
+				CB47CCB51EE6471A00D81CA3 /* AMDWebViewController.m in Sources */,
+				CB47CCC21EE6471A00D81CA3 /* UIView+AMDExtension.m in Sources */,
+				CB47CCE21EE6471A00D81CA3 /* AYESheetCell.m in Sources */,
+				CB47CCD01EE6471A00D81CA3 /* AMDImageView.m in Sources */,
+				CB47CC9D1EE6471A00D81CA3 /* AMDLabelFieldView.m in Sources */,
+				CB47CC991EE6471A00D81CA3 /* AMDImgViewLabelView.m in Sources */,
+				CB47CCAF1EE6471A00D81CA3 /* AMDRootViewController.m in Sources */,
+				CB47CC971EE6471A00D81CA3 /* AMDCommonPopupView.m in Sources */,
+				CB47CCD41EE6471A00D81CA3 /* AMDNoDataView.m in Sources */,
+				CB47CCB31EE6471A00D81CA3 /* AMDTabbarItem.m in Sources */,
+				CB47CCC81EE6471A00D81CA3 /* AMDBaseCell.m in Sources */,
+				CB47CCC61EE6471A00D81CA3 /* AMDBackControl.m in Sources */,
+				CB47CCA31EE6471A00D81CA3 /* AMDLabelTextView.m in Sources */,
+				CB47CD011EE6480B00D81CA3 /* MJRefreshBaseView.m in Sources */,
+				CB47CCB11EE6471A00D81CA3 /* AMDTabbarController.m in Sources */,
+				CB47CCDA1EE6471A00D81CA3 /* AMDScrollView.m in Sources */,
+				CB47CCAC1EE6471A00D81CA3 /* AMDWebViewPopverView.m in Sources */,
+				CB47CD091EE6480B00D81CA3 /* UIScrollView+MJExtension.m in Sources */,
+				CB47CCA71EE6471A00D81CA3 /* AMDMultipleTypeView.m in Sources */,
+				CB47CCA51EE6471A00D81CA3 /* AMDLoadingView.m in Sources */,
+				CB47CCBD1EE6471A00D81CA3 /* AMDYLEncryptSignTool.m in Sources */,
+				CB47CC9B1EE6471A00D81CA3 /* AMDKeyboradView.m in Sources */,
+				CB47CCEA1EE6471A00D81CA3 /* GeneralTableView.m in Sources */,
+				CB47CCA11EE6471A00D81CA3 /* AMDLabelSwitchView.m in Sources */,
+				CB47CCD61EE6471A00D81CA3 /* AMDProgressView.m in Sources */,
+				CB47CCDE1EE6471A00D81CA3 /* AMDTextField.m in Sources */,
+				CB47CCDC1EE6471A00D81CA3 /* AMDSegmentedControl.m in Sources */,
+				CB47CD0B1EE6480B00D81CA3 /* UIScrollView+MJRefresh.m in Sources */,
+				CB47CCCC1EE6471A00D81CA3 /* AMDButton.m in Sources */,
+				CB47CCE51EE6471A00D81CA3 /* AMDWeChatTableView.m in Sources */,
+				CB47CD031EE6480B00D81CA3 /* MJRefreshConst.m in Sources */,
+				CB47CCD21EE6471A00D81CA3 /* AMDLineView.m in Sources */,
+				CB47CCCE1EE6471A00D81CA3 /* AMDCopyLabel.m in Sources */,
+				CB47CC951EE6471A00D81CA3 /* AMDAnimationWebView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CB47CC2B1EE6471000D81CA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CB47CC2C1EE6471000D81CA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CB47CC2E1EE6471000D81CA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF4D764CA25168F83786CBD9 /* Pods-SSBaseKit.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SSBaseKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.SSBaseKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CB47CC2F1EE6471000D81CA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BA5DF9FE8CEC90D619B909F /* Pods-SSBaseKit.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SSBaseKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.SSBaseKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB47CC1F1EE6471000D81CA3 /* Build configuration list for PBXProject "SSBaseKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB47CC2B1EE6471000D81CA3 /* Debug */,
+				CB47CC2C1EE6471000D81CA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB47CC2D1EE6471000D81CA3 /* Build configuration list for PBXNativeTarget "SSBaseKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB47CC2E1EE6471000D81CA3 /* Debug */,
+				CB47CC2F1EE6471000D81CA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB47CC1C1EE6471000D81CA3 /* Project object */;
+}
