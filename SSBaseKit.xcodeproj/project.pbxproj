@@ -60,7 +60,6 @@
 		CB47CCBB1EE6471A00D81CA3 /* AMDWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC5E1EE6471A00D81CA3 /* AMDWebViewProgress.m */; };
 		CB47CCBC1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC5F1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h */; };
 		CB47CCBD1EE6471A00D81CA3 /* AMDYLEncryptSignTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC601EE6471A00D81CA3 /* AMDYLEncryptSignTool.m */; };
-		CB47CCBE1EE6471A00D81CA3 /* NSURLProtocolCustom.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC611EE6471A00D81CA3 /* NSURLProtocolCustom.h */; };
 		CB47CCC01EE6471A00D81CA3 /* SSGlobalVar.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC631EE6471A00D81CA3 /* SSGlobalVar.h */; };
 		CB47CCC11EE6471A00D81CA3 /* UIView+AMDExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC641EE6471A00D81CA3 /* UIView+AMDExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CCC21EE6471A00D81CA3 /* UIView+AMDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */; };
@@ -204,8 +203,6 @@
 		CB47CC5E1EE6471A00D81CA3 /* AMDWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDWebViewProgress.m; sourceTree = "<group>"; };
 		CB47CC5F1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDYLEncryptSignTool.h; sourceTree = "<group>"; };
 		CB47CC601EE6471A00D81CA3 /* AMDYLEncryptSignTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDYLEncryptSignTool.m; sourceTree = "<group>"; };
-		CB47CC611EE6471A00D81CA3 /* NSURLProtocolCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLProtocolCustom.h; sourceTree = "<group>"; };
-		CB47CC621EE6471A00D81CA3 /* NSURLProtocolCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLProtocolCustom.m; sourceTree = "<group>"; };
 		CB47CC631EE6471A00D81CA3 /* SSGlobalVar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGlobalVar.h; sourceTree = "<group>"; };
 		CB47CC641EE6471A00D81CA3 /* UIView+AMDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AMDExtension.h"; sourceTree = "<group>"; };
 		CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AMDExtension.m"; sourceTree = "<group>"; };
@@ -407,8 +404,6 @@
 				CB47CC5E1EE6471A00D81CA3 /* AMDWebViewProgress.m */,
 				CB47CC5F1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h */,
 				CB47CC601EE6471A00D81CA3 /* AMDYLEncryptSignTool.m */,
-				CB47CC611EE6471A00D81CA3 /* NSURLProtocolCustom.h */,
-				CB47CC621EE6471A00D81CA3 /* NSURLProtocolCustom.m */,
 				CB47CC631EE6471A00D81CA3 /* SSGlobalVar.h */,
 				CB47CC641EE6471A00D81CA3 /* UIView+AMDExtension.h */,
 				CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */,
@@ -593,7 +588,6 @@
 				CB47CD081EE6480B00D81CA3 /* UIScrollView+AMDMJExtension.h in Headers */,
 				CB47CCB81EE6471A00D81CA3 /* AMDErrorLogTool.h in Headers */,
 				CB47CCE91EE6471A00D81CA3 /* GeneralTableView.h in Headers */,
-				CB47CCBE1EE6471A00D81CA3 /* NSURLProtocolCustom.h in Headers */,
 				CB47CCFF1EE6480B00D81CA3 /* AMDMJRefresh.h in Headers */,
 				CB47CD0F1EE64D8C00D81CA3 /* UIView+AMDMJExtension.h in Headers */,
 				CB47CD021EE6480B00D81CA3 /* AMDMJRefreshConst.h in Headers */,

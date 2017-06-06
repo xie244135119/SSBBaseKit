@@ -263,8 +263,8 @@ typedef void (*send_type)(void *, SEL, UIView *);
             
             // 回调
             if ([self.beginRefreshingTaget respondsToSelector:self.beginRefreshingAction]) {
-                objc_msgSend(self.beginRefreshingTaget, self.beginRefreshingAction, self);
-//                [self.beginRefreshingTaget performSelector:self.beginRefreshingAction withObject:nil];
+//                objc_msgSend(self.beginRefreshingTaget, self.beginRefreshingAction, self);
+                [self.beginRefreshingTaget performSelector:self.beginRefreshingAction withObject:self];
             }
             
             if (self.beginRefreshingCallback) {
