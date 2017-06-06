@@ -264,6 +264,7 @@ typedef void (*send_type)(void *, SEL, UIView *);
             // 回调
             if ([self.beginRefreshingTaget respondsToSelector:self.beginRefreshingAction]) {
 //                objc_msgSend(self.beginRefreshingTaget, self.beginRefreshingAction, self);
+                #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                 [self.beginRefreshingTaget performSelector:self.beginRefreshingAction withObject:self];
             }
             
