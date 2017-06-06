@@ -17,6 +17,7 @@
 		CB1DF4BC1EE6567700B93F81 /* SSBaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CB1DF4C91EE6586000B93F81 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1DF49E1EE653DA00B93F81 /* Masonry.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CB1DF4CA1EE6586000B93F81 /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB1DF49E1EE653DA00B93F81 /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CB1DF4CD1EE66EAE00B93F81 /* UIView+AMDMJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CCFD1EE6480B00D81CA3 /* UIView+AMDMJExtension.m */; };
 		CB47CC2A1EE6471000D81CA3 /* SSBaseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC281EE6471000D81CA3 /* SSBaseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CC921EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC321EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.h */; };
 		CB47CC931EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC331EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.m */; };
@@ -782,6 +783,7 @@
 				CB47CCDE1EE6471A00D81CA3 /* AMDTextField.m in Sources */,
 				CB47CCDC1EE6471A00D81CA3 /* AMDSegmentedControl.m in Sources */,
 				CB47CCCC1EE6471A00D81CA3 /* AMDButton.m in Sources */,
+				CB1DF4CD1EE66EAE00B93F81 /* UIView+AMDMJExtension.m in Sources */,
 				CB47CCE51EE6471A00D81CA3 /* AMDWeChatTableView.m in Sources */,
 				CB47CD031EE6480B00D81CA3 /* AMDMJRefreshConst.m in Sources */,
 				CB47CCD21EE6471A00D81CA3 /* AMDLineView.m in Sources */,

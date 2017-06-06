@@ -12,7 +12,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (MJExtension)
+@interface UIView (AMDMJExtension)
 @property (assign, nonatomic) CGFloat mj_x;
 @property (assign, nonatomic) CGFloat mj_y;
 @property (assign, nonatomic) CGFloat mj_width;

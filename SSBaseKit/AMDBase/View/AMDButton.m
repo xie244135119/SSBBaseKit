@@ -596,7 +596,7 @@
     
     if (unreadcount == 0) return;
     
-    _unreadLb.text = [[NSString alloc]initWithFormat:@"%li",unreadcount];
+    _unreadLb.text = [[NSString alloc]initWithFormat:@"%li",(long)unreadcount];
     if (unreadcount > 99) {
         _unreadLb.text = @"99+";
     }
