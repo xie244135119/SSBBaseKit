@@ -10,12 +10,57 @@
 
 @implementation AMDImageView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)setImageWithUrl:(NSURL *)url placeHolder:(UIImage *)placeHolder
+{
+    // 实现主项目实现
 }
-*/
+
+
+- (void)setImageWithUrl:(NSURL *)url
+            placeHolder:(UIImage *)placeHolder
+             completion:(void (^)(UIImage *, NSError *))completion
+{
+    // 实现主项目实现
+}
+
+
+
+- (void)setImageWithUrl:(NSURL *)url
+            placeHolder:(UIImage *)placeHolder
+                success:(void (^)(UIImage *))success
+                   fail:(void (^)(NSError *))fail
+{
+    // 主项目实现
+}
+
+
+
+
+- (void)setImageWithPath:(NSString *)path
+             placeHolder:(UIImage *)placeHolder
+{
+    // 实现主项目实现
+}
+
+- (void)setImageWithPath:(NSURL *)url
+             placeHolder:(UIImage *)placeHolder
+              completion:(void (^)(UIImage *, NSError *))completion
+{
+    // 实现主项目实现
+}
+
+- (void)setImageWithPath:(NSURL *)url
+             placeHolder:(UIImage *)placeHolder
+                 success:(void (^)(UIImage *))success
+                    fail:(void (^)(NSError *))fail
+{
+    
+}
+
+
 
 @end
+
+
+
+

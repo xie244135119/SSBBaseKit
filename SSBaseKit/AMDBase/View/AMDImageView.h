@@ -10,4 +10,41 @@
 
 @interface AMDImageView : UIImageView
 
+
+/**
+ 根据图片地址设置图片
+ 
+ @param url url
+ @param placeHolder 占位图
+ */
+- (void)setImageWithUrl:(NSURL *)url
+            placeHolder:(UIImage *)placeHolder;
+- (void)setImageWithUrl:(NSURL *)url
+            placeHolder:(UIImage *)placeHolder
+             completion:(void (^)(UIImage *, NSError *))completion;
+- (void)setImageWithUrl:(NSURL *)url
+            placeHolder:(UIImage *)placeHolder
+                success:(void (^)(UIImage *))success
+                   fail:(void (^)(NSError *))fail;
+
+
+
+/**
+ 根据本地图片路径设置图片
+ 
+ @param path 本地图片路径
+ @param placeHolder 占位图
+ */
+- (void)setImageWithPath:(NSString *)path
+             placeHolder:(UIImage *)placeHolder;
+- (void)setImageWithPath:(NSURL *)url
+             placeHolder:(UIImage *)placeHolder
+              completion:(void (^)(UIImage *, NSError *))completion;
+- (void)setImageWithPath:(NSURL *)url
+             placeHolder:(UIImage *)placeHolder
+                 success:(void (^)(UIImage *))success
+                    fail:(void (^)(NSError *))fail;
+
+
+
 @end
