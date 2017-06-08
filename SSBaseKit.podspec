@@ -54,7 +54,7 @@ Pod::Spec.new do |s|
   s.author             = { "xieqiang" => "xie244135119@163.com" }
   # Or just: s.author    = "xieqiang"
   # s.authors            = { "xieqiang" => "xieqiang@wdwd.com" }
-  # s.social_media_url   = "http://twitter.com/xieqiang"
+   s.social_media_url   = "https://github.com/xie244135119"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://git.wdwd.com/app-ios/ssbasekit.git", :tag => "1.0" }
+  s.source       = { :git => "https://github.com/xie244135119/SSBBaseKit.git", :tag => "1.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
