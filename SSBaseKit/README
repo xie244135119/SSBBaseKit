@@ -1,0 +1,12 @@
+当前为框架视图类
+
+推荐使用Cocoapods安装
+pod "SSBaseKit"
+
+
+###V1.0
+发布
+
+###V1.0.1
+1.  AMDImageView类支持网络加载图片Api
+2.

@@ -123,6 +123,7 @@
 		CB47CD211EE64DFE00D81CA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD1F1EE64DFE00D81CA3 /* Main.storyboard */; };
 		CB47CD231EE64DFE00D81CA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD221EE64DFE00D81CA3 /* Assets.xcassets */; };
 		CB47CD261EE64DFE00D81CA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD241EE64DFE00D81CA3 /* LaunchScreen.storyboard */; };
+		CB614A851EE9362900471DE9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CB614A841EE9362900471DE9 /* README */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -272,6 +273,7 @@
 		CB47CD221EE64DFE00D81CA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB47CD251EE64DFE00D81CA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB47CD271EE64DFE00D81CA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB614A841EE9362900471DE9 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		DF4D764CA25168F83786CBD9 /* Pods-SSBaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -323,6 +325,7 @@
 				CB47CC301EE6471A00D81CA3 /* AMDBase */,
 				CB47CC281EE6471000D81CA3 /* SSBaseKit.h */,
 				CB47CC291EE6471000D81CA3 /* Info.plist */,
+				CB614A841EE9362900471DE9 /* README */,
 			);
 			path = SSBaseKit;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				CB47CCE31EE6471A00D81CA3 /* AYESheetCell.xib in Resources */,
 				CB1DF4B81EE6563E00B93F81 /* blueArrow1@2x.png in Resources */,
 				CB1DF4B61EE6563E00B93F81 /* blueArrow.png in Resources */,
+				CB614A851EE9362900471DE9 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
