@@ -18,4 +18,5 @@ pod "SSBaseKit"
 ###1.0.3
 1. 修复AYESheetCell xib加载不出来的问题
 2. 支持AYESheetView 配置字体
-3.
+3. 为AMDRootController设置默认背景颜色，支持配置
+4.

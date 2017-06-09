@@ -146,7 +146,7 @@
     //内部视图
     UIView *contentvw = [[UIView alloc]init];
     _contentView = contentvw;
-//    contentvw.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+    contentvw.backgroundColor = ColorWithRGB(246, 246, 246, 1);
 //    contentvw.layer.borderWidth = 1;
     if (_titleView)
         [self.view insertSubview:contentvw belowSubview:_titleView];
