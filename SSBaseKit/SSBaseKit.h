@@ -51,6 +51,7 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 #import <SSBaseKit/AMDWebViewPopverView.h>
 #import <SSBaseKit/AMDEntityProtocol.h>
 #import <SSBaseKit/AYEActionSheetView.h>
+#import <SSBaseKit/AASRegionChoiceView.h>
 
 
 
