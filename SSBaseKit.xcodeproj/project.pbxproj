@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1B4665530605D24E7EBBFF5C /* Pods_SSBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		CB0C75931EEA54CC00E28AA3 /* AASRegionChoiceView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB0C75911EEA54CC00E28AA3 /* AASRegionChoiceView.h */; };
+		CB0C75941EEA54CC00E28AA3 /* AASRegionChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */; };
 		CB1DF4B61EE6563E00B93F81 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1DF4B11EE6563E00B93F81 /* blueArrow.png */; };
 		CB1DF4B71EE6563E00B93F81 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1DF4B21EE6563E00B93F81 /* blueArrow@2x.png */; };
 		CB1DF4B81EE6563E00B93F81 /* blueArrow1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1DF4B31EE6563E00B93F81 /* blueArrow1@2x.png */; };
@@ -143,6 +145,8 @@
 /* Begin PBXFileReference section */
 		6BA5DF9FE8CEC90D619B909F /* Pods-SSBaseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.release.xcconfig"; sourceTree = "<group>"; };
 		8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB0C75911EEA54CC00E28AA3 /* AASRegionChoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASRegionChoiceView.h; sourceTree = "<group>"; };
+		CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASRegionChoiceView.m; sourceTree = "<group>"; };
 		CB1DF49E1EE653DA00B93F81 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = "../../../Library/Developer/Xcode/DerivedData/SSBaseKit-ffnqbiiyirahkqgzbxcxzjybypbp/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework"; sourceTree = "<group>"; };
 		CB1DF4B11EE6563E00B93F81 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
 		CB1DF4B21EE6563E00B93F81 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
@@ -342,6 +346,8 @@
 		CB47CC341EE6471A00D81CA3 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				CB0C75911EEA54CC00E28AA3 /* AASRegionChoiceView.h */,
+				CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */,
 				CB47CC351EE6471A00D81CA3 /* AMDAnimationWebView.h */,
 				CB47CC361EE6471A00D81CA3 /* AMDAnimationWebView.m */,
 				CB47CC391EE6471A00D81CA3 /* AMDImgViewLabelView.h */,
@@ -547,6 +553,7 @@
 				CB47CCAE1EE6471A00D81CA3 /* AMDRootViewController.h in Headers */,
 				CB47CCD31EE6471A00D81CA3 /* AMDNoDataView.h in Headers */,
 				CB47CCC91EE6471A00D81CA3 /* AMDBaseView.h in Headers */,
+				CB0C75931EEA54CC00E28AA3 /* AASRegionChoiceView.h in Headers */,
 				CB47CCCD1EE6471A00D81CA3 /* AMDCopyLabel.h in Headers */,
 				CB47CCD71EE6471A00D81CA3 /* AMDRootNavgationBar.h in Headers */,
 				CB47CCDB1EE6471A00D81CA3 /* AMDSegmentedControl.h in Headers */,
@@ -750,6 +757,7 @@
 				CB47CCD01EE6471A00D81CA3 /* AMDImageView.m in Sources */,
 				CB47CC9D1EE6471A00D81CA3 /* AMDLabelFieldView.m in Sources */,
 				CB47CC991EE6471A00D81CA3 /* AMDImgViewLabelView.m in Sources */,
+				CB0C75941EEA54CC00E28AA3 /* AASRegionChoiceView.m in Sources */,
 				CB47CCAF1EE6471A00D81CA3 /* AMDRootViewController.m in Sources */,
 				CB47CCD41EE6471A00D81CA3 /* AMDNoDataView.m in Sources */,
 				CB47CCB31EE6471A00D81CA3 /* AMDTabbarItem.m in Sources */,
