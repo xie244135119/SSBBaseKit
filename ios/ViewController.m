@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 //#import "SSBaseKit.h"
+//#import "AYEActionSheetView.h"
 
 @interface ViewController ()
 
@@ -17,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initContentView];
+//    [self initContentView];
     
 }
 
@@ -37,7 +38,17 @@
 //    labelshow.titleLabel.text = @"用户名";
 //    labelshow.contentLabel.text = @"18721025826";
 //    [self.view addSubview:labelshow];
+//    AYEActionSheetView *sheetView = [[AYEActionSheetView alloc]initWithdelegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"测试", nil];
+//    [sheetView showInView:self.view];
+//    
 }
 
 
+
 @end
+
+
+
+
+
+

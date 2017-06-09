@@ -10,3 +10,12 @@ pod "SSBaseKit"
 ###V1.0.1
 1.  AMDImageView类支持网络加载图片Api
 2.
+
+
+###V1.0.2
+1. 修复1.0.1 已知问题
+
+###1.0.3
+1. 修复AYESheetCell xib加载不出来的问题
+2. 支持AYESheetView 配置字体
+3.

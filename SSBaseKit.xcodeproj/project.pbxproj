@@ -94,7 +94,6 @@
 		CB47CCE01EE6471A00D81CA3 /* AYEActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC841EE6471A00D81CA3 /* AYEActionSheetView.m */; };
 		CB47CCE11EE6471A00D81CA3 /* AYESheetCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC851EE6471A00D81CA3 /* AYESheetCell.h */; };
 		CB47CCE21EE6471A00D81CA3 /* AYESheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC861EE6471A00D81CA3 /* AYESheetCell.m */; };
-		CB47CCE31EE6471A00D81CA3 /* AYESheetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB47CC871EE6471A00D81CA3 /* AYESheetCell.xib */; };
 		CB47CCE41EE6471A00D81CA3 /* AMDWeChatTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC891EE6471A00D81CA3 /* AMDWeChatTableView.h */; };
 		CB47CCE51EE6471A00D81CA3 /* AMDWeChatTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC8A1EE6471A00D81CA3 /* AMDWeChatTableView.m */; };
 		CB47CCE61EE6471A00D81CA3 /* CustomTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC8B1EE6471A00D81CA3 /* CustomTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -125,16 +124,6 @@
 		CB47CD261EE64DFE00D81CA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD241EE64DFE00D81CA3 /* LaunchScreen.storyboard */; };
 		CB614A851EE9362900471DE9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CB614A841EE9362900471DE9 /* README */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CB1DF4BD1EE6567700B93F81 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CB47CC1C1EE6471000D81CA3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CB47CC241EE6471000D81CA3;
-			remoteInfo = SSBaseKit;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		CB1DF4BF1EE6567700B93F81 /* Embed Frameworks */ = {
@@ -238,7 +227,6 @@
 		CB47CC841EE6471A00D81CA3 /* AYEActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYEActionSheetView.m; sourceTree = "<group>"; };
 		CB47CC851EE6471A00D81CA3 /* AYESheetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYESheetCell.h; sourceTree = "<group>"; };
 		CB47CC861EE6471A00D81CA3 /* AYESheetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYESheetCell.m; sourceTree = "<group>"; };
-		CB47CC871EE6471A00D81CA3 /* AYESheetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AYESheetCell.xib; sourceTree = "<group>"; };
 		CB47CC891EE6471A00D81CA3 /* AMDWeChatTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDWeChatTableView.h; sourceTree = "<group>"; };
 		CB47CC8A1EE6471A00D81CA3 /* AMDWeChatTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDWeChatTableView.m; sourceTree = "<group>"; };
 		CB47CC8B1EE6471A00D81CA3 /* CustomTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableView.h; sourceTree = "<group>"; };
@@ -448,7 +436,6 @@
 				CB47CC841EE6471A00D81CA3 /* AYEActionSheetView.m */,
 				CB47CC851EE6471A00D81CA3 /* AYESheetCell.h */,
 				CB47CC861EE6471A00D81CA3 /* AYESheetCell.m */,
-				CB47CC871EE6471A00D81CA3 /* AYESheetCell.xib */,
 				CB47CC881EE6471A00D81CA3 /* CustomTableView */,
 				CB47CC901EE6471A00D81CA3 /* CustomTextView.h */,
 				CB47CC911EE6471A00D81CA3 /* CustomTextView.m */,
@@ -637,7 +624,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				CB1DF4BE1EE6567700B93F81 /* PBXTargetDependency */,
 			);
 			name = ios;
 			productName = ios;
@@ -690,7 +676,6 @@
 				CB1DF4B91EE6563E00B93F81 /* blueArrowDown.png in Resources */,
 				CB1DF4B71EE6563E00B93F81 /* blueArrow@2x.png in Resources */,
 				CB1DF4BA1EE6563E00B93F81 /* blueArrowDown@2x.png in Resources */,
-				CB47CCE31EE6471A00D81CA3 /* AYESheetCell.xib in Resources */,
 				CB1DF4B81EE6563E00B93F81 /* blueArrow1@2x.png in Resources */,
 				CB1DF4B61EE6563E00B93F81 /* blueArrow.png in Resources */,
 				CB614A851EE9362900471DE9 /* README in Resources */,
@@ -807,14 +792,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CB1DF4BE1EE6567700B93F81 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CB47CC241EE6471000D81CA3 /* SSBaseKit */;
-			targetProxy = CB1DF4BD1EE6567700B93F81 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CB47CD1F1EE64DFE00D81CA3 /* Main.storyboard */ = {

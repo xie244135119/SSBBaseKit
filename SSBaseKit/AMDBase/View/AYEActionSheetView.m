@@ -22,6 +22,7 @@
 @end
 
 @implementation AYEActionSheetView
+@synthesize barFont = _barFont;
 
 - (instancetype)initWithdelegate:(id<AYEActionSheetViewDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSString *)otherButtonTitles args:(va_list)argList
 {
@@ -52,7 +53,7 @@
             }
         }
         self.tableViewHeight -= kFooterHeight;
-        self.delegate = delegate;
+        _delegate = delegate;
     }
     return self;
 }
@@ -89,7 +90,7 @@
             }
         }
         self.tableViewHeight -= kFooterHeight;
-        self.delegate = delegate;
+        _delegate = delegate;
     }
     return self;
 }
@@ -101,7 +102,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.scrollEnabled = NO;
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([AYESheetCell class]) bundle:nil] forCellReuseIdentifier:@"sheetCell"];
+    //    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([AYESheetCell class]) bundle:nil] forCellReuseIdentifier:@"sheetCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self addSubview:self.tableView];
 }
@@ -146,13 +147,40 @@
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
-//                         self.tableView.alpha = 0;
+                         //                         self.tableView.alpha = 0;
                          self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), self.tableViewHeight);
                      }
                      completion:^(BOOL finished) {
                          [self removeFromSuperview];
                      }];
 }
+
+
+
+
+#pragma mark - SET
+- (void)setBarFont:(UIFont *)barFont
+{
+    if (_barFont != barFont) {
+        _barFont = barFont;
+        
+        if (barFont != nil) {
+            [_tableView reloadData];
+        }
+    }
+}
+
+- (UIFont *)barFont
+{
+    if (_barFont == nil) {
+        return FontWithName(@"", 17);
+    }
+    return _barFont;
+}
+
+
+
+
 
 #pragma mark - Table view data source and delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -167,9 +195,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AYESheetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"sheetCell"];
+    static NSString *cellider = @"sheetCell";
+    AYESheetCell *cell = [tableView dequeueReusableCellWithIdentifier:cellider];
+    if (cell == nil) {
+        cell = [[AYESheetCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellider];
+    }
     cell.sheetTitle_label.text = self.arr[indexPath.section][indexPath.row];
-    cell.sheetTitle_label.font = FontWithName(@"", 17);
+    //    cell.sheetTitle_label.font = FontWithName(@"", 17);
+    cell.sheetTitle_label.font = self.barFont;
     if (indexPath.section == 0 && indexPath.row == 0 && self.hasDestructive) {
         cell.sheetTitle_label.textColor = [UIColor colorWithRed:1.0 green:0.3216 blue:0.2118 alpha:1.0];
     } else {
