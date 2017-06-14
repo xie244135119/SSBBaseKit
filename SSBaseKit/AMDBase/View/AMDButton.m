@@ -627,6 +627,59 @@
 
 
 
+
+#pragma mark - Pubilc Api
+//
+- (void)setImageWithUrl:(NSURL *)url
+            placeHolder:(UIImage *)placeHolder
+{
+    // override
+}
+
+- (void)setImageWithUrl:(NSURL *)url
+            placeHolder:(UIImage *)placeHolder
+             completion:(void (^)(UIImage *, NSError *))completion
+{
+    // override
+}
+
+//
+- (void)setImageWithUrl:(NSURL *)url
+            placeHolder:(UIImage *)placeHolder
+                success:(void (^)(UIImage *))success
+                   fail:(void (^)(NSError *))fail
+{
+    // override
+}
+
+
+
+- (void)setImageWithPath:(NSString *)path
+             placeHolder:(UIImage *)placeHolder
+{
+    // override
+}
+
+//
+- (void)setImageWithPath:(NSURL *)url
+             placeHolder:(UIImage *)placeHolder
+              completion:(void (^)(UIImage *, NSError *))completion
+{
+    // override
+}
+
+//
+- (void)setImageWithPath:(NSURL *)url
+             placeHolder:(UIImage *)placeHolder
+                 success:(void (^)(UIImage *))success
+                    fail:(void (^)(NSError *))fail
+{
+    // override
+}
+
+
+
+
 @end
 
 

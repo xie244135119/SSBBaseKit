@@ -27,3 +27,8 @@ pod "SSBaseKit"
 ###V1.0.4
 1. .podspec 支持资源文件 sourcefiles
 2.
+
+
+###V1.0.5
+1. AMDButton 支持网络加载图片Api
+2.
