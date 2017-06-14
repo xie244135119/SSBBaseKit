@@ -105,7 +105,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-    s.resource = "AMDMJRefresh.bundle"
+    s.resource = "MJRefresh/AMDMJRefresh.bundle"
   # s.resources = "Resources/*.png"
   # s.resources = "MJRefresh/*.png"
 
