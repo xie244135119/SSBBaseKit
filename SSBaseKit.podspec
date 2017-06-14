@@ -1,4 +1,4 @@
-#
+
 #  Be sure to run `pod spec lint SSBaseKit.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SSBaseKit"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "SSBaseKit 基础框架类 "
 
   # This description is used to generate tags and improve search results.
@@ -105,7 +105,9 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
+    s.resource = "AMDMJRefresh.bundle"
   # s.resources = "Resources/*.png"
+  # s.resources = "MJRefresh/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

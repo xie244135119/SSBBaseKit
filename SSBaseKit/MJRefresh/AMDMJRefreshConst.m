@@ -21,7 +21,7 @@ const CGFloat AMDMJRefreshSlowAnimationDuration = 0.4;
 const CGFloat AMDMJRefreshLabelHieght = 20;
 
 //NSString *const AMDMJRefreshBundleName = @"AMDMJRefresh.bundle";
-NSString *const AMDMJRefreshBundleName = @"";
+NSString *const AMDMJRefreshBundleName = @"AMDMJRefresh.bundle";
 
 NSString *const AMDMJRefreshFooterPullToRefresh = @"上拉可以加载更多数据";
 NSString *const AMDMJRefreshFooterReleaseToRefresh = @"松开立即加载更多数据";

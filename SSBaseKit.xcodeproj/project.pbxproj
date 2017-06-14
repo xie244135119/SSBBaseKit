@@ -10,15 +10,7 @@
 		1B4665530605D24E7EBBFF5C /* Pods_SSBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CB0C75931EEA54CC00E28AA3 /* AASRegionChoiceView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB0C75911EEA54CC00E28AA3 /* AASRegionChoiceView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB0C75941EEA54CC00E28AA3 /* AASRegionChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */; };
-		CB1DF4B61EE6563E00B93F81 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1DF4B11EE6563E00B93F81 /* blueArrow.png */; };
-		CB1DF4B71EE6563E00B93F81 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1DF4B21EE6563E00B93F81 /* blueArrow@2x.png */; };
-		CB1DF4B81EE6563E00B93F81 /* blueArrow1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1DF4B31EE6563E00B93F81 /* blueArrow1@2x.png */; };
-		CB1DF4B91EE6563E00B93F81 /* blueArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1DF4B41EE6563E00B93F81 /* blueArrowDown.png */; };
-		CB1DF4BA1EE6563E00B93F81 /* blueArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1DF4B51EE6563E00B93F81 /* blueArrowDown@2x.png */; };
-		CB1DF4BB1EE6567700B93F81 /* SSBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */; };
-		CB1DF4BC1EE6567700B93F81 /* SSBaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CB1DF4C91EE6586000B93F81 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1DF49E1EE653DA00B93F81 /* Masonry.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		CB1DF4CA1EE6586000B93F81 /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB1DF49E1EE653DA00B93F81 /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CB17995C1EF0CC2C00EA83FC /* AMDMJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB17995B1EF0CC2C00EA83FC /* AMDMJRefresh.bundle */; };
 		CB1DF4CD1EE66EAE00B93F81 /* UIView+AMDMJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CCFD1EE6480B00D81CA3 /* UIView+AMDMJExtension.m */; };
 		CB47CC2A1EE6471000D81CA3 /* SSBaseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC281EE6471000D81CA3 /* SSBaseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CC921EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC321EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.h */; };
@@ -124,35 +116,18 @@
 		CB47CD211EE64DFE00D81CA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD1F1EE64DFE00D81CA3 /* Main.storyboard */; };
 		CB47CD231EE64DFE00D81CA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD221EE64DFE00D81CA3 /* Assets.xcassets */; };
 		CB47CD261EE64DFE00D81CA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD241EE64DFE00D81CA3 /* LaunchScreen.storyboard */; };
+		CB56CA4B1EEE351C00760B10 /* SSBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */; };
 		CB614A851EE9362900471DE9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CB614A841EE9362900471DE9 /* README */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		CB1DF4BF1EE6567700B93F81 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				CB1DF4CA1EE6586000B93F81 /* Masonry.framework in Embed Frameworks */,
-				CB1DF4BC1EE6567700B93F81 /* SSBaseKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6BA5DF9FE8CEC90D619B909F /* Pods-SSBaseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.release.xcconfig"; sourceTree = "<group>"; };
 		8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0C75911EEA54CC00E28AA3 /* AASRegionChoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASRegionChoiceView.h; sourceTree = "<group>"; };
 		CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASRegionChoiceView.m; sourceTree = "<group>"; };
+		CB0C75951EEAA61E00E28AA3 /* Pods_SSBaseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_SSBaseKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/SSBaseKit-ffnqbiiyirahkqgzbxcxzjybypbp/Build/Products/Debug-iphonesimulator/Pods_SSBaseKit.framework"; sourceTree = "<group>"; };
+		CB17995B1EF0CC2C00EA83FC /* AMDMJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMDMJRefresh.bundle; sourceTree = "<group>"; };
 		CB1DF49E1EE653DA00B93F81 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = "../../../Library/Developer/Xcode/DerivedData/SSBaseKit-ffnqbiiyirahkqgzbxcxzjybypbp/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework"; sourceTree = "<group>"; };
-		CB1DF4B11EE6563E00B93F81 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
-		CB1DF4B21EE6563E00B93F81 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
-		CB1DF4B31EE6563E00B93F81 /* blueArrow1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow1@2x.png"; sourceTree = "<group>"; };
-		CB1DF4B41EE6563E00B93F81 /* blueArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrowDown.png; sourceTree = "<group>"; };
-		CB1DF4B51EE6563E00B93F81 /* blueArrowDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrowDown@2x.png"; sourceTree = "<group>"; };
 		CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB47CC281EE6471000D81CA3 /* SSBaseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSBaseKit.h; sourceTree = "<group>"; };
 		CB47CC291EE6471000D81CA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -282,8 +257,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB1DF4C91EE6586000B93F81 /* Masonry.framework in Frameworks */,
-				CB1DF4BB1EE6567700B93F81 /* SSBaseKit.framework in Frameworks */,
+				CB56CA4B1EEE351C00760B10 /* SSBaseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,11 +440,6 @@
 		CB47CCED1EE6480B00D81CA3 /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
-				CB1DF4B11EE6563E00B93F81 /* blueArrow.png */,
-				CB1DF4B21EE6563E00B93F81 /* blueArrow@2x.png */,
-				CB1DF4B31EE6563E00B93F81 /* blueArrow1@2x.png */,
-				CB1DF4B41EE6563E00B93F81 /* blueArrowDown.png */,
-				CB1DF4B51EE6563E00B93F81 /* blueArrowDown@2x.png */,
 				CB47CCEF1EE6480B00D81CA3 /* AMDMJRefresh.h */,
 				CB47CCF01EE6480B00D81CA3 /* AMDMJRefreshBaseView.h */,
 				CB47CCF11EE6480B00D81CA3 /* AMDMJRefreshBaseView.m */,
@@ -486,6 +455,7 @@
 				CB47CCFB1EE6480B00D81CA3 /* UIScrollView+AMDMJRefresh.m */,
 				CB47CCFC1EE6480B00D81CA3 /* UIView+AMDMJExtension.h */,
 				CB47CCFD1EE6480B00D81CA3 /* UIView+AMDMJExtension.m */,
+				CB17995B1EF0CC2C00EA83FC /* AMDMJRefresh.bundle */,
 			);
 			path = MJRefresh;
 			sourceTree = "<group>";
@@ -526,6 +496,7 @@
 		EF8E193FBEAB9F08F0C2EF4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB0C75951EEAA61E00E28AA3 /* Pods_SSBaseKit.framework */,
 				CB1DF49E1EE653DA00B93F81 /* Masonry.framework */,
 				8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */,
 			);
@@ -626,7 +597,6 @@
 				CB47CD101EE64DFE00D81CA3 /* Sources */,
 				CB47CD111EE64DFE00D81CA3 /* Frameworks */,
 				CB47CD121EE64DFE00D81CA3 /* Resources */,
-				CB1DF4BF1EE6567700B93F81 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -680,11 +650,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB1DF4B91EE6563E00B93F81 /* blueArrowDown.png in Resources */,
-				CB1DF4B71EE6563E00B93F81 /* blueArrow@2x.png in Resources */,
-				CB1DF4BA1EE6563E00B93F81 /* blueArrowDown@2x.png in Resources */,
-				CB1DF4B81EE6563E00B93F81 /* blueArrow1@2x.png in Resources */,
-				CB1DF4B61EE6563E00B93F81 /* blueArrow.png in Resources */,
+				CB17995C1EF0CC2C00EA83FC /* AMDMJRefresh.bundle in Resources */,
 				CB614A851EE9362900471DE9 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -925,6 +891,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -932,6 +899,7 @@
 				INFOPLIST_FILE = SSBaseKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.SSBaseKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -944,6 +912,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -951,6 +920,7 @@
 				INFOPLIST_FILE = SSBaseKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.SSBaseKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -965,6 +935,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -979,6 +950,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

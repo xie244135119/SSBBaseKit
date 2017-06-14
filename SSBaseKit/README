@@ -21,3 +21,9 @@ pod "SSBaseKit"
 3. 为AMDRootController设置默认背景颜色，支持配置
 4. 支持AASRegionChoiceView视图,获取地址信息
 5.
+
+
+
+###V1.0.4
+1. .podspec 支持资源文件 sourcefiles
+2.
