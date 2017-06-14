@@ -40,6 +40,32 @@
 - (NSInteger)unreadCount;
 
 
+
+
+#pragma mark - 加载网络图片
+- (void)setImageWithUrl:(NSURL *)url
+            placeHolder:(UIImage *)placeHolder;
+- (void)setImageWithUrl:(NSURL *)url
+            placeHolder:(UIImage *)placeHolder
+             completion:(void (^)(UIImage *, NSError *))completion;
+- (void)setImageWithUrl:(NSURL *)url
+            placeHolder:(UIImage *)placeHolder
+                success:(void (^)(UIImage *))success
+                   fail:(void (^)(NSError *))fail;
+
+
+- (void)setImageWithPath:(NSString *)path
+             placeHolder:(UIImage *)placeHolder;
+- (void)setImageWithPath:(NSURL *)url
+             placeHolder:(UIImage *)placeHolder
+              completion:(void (^)(UIImage *, NSError *))completion;
+- (void)setImageWithPath:(NSURL *)url
+             placeHolder:(UIImage *)placeHolder
+                 success:(void (^)(UIImage *))success
+                    fail:(void (^)(NSError *))fail;
+
+
+
 @end
 
 
