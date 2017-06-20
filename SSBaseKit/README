@@ -37,7 +37,20 @@ pod "SSBaseKit"
 1. 修复AMDSetAmountView的描边问题
 2. 修复AMDTabbarController 中底部线条问题
 3. 修复AMDAnimationWebView 中内部逻辑问题
-4. 
+4.
+
+
+###v1.0.7
+1. 修改网页框加载进度条高度 由于5改为4
+2. 修改AMDAnimatewebView shouload属性参数
+3.
+
+
+
+
+
+
+
 
 
 

@@ -30,7 +30,7 @@
  * continueLoad 是否允许继续执行加载
  * return 是否可以预加载
  */
-@property(nonatomic, copy) BOOL (^shouldStartLoad)(NSURLRequest *aUrlRequest, BOOL *continueLoad);
+@property(nonatomic, copy) BOOL (^shouldStartLoad)(WKWebView *webView,NSURLRequest *aUrlRequest, BOOL *continueLoad);
 
 // 在当前webView中所有的a链接跳转新页面 默认NO
 //@property(nonatomic) BOOL linkNewPageFunction;

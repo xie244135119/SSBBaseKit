@@ -66,7 +66,7 @@
     [self bringSubviewToFront:progroess];
     [progroess mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(@0);
-        make.height.equalTo(@2.5);
+        make.height.equalTo(@2);
     }];
 }
 
@@ -312,7 +312,7 @@
     // 预加载Url判断
     if (_shouldStartLoad) {
         BOOL allcontinue = NO;
-        BOOL loadresault = _shouldStartLoad(navigationAction.request, &allcontinue);
+        BOOL loadresault = _shouldStartLoad(webView,navigationAction.request, &allcontinue);
         if (!allcontinue) {
             // 不允许继续执行，直接中断底部流程
             decisionHandler(loadresault?WKNavigationActionPolicyAllow:WKNavigationActionPolicyCancel);
@@ -510,7 +510,7 @@
     // 预加载Url判断
     if (_shouldStartLoad) {
         BOOL allcontinue = NO;
-        BOOL loadresault = _shouldStartLoad(request, &allcontinue);
+        BOOL loadresault = _shouldStartLoad((WKWebView *)webView,request, &allcontinue);
         if (!allcontinue) {
             // 不允许继续执行，直接中断底部流程
             return loadresault;
