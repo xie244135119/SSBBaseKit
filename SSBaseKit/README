@@ -32,3 +32,13 @@ pod "SSBaseKit"
 ###V1.0.5
 1. AMDButton 支持网络加载图片Api
 2.
+
+###v1.0.6
+1. 修复AMDSetAmountView的描边问题
+2. 修复AMDTabbarController 中底部线条问题
+3. 修复AMDAnimationWebView 中内部逻辑问题
+4. 
+
+
+
+
