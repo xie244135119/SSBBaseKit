@@ -47,7 +47,7 @@
 - (void)initContentView
 {
     self.layer.borderWidth = 1;
-//    self.layer.borderColor = [AMDLineColor CGColor];
+    self.layer.borderColor = [SSLineColor CGColor];
     self.layer.cornerRadius = 2;
     self.layer.masksToBounds = YES;
     

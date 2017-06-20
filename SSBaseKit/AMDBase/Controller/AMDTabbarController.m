@@ -93,8 +93,12 @@
     // 线条
 //    AMDTabBarView *shadowvw = [[AMDTabBarView alloc]initWithFrame:CGRectMake(0, 0, APPWidth, 60)];
 //    [barvw addSubview:shadowvw];
-    AMDLineView *line = [[AMDLineView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) Color:ColorWithRGB(200, 200, 200, 0.7)];
+    AMDLineView *line = [[AMDLineView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0.5) Color:ColorWithRGB(200, 200, 200, 0.7)];
     [barvw addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(@0);
+        make.height.equalTo(@0.5);
+    }];
 //    UIImageView *line = [[UIImageView alloc]init];
 //    UIImageView *line = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, APPWidth, 0.5)];
 //    line.image = imageFromBundleName(@"CommonUIModule.bundle", @"tabbar_line.png");

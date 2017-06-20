@@ -9,14 +9,8 @@
 #import "AMDAnimationWebView.h"
 #import "AMDWebViewProgress.h"
 #import "SSGlobalVar.h"
-
-//#import "AMDTool.h"
-//#import "MultiProjectManager.h"
-//#import "AASPlatformAuthorize.h"
-//#import "AASWebOauthAuthorize.h"
-//#import "AMDCommonClass.h"
 #import "AMDMJRefresh.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 
 //#import "NSURLProtocolCustom.h"
@@ -37,20 +31,13 @@
 - (void)dealloc
 {
     [_wkWebView.configuration.userContentController removeAllUserScripts];
-//    [_wkWebView.configuration.userContentController removeScriptMessageHandlerForName:YLJsBridgeClassName];
-//    self.bridgeSDK = nil;
     [_webViewProgress exit];
-//    self.wkWebView = nil;
     _wkWebView = nil;
     self.webViewProgress = nil;
-//    self.reloadAction = nil;
-//    self.finishLoadAction = nil;
     self.reloadAction_UI = nil;
     self.reloadAction_WK = nil;
     self.finishLoadAction_UI = nil;
     self.finishLoadAction_WK = nil;
-//    _currentPlatformAuthorize = nil;
-//    _currentWebOauthAuthorize = nil;
     NSLog(@" AMDAnimationWebView  deallc");
 }
 
@@ -58,13 +45,11 @@
 {
     if (self = [super initWithFrame:frame]) {
         if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
-//        if (NO) {
             [self initWkWebView];
         }
         else {
             [self initUIWebView];
         }
-        
     }
     return self;
 }
@@ -73,7 +58,6 @@
 - (void)loadWebViewAnimate
 {
     UIProgressView *progroess = [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
-//    progroess.frame = CGRectMake(0, 0, APPWidth, 11);
     progroess.progressTintColor = ColorWithRGB(30, 206, 109, 1);
     progroess.trackTintColor = [UIColor clearColor];
     progroess.transform = CGAffineTransformMakeScale(1.0f,2.0f);
@@ -82,10 +66,8 @@
     [self bringSubviewToFront:progroess];
     [progroess mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(@0);
-        make.height.equalTo(@11);
+        make.height.equalTo(@2.5);
     }];
-    
-//    progroess.layer.borderWidth = 1;
 }
 
 //设置网址
@@ -95,16 +77,13 @@
     v.backgroundColor = ColorWithRGB(246, 246, 246, 1);
     UIWebView *webView = (UIWebView *)(_wkWebView!=nil?_wkWebView:_uiWebView);
     [webView insertSubview:v belowSubview:webView.scrollView];
-//    [self addSubview:v];
     
     //设置网址
-//    UILabel *urllabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, APPWidth, 20)];
     UILabel *urllabel = [[UILabel alloc]init];
     urllabel.backgroundColor = [UIColor clearColor];
     urllabel.textColor = ColorWithRGB(194, 194, 194, 1);
     urllabel.textAlignment = NSTextAlignmentCenter;
     urllabel.font = FontWithName(@"", 12);
-//    urllabel.text = @"由www.wdwd.com提供";
     [v addSubview:urllabel];
     _websiteLabel = urllabel;
     [urllabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -117,9 +96,9 @@
 
 // 签名
 //用户代理信息
-- (NSString *)webviewUserAgent:(NSString **)extraIdentifer
-{
-    return @"";
+//- (NSString *)webviewUserAgent:(NSString **)extraIdentifer
+//{
+//    return @"";
 //#warning 先临时禁掉
     //    NSMutableString *defaultUserAgent = [[[[UIWebView alloc] init] stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"] mutableCopy];
 //    NSDictionary *identifier = [[MultiProjectManager globalConfigFile] userAgent_ExtraIdentifier];
@@ -136,7 +115,7 @@
 //    [defaultUserAgent appendFormat:@" %@",extra];
 //    return defaultUserAgent;
     //    });
-}
+//}
 
 
 #pragma mark - GET
@@ -159,12 +138,10 @@
         _websiteLabel.hidden = supportRefresh;
         //支持刷新
         if (supportRefresh) {
-//            [_webView.scrollView addHeaderWithTarget:self action:@selector(webViewRefresh:)];
             [_uiWebView.scrollView addHeaderWithTarget:self action:@selector(webViewRefresh:)];
             [_wkWebView.scrollView addHeaderWithTarget:self action:@selector(webViewRefresh:)];
         }
         else{
-//            [_webView.scrollView removeHeader];
             [_uiWebView.scrollView removeHeader];
             [_wkWebView.scrollView removeHeader];
         }
@@ -183,7 +160,6 @@
         NSString *urlstr = requestWithSignURL;
         NSURL *url = [[NSURL alloc]initWithString:urlstr];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
-//        [_webView loadRequest:request];
         [_uiWebView loadRequest:request];
         [_wkWebView loadRequest:request];
         
@@ -195,8 +171,26 @@
     }
 }
 
+//
+- (void)setExtraUserAgent:(NSString *)extraUserAgent
+{
+    if (_extraUserAgent != extraUserAgent) {
+        _extraUserAgent = extraUserAgent;
+        
+        if (_uiWebView) {
+            NSMutableString *defaultUserAgent = [[[[UIWebView alloc] init] stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"] mutableCopy];
+            [defaultUserAgent appendFormat:@" %@",extraUserAgent];
+            [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent":defaultUserAgent}];
+        }
+        else if (_wkWebView) {
+            [_wkWebView setValue:extraUserAgent forKey:@"applicationNameForUserAgent"];
+        }
+    }
+}
 
-#pragma mark - 资源数据
+
+
+//#pragma mark - 资源数据
 // 当前AppSecret
 //- (NSString *)appSecret
 //{
@@ -297,9 +291,9 @@
     self.webViewProgress.wkWebView = webView;
     
     // 设置自定义用户Agent
-    NSString *extraUserAgent = @"";
-    [self webviewUserAgent:&extraUserAgent];
-    [webView setValue:extraUserAgent forKey:@"applicationNameForUserAgent"];
+//    NSString *extraUserAgent = @"";
+//    [self webviewUserAgent:&extraUserAgent];
+//    [webView setValue:extraUserAgent forKey:@"applicationNameForUserAgent"];
 }
 
 
@@ -314,15 +308,28 @@
         return;
     }
     
-    // 如果来自我们官方的请求
-    NSArray *whiteschemes = @[@"wdwd.com",@"maifou.com",@"mai2.cn",@"mai2.cc"];
-    BOOL platformAuthorize = NO;
-    for (NSString *scheme in whiteschemes) {
-        if ([navigationAction.request.URL.host containsString:scheme]) {
-            platformAuthorize = YES;
-            break;
+    
+    // 预加载Url判断
+    if (_shouldStartLoad) {
+        BOOL allcontinue = NO;
+        BOOL loadresault = _shouldStartLoad(navigationAction.request, &allcontinue);
+        if (!allcontinue) {
+            // 不允许继续执行，直接中断底部流程
+            decisionHandler(loadresault?WKNavigationActionPolicyAllow:WKNavigationActionPolicyCancel);
+            return;
         }
     }
+    
+    
+    // 如果来自我们官方的请求
+//    NSArray *whiteschemes = @[@"wdwd.com",@"maifou.com",@"mai2.cn",@"mai2.cc"];
+//    BOOL platformAuthorize = NO;
+//    for (NSString *scheme in whiteschemes) {
+//        if ([navigationAction.request.URL.host containsString:scheme]) {
+//            platformAuthorize = YES;
+//            break;
+//        }
+//    }
     
 //#warning 临时禁掉
     // 平台签名
@@ -361,12 +368,6 @@
         return;
     }
     
-    // 子类重写这个方式
-    if ([_delegate respondsToSelector:@selector(webView:decidePolicyForNavigationAction:decisionHandler:)]) {
-        [_delegate webView:webView decidePolicyForNavigationAction:navigationAction decisionHandler:decisionHandler];
-        return ;
-    }
-    
     // 当前页面的话---
     NSString *urlStr = navigationAction.request.URL.description;
     if (_requestWithSignURL) {
@@ -376,13 +377,19 @@
         }
     }
     
-    // 开启此功能后 开启新的webView页面
-    if (_linkNewPageFunction && [navigationAction.request.URL.description hasPrefix:@"http"]) {
-//#warning 临时禁掉
-//        [self.bridgeSDK performSelector:@selector(enterHtmlViewWithString:) withObject:navigationAction.request.URL.description afterDelay:0.1];
-        decisionHandler(WKNavigationActionPolicyCancel);
-        return;
+    // 子类重写这个方式
+    if ([_delegate respondsToSelector:@selector(webView:decidePolicyForNavigationAction:decisionHandler:)]) {
+        [_delegate webView:webView decidePolicyForNavigationAction:navigationAction decisionHandler:decisionHandler];
+        return ;
     }
+    
+    // 开启此功能后 开启新的webView页面
+//    if (_linkNewPageFunction && [navigationAction.request.URL.description hasPrefix:@"http"]) {
+////#warning 临时禁掉
+////        [self.bridgeSDK performSelector:@selector(enterHtmlViewWithString:) withObject:navigationAction.request.URL.description afterDelay:0.1];
+//        decisionHandler(WKNavigationActionPolicyCancel);
+//        return;
+//    }
     decisionHandler(WKNavigationActionPolicyAllow);
 }
 
@@ -481,11 +488,11 @@
     [self insertSubview:webView belowSubview:_progressView];
     
     // 设置User-Agent
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSString *userAgent = [self webviewUserAgent:nil];
-        [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent":userAgent}];
-    });
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        NSString *userAgent = [self webviewUserAgent:nil];
+//        [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent":userAgent}];
+//    });
     
     // 网址来源
     [self initSetUrlView];
@@ -498,6 +505,16 @@
     // 先校验URL 是否可以加载
     if (![self canLoadURLRequest:request]) {
         return NO;
+    }
+    
+    // 预加载Url判断
+    if (_shouldStartLoad) {
+        BOOL allcontinue = NO;
+        BOOL loadresault = _shouldStartLoad(request, &allcontinue);
+        if (!allcontinue) {
+            // 不允许继续执行，直接中断底部流程
+            return loadresault;
+        }
     }
     
     // 如果来自我们官方的请求
@@ -532,12 +549,7 @@
         return YES;
     }
     
-    // 子类重写这个方式
-    if ([_delegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
-        return [_delegate webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
-    }
-    
-    // 判断当前页面地址
+    // 如果未当前页面本身判断当前页面地址
     NSString *urlStr = request.URL.description;
     if (_requestWithSignURL) {
         if ([urlStr rangeOfString:_requestWithSignURL].length > 0 ) {
@@ -545,13 +557,18 @@
         }
     }
     
-    // 开启此功能后 开启新的webView页面
-    if (_linkNewPageFunction && [request.URL.description hasPrefix:@"http"]) {
-        
-//#warning 临时禁掉
-//        [self.bridgeSDK performSelector:@selector(enterHtmlViewWithString:) withObject:request.URL.description afterDelay:0.1];
-        return NO ;
+    // 子类重写这个方式
+    if ([_delegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
+        return [_delegate webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
     }
+    
+    // 开启此功能后 开启新的webView页面
+//    if (_linkNewPageFunction && [request.URL.description hasPrefix:@"http"]) {
+//        
+////#warning 临时禁掉
+////        [self.bridgeSDK performSelector:@selector(enterHtmlViewWithString:) withObject:request.URL.description afterDelay:0.1];
+//        return NO ;
+//    }
     
     return YES;
 }
@@ -574,6 +591,7 @@
     }
 }
 
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     // 在加载中的时候
@@ -584,7 +602,7 @@
         [_uiWebView.scrollView headerEndRefreshing];
     }
     
-    // 建立桥接
+    // 建立桥接-<App最低版本号为8.0 所以底部不在做支持>
 //#warning 临时禁掉
 //    [self.bridgeSDK bridgeForWebView:webView webViewDelegate:self];
     
@@ -598,19 +616,6 @@
         [_delegate webViewDidFinishLoad:webView];
     }
 }
-
-//- (AYEWebViewProgress *)webViewProgress
-//{
-//    if (_webViewProgress == nil) {
-//        _webViewProgress = [[AYEWebViewProgress alloc]init];
-//        _webViewProgress.webViewProxyDelegate = self.bridgeSDK;
-//        _webViewProgress.progressView = _progressView;
-//    }
-//    return _webViewProgress;
-//}
-
-
-//#endif
 
 
 
@@ -629,8 +634,6 @@
     }
     
     // 签名配置
-    
-    
     return YES;
 }
 

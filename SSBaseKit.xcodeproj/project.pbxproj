@@ -116,8 +116,8 @@
 		CB47CD211EE64DFE00D81CA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD1F1EE64DFE00D81CA3 /* Main.storyboard */; };
 		CB47CD231EE64DFE00D81CA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD221EE64DFE00D81CA3 /* Assets.xcassets */; };
 		CB47CD261EE64DFE00D81CA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD241EE64DFE00D81CA3 /* LaunchScreen.storyboard */; };
-		CB56CA4B1EEE351C00760B10 /* SSBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */; };
 		CB614A851EE9362900471DE9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CB614A841EE9362900471DE9 /* README */; };
+		CB8823901EF7E63000095A4C /* SSBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -257,7 +257,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB56CA4B1EEE351C00760B10 /* SSBaseKit.framework in Frameworks */,
+				CB8823901EF7E63000095A4C /* SSBaseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
