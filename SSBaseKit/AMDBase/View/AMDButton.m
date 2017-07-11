@@ -30,6 +30,7 @@
     UIColor *_selectTitleColor;             //选中时候的字体颜色
     UIColor *_higlhtedTitleColor;           //点击时候的背景颜色
     UIColor *_disabledTitleColor;           //不可用时候的背景色
+    BOOL _highlightedReduceAlpha;           //高亮状态下降低titlelable alpha值
     
     // 设置图片
     UIImage *_normalImage;                  //正常的图片
@@ -134,8 +135,13 @@
                 }
             }
             //改变选中字体颜色
-            if (_higlhtedTitleColor) {
-                _titleLabel.textColor = _higlhtedTitleColor;
+            if (_higlhtedTitleColor || _highlightedReduceAlpha) {
+                if (_highlightedReduceAlpha) {
+                    _titleLabel.alpha = 0.7;
+                }
+                else {
+                    _titleLabel.textColor = _higlhtedTitleColor;
+                }
             }
             
             if (_higlhtedImage) {
@@ -153,6 +159,7 @@
             
             break;
         case UIControlStateNormal:
+            _titleLabel.alpha = 1;
              self.maskHighlightView.hidden = YES;
             self.backgroundColor = _normalBackgroundColor?_normalBackgroundColor:[UIColor clearColor];
             if (_normalTitleColor) {
@@ -367,6 +374,9 @@
             _titleLabel.textColor = titlecolor;
             break;
         case UIControlStateHighlighted:
+            if (_higlhtedTitleColor == nil) {
+                _highlightedReduceAlpha = YES;
+            }
             _higlhtedTitleColor = titlecolor;
             break;
         case UIControlStateDisabled:

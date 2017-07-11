@@ -23,7 +23,7 @@
 
 - (id)init
 {
-    if (self = [super initWithFrame:CGRectMake(0, 0, self.frame.size.width, 216+40)]) {
+    if (self = [super initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 216+40)]) {
         [self initView];
     }
     return self;

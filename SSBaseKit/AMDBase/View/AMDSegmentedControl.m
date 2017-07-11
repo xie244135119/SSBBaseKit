@@ -109,7 +109,7 @@
 
 
 // 按钮事件
-- (void)clickAction:(UIButton *)sender
+- (void)clickAction:(AMDButton *)sender
 {
     self.selectedSegmentIndex = sender.tag-1;
     
@@ -124,14 +124,14 @@
 {
     if (_selectedSegmentIndex != selectedSegmentIndex) {
         // 取消之前的选中状态
-        UIButton *sender = [self viewWithTag:_selectedSegmentIndex+1];
-        if ([sender isKindOfClass:[UIButton class]]) {
+        AMDButton *sender = [self viewWithTag:_selectedSegmentIndex+1];
+        if ([sender isKindOfClass:[AMDButton class]]) {
             sender.selected = NO;
             sender.userInteractionEnabled = YES;
         }
         
         _selectedSegmentIndex = selectedSegmentIndex;
-        UIButton *currentbt = [self viewWithTag:_selectedSegmentIndex+1];
+        AMDButton *currentbt = [self viewWithTag:_selectedSegmentIndex+1];
         currentbt.selected = YES;
         currentbt.userInteractionEnabled = NO;
     }
@@ -147,7 +147,7 @@
         
         
         for (AMDButton *sender in self.subviews) {
-            if ([sender isKindOfClass:[UIButton class]]) {
+            if ([sender isKindOfClass:[AMDButton class]]) {
                 [sender setTitleColor:normalTintColor forState:UIControlStateNormal];
             }
         }
@@ -161,7 +161,7 @@
         _selectTintColor = selectTintColor;
         
         for (AMDButton *sender in self.subviews) {
-            if ([sender isKindOfClass:[UIButton class]]) {
+            if ([sender isKindOfClass:[AMDButton class]]) {
                 [sender setTitleColor:selectTintColor forState:UIControlStateSelected];
                 [sender setTitleColor:selectTintColor forState:UIControlStateHighlighted];
             }
@@ -175,7 +175,7 @@
         _normalBarColor = normalBarColor;
         
         for (AMDButton *sender in self.subviews) {
-            if ([sender isKindOfClass:[UIButton class]]) {
+            if ([sender isKindOfClass:[AMDButton class]]) {
                 [sender setBackgroundColor:normalBarColor forState:UIControlStateNormal];
             }
         }
@@ -188,7 +188,7 @@
         _selectBarColor = selectBarColor;
         
         for (AMDButton *sender in self.subviews) {
-            if ([sender isKindOfClass:[UIButton class]]) {
+            if ([sender isKindOfClass:[AMDButton class]]) {
                 [sender setBackgroundColor:selectBarColor forState:UIControlStateSelected];
                 [sender setBackgroundColor:selectBarColor forState:UIControlStateHighlighted];
             }
