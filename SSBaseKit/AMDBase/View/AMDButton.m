@@ -374,7 +374,7 @@
             _titleLabel.textColor = titlecolor;
             break;
         case UIControlStateHighlighted:
-            if (_higlhtedTitleColor == nil) {
+            if (titlecolor == nil) {
                 _highlightedReduceAlpha = YES;
             }
             _higlhtedTitleColor = titlecolor;

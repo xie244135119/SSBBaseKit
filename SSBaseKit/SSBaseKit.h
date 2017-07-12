@@ -18,7 +18,6 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 
 
 #import <SSBaseKit/AMDBackControl.h>
-//#import <SSBaseKit/AMDBalloonsView.h>
 #import <SSBaseKit/AMDBaseCell.h>
 #import <SSBaseKit/AMDBaseView.h>
 #import <SSBaseKit/AMDButton.h>
@@ -38,7 +37,6 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 #import <SSBaseKit/AMDTabbarItem.h>
 #import <SSBaseKit/AMDWebViewController.h>
 #import <SSBaseKit/AMDAnimationWebView.h>
-//#import <SSBaseKit/AMDCommonPopupView.h>
 #import <SSBaseKit/AMDImgViewLabelView.h>
 #import <SSBaseKit/AMDKeyboradView.h>
 #import <SSBaseKit/AMDLabelFieldView.h>
@@ -52,6 +50,7 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 #import <SSBaseKit/AMDEntityProtocol.h>
 #import <SSBaseKit/AYEActionSheetView.h>
 #import <SSBaseKit/AASRegionChoiceView.h>
+#import <SSBaseKit/AMDSetAmountView.h>
 
 
 

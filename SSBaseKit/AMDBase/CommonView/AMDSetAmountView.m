@@ -7,7 +7,6 @@
 //
 
 #import "AMDSetAmountView.h"
-//#import "AMDTool.h"
 #import "SSGlobalVar.h"
 #import "Masonry.h"
 
@@ -90,7 +89,7 @@
 - (void)initContentView_autoLayout
 {
     self.layer.borderWidth = 1;
-//    self.layer.borderColor = [AMDLineColor CGColor];
+    self.layer.borderColor = [SSLineColor CGColor];
     self.layer.cornerRadius = 2;
     self.layer.masksToBounds = YES;
     

@@ -12,6 +12,9 @@
 		CB0C75941EEA54CC00E28AA3 /* AASRegionChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */; };
 		CB17995C1EF0CC2C00EA83FC /* AMDMJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB17995B1EF0CC2C00EA83FC /* AMDMJRefresh.bundle */; };
 		CB1DF4CD1EE66EAE00B93F81 /* UIView+AMDMJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CCFD1EE6480B00D81CA3 /* UIView+AMDMJExtension.m */; };
+		CB2D53421F15B5AC005A1B3F /* AMDSexSetView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB2D53401F15B5AC005A1B3F /* AMDSexSetView.h */; };
+		CB2D53431F15B5AC005A1B3F /* AMDSexSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2D53411F15B5AC005A1B3F /* AMDSexSetView.m */; };
+		CB2D53441F15B5FA005A1B3F /* AMDSexSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2D53411F15B5AC005A1B3F /* AMDSexSetView.m */; };
 		CB47CC2A1EE6471000D81CA3 /* SSBaseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC281EE6471000D81CA3 /* SSBaseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CC921EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC321EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.h */; };
 		CB47CC931EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC331EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.m */; };
@@ -128,6 +131,8 @@
 		CB0C75951EEAA61E00E28AA3 /* Pods_SSBaseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_SSBaseKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/SSBaseKit-ffnqbiiyirahkqgzbxcxzjybypbp/Build/Products/Debug-iphonesimulator/Pods_SSBaseKit.framework"; sourceTree = "<group>"; };
 		CB17995B1EF0CC2C00EA83FC /* AMDMJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMDMJRefresh.bundle; sourceTree = "<group>"; };
 		CB1DF49E1EE653DA00B93F81 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = "../../../Library/Developer/Xcode/DerivedData/SSBaseKit-ffnqbiiyirahkqgzbxcxzjybypbp/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework"; sourceTree = "<group>"; };
+		CB2D53401F15B5AC005A1B3F /* AMDSexSetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSexSetView.h; sourceTree = "<group>"; };
+		CB2D53411F15B5AC005A1B3F /* AMDSexSetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSexSetView.m; sourceTree = "<group>"; };
 		CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB47CC281EE6471000D81CA3 /* SSBaseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSBaseKit.h; sourceTree = "<group>"; };
 		CB47CC291EE6471000D81CA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -320,6 +325,8 @@
 		CB47CC341EE6471A00D81CA3 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				CB2D53401F15B5AC005A1B3F /* AMDSexSetView.h */,
+				CB2D53411F15B5AC005A1B3F /* AMDSexSetView.m */,
 				CB0C75911EEA54CC00E28AA3 /* AASRegionChoiceView.h */,
 				CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */,
 				CB47CC351EE6471A00D81CA3 /* AMDAnimationWebView.h */,
@@ -522,6 +529,7 @@
 				CB47CC941EE6471A00D81CA3 /* AMDAnimationWebView.h in Headers */,
 				CB47CC9E1EE6471A00D81CA3 /* AMDLabelShowView.h in Headers */,
 				CB47CCAE1EE6471A00D81CA3 /* AMDRootViewController.h in Headers */,
+				CB2D53421F15B5AC005A1B3F /* AMDSexSetView.h in Headers */,
 				CB47CCD31EE6471A00D81CA3 /* AMDNoDataView.h in Headers */,
 				CB47CCC91EE6471A00D81CA3 /* AMDBaseView.h in Headers */,
 				CB47CCCD1EE6471A00D81CA3 /* AMDCopyLabel.h in Headers */,
@@ -708,6 +716,7 @@
 				CB47CD051EE6480B00D81CA3 /* AMDMJRefreshFooterView.m in Sources */,
 				CB47CCE01EE6471A00D81CA3 /* AYEActionSheetView.m in Sources */,
 				CB47CC931EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.m in Sources */,
+				CB2D53431F15B5AC005A1B3F /* AMDSexSetView.m in Sources */,
 				CB47CCE71EE6471A00D81CA3 /* CustomTableView.m in Sources */,
 				CB47CCEC1EE6471A00D81CA3 /* CustomTextView.m in Sources */,
 				CB47CCCA1EE6471A00D81CA3 /* AMDBaseView.m in Sources */,
@@ -762,6 +771,7 @@
 				CB47CD1E1EE64DFE00D81CA3 /* ViewController.m in Sources */,
 				CB47CD1B1EE64DFE00D81CA3 /* AppDelegate.m in Sources */,
 				CB47CD181EE64DFE00D81CA3 /* main.m in Sources */,
+				CB2D53441F15B5FA005A1B3F /* AMDSexSetView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
