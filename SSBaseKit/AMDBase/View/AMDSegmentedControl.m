@@ -122,7 +122,7 @@
 #pragma mark - SET
 - (void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
 {
-    if (_selectedSegmentIndex != selectedSegmentIndex) {
+//    if (_selectedSegmentIndex != selectedSegmentIndex) {
         // 取消之前的选中状态
         AMDButton *sender = [self viewWithTag:_selectedSegmentIndex+1];
         if ([sender isKindOfClass:[AMDButton class]]) {
@@ -134,7 +134,7 @@
         AMDButton *currentbt = [self viewWithTag:_selectedSegmentIndex+1];
         currentbt.selected = YES;
         currentbt.userInteractionEnabled = NO;
-    }
+//    }
 }
 
 
