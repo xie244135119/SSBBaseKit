@@ -50,7 +50,7 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 #import <SSBaseKit/AMDEntityProtocol.h>
 #import <SSBaseKit/AYEActionSheetView.h>
 #import <SSBaseKit/AASRegionChoiceView.h>
-#import <SSBaseKit/AMDSetAmountView.h>
+#import <SSBaseKit/AMDSexSetView.h>
 
 
 

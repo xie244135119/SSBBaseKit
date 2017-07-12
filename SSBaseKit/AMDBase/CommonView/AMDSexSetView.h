@@ -18,9 +18,10 @@
 /* 配置选中性别 */
 - (void)assignSex:(NSString *)sexString;
 
-// 性别设置页面显示
+// 显示
 - (void)show;
-
+// 隐藏
+- (void)hide;
 
 @end
 
