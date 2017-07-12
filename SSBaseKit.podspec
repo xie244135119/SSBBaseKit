@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SSBaseKit"
-  s.version      = "1.0.10"
+  s.version      = "1.0.11"
   s.summary      = "SSBaseKit 基础框架类 "
 
   # This description is used to generate tags and improve search results.

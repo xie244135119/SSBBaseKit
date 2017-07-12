@@ -251,7 +251,7 @@
 - (void)initContentView
 {
     //图像
-    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+    UIImageView *imgView = [[UIImageView alloc]initWithFrame:self.bounds];
     [self addSubview:imgView];
     _imageView = imgView;
     
