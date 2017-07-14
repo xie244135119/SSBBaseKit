@@ -94,6 +94,7 @@
     AMDAnimationWebView *animationView = [[AMDAnimationWebView alloc]initWithFrame:self.contentView.bounds];
     animationView.requestWithSignURL = _requestWithSignURL;
     animationView.delegate = self;
+    animationView.controller = self;
 //    animationView.bridgeSDK.operationController = self;
     [self.contentView insertSubview:animationView belowSubview:self.titleView];
 //    [self.contentView addSubview:animationView];
