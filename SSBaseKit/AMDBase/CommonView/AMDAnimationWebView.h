@@ -36,6 +36,8 @@
 //@property(nonatomic) BOOL linkNewPageFunction;
 // webView的代理
 @property(nonatomic, weak) id<AMDWebViewDelegate> delegate;
+// 加载到的控制器
+@property(nonatomic, weak) UIViewController *controller;
 
 
 @property(nonatomic, strong, readonly) WKWebView *wkWebView;                      //webView
