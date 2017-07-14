@@ -22,11 +22,6 @@
 - (void)setImageWithUrl:(NSURL *)url
             placeHolder:(UIImage *)placeHolder
              completion:(void (^)(UIImage *, NSError *))completion;
-- (void)setImageWithUrl:(NSURL *)url
-            placeHolder:(UIImage *)placeHolder
-                success:(void (^)(UIImage *))success
-                   fail:(void (^)(NSError *))fail;
-
 
 
 /**
@@ -40,11 +35,11 @@
 - (void)setImageWithPath:(NSURL *)url
              placeHolder:(UIImage *)placeHolder
               completion:(void (^)(UIImage *, NSError *))completion;
-- (void)setImageWithPath:(NSURL *)url
-             placeHolder:(UIImage *)placeHolder
-                 success:(void (^)(UIImage *))success
-                    fail:(void (^)(NSError *))fail;
 
 
 
 @end
+
+
+
+

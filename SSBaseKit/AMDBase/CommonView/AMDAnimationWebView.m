@@ -13,16 +13,9 @@
 #import <Masonry/Masonry.h>
 
 
-//#import "NSURLProtocolCustom.h"
 
 @interface AMDAnimationWebView() <AMDWebViewDelegate,WKNavigationDelegate,WKUIDelegate,UIWebViewDelegate>
-{
-//    __weak UIProgressView *_progressView;
-//    __weak AMDProgressView *_progressView;
 
-//    AASPlatformAuthorize *_currentPlatformAuthorize;            //平台验证机制
-//    AASWebOauthAuthorize *_currentWebOauthAuthorize;            //默认第三方机制
-}
 @property(nonatomic,strong) AYEWebViewProgress *webViewProgress;
 @end
 
@@ -94,41 +87,6 @@
 }
 
 
-// 签名
-//用户代理信息
-//- (NSString *)webviewUserAgent:(NSString **)extraIdentifer
-//{
-//    return @"";
-//#warning 先临时禁掉
-    //    NSMutableString *defaultUserAgent = [[[[UIWebView alloc] init] stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"] mutableCopy];
-//    NSDictionary *identifier = [[MultiProjectManager globalConfigFile] userAgent_ExtraIdentifier];
-//    NSMutableString *extra = [[NSMutableString alloc]init];
-//    if (identifier.allKeys.count > 0) {
-//        for (NSString *key in identifier.allKeys) {
-//            NSString *value = identifier[key];
-//            [extra appendFormat:@" %@/%@",key,value];
-//        }
-//    }
-//    if (extraIdentifer) {
-//        *extraIdentifer = [extra copy];
-//    }
-//    [defaultUserAgent appendFormat:@" %@",extra];
-//    return defaultUserAgent;
-    //    });
-//}
-
-
-#pragma mark - GET
-// 桥接的sdk
-//- (YLJsBridgeSDK *)bridgeSDK
-//{
-//    if (_bridgeSDK == nil) {
-//        _bridgeSDK = [[[MultiProjectManager bridgeSDK] alloc]init];
-//    }
-//    return _bridgeSDK;
-//}
-
-
 #pragma mark - SET
 - (void)setSupportRefresh:(BOOL)supportRefresh
 {
@@ -187,51 +145,6 @@
         }
     }
 }
-
-
-
-//#pragma mark - 资源数据
-// 当前AppSecret
-//- (NSString *)appSecret
-//{
-//    NSString *appSecret = nil;
-//    
-//    switch ([AMDRequestService hostType]) {
-//        case AMDRequestHostTypeSandbox:
-//            appSecret = [[MultiProjectManager globalConfigFile] prismAppSecret_Sandbox];
-//            break;
-//        case AMDRequestHostTypeStage:
-//            appSecret = [[MultiProjectManager globalConfigFile] prismAppSecret_Stage];
-//            break;
-//        case AMDRequestHostTypeProduct:
-//            appSecret = [[MultiProjectManager globalConfigFile] prismAppSecret];
-//            break;
-//        default:
-//            break;
-//    }
-//    return appSecret;
-//}
-//
-//// appkey
-//- (NSString *)appKey
-//{
-//    NSString *appSecret = nil;
-//    
-//    switch ([AMDRequestService hostType]) {
-//        case AMDRequestHostTypeSandbox:
-//            appSecret = [[MultiProjectManager globalConfigFile] prismAppkey_Sandbox];
-//            break;
-//        case AMDRequestHostTypeStage:
-//            appSecret = [[MultiProjectManager globalConfigFile] prismAppkey_Stage];
-//            break;
-//        case AMDRequestHostTypeProduct:
-//            appSecret = [[MultiProjectManager globalConfigFile] prismAppkey];
-//            break;
-//        default:
-//            break;
-//    }
-//    return appSecret;
-//}
 
 
 

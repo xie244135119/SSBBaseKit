@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SSBaseKit"
-  s.version      = "1.0.12.1"
+  s.version      = "1.0.13"
   s.summary      = "SSBaseKit 基础框架类 "
 
   # This description is used to generate tags and improve search results.
@@ -90,14 +90,14 @@ Pod::Spec.new do |s|
   #
 
   #  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.source_files  = "SSBaseKit", "SSBaseKit/**/*.{h,m}"
+  # s.source_files  = "SSBaseKit", "SSBaseKit/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Classes/**/*.h"
-
+   s.source_files = "SSBaseKit/SSBaseKit.h"
+   s.public_header_files = "SSBaseKit/SSBaseKit.h"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
+  #MDMJRefresh.h
   #  A list of resources included with the Pod. These are copied into the
   #  target bundle with a build phase script. Anything else will be cleaned.
   #  You can preserve files from being cleaned, please don't preserve
@@ -137,4 +137,32 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
     s.dependency "Masonry"
 
+	s.subspec 'Controller' do |cs|
+		cs.source_files = 'SSBaseKit/AMDBase/Controller/*.{h,m}'
+		cs.dependency 'SSBaseKit/ComponentView'
+	end
+
+	s.subspec 'ComponentView' do |cs|
+                cs.source_files = 'SSBaseKit/AMDBase/CommonView/*.{h,m}'
+		cs.dependency 'SSBaseKit/UIKit'
+		cs.dependency 'SSBaseKit/Private'
+		cs.dependency 'SSBaseKit/MJRefresh'
+        end
+	
+	s.subspec 'MJRefresh' do |cs|
+                cs.source_files = 'SSBaseKit/MJRefresh/*.{h,m}'
+        end	
+	
+	s.subspec 'UIKit' do |cs|
+                cs.source_files = 'SSBaseKit/AMDBase/View/*.{h,m}','SSBaseKit/AMDBase/View/*/*.{h,m}'
+		cs.dependency 'SSBaseKit/Private'
+		cs.dependency 'SSBaseKit/MJRefresh'
+        end
+	
+	s.subspec 'Private' do |cs|
+                cs.source_files = 'SSBaseKit/AMDBase/Utility/*.{h,m}'
+        end
+
 end
+
+

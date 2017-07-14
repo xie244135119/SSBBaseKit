@@ -7,22 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-//typedef NS_ENUM(NSUInteger, AMDNoDataViewType) {
-//    AMDNoDataViewTypeOrder = 1,                         //订单
-//    AMDNoDataViewTypeDynamic,                           //动态
-//    AMDNoDataViewTypeCustomer,                          //客户
-//    AMDNoDataViewTypeTransmit,                          //转发
-//    AMDNoDataViewTypeWithdrawRecord,                    //提现记录
-//    AMDNoDataViewTypeSupply,                            //供应商
-//    AMDNoDataViewTypeCapital,                           //资金明细
-//    AMDNoDataViewTypeCart,                              //购物车
-//    AMDNoDataViewTypeGoodsSource,                       //无货源
-//    AMDNoDataViewTypeNotification,                      //通知<!---已废弃--->
-//    AMDNoDataViewTypeMessage,                           //暂无消息
-//    AMDNoDataViewTypeSearch,                            //搜索
-//};
-
+#import "AMDButton.h"
 
 
 @protocol AMDNoDataViewDelegate;
@@ -37,6 +22,8 @@
 @property(nonatomic, weak) UILabel *titleLabel;
 // 图像视图
 @property(nonatomic, weak) UIImageView *nodataImageView;
+// 显示按钮
+@property(nonatomic, weak) AMDButton *operationBt;
 
 @end
 

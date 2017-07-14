@@ -7,7 +7,7 @@
 //
 
 #import "GeneralTableView.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface GeneralTableView ()<UITableViewDataSource,UITableViewDelegate>
 @end

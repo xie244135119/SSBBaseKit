@@ -14,7 +14,6 @@
 
 @property(nonatomic, readonly) UIImageView *imageView;   //文本名称
 @property(nonatomic, weak) UILabel *titleLabel;      //文字label
-//@property(nonatomic, weak) UIImageView *unreadImageView;        //未读的显示视图
 
 
 // 根据不同状态配置不同的颜色
@@ -48,10 +47,6 @@
 - (void)setImageWithUrl:(NSURL *)url
             placeHolder:(UIImage *)placeHolder
              completion:(void (^)(UIImage *, NSError *))completion;
-- (void)setImageWithUrl:(NSURL *)url
-            placeHolder:(UIImage *)placeHolder
-                success:(void (^)(UIImage *))success
-                   fail:(void (^)(NSError *))fail;
 
 
 - (void)setImageWithPath:(NSString *)path
@@ -59,12 +54,16 @@
 - (void)setImageWithPath:(NSURL *)url
              placeHolder:(UIImage *)placeHolder
               completion:(void (^)(UIImage *, NSError *))completion;
-- (void)setImageWithPath:(NSURL *)url
-             placeHolder:(UIImage *)placeHolder
-                 success:(void (^)(UIImage *))success
-                    fail:(void (^)(NSError *))fail;
 
 
+// 设置背景图片
+- (void)setBackgroundImageWithUrl:(NSURL *)url
+                      placeHolder:(UIImage *)placeHolder
+                         forState:(UIControlState)state;
+- (void)setBackgroundImageWithUrl:(NSURL *)url
+                      placeHolder:(UIImage *)placeHolder
+                         forState:(UIControlState)state
+                       completion:(void (^)(UIImage *, NSError *))completion;
 
 @end
 

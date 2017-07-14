@@ -8,7 +8,6 @@
 
 #import "AMDLabelFieldView.h"
 #import "SSGlobalVar.h"
-//#import "NSObject+BindValue.h"
 
 @interface AMDLabelFieldView()
 
@@ -41,7 +40,6 @@
     CGFloat h = self.frame.size.height;
     CGFloat w = self.frame.size.width;
     // 标题
-//    UILabel *titleLable = [uila labelWithFrame:CGRectMake(15, 0, 140, h) title:title];
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(15, 0, 140, h)];
     titleLable.backgroundColor = [UIColor clearColor];
     titleLable.text = title;
@@ -91,7 +89,6 @@
     if (_parentScrollView == nil) {
         return;
     }
-//    [_parentScrollView bindValue:textField forKey:AASFirstResponderViewKey];
     
     CGRect frame = [_parentScrollView.superview convertRect:textField.frame fromView:textField.superview];
     CGFloat distance = (frame.size.height+frame.origin.y+256+30)-_parentScrollView.frame.size.height;
@@ -106,7 +103,6 @@
 //
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-//    [_parentScrollView removeBindObjects];
     [textField resignFirstResponder];
     return YES;
 }

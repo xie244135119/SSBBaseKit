@@ -59,34 +59,20 @@
 // 开始动画
 - (void)startAnimate
 {
-//    _lineLayer.transform = CATransform3DMakeRotation(M_PI*2, 0, 0, 1);
-//    return;
-//    _lineLayer.affineTransform = CGAffineTransformMakeRotation(100*M_PI/180);
-//    _lineLayer.transform
-//    CAAnimation *animate = [_lineLayer animationForKey:@"animate"];
-//    if (animate == nil) {
-        CABasicAnimation *animate = [CABasicAnimation animation];
-//        animate.keyPath = @"affineTransform";
-//        animate.fromValue = [NSValue valueWithCGAffineTransform:CGAffineTransformMakeRotation(0*M_PI/180)];
-//        animate.toValue = [NSValue valueWithCGAffineTransform:CGAffineTransformMakeRotation(360*M_PI/180)];
-        animate.keyPath = @"transform.rotation.z";
-        animate.fromValue = @0;
-        animate.toValue = @(2*M_PI);
-        animate.removedOnCompletion = YES;
-        animate.repeatDuration = 0;
-        animate.repeatCount = FLT_MAX;    //默认无穷
-        animate.duration = 1;     //转一圈需要的时间
-        [_lineLayer addAnimation:animate forKey:@"animate"];
-//    }
-//    animate.speed = 1;
+    CABasicAnimation *animate = [CABasicAnimation animation];
+    animate.keyPath = @"transform.rotation.z";
+    animate.fromValue = @0;
+    animate.toValue = @(2*M_PI);
+    animate.removedOnCompletion = YES;
+    animate.repeatDuration = 0;
+    animate.repeatCount = FLT_MAX;    //默认无穷
+    animate.duration = 1;     //转一圈需要的时间
+    [_lineLayer addAnimation:animate forKey:@"animate"];
 }
 
 
 - (void)stopAnimate
 {
-//    CAAnimation *animate = [_lineLayer animationForKey:@"animate"];
-    // 暂停
-//    animate.speed = 0;
     [_lineLayer removeAnimationForKey:@"animate"];
 }
 

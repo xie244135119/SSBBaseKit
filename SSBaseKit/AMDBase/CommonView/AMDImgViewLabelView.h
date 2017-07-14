@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 SunSet. All rights reserved.
 //
 
-//#import <SSBaseKit/AMDBaseView.h>
 #import <UIKit/UIKit.h>
 
 @interface AMDImgViewLabelView : UIControl

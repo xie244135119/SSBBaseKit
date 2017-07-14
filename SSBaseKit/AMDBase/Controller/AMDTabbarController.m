@@ -7,7 +7,7 @@
 //
 
 #import "AMDTabbarController.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 #import "SSGlobalVar.h"
 #import "AMDLineView.h"
 //#import "AMDTabbarItem.h"
@@ -91,33 +91,20 @@
     _amdTabBar = barvw;
     
     // 线条
-//    AMDTabBarView *shadowvw = [[AMDTabBarView alloc]initWithFrame:CGRectMake(0, 0, APPWidth, 60)];
-//    [barvw addSubview:shadowvw];
     AMDLineView *line = [[AMDLineView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0.5) Color:ColorWithRGB(200, 200, 200, 0.7)];
     [barvw addSubview:line];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(@0);
         make.height.equalTo(@0.5);
     }];
-//    UIImageView *line = [[UIImageView alloc]init];
-//    UIImageView *line = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, APPWidth, 0.5)];
-//    line.image = imageFromBundleName(@"CommonUIModule.bundle", @"tabbar_line.png");
-//    [barvw addSubview:line];
-//    [line mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.top.equalTo(@0);
-//        make.height.equalTo(@1).multipliedBy(0.5);
-//    }];
-    
+
     // 加载下面的导航
-//    CGFloat itemwidth = w/titles.count;
     __weak AMDTabbarItem *_lastItem = nil;
     for (NSInteger i = 0; i<titles.count; i++) {
-//        AMDTabbarItem *item = [[AMDTabbarItem alloc]initWithFrame:CGRectMake(itemwidth*i, 0, itemwidth, 49)];
         AMDTabbarItem *item = [[AMDTabbarItem alloc]init];
         item.itemTitleLabel.text = titles[i];
         [item setImage:images[i] controlState:UIControlStateNormal];
         [item setTitleColor:ColorWithRGB(101, 111, 130, 1) controlState:UIControlStateNormal];
-//        [item setTitleColor:tabbar_text_select_color controlState:UIControlStateSelected];
         
         item.tag = i+900;
         [item addTarget:self action:@selector(clickBt_ChangeSelect:) forControlEvents:UIControlEventTouchUpInside];
@@ -158,29 +145,20 @@
     for (UIView * v in self.view.subviews) {
         if ([v isKindOfClass:[UITabBar class]]) {
             oldTabBarRect = v.frame;
-//            v.frame = CGRectMake(0, v.frame.origin.y+49, APPWidth,49);
-//            v.hidden = YES;
             break;
         }
     }
     return oldTabBarRect;
 }
 
-// 支持右上角文字提示
-//- (void)supportMessageRemindWithIndex:(NSInteger)index
-//{
-//    AMDTabbarItem *item = (AMDTabbarItem *)[_currentTabbar viewWithTag:900+index];
-//    _retainItem = item;
-//    [item supportMessageCountObserver];
-//}
 
-- (void)viewWillLayoutSubviews
-{
-    [super viewWillLayoutSubviews];
-//    NSLog(@"");
-//    [self updateViewConstraints];
-//    [self.view layoutSubviews];
-}
+//- (void)viewWillLayoutSubviews
+//{
+//    [super viewWillLayoutSubviews];
+////    NSLog(@"");
+////    [self updateViewConstraints];
+////    [self.view layoutSubviews];
+//}
 
 
 #pragma mark - 按钮事件
@@ -193,14 +171,6 @@
 {
     if (self.selectedIndex == index) {
         
-//        switch (index) {
-//            case 2: //发现
-//                //当前选中的是第一个动态的话--执行一次
-////                [[NSNotificationCenter defaultCenter] postNotificationName:@"AMDDiscoverIndexController" object:nil];
-//                break;
-//            default:
-//                break;
-//        }
         return;
     }
     
@@ -216,36 +186,6 @@
     sender.selected = YES;
     
 }
-
-// 显示新消息
-/*- (void)showNewMessageCount:(NSInteger)count
-{
-    // 寻找当前MessageIndexController在队列中的索引值
-    static NSInteger index = -1;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        for (UIViewController *sender in self.viewControllers) {
-            if ([sender isKindOfClass:NSClassFromString(@"AMDMessageIndexController")]) {
-                index = [self.viewControllers indexOfObject:sender];
-                break;
-            }
-        }
-    });
-    
-    // 提示新消息
-    AMDTabbarItem *sender = (AMDTabbarItem *)[self.view viewWithTag:index+900];
-    [sender showMessageCount:count];
-}
-
-// 设置消息数量
-- (void)setShowMessageCount:(NSInteger)count index:(NSInteger)index
-{
-    AMDTabbarItem *sender = (AMDTabbarItem *)[self.view viewWithTag:index+900];
-    dispatch_async(kGCDMain, ^{
-        [sender showMessageCount:count];
-    });
-}*/
-
 
 
 @end

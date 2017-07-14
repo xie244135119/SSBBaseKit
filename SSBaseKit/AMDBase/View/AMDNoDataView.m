@@ -9,14 +9,14 @@
 #import "AMDNoDataView.h"
 #import "AMDButton.h"
 #import "SSGlobalVar.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 //#import "AMDTool.h"
 //#import "ATAColorConfig.h"
 
 @interface AMDNoDataView()
 {
     BOOL _autoLayout;               //自动布局
-    __weak AMDButton *_showBt;      //显示的文字
+    __weak AMDButton *_showBt;      //显示的文字<当前变量后期将取消>
 }
 @end
 
@@ -69,6 +69,7 @@
     bt.hidden = YES;
     [self addSubview:bt];
     _showBt = bt;
+    _operationBt = bt;
 }
 
 //视图加载

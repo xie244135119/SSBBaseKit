@@ -9,7 +9,7 @@
 #import "AMDLabelShowView.h"
 #import "AMDLineView.h"
 #import "SSGlobalVar.h"
-//#import "Masonry.h"
+//#import <Masonry/Masonry.h>
 #import <Masonry/Masonry.h>
 
 
@@ -208,11 +208,8 @@
     if (_rightArrowShow != rightArrowShow) {
         _rightArrowShow = rightArrowShow;
         
-//        UIImageView *imgView = (UIImageView *)[self viewWithTag:2];
-//        imgView.layer.borderWidth = 1;
         if (rightArrowShow) {
             if (_currentArrowImgview == nil) {
-//                UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(APPWidth-24-10, (self.frame.size.height-24)/2, 24, 24)];
                 NSString *arrowpath = GetFilePathFromBundle(@"CommonUIModule.bundle", @"arrow-right.png");
                 UIImage *arrowiamge = [[UIImage alloc]initWithContentsOfFile:arrowpath];
                 UIImageView *imgView = [[UIImageView alloc]init];
@@ -230,9 +227,7 @@
         }
         _currentArrowImgview.hidden = !rightArrowShow;
     }
-    
-    //调整frame
-//    _contentLabel.frame = CGRectMake(_contentLabel.frame.origin.x, _contentLabel.frame.origin.y, _contentLabel.frame.size.width-(rightArrowShow?24:0), _contentLabel.frame.size.height);
+
     // 更新内容展示视图布局
     [_contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_titleLabel.mas_right).with.offset(5);    //距离左侧控件5

@@ -8,7 +8,7 @@
 
 #import "AMDBackControl.h"
 #import "SSGlobalVar.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 // 自定义后退按钮
 @implementation AMDBackControl

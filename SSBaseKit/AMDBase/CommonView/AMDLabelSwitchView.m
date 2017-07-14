@@ -8,7 +8,7 @@
 
 #import "AMDLabelSwitchView.h"
 #import "SSGlobalVar.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 #import "AMDLineView.h"
 
 @implementation AMDLabelSwitchView

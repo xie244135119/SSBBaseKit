@@ -16,23 +16,6 @@
     self.lineColor = nil;
 }
 
-//- (id)initWithFrame:(CGRect)frame
-//{
-//    self = [super initWithFrame:frame];
-//    if (self) {
-//        // Initialization code
-//    }
-//    return self;
-//}
-
-//- (id)init
-//{
-//    if (self = [super init]) {
-//        
-//    }
-//    return self;
-//}
-
 -(id)initWithFrame:(CGRect)frame Color:(UIColor *)color
 {
     if (self = [super initWithFrame:frame]) {

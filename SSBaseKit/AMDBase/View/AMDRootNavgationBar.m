@@ -8,8 +8,6 @@
 
 #import "AMDRootNavgationBar.h"
 #import "SSGlobalVar.h"
-//#import "AMDTool.h"
-//#import "ATAColorConfig.h"
 
 @implementation AMDRootNavgationBar
 

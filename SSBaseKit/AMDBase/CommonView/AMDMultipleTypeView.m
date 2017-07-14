@@ -7,11 +7,11 @@
 //
 
 #import "AMDMultipleTypeView.h"
-//#import "ATAColorConfig.h"
 #import "SSGlobalVar.h"
 #import "AMDLineView.h"
 #import "UIView+AMDExtension.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
+
 
 
 @interface AMDMultipleTypeView()
@@ -58,11 +58,6 @@
         [bt setFrame:CGRectMake(w*i, 0, w, self.frame.size.height)];
         [bt setTitle:titles[i] forState:UIControlStateNormal];
         [bt setTitleColor:ColorWithRGB(119, 119, 119, 1) forState:UIControlStateNormal];
-//        [bt setTitleColor:AMDNavBarColor forState:UIControlStateSelected];
-//        [bt setTitleColor:AMDNavBarColor forState:UIControlStateHighlighted];
-//        [bt setTitleColor:btn_light_text_color forState:UIControlStateNormal];
-//        [bt setTitleColor:btn_light_text_color forState:UIControlStateSelected];
-//        [bt setTitleColor:btn_light_text_color forState:UIControlStateHighlighted];
         bt.titleLabel.font = FontWithName(@"", 14);
         bt.tag = i+1;
         [bt addTarget:self action:@selector(choiceActionButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -158,25 +153,6 @@
 }
 
 
-
-//
-//- (void)setTextNormalColor:(UIColor *)textNormalColor
-//{
-//    if (_textNormalColor != textNormalColor) {
-//        _textNormalColor = textNormalColor;
-//        
-//        //设置字体大小
-//        for (UIView *sender in self.subviews) {
-//            if ([sender isKindOfClass:[UIButton class]]) {
-//                UIButton *v = (UIButton *)sender;
-//                //                v.titleLabel.textColor = textColor;
-//                [v setTitleColor:textNormalColor forState:UIControlStateNormal];
-//            }
-//        }
-//    }
-//}
-
-
 - (void)setSupportSeparatorLine:(BOOL)supportSeparatorLine
 {
     if (_supportSeparatorLine != supportSeparatorLine) {
@@ -207,10 +183,7 @@
     //动画结束后调用回调事件
     __weak UIView *shadowView = _shadowView;
     [UIView animateWithDuration:0.15 animations:^{
-//        CGRect frame = shadowView.frame;
-//        frame.origin.x = sender.frame.origin.x;
         shadowView.center = CGPointMake(sender.center.x, shadowView.center.y);
-//        shadowView.frame = frame;
     } completion:^(BOOL finished) {
         [_delegate messageChoiceView:self sender:sender];
     }];
@@ -263,10 +236,7 @@
     }
     else {
         [UIView animateWithDuration:0.25 animations:^{
-//            CGRect frame = shadowView.frame;
-//            frame.origin.x = sender.frame.origin.x;
             shadowView.center = CGPointMake(sender.center.x, shadowView.center.y);
-//            shadowView.frame = frame;
         }];
     }
     
@@ -306,13 +276,8 @@
     __weak UIView *lastView = nil;
     for (NSInteger i =0 ;i<titles.count; i++) {
         UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
-        //        [bt setFrame:CGRectMake(w*i, 0, w, self.frame.size.height)];
         [bt setTitle:titles[i] forState:UIControlStateNormal];
         [bt setTitleColor:ColorWithRGB(119, 119, 119, 1) forState:UIControlStateNormal];
-//        [bt setTitleColor:AMDNavBarColor forState:UIControlStateSelected];
-//        [bt setTitleColor:AMDNavBarColor forState:UIControlStateHighlighted];
-//        [bt setTitleColor:btn_light_text_color forState:UIControlStateSelected];
-//        [bt setTitleColor:btn_light_text_color forState:UIControlStateHighlighted];
         bt.titleLabel.font = FontWithName(@"", 14);
         bt.tag = i+1;
         [bt addTarget:self action:@selector(choiceActionButton2:) forControlEvents:UIControlEventTouchUpInside];

@@ -8,6 +8,9 @@
 
 #import "AMDSexSetView.h"
 #import "SSGlobalVar.h"
+#import "AMDButton.h"
+#import "AMDLineView.h"
+#import "UIView+AMDExtension.h"
 
 
 @interface AMDSexSetView()
@@ -56,8 +59,6 @@
     malebt.titleLabel.textColor = ColorWithRGB(51, 51, 51, 1);
     [malebt setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [malebt setBackgroundColor:SSLineColor forState:UIControlStateSelected];
-//    malebt.imageView.frame = CGRectMake(APPWidth-24-15, 13, 24, 24);
-//    [malebt setImage:[UIImage imageNamed:@"select_item"] forState:UIControlStateSelected];
     [middleView addSubview:malebt];
     malebt.tag = 1;
     [malebt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -68,8 +69,6 @@
     womanbt.titleLabel.textColor = ColorWithRGB(51, 51, 51, 1);
     [womanbt setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [womanbt setBackgroundColor:SSLineColor forState:UIControlStateSelected];
-//    womanbt.imageView.frame = CGRectMake(APPWidth-24-15, 13, 24, 24);
-//    [womanbt setImage:[UIImage imageNamed:@"select_item"] forState:UIControlStateSelected];
     [middleView addSubview:womanbt];
     womanbt.tag = 2;
     [womanbt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];

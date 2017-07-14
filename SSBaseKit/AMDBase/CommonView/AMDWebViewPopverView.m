@@ -8,7 +8,7 @@
 
 #import "AMDWebViewPopverView.h"
 #import "SSGlobalVar.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface AMDWebViewPopverView()
 {

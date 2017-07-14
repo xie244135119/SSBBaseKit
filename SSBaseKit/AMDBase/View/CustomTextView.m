@@ -8,7 +8,7 @@
 
 #import "CustomTextView.h"
 #import "SSGlobalVar.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface CustomTextView()<UITextViewDelegate>
 {

@@ -8,7 +8,7 @@
 
 #import "AMDSetAmountView.h"
 #import "SSGlobalVar.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface AMDSetAmountView() <UITextFieldDelegate>
 {

@@ -8,9 +8,8 @@
 
 #import "AMDButton.h"
 #import "SSGlobalVar.h"
-#import "Masonry.h"
-//#import "AMDTool.h"
-//#import "<#header#>"
+#import <Masonry/Masonry.h>
+
 
 // 未读的图形
 @interface UnreadImageView : UIImageView
@@ -297,17 +296,6 @@
 
 
 #pragma mark - SET
-//- (void)setNormalImageName:(NSString *)normalImageName
-//{
-//    if (_normalImageName != normalImageName) {
-//        _normalImageName = normalImageName;
-//        
-//        if (_normalImageName) {
-//            UIImage *img = imageFromPath(normalImageName);
-//            _imageView.image = img;
-//        }
-//    }
-//}
 
 //设置文字
 - (void)setTitle:(NSString *)title forState:(UIControlState)state
@@ -653,16 +641,6 @@
     // override
 }
 
-//
-- (void)setImageWithUrl:(NSURL *)url
-            placeHolder:(UIImage *)placeHolder
-                success:(void (^)(UIImage *))success
-                   fail:(void (^)(NSError *))fail
-{
-    // override
-}
-
-
 
 - (void)setImageWithPath:(NSString *)path
              placeHolder:(UIImage *)placeHolder
@@ -678,11 +656,18 @@
     // override
 }
 
-//
-- (void)setImageWithPath:(NSURL *)url
-             placeHolder:(UIImage *)placeHolder
-                 success:(void (^)(UIImage *))success
-                    fail:(void (^)(NSError *))fail
+
+- (void)setBackgroundImageWithUrl:(NSURL *)url
+                      placeHolder:(UIImage *)placeHolder
+                         forState:(UIControlState)state
+{
+    // override
+}
+
+- (void)setBackgroundImageWithUrl:(NSURL *)url
+                      placeHolder:(UIImage *)placeHolder
+                         forState:(UIControlState)state
+                       completion:(void (^)(UIImage *, NSError *))completion
 {
     // override
 }

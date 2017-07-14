@@ -10,7 +10,7 @@
 //#import "UIButton+AYEButtonBackground.h"
 //#import "ATAColorConfig.h"
 #import "SSGlobalVar.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 #import "AMDButton.h"
 
 
@@ -65,19 +65,6 @@
         AMDButton *bt = [[AMDButton alloc]init];
         [bt setTitle:title forState:UIControlStateNormal];
         bt.titleLabel.font = FontWithName(@"", 13);
-//        [bt setTitleColor:ColorWithRGB(75, 75, 75, 1) forState:UIControlStateNormal];
-//        [bt setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-//        [bt setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-//        [bt setBackgroundColor:ColorWithRGB(119, 119, 119, 1) forState:UIControlStateSelected];
-//        [bt setBackgroundColor:ColorWithRGB(119, 119, 119, 1) forState:UIControlStateHighlighted];
-//        [bt setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//        [bt setTitleColor:seg_normal_text_color forState:UIControlStateNormal];
-//        [bt setTitleColor:seg_select_text_color forState:UIControlStateHighlighted];
-//        [bt setTitleColor:seg_select_text_color forState:UIControlStateSelected];
-//        [bt setBackgroundColor:seg_select_background_color forState:UIControlStateSelected];
-//        [bt setBackgroundColor:seg_select_background_color forState:UIControlStateHighlighted];
-//        [bt setBackgroundColor:seg_normal_background_color forState:UIControlStateNormal];
-        
         [self addSubview:bt];
         bt.tag = i+1;
         [bt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];

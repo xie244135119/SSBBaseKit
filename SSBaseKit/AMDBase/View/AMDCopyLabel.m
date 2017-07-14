@@ -137,15 +137,9 @@
         [self becomeFirstResponder];
         
         UIMenuItem * itemPase = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(menuItemCopy:)];
-//        UIMenuItem * itemTrans = [[UIMenuItem alloc] initWithTitle:@"转发" action:@selector(menuItemTransmit:)];
-//        UIMenuItem * itemCollect = [[UIMenuItem alloc] initWithTitle:@"收藏" action:@selector(menuItemCollect:)];
-//        UIMenuItem * itemJoin = [[UIMenuItem alloc] initWithTitle:@"加入" action:@selector(menuItemJoin:)];
         UIMenuController * menuController = [UIMenuController sharedMenuController];
         [menuController setMenuItems: @[itemPase]];
         // 将当前标签的值转化为屏幕上
-//        CGPoint location = [recognizer locationInView:[recognizer view]];
-//        AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//        CGRect rect = [self convertRect:self.frame fromView:_responderView];
         CGPoint location = CGPointMake(_responderView.frame.size.width/2, 0);
         CGRect menuLocation = CGRectMake(location.x, location.y, 0, 0);
         [menuController setTargetRect:menuLocation inView:[recognizer view]];

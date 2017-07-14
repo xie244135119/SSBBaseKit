@@ -8,7 +8,7 @@
 
 #import "AMDTabbarItem.h"
 #import "SSGlobalVar.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 //#import "AMDIMService.h"
 
 @interface AMDTabbarItem()
@@ -32,10 +32,6 @@
 
 - (void)dealloc
 {
-//    self.title = nil;
-//    _itemImage = nil;
-//    _itemSelectImage = nil;
-//    self.selectTitleColor = nil;
     
     _normalImage = nil;
     _selectImage = nil;
@@ -340,28 +336,6 @@
 }
 
 
-
-
-#pragma mark - 支持消息数量功能
-//- (void)supportMessageCountObserver
-//{
-//    __weak typeof(self) weakself = self;
-//    [[AMDIMService sharedAMDIMService] addObserver:weakself forKeyPath:@"totalUnreadCount" options:NSKeyValueObservingOptionNew context:nil];
-//}
-//
-//
-//#pragma mark - NSKeyValueObserving
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-//{
-//    if ([keyPath isEqualToString:@"totalUnreadCount"]) {
-//        // 设置未读消息数量
-//        NSInteger count = [[AMDIMService sharedAMDIMService] totalUnreadCount];
-//        dispatch_async(kGCDMain, ^{
-////            [self showMessageCount:count];
-//            self.remindNumber = count;
-//        });
-//    }
-//}
 
 
 

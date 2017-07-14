@@ -88,16 +88,12 @@
 - (void)initContentView
 {
     self.titleView.title = @"";
-//    self.titleView.hidden = YES;
-//    self.contentView.amd_y = 0;
     //加载框
     AMDAnimationWebView *animationView = [[AMDAnimationWebView alloc]initWithFrame:self.contentView.bounds];
     animationView.requestWithSignURL = _requestWithSignURL;
     animationView.delegate = self;
     animationView.controller = self;
-//    animationView.bridgeSDK.operationController = self;
     [self.contentView insertSubview:animationView belowSubview:self.titleView];
-//    [self.contentView addSubview:animationView];
     _currentAnimationView = animationView;
     
     __weak typeof(self) weakself = self;
@@ -180,20 +176,6 @@
     }
 }
 
-// 替换主机地址
-//- (NSString *)convertUrl:(NSString *)urlstr
-//{
-//    NSMutableString *aurlstr = [urlstr mutableCopy];
-//    // 替换主机地址
-//    if ([urlstr rangeOfString:@"{DOMAIN}"].length > 0) {
-//        NSString *domain = GetDefaults(AMDYLDomain);
-//        [aurlstr stringByReplacingOccurrencesOfString:@"{DOMAIN}" withString:domain];
-//    }
-//    if ([urlstr rangeOfString:@""].length > 0) {
-//        
-//    }
-//    return aurlstr;
-//}
 
 
 #pragma mark - 按钮事件
@@ -235,43 +217,26 @@
 - (void)clickMoreAction:(AMDButton *)sender
 {
     //
-    NSString *urlstr = _currentAnimationView.wkWebView.URL.description;
-//    [[AMDCommonClass sharedAMDCommonClass] showAlertTitle:@"测试使用" Message:urlstr action:nil cancelBt:@"确定" otherButtonTitles:nil, nil];
-    NSLog(@" 测试地址 ：%@ ",urlstr);
+    NSString *urlstr = _currentAnimationView.wkWebView.URL.description?_currentAnimationView.wkWebView.URL.description:@"";
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"临时测试使用" message:urlstr preferredStyle:UIAlertControllerStyleAlert];
+    [UIAlertAction actionWithTitle:@"取消"
+                             style:UIAlertActionStyleDefault
+                           handler:nil];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"复制剪切板"
+                             style:UIAlertActionStyleDefault
+                           handler:^(UIAlertAction * _Nonnull action) {
+                               [[UIPasteboard generalPasteboard] setString:urlstr];
+                           }];
+    
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
-
-
-//#pragma mark - 点击手势
-//// 点击手势
-//- (void)tapGestureRec:(UITapGestureRecognizer *)tap
-//{
-//    NSString *urlstr = _currentAnimationView.wkWebView.URL.description;
-//    [[AMDCommonClass sharedAMDCommonClass] showAlertTitle:@"测试使用" Message:urlstr action:nil cancelBt:@"确定" otherButtonTitles:nil, nil];
-//}
-//
-//
-//// 添加手势
-//- (void)addGestureRecognizer
-//{
-//    UITapGestureRecognizer *tap = [UITapGestureRecognizer]
-//}
 
 
 
 // 添加关闭按钮
 #pragma mark - AMDWebViewDelegate
-//#ifdef __IPHONE_8_0
-
-//- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
-//{
-//    if (_requestWithSignURL && self.supportBackBt) {
-//        if (![_requestWithSignURL isEqualToString:webView.URL.description]) {
-//            [self initCloseBt];
-//        }
-//    }
-//}
-
 //#else
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
@@ -284,11 +249,6 @@
     }
 }
 
-//#endif
-//- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error
-//{
-//    NSLog(@" 加载error %@ ",error);
-//}
 
 
 #pragma mark - 检测标题 发生变化 触发后退按钮

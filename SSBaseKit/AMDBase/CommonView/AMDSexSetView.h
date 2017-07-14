@@ -6,7 +6,8 @@
 //  Copyright (c) 2015年 SunSet. All rights reserved.
 //
 
-#import <SSBaseKit/SSBaseKit.h>
+
+#import "AMDBaseView.h"
 @protocol AMDSexSetViewDelegate;
 
 @interface AMDSexSetView : AMDBaseView
