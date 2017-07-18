@@ -37,8 +37,8 @@ typedef void (^AMDWebViewProgressBlock)(float progress);
 @interface AYEWebViewProgress : NSObject<UIWebViewDelegate,WKNavigationDelegate>
 
 //#ifdef __IPHONE_8_0
-@property (nonatomic, weak) WKWebView *wkWebView NS_AVAILABLE_IOS(8_0);
-@property (nonatomic, weak) UIWebView *uiWebView;
+@property (nonatomic, strong) WKWebView *wkWebView NS_AVAILABLE_IOS(8_0);
+@property (nonatomic, strong) UIWebView *uiWebView;
 //#else
 @property (nonatomic, weak) id<UIWebViewDelegate>uiWebViewProxyDelegate;
 //#endif

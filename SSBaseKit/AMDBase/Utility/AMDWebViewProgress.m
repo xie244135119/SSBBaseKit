@@ -234,9 +234,10 @@ static const float afterInteractiveMaxProgressValue = 0.9;
 
 - (void)dealloc
 {
-    if (_wkWebView) {
+    if ([_wkWebView isKindOfClass:[WKWebView class]]) {
         [_wkWebView removeObserver:self forKeyPath:@"estimatedProgress"];
     }
+    self.wkWebView = nil;
     
     [_currentTimer invalidate];
     _currentTimer = nil;
