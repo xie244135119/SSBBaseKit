@@ -12,6 +12,8 @@
 //#import "SSBaseKit.h"
 //#import "AYEActionSheetView.h"
 
+#import "AMDWebViewController.h"
+
 @interface ViewController ()
 
 @end
@@ -22,6 +24,7 @@
     [super viewDidLoad];
 //    [self initContentView];
     
+    [self performSelector:@selector(initContentView) withObject:nil afterDelay:0.5];
 }
 
 
@@ -42,6 +45,9 @@
 //    [self.view addSubview:labelshow];
 //    AYEActionSheetView *sheetView = [[AYEActionSheetView alloc]initWithdelegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"测试", nil];
 //    [sheetView showInView:self.view];
+    
+    AMDRootViewController *webVC = [[AMDRootViewController alloc]initWithTitle:@"阿萨帝发送到发送到发的啥发送的阿萨德发生的"];
+    [self presentViewController:webVC animated:YES completion:nil];
 //    
 }
 

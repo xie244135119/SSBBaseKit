@@ -95,7 +95,7 @@
         parstyle.lineSpacing = 2;
         NSString *text = title;
         CGSize size = [text sizeWithAttributes:@{NSFontAttributeName:_titleLabel.font, NSParagraphStyleAttributeName:parstyle }];
-        CGFloat maxWidth = MIN(size.width, self.frame.size.width-80*2);
+        CGFloat maxWidth = MIN(size.width, self.frame.size.width-50*2);
         
         _titleLabel.frame = CGRectMake((self.frame.size.width-maxWidth)/2, height-44, maxWidth, 44);
         [_titleLabel setText:title];

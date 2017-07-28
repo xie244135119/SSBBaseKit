@@ -157,7 +157,6 @@
 		CB47CD231EE64DFE00D81CA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD221EE64DFE00D81CA3 /* Assets.xcassets */; };
 		CB47CD261EE64DFE00D81CA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD241EE64DFE00D81CA3 /* LaunchScreen.storyboard */; };
 		CB614A851EE9362900471DE9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CB614A841EE9362900471DE9 /* README */; };
-		CB8823901EF7E63000095A4C /* SSBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -301,7 +300,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB8823901EF7E63000095A4C /* SSBaseKit.framework in Frameworks */,
 				AF261A7BEE59165292C8BFED /* Pods_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1072,7 +1070,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1088,7 +1086,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
