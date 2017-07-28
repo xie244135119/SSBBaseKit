@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B4665530605D24E7EBBFF5C /* Pods_SSBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		AF261A7BEE59165292C8BFED /* Pods_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAAA301493F9EF28A3012B2 /* Pods_ios.framework */; };
 		CB0C75931EEA54CC00E28AA3 /* AASRegionChoiceView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB0C75911EEA54CC00E28AA3 /* AASRegionChoiceView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB0C75941EEA54CC00E28AA3 /* AASRegionChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */; };
 		CB17995C1EF0CC2C00EA83FC /* AMDMJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB17995B1EF0CC2C00EA83FC /* AMDMJRefresh.bundle */; };
@@ -15,9 +16,47 @@
 		CB2D53421F15B5AC005A1B3F /* AMDSexSetView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB2D53401F15B5AC005A1B3F /* AMDSexSetView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB2D53431F15B5AC005A1B3F /* AMDSexSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2D53411F15B5AC005A1B3F /* AMDSexSetView.m */; };
 		CB2D53441F15B5FA005A1B3F /* AMDSexSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2D53411F15B5AC005A1B3F /* AMDSexSetView.m */; };
-		CB34AE171F18C5540006A562 /* AMDControllerTransitionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = CB34AE161F18C5540006A562 /* AMDControllerTransitionDelegate.h */; };
+		CB34AE171F18C5540006A562 /* AMDControllerTransitionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = CB34AE161F18C5540006A562 /* AMDControllerTransitionDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB34AE191F18D4950006A562 /* KeyBoardIcon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB34AE181F18D4950006A562 /* KeyBoardIcon.bundle */; };
 		CB34AE1A1F18D4970006A562 /* KeyBoardIcon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB34AE181F18D4950006A562 /* KeyBoardIcon.bundle */; };
+		CB45E3C91F2B3462009BB7C6 /* AMDBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC6E1EE6471A00D81CA3 /* AMDBaseView.m */; };
+		CB45E3CA1F2B346F009BB7C6 /* AMDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC511EE6471A00D81CA3 /* AMDRootViewController.m */; };
+		CB45E3CB1F2B3475009BB7C6 /* AMDTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC531EE6471A00D81CA3 /* AMDTabbarController.m */; };
+		CB45E3CC1F2B3477009BB7C6 /* AMDTabbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC551EE6471A00D81CA3 /* AMDTabbarItem.m */; };
+		CB45E3CD1F2B3479009BB7C6 /* AMDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC571EE6471A00D81CA3 /* AMDWebViewController.m */; };
+		CB45E3CE1F2B347D009BB7C6 /* AASRegionChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */; };
+		CB45E3CF1F2B3480009BB7C6 /* AMDAnimationWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC361EE6471A00D81CA3 /* AMDAnimationWebView.m */; };
+		CB45E3D01F2B3482009BB7C6 /* AMDImgViewLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC3A1EE6471A00D81CA3 /* AMDImgViewLabelView.m */; };
+		CB45E3D11F2B3484009BB7C6 /* AMDKeyboradView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC3C1EE6471A00D81CA3 /* AMDKeyboradView.m */; };
+		CB45E3D21F2B3486009BB7C6 /* AMDLabelFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC3E1EE6471A00D81CA3 /* AMDLabelFieldView.m */; };
+		CB45E3D31F2B3489009BB7C6 /* AMDLabelShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC401EE6471A00D81CA3 /* AMDLabelShowView.m */; };
+		CB45E3D41F2B348B009BB7C6 /* AMDLabelSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC421EE6471A00D81CA3 /* AMDLabelSwitchView.m */; };
+		CB45E3D51F2B348C009BB7C6 /* AMDLabelTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC441EE6471A00D81CA3 /* AMDLabelTextView.m */; };
+		CB45E3D61F2B348E009BB7C6 /* AMDLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC461EE6471A00D81CA3 /* AMDLoadingView.m */; };
+		CB45E3D71F2B3491009BB7C6 /* AMDMultipleTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC481EE6471A00D81CA3 /* AMDMultipleTypeView.m */; };
+		CB45E3D81F2B3492009BB7C6 /* AMDSetAmountView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC4A1EE6471A00D81CA3 /* AMDSetAmountView.m */; };
+		CB45E3D91F2B3495009BB7C6 /* AMDWebViewPopverView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC4D1EE6471A00D81CA3 /* AMDWebViewPopverView.m */; };
+		CB45E3DA1F2B34A5009BB7C6 /* AMDErrorLogTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC5C1EE6471A00D81CA3 /* AMDErrorLogTool.m */; };
+		CB45E3DB1F2B34A7009BB7C6 /* AMDWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC5E1EE6471A00D81CA3 /* AMDWebViewProgress.m */; };
+		CB45E3DC1F2B34A9009BB7C6 /* AMDYLEncryptSignTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC601EE6471A00D81CA3 /* AMDYLEncryptSignTool.m */; };
+		CB45E3DD1F2B34AA009BB7C6 /* UIView+AMDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */; };
+		CB45E3DE1F2B34AF009BB7C6 /* AMDBackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC6A1EE6471A00D81CA3 /* AMDBackControl.m */; };
+		CB45E3DF1F2B34B0009BB7C6 /* AMDBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC6C1EE6471A00D81CA3 /* AMDBaseCell.m */; };
+		CB45E3E01F2B34B4009BB7C6 /* AMDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC701EE6471A00D81CA3 /* AMDButton.m */; };
+		CB45E3E11F2B34B6009BB7C6 /* AMDCopyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC721EE6471A00D81CA3 /* AMDCopyLabel.m */; };
+		CB45E3E21F2B34B8009BB7C6 /* AMDImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC741EE6471A00D81CA3 /* AMDImageView.m */; };
+		CB45E3E31F2B34B9009BB7C6 /* AMDLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC761EE6471A00D81CA3 /* AMDLineView.m */; };
+		CB45E3E41F2B34BC009BB7C6 /* AMDNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC781EE6471A00D81CA3 /* AMDNoDataView.m */; };
+		CB45E3E51F2B34BE009BB7C6 /* AMDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC7A1EE6471A00D81CA3 /* AMDProgressView.m */; };
+		CB45E3E61F2B34C0009BB7C6 /* AMDRootNavgationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC7C1EE6471A00D81CA3 /* AMDRootNavgationBar.m */; };
+		CB45E3E71F2B34C2009BB7C6 /* AMDScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC7E1EE6471A00D81CA3 /* AMDScrollView.m */; };
+		CB45E3E81F2B34C4009BB7C6 /* AMDSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC801EE6471A00D81CA3 /* AMDSegmentedControl.m */; };
+		CB45E3E91F2B34C6009BB7C6 /* AMDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC821EE6471A00D81CA3 /* AMDTextField.m */; };
+		CB45E3EA1F2B34C9009BB7C6 /* AYEActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC841EE6471A00D81CA3 /* AYEActionSheetView.m */; };
+		CB45E3EB1F2B34CB009BB7C6 /* AYESheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC861EE6471A00D81CA3 /* AYESheetCell.m */; };
+		CB45E3EC1F2B34CC009BB7C6 /* CustomTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC911EE6471A00D81CA3 /* CustomTextView.m */; };
+		CB45E3ED1F2B34CF009BB7C6 /* CustomTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC8C1EE6471A00D81CA3 /* CustomTableView.m */; };
+		CB45E3EE1F2B34D0009BB7C6 /* GeneralTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC8F1EE6471A00D81CA3 /* GeneralTableView.m */; };
 		CB47CC2A1EE6471000D81CA3 /* SSBaseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC281EE6471000D81CA3 /* SSBaseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CC941EE6471A00D81CA3 /* AMDAnimationWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC351EE6471A00D81CA3 /* AMDAnimationWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CC951EE6471A00D81CA3 /* AMDAnimationWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC361EE6471A00D81CA3 /* AMDAnimationWebView.m */; };
@@ -123,7 +162,10 @@
 
 /* Begin PBXFileReference section */
 		6BA5DF9FE8CEC90D619B909F /* Pods-SSBaseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.release.xcconfig"; sourceTree = "<group>"; };
+		7888E6B63D6D041C6E17ABE7 /* Pods-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios/Pods-ios.release.xcconfig"; sourceTree = "<group>"; };
 		8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DAAA301493F9EF28A3012B2 /* Pods_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACA114F7AD39C1CAA8529DA3 /* Pods-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios/Pods-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		CB0C75911EEA54CC00E28AA3 /* AASRegionChoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASRegionChoiceView.h; sourceTree = "<group>"; };
 		CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASRegionChoiceView.m; sourceTree = "<group>"; };
 		CB0C75951EEAA61E00E28AA3 /* Pods_SSBaseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_SSBaseKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/SSBaseKit-ffnqbiiyirahkqgzbxcxzjybypbp/Build/Products/Debug-iphonesimulator/Pods_SSBaseKit.framework"; sourceTree = "<group>"; };
@@ -260,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB8823901EF7E63000095A4C /* SSBaseKit.framework in Frameworks */,
+				AF261A7BEE59165292C8BFED /* Pods_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +535,8 @@
 			children = (
 				DF4D764CA25168F83786CBD9 /* Pods-SSBaseKit.debug.xcconfig */,
 				6BA5DF9FE8CEC90D619B909F /* Pods-SSBaseKit.release.xcconfig */,
+				ACA114F7AD39C1CAA8529DA3 /* Pods-ios.debug.xcconfig */,
+				7888E6B63D6D041C6E17ABE7 /* Pods-ios.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -502,6 +547,7 @@
 				CB0C75951EEAA61E00E28AA3 /* Pods_SSBaseKit.framework */,
 				CB1DF49E1EE653DA00B93F81 /* Masonry.framework */,
 				8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */,
+				8DAAA301493F9EF28A3012B2 /* Pods_ios.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -596,9 +642,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB47CD281EE64DFE00D81CA3 /* Build configuration list for PBXNativeTarget "ios" */;
 			buildPhases = (
+				3E845E8CA29B2E918507BFED /* [CP] Check Pods Manifest.lock */,
 				CB47CD101EE64DFE00D81CA3 /* Sources */,
 				CB47CD111EE64DFE00D81CA3 /* Frameworks */,
 				CB47CD121EE64DFE00D81CA3 /* Resources */,
+				17CE330C4971A6B859621C2B /* [CP] Embed Pods Frameworks */,
+				3375DCAC84539C3B1A1C9E8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -672,6 +721,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		17CE330C4971A6B859621C2B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios/Pods-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3375DCAC84539C3B1A1C9E8F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios/Pods-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E845E8CA29B2E918507BFED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		CAEBE1195A52C1D4B2027427 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -763,9 +857,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB47CD1E1EE64DFE00D81CA3 /* ViewController.m in Sources */,
+				CB45E3C91F2B3462009BB7C6 /* AMDBaseView.m in Sources */,
+				CB45E3E91F2B34C6009BB7C6 /* AMDTextField.m in Sources */,
+				CB45E3E61F2B34C0009BB7C6 /* AMDRootNavgationBar.m in Sources */,
+				CB45E3DA1F2B34A5009BB7C6 /* AMDErrorLogTool.m in Sources */,
+				CB45E3D81F2B3492009BB7C6 /* AMDSetAmountView.m in Sources */,
+				CB45E3DC1F2B34A9009BB7C6 /* AMDYLEncryptSignTool.m in Sources */,
 				CB47CD1B1EE64DFE00D81CA3 /* AppDelegate.m in Sources */,
+				CB45E3CE1F2B347D009BB7C6 /* AASRegionChoiceView.m in Sources */,
+				CB45E3DF1F2B34B0009BB7C6 /* AMDBaseCell.m in Sources */,
+				CB45E3EA1F2B34C9009BB7C6 /* AYEActionSheetView.m in Sources */,
+				CB45E3CB1F2B3475009BB7C6 /* AMDTabbarController.m in Sources */,
+				CB45E3DD1F2B34AA009BB7C6 /* UIView+AMDExtension.m in Sources */,
+				CB45E3D21F2B3486009BB7C6 /* AMDLabelFieldView.m in Sources */,
+				CB45E3E51F2B34BE009BB7C6 /* AMDProgressView.m in Sources */,
+				CB45E3ED1F2B34CF009BB7C6 /* CustomTableView.m in Sources */,
 				CB47CD181EE64DFE00D81CA3 /* main.m in Sources */,
+				CB45E3E01F2B34B4009BB7C6 /* AMDButton.m in Sources */,
 				CB2D53441F15B5FA005A1B3F /* AMDSexSetView.m in Sources */,
+				CB45E3E41F2B34BC009BB7C6 /* AMDNoDataView.m in Sources */,
+				CB45E3CA1F2B346F009BB7C6 /* AMDRootViewController.m in Sources */,
+				CB45E3CF1F2B3480009BB7C6 /* AMDAnimationWebView.m in Sources */,
+				CB45E3D51F2B348C009BB7C6 /* AMDLabelTextView.m in Sources */,
+				CB45E3DE1F2B34AF009BB7C6 /* AMDBackControl.m in Sources */,
+				CB45E3EB1F2B34CB009BB7C6 /* AYESheetCell.m in Sources */,
+				CB45E3D91F2B3495009BB7C6 /* AMDWebViewPopverView.m in Sources */,
+				CB45E3E31F2B34B9009BB7C6 /* AMDLineView.m in Sources */,
+				CB45E3D01F2B3482009BB7C6 /* AMDImgViewLabelView.m in Sources */,
+				CB45E3CD1F2B3479009BB7C6 /* AMDWebViewController.m in Sources */,
+				CB45E3D11F2B3484009BB7C6 /* AMDKeyboradView.m in Sources */,
+				CB45E3D31F2B3489009BB7C6 /* AMDLabelShowView.m in Sources */,
+				CB45E3EC1F2B34CC009BB7C6 /* CustomTextView.m in Sources */,
+				CB45E3E21F2B34B8009BB7C6 /* AMDImageView.m in Sources */,
+				CB45E3D71F2B3491009BB7C6 /* AMDMultipleTypeView.m in Sources */,
+				CB45E3E11F2B34B6009BB7C6 /* AMDCopyLabel.m in Sources */,
+				CB45E3D41F2B348B009BB7C6 /* AMDLabelSwitchView.m in Sources */,
+				CB45E3EE1F2B34D0009BB7C6 /* GeneralTableView.m in Sources */,
+				CB45E3D61F2B348E009BB7C6 /* AMDLoadingView.m in Sources */,
+				CB45E3DB1F2B34A7009BB7C6 /* AMDWebViewProgress.m in Sources */,
+				CB45E3CC1F2B3477009BB7C6 /* AMDTabbarItem.m in Sources */,
+				CB45E3E71F2B34C2009BB7C6 /* AMDScrollView.m in Sources */,
+				CB45E3E81F2B34C4009BB7C6 /* AMDSegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -933,6 +1065,7 @@
 		};
 		CB47CD291EE64DFE00D81CA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACA114F7AD39C1CAA8529DA3 /* Pods-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
@@ -948,6 +1081,7 @@
 		};
 		CB47CD2A1EE64DFE00D81CA3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7888E6B63D6D041C6E17ABE7 /* Pods-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
