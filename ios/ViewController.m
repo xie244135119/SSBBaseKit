@@ -11,7 +11,7 @@
 //#import "SSBaseKit.h"
 //#import "SSBaseKit.h"
 //#import "AYEActionSheetView.h"
-
+#import "AMDSelectItemView.h"
 #import "AMDWebViewController.h"
 
 @interface ViewController ()
@@ -24,7 +24,8 @@
     [super viewDidLoad];
 //    [self initContentView];
     
-    [self performSelector:@selector(initContentView) withObject:nil afterDelay:0.5];
+    [self testLineItemView];
+//    [self performSelector:@selector(initContentView) withObject:nil afterDelay:0.5];
 }
 
 
@@ -48,8 +49,16 @@
     
     AMDRootViewController *webVC = [[AMDRootViewController alloc]initWithTitle:@"阿萨帝发送到发送到发的啥发送的阿萨德发生的"];
     [self presentViewController:webVC animated:YES completion:nil];
-//    
+//
 }
+
+- (void)testLineItemView
+{
+    AMDSelectItemView *itemView = [[AMDSelectItemView alloc]initWithFrame:CGRectMake(100, 100, 24, 24)];
+    itemView.strokeColor = [UIColor redColor];
+    [self.view addSubview:itemView];
+}
+
 
 
 

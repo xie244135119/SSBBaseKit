@@ -19,6 +19,9 @@
 		CB34AE171F18C5540006A562 /* AMDControllerTransitionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = CB34AE161F18C5540006A562 /* AMDControllerTransitionDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB34AE191F18D4950006A562 /* KeyBoardIcon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB34AE181F18D4950006A562 /* KeyBoardIcon.bundle */; };
 		CB34AE1A1F18D4970006A562 /* KeyBoardIcon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB34AE181F18D4950006A562 /* KeyBoardIcon.bundle */; };
+		CB44376B1F3192DA00FF108C /* AMDSelectItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB4437691F3192DA00FF108C /* AMDSelectItemView.h */; };
+		CB44376C1F3192DA00FF108C /* AMDSelectItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB44376A1F3192DA00FF108C /* AMDSelectItemView.m */; };
+		CB44376D1F3192DA00FF108C /* AMDSelectItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB44376A1F3192DA00FF108C /* AMDSelectItemView.m */; };
 		CB45E3C91F2B3462009BB7C6 /* AMDBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC6E1EE6471A00D81CA3 /* AMDBaseView.m */; };
 		CB45E3CA1F2B346F009BB7C6 /* AMDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC511EE6471A00D81CA3 /* AMDRootViewController.m */; };
 		CB45E3CB1F2B3475009BB7C6 /* AMDTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC531EE6471A00D81CA3 /* AMDTabbarController.m */; };
@@ -174,6 +177,8 @@
 		CB2D53411F15B5AC005A1B3F /* AMDSexSetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSexSetView.m; sourceTree = "<group>"; };
 		CB34AE161F18C5540006A562 /* AMDControllerTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDControllerTransitionDelegate.h; sourceTree = "<group>"; };
 		CB34AE181F18D4950006A562 /* KeyBoardIcon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KeyBoardIcon.bundle; sourceTree = "<group>"; };
+		CB4437691F3192DA00FF108C /* AMDSelectItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSelectItemView.h; sourceTree = "<group>"; };
+		CB44376A1F3192DA00FF108C /* AMDSelectItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSelectItemView.m; sourceTree = "<group>"; };
 		CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB47CC281EE6471000D81CA3 /* SSBaseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSBaseKit.h; sourceTree = "<group>"; };
 		CB47CC291EE6471000D81CA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -465,6 +470,8 @@
 				CB47CC881EE6471A00D81CA3 /* CustomTableView */,
 				CB47CC901EE6471A00D81CA3 /* CustomTextView.h */,
 				CB47CC911EE6471A00D81CA3 /* CustomTextView.m */,
+				CB4437691F3192DA00FF108C /* AMDSelectItemView.h */,
+				CB44376A1F3192DA00FF108C /* AMDSelectItemView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -598,6 +605,7 @@
 				CB0C75931EEA54CC00E28AA3 /* AASRegionChoiceView.h in Headers */,
 				CB47CCE81EE6471A00D81CA3 /* CustomTableViewDelegate.h in Headers */,
 				CB47CCBC1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h in Headers */,
+				CB44376B1F3192DA00FF108C /* AMDSelectItemView.h in Headers */,
 				CB47CD001EE6480B00D81CA3 /* AMDMJRefreshBaseView.h in Headers */,
 				CB47CCE11EE6471A00D81CA3 /* AYESheetCell.h in Headers */,
 				CB47CD081EE6480B00D81CA3 /* UIScrollView+AMDMJExtension.h in Headers */,
@@ -801,6 +809,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB44376C1F3192DA00FF108C /* AMDSelectItemView.m in Sources */,
 				CB47CD051EE6480B00D81CA3 /* AMDMJRefreshFooterView.m in Sources */,
 				CB47CCE01EE6471A00D81CA3 /* AYEActionSheetView.m in Sources */,
 				CB2D53431F15B5AC005A1B3F /* AMDSexSetView.m in Sources */,
@@ -867,6 +876,7 @@
 				CB45E3EA1F2B34C9009BB7C6 /* AYEActionSheetView.m in Sources */,
 				CB45E3CB1F2B3475009BB7C6 /* AMDTabbarController.m in Sources */,
 				CB45E3DD1F2B34AA009BB7C6 /* UIView+AMDExtension.m in Sources */,
+				CB44376D1F3192DA00FF108C /* AMDSelectItemView.m in Sources */,
 				CB45E3D21F2B3486009BB7C6 /* AMDLabelFieldView.m in Sources */,
 				CB45E3E51F2B34BE009BB7C6 /* AMDProgressView.m in Sources */,
 				CB45E3ED1F2B34CF009BB7C6 /* CustomTableView.m in Sources */,

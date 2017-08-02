@@ -51,6 +51,7 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 #import <SSBaseKit/AYEActionSheetView.h>
 #import <SSBaseKit/AASRegionChoiceView.h>
 #import <SSBaseKit/AMDSexSetView.h>
+#import <SSBaseKit/AMDSelectItemView.h>
 
 
 
