@@ -535,8 +535,8 @@
 // 处理是否可以加载当前请求
 - (BOOL)canLoadURLRequest:(NSURLRequest *)aRequest
 {
-    // 如果当前scheme改变---不是普通的http链接 用于加载外链 例如taobao://商品地址
-    if (![aRequest.URL.scheme hasPrefix:@"http"]) {
+    // 如果当前scheme改变---不是普通的http链接和本地链接 用于加载外链 例如taobao://商品地址
+    if (!([aRequest.URL.scheme hasPrefix:@"http"] || [aRequest.URL.scheme hasPrefix:@"file"])) {
         if (![aRequest.URL.scheme isEqualToString:@"about"]) {
             if ([[UIApplication sharedApplication] canOpenURL:aRequest.URL]) {
                 [[UIApplication sharedApplication] openURL:aRequest.URL];
