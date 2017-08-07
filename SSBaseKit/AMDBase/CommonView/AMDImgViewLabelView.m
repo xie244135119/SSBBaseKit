@@ -62,13 +62,12 @@
     // 文本内容
     UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 0, w-50-40, h)];
     textLabel.backgroundColor = [UIColor clearColor];
-    textLabel.font = FontWithName(@"", 14);
+    textLabel.font = SSFontWithName(@"", 14);
     [self addSubview:textLabel];
     _textLabel = textLabel;
     
     //箭头
-    NSString *arrowpath = GetFilePathFromBundle(@"CommonUIModule.bundle", @"arrow-right.png");
-    UIImage *arrowiamge = [[UIImage alloc]initWithContentsOfFile:arrowpath];
+    UIImage *arrowiamge = SSImageFromName(@"arrow-right.png");
     UIImageView *jiantou = [[UIImageView alloc]initWithFrame:CGRectMake(w-30, (h-24)/2, 24, 24)];
     jiantou.image = arrowiamge;
     [self addSubview:jiantou];
@@ -91,13 +90,12 @@
     // 文本内容
     UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 0, w-50-40, h)];
     textLabel.backgroundColor = [UIColor clearColor];
-    textLabel.font = FontWithName(@"", 14);
+    textLabel.font = SSFontWithName(@"", 14);
     [self addSubview:textLabel];
     _textLabel = textLabel;
     
     //箭头
-    NSString *arrowpath = GetFilePathFromBundle(@"CommonUIModule.bundle", @"arrow-right.png");
-    UIImage *arrowiamge = [[UIImage alloc]initWithContentsOfFile:arrowpath];
+    UIImage *arrowiamge = SSImageFromName(@"arrow-right.png");
     UIImageView *jiantou = [[UIImageView alloc]initWithFrame:CGRectMake(w-30, (h-24)/2, 24, 24)];
     jiantou.image = arrowiamge;
     [self addSubview:jiantou];

@@ -70,8 +70,8 @@
         UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(15, 0, 100, h)];
 //    UILabel *titleLable = [[UILabel alloc]init];
     titleLable.backgroundColor = [UIColor clearColor];
-    titleLable.font = FontWithName(@"", 14);
-    titleLable.textColor = ColorWithRGB(51, 51, 51, 1);
+    titleLable.font = SSFontWithName(@"", 14);
+    titleLable.textColor = SSColorWithRGB(51, 51, 51, 1);
     [self addSubview:titleLable];
     //    titleLable.layer.borderWidth = 1;
     _titleLabel = titleLable;
@@ -87,10 +87,10 @@
 //    AMDCopyLabel *contentLable = [[AMDCopyLabel alloc]init];
     contentLable.textAlignment = NSTextAlignmentRight;
     contentLable.backgroundColor = [UIColor clearColor];
-    contentLable.font = FontWithName(@"", 14);
+    contentLable.font = SSFontWithName(@"", 14);
     contentLable.numberOfLines = 0;
-    //    contentLable.textColor = ColorWithRGB(51, 51, 51, 1);
-    contentLable.textColor = ColorWithRGB(119, 119, 119, 1);
+    //    contentLable.textColor = SSColorWithRGB(51, 51, 51, 1);
+    contentLable.textColor = SSColorWithRGB(119, 119, 119, 1);
         contentLable.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     //    contentLable.layer.borderWidth = 1;
     [self addSubview:contentLable];
@@ -111,8 +111,8 @@
 //    UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(15, 0, 100, h)];
     UILabel *titleLable = [[UILabel alloc]init];
     titleLable.backgroundColor = [UIColor clearColor];
-    titleLable.font = FontWithName(@"", 14);
-    titleLable.textColor = ColorWithRGB(51, 51, 51, 1);
+    titleLable.font = SSFontWithName(@"", 14);
+    titleLable.textColor = SSColorWithRGB(51, 51, 51, 1);
     [self addSubview:titleLable];
     _titleLabel = titleLable;
     [titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -127,10 +127,10 @@
     AMDCopyLabel *contentLable = [[AMDCopyLabel alloc]init];
     contentLable.textAlignment = NSTextAlignmentRight;
     contentLable.backgroundColor = [UIColor clearColor];
-    contentLable.font = FontWithName(@"", 14);
+    contentLable.font = SSFontWithName(@"", 14);
     contentLable.numberOfLines = 0;
-//    contentLable.textColor = ColorWithRGB(51, 51, 51, 1);
-    contentLable.textColor = ColorWithRGB(119, 119, 119, 1);
+//    contentLable.textColor = SSColorWithRGB(51, 51, 51, 1);
+    contentLable.textColor = SSColorWithRGB(119, 119, 119, 1);
 //    contentLable.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     [self addSubview:contentLable];
     _contentLabel = contentLable;
@@ -210,8 +210,8 @@
         
         if (rightArrowShow) {
             if (_currentArrowImgview == nil) {
-                NSString *arrowpath = GetFilePathFromBundle(@"CommonUIModule.bundle", @"arrow-right.png");
-                UIImage *arrowiamge = [[UIImage alloc]initWithContentsOfFile:arrowpath];
+//                NSString *arrowpath = SSImageFromName(@"arrow-right.png");
+                UIImage *arrowiamge = SSImageFromName(@"arrow-right.png");
                 UIImageView *imgView = [[UIImageView alloc]init];
                 imgView.tag = 2;
                 imgView.image = arrowiamge;

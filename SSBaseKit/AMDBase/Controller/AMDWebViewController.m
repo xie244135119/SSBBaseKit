@@ -30,7 +30,7 @@
 
 - (void)dealloc
 {
-    if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
+    if ([_currentAnimationView.wkWebView isKindOfClass:[WKWebView class]]) {
         [_currentAnimationView.wkWebView removeObserver:self forKeyPath:@"title"];
     }
     self.requestWithSignURL = nil;
@@ -42,6 +42,7 @@
 {
     [super viewDidLoad];
     [self initNavView];
+//    [self initContentView];
     
     [self performSelectorOnMainThread:@selector(initContentView) withObject:nil waitUntilDone:NO];
 }
@@ -78,7 +79,7 @@
 // 页面刷新
 - (void)preReload
 {
-    [_currentAnimationView.wkWebView reload];
+    [_currentAnimationView.uiWebView reload];
     [_currentAnimationView.wkWebView reload];
 }
 
@@ -124,8 +125,8 @@
             // 右侧关闭按钮
             AMDButton *closebt = [[AMDButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-35-10, 0, 35, 44)];
             closebt.titleLabel.text = @"关闭";
-            closebt.titleLabel.textColor = ColorWithRGB(51, 51, 51, 1);
-            closebt.titleLabel.font = FontWithName(@"", 16);
+            closebt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
+            closebt.titleLabel.font = SSFontWithName(@"", 16);
             //        closebt.layer.borderWidth = 1;
             closebt.tag = 2;
             [closebt addTarget:self action:@selector(clickBackAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -141,8 +142,8 @@
             // 更多按钮--仅供调试使用
             AMDButton *morebt = [[AMDButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-40-5, 2, 40, 40)];
             morebt.imageView.frame = CGRectMake(8, 8, 24, 24);
-            [morebt setImage:imageFromBundleName(@"DynamicMoudle.bundle", @"topicinfo_more.png") forState:UIControlStateNormal];
-            [morebt setImage:imageFromBundleName(@"DynamicMoudle.bundle", @"topicinfo_more_select.png") forState:UIControlStateHighlighted];
+            [morebt setImage:SSImageFromName(@"topicinfo_more.png") forState:UIControlStateNormal];
+            [morebt setImage:SSImageFromName(@"topicinfo_more_select.png") forState:UIControlStateHighlighted];
             [morebt addTarget:self action:@selector(clickMoreAction:) forControlEvents:UIControlEventTouchUpInside];
             morebt.tag = 4;
             self.titleView.rightViews = @[morebt];
@@ -166,8 +167,8 @@
             AMDButton *closebt = [[AMDButton alloc]initWithFrame:CGRectMake(25, 0, 35, 44)];
             closebt.titleLabel.text = @"关闭";
             closebt.tag = 1;
-            closebt.titleLabel.textColor = ColorWithRGB(51, 51, 51, 1);
-            closebt.titleLabel.font = FontWithName(@"", 15);
+            closebt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
+            closebt.titleLabel.font = SSFontWithName(@"", 15);
             //        closebt.layer.borderWidth = 1;
             [closebt addTarget:self action:@selector(clickBackAction:) forControlEvents:UIControlEventTouchUpInside];
             self.titleView.leftViews = @[closebt];
@@ -185,7 +186,6 @@
     // 先后退页面
     if ([_currentAnimationView.wkWebView canGoBack]) {
         [_currentAnimationView.wkWebView goBack];
-        
         return ;
     }
     
@@ -217,7 +217,7 @@
 - (void)clickMoreAction:(AMDButton *)sender
 {
     //
-    NSString *urlstr = _currentAnimationView.wkWebView.URL.description?_currentAnimationView.wkWebView.URL.description:@"";
+    NSString *urlstr = _currentAnimationView.wkWebView.URL.description?_currentAnimationView.wkWebView.URL.description:(_currentAnimationView.uiWebView.request.URL.description?_currentAnimationView.uiWebView.request.URL.description:@"");
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"临时测试使用" message:urlstr preferredStyle:UIAlertControllerStyleAlert];
     [UIAlertAction actionWithTitle:@"取消"
                              style:UIAlertActionStyleDefault

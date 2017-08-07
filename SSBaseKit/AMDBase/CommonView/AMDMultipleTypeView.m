@@ -57,8 +57,8 @@
         UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
         [bt setFrame:CGRectMake(w*i, 0, w, self.frame.size.height)];
         [bt setTitle:titles[i] forState:UIControlStateNormal];
-        [bt setTitleColor:ColorWithRGB(119, 119, 119, 1) forState:UIControlStateNormal];
-        bt.titleLabel.font = FontWithName(@"", 14);
+        [bt setTitleColor:SSColorWithRGB(119, 119, 119, 1) forState:UIControlStateNormal];
+        bt.titleLabel.font = SSFontWithName(@"", 14);
         bt.tag = i+1;
         [bt addTarget:self action:@selector(choiceActionButton:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:bt];
@@ -277,8 +277,8 @@
     for (NSInteger i =0 ;i<titles.count; i++) {
         UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
         [bt setTitle:titles[i] forState:UIControlStateNormal];
-        [bt setTitleColor:ColorWithRGB(119, 119, 119, 1) forState:UIControlStateNormal];
-        bt.titleLabel.font = FontWithName(@"", 14);
+        [bt setTitleColor:SSColorWithRGB(119, 119, 119, 1) forState:UIControlStateNormal];
+        bt.titleLabel.font = SSFontWithName(@"", 14);
         bt.tag = i+1;
         [bt addTarget:self action:@selector(choiceActionButton2:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:bt];

@@ -78,8 +78,8 @@
             _titleLabel = label;
             label.tag = 10;
             label.textAlignment = NSTextAlignmentCenter;
-            label.font = FontWithName(@"", 18);
-            label.textColor = ColorWithRGB(75, 75, 75, 1);
+            label.font = SSFontWithName(@"", 18);
+            label.textColor = SSColorWithRGB(75, 75, 75, 1);
 //            label.textColor = nav_text_color;
             [self addSubview:label];
         }

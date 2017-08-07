@@ -59,7 +59,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.layer.borderColor = [ColorWithRGB(0, 0, 0, 0.15) CGColor];
+        self.layer.borderColor = [SSColorWithRGB(0, 0, 0, 0.15) CGColor];
         self.layer.borderWidth = 0.3;
         self.layer.cornerRadius = 3;
         self.layer.masksToBounds = YES;
@@ -83,7 +83,7 @@
 {
     UILabel *lb = [[UILabel alloc]initWithFrame:CGRectMake(6, 6,self.frame.size.width-10, 20)];
     lb.backgroundColor = [UIColor clearColor];
-    lb.textColor = ColorWithRGB(153, 153, 153, 1);
+    lb.textColor = SSColorWithRGB(153, 153, 153, 1);
     [self addSubview:lb];
     lb.text = @"请输入内容";
     _placeHolderLabel = lb;
@@ -99,8 +99,8 @@
 {
     UILabel *lb = [[UILabel alloc]init];
     lb.backgroundColor = [UIColor clearColor];
-    lb.font = FontWithName(@"", 14);
-    lb.textColor = ColorWithRGB(153, 153, 153, 1);
+    lb.font = SSFontWithName(@"", 14);
+    lb.textColor = SSColorWithRGB(153, 153, 153, 1);
     [self addSubview:lb];
     lb.text = @"请输入内容";
     _placeHolderLabel = lb;

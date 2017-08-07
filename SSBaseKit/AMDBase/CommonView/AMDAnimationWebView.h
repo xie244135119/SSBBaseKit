@@ -55,7 +55,7 @@
 
 
 
-@property(nonatomic, readonly) UIWebView *uiWebView;                      //webView
+@property(nonatomic, strong, readonly) UIWebView *uiWebView;                      //webView
 /**
  UIWebView页面加载完成之后的事件
  */

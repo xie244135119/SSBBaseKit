@@ -145,7 +145,7 @@
     //内部视图
     UIView *contentvw = [[UIView alloc]init];
     _contentView = contentvw;
-    contentvw.backgroundColor = ColorWithRGB(246, 246, 246, 1);
+    contentvw.backgroundColor = SSColorWithRGB(246, 246, 246, 1);
 //    contentvw.layer.borderWidth = 1;
     if (_titleView)
         [self.view insertSubview:contentvw belowSubview:_titleView];
@@ -192,9 +192,9 @@
                 AMDBackControl *backbt = [[AMDBackControl alloc]initWithFrame:CGRectMake(0, 0, 44+10, 44)];
                 backbt.tag = 50;
                 _backItem = backbt;
-                [backbt setImage:imageFromBundleName(@"CommonUIModule.bundle", @"back_normal.png") forState:UIControlStateNormal];
-                [backbt setImage:imageFromBundleName(@"CommonUIModule.bundle", @"back_selected.png") forState:UIControlStateHighlighted];
-                [backbt setImage:imageFromBundleName(@"CommonUIModule.bundle", @"back_selected.png") forState:UIControlStateSelected];
+                [backbt setImage:SSImageFromName(@"back_normal.png") forState:UIControlStateNormal];
+                [backbt setImage:SSImageFromName(@"back_selected.png") forState:UIControlStateHighlighted];
+                [backbt setImage:SSImageFromName(@"back_selected.png") forState:UIControlStateSelected];
                 [backbt addTarget:self action:@selector(ClickBt_Back:) forControlEvents:UIControlEventTouchUpInside];
                 self.titleView.leftViews = @[backbt];
             }

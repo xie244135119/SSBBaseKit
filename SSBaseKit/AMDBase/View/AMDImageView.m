@@ -13,6 +13,7 @@
 - (void)setImageWithUrl:(NSURL *)url placeHolder:(UIImage *)placeHolder
 {
     // 实现主项目实现
+    self.image = placeHolder;
 }
 
 
@@ -21,6 +22,7 @@
              completion:(void (^)(UIImage *, NSError *))completion
 {
     // 实现主项目实现
+    self.image = placeHolder;
 }
 
 
@@ -31,6 +33,7 @@
                    fail:(void (^)(NSError *))fail
 {
     // 主项目实现
+    self.image = placeHolder;
 }
 
 
@@ -40,6 +43,7 @@
              placeHolder:(UIImage *)placeHolder
 {
     // 实现主项目实现
+    self.image = placeHolder;
 }
 
 - (void)setImageWithPath:(NSURL *)url
@@ -47,6 +51,7 @@
               completion:(void (^)(UIImage *, NSError *))completion
 {
     // 实现主项目实现
+    self.image = placeHolder;
 }
 
 - (void)setImageWithPath:(NSURL *)url
@@ -54,7 +59,7 @@
                  success:(void (^)(UIImage *))success
                     fail:(void (^)(NSError *))fail
 {
-    
+    self.image = placeHolder;
 }
 
 

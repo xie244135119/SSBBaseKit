@@ -45,18 +45,18 @@
 - (void)initContentView
 {
     CGSize size = [UIScreen mainScreen].bounds.size;
-    self.backgroundColor = ColorWithRGB(0, 0, 0, 0);
+    self.backgroundColor = SSColorWithRGB(0, 0, 0, 0);
     
     // 中间视图
     UIView *middleView = [[UIView alloc]initWithFrame:CGRectMake(0, size.height, size.width, 170)];
-    middleView.backgroundColor = ColorWithRGB(246, 246, 246, 1);
+    middleView.backgroundColor = SSColorWithRGB(246, 246, 246, 1);
     [self addSubview:middleView];
     _middleView = middleView;
     
     // 男
     AMDButton *malebt = [[AMDButton alloc]initWithFrame:CGRectMake(0, 0, size.width, 50)];
     malebt.titleLabel.text = @"男";
-    malebt.titleLabel.textColor = ColorWithRGB(51, 51, 51, 1);
+    malebt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
     [malebt setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [malebt setBackgroundColor:SSLineColor forState:UIControlStateSelected];
     [middleView addSubview:malebt];
@@ -66,7 +66,7 @@
     // 女
     AMDButton *womanbt = [[AMDButton alloc]initWithFrame:CGRectMake(0, 50, size.width, 50)];
     womanbt.titleLabel.text = @"女";
-    womanbt.titleLabel.textColor = ColorWithRGB(51, 51, 51, 1);
+    womanbt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
     [womanbt setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [womanbt setBackgroundColor:SSLineColor forState:UIControlStateSelected];
     [middleView addSubview:womanbt];
@@ -76,7 +76,7 @@
     //取消按钮
     AMDButton *cancelbt = [[AMDButton alloc]initWithFrame:CGRectMake(0, 120, size.width, 50)];
     cancelbt.titleLabel.text = @"取消";
-    cancelbt.titleLabel.textColor = ColorWithRGB(51, 51, 51, 1);
+    cancelbt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
     [cancelbt setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [cancelbt setBackgroundColor:SSLineColor forState:UIControlStateSelected];
     [middleView addSubview:cancelbt];
@@ -116,7 +116,7 @@
     [UIView animateWithDuration:0.25 animations:^{
 //        _middleView.frame = CGRectMake(0, APPHeight-_middleView.frame.size.height, APPWidth, _middleView.frame.size.height);
         _middleView.amd_y = size.height-_middleView.frame.size.height;
-        weakself.backgroundColor = ColorWithRGB(0, 0, 0, 0.56);
+        weakself.backgroundColor = SSColorWithRGB(0, 0, 0, 0.56);
     }];
 }
 
@@ -128,7 +128,7 @@
     [UIView animateWithDuration:0.25 animations:^{
 //        _middleView.frame = CGRectMake(0, APPHeight, APPWidth, _middleView.frame.size.height);
         _middleView.amd_y = size.height;
-        weakself.backgroundColor = ColorWithRGB(0, 0, 0, 0);
+        weakself.backgroundColor = SSColorWithRGB(0, 0, 0, 0);
     } completion:^(BOOL finished) {
         [weakself removeFromSuperview];
     }];

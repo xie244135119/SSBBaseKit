@@ -24,8 +24,8 @@
         CGFloat width = [UIScreen mainScreen].bounds.size.width;
         CGFloat height = 50;
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, width, height)];
-        label.textColor = ColorWithRGB(0, 0, 0, 0);
-        label.font = FontWithName(@"", 16);
+        label.textColor = SSColorWithRGB(0, 0, 0, 0);
+        label.font = SSFontWithName(@"", 16);
         label.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:label];
         _sheetTitle_label = label;

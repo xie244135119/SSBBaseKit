@@ -7,7 +7,6 @@
 //
 
 #import "AASRegionChoiceView.h"
-////#import "ATAColorConfig.h"
 #import "SSGlobalVar.h"
 
 @interface AASRegionChoiceView() <UIPickerViewDataSource,UIPickerViewDelegate>
@@ -46,7 +45,7 @@
 //视图加载
 - (void)initView
 {
-    self.backgroundColor = ColorWithRGB(246, 246, 246, 1);
+    self.backgroundColor = SSColorWithRGB(246, 246, 246, 1);
     // pickerView
     UIPickerView *pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 162)];
     //用于自定义pickview大小

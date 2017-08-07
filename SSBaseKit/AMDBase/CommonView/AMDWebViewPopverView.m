@@ -37,7 +37,7 @@
     // 提供源
     UILabel *sourcelb = [[UILabel alloc]init];
     sourcelb.textAlignment = NSTextAlignmentCenter;
-    sourcelb.font = FontWithName(@"", 13);
+    sourcelb.font = SSFontWithName(@"", 13);
     sourcelb.text = @"网页由 www.baidu.com 提供";
     [middleView addSubview:sourcelb];
     
@@ -58,8 +58,8 @@
     // 取消按钮
     UIButton *cancelbt = [UIButton buttonWithType:UIButtonTypeCustom];
     [cancelbt setTitle:@"取消" forState:UIControlStateNormal];
-    cancelbt.titleLabel.font = FontWithName(@"", 15);
-    [cancelbt setBackgroundColor:ColorWithRGB(255, 255, 255, 0.9)];
+    cancelbt.titleLabel.font = SSFontWithName(@"", 15);
+    [cancelbt setBackgroundColor:SSColorWithRGB(255, 255, 255, 0.9)];
     [middleView addSubview:cancelbt];
     [cancelbt addTarget:self action:@selector(clickCancel:) forControlEvents:UIControlEventTouchUpInside];
     [cancelbt mas_makeConstraints:^(MASConstraintMaker *make) {

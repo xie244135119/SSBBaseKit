@@ -26,8 +26,8 @@
 {
     // 鼓励金
     UILabel *gulilb = [[UILabel alloc]init];
-    gulilb.font = FontWithName(@"", 14);
-    gulilb.textColor = ColorWithRGB(51, 51, 51, 1);
+    gulilb.font = SSFontWithName(@"", 14);
+    gulilb.textColor = SSColorWithRGB(51, 51, 51, 1);
     [self addSubview:gulilb];
     _titleLb = gulilb;
     [gulilb mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -173,7 +173,7 @@
 - (UIFont *)barFont
 {
     if (_barFont == nil) {
-        return FontWithName(@"", 17);
+        return SSFontWithName(@"", 17);
     }
     return _barFont;
 }
@@ -201,7 +201,7 @@
         cell = [[AYESheetCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellider];
     }
     cell.sheetTitle_label.text = self.arr[indexPath.section][indexPath.row];
-    //    cell.sheetTitle_label.font = FontWithName(@"", 17);
+    //    cell.sheetTitle_label.font = SSFontWithName(@"", 17);
     cell.sheetTitle_label.font = self.barFont;
     if (indexPath.section == 0 && indexPath.row == 0 && self.hasDestructive) {
         cell.sheetTitle_label.textColor = [UIColor colorWithRed:1.0 green:0.3216 blue:0.2118 alpha:1.0];

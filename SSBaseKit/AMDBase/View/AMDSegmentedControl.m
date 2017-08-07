@@ -53,7 +53,7 @@
 // 加载自适应视图
 - (void)initAutoLayoutView
 {
-    self.layer.borderColor = [ColorWithRGB(119, 119, 119, 1) CGColor];
+    self.layer.borderColor = [SSColorWithRGB(119, 119, 119, 1) CGColor];
 //    self.layer.borderColor = [seg_border_color CGColor];
     self.layer.borderWidth = 0.5;
     self.layer.cornerRadius = 3;
@@ -64,7 +64,7 @@
         NSString *title = _segmentItems[i];
         AMDButton *bt = [[AMDButton alloc]init];
         [bt setTitle:title forState:UIControlStateNormal];
-        bt.titleLabel.font = FontWithName(@"", 13);
+        bt.titleLabel.font = SSFontWithName(@"", 13);
         [self addSubview:bt];
         bt.tag = i+1;
         [bt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];

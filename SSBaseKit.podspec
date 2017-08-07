@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SSBaseKit"
-  s.version      = "1.0.13.6"
+  s.version      = "1.0.13.7"
   s.summary      = "SSBaseKit 基础框架类 "
 
   # This description is used to generate tags and improve search results.
@@ -105,7 +105,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-    s.resource = "SSBaseKit/MJRefresh/AMDMJRefresh.bundle"
+    s.resources = "SSBaseKit/MJRefresh/AMDMJRefresh.bundle","SSBaseKit/*.bundle"
   # s.resources = "Resources/*.png"
   # s.resources = "MJRefresh/*.png"
 

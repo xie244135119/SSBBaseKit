@@ -41,9 +41,9 @@
     [self addSubview:bar];
     UIButton *finishbt = [UIButton buttonWithType:UIButtonTypeCustom];
     [finishbt setTitle:@"完成" forState:UIControlStateNormal];
-    finishbt.titleLabel.font = FontWithName(@"", 14);
+    finishbt.titleLabel.font = SSFontWithName(@"", 14);
     [finishbt setFrame:CGRectMake(self.frame.size.width-35-10, 0, 35, barheight)];
-    [finishbt setTitleColor:ColorWithRGB(255, 82, 54, 1) forState:UIControlStateNormal];
+    [finishbt setTitleColor:SSColorWithRGB(255, 82, 54, 1) forState:UIControlStateNormal];
     [finishbt addTarget:self action:@selector(clickFinishAction:) forControlEvents:UIControlEventTouchUpInside];
     [bar addSubview:finishbt];
     
@@ -52,7 +52,7 @@
     for (NSInteger i = 0; i < 12; i++) {
         AMDButton *bt = [[AMDButton alloc]initWithFrame:CGRectMake(btw*(i%3), barheight+bth*(i/3), btw, bth)];
         NSString *imagename = [[NSString alloc]initWithFormat:@"%li.png",(long)i+1];
-        NSString *strResourcesBundle = GetFilePath(@"KeyBoardIcon.bundle");
+        NSString *strResourcesBundle = SSGetFilePath(@"SSKeyBoard.bundle");
         UIImage *image = [[UIImage alloc]initWithContentsOfFile:[strResourcesBundle stringByAppendingPathComponent:imagename]];
         bt.imageView.image = image;
         [bt setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -89,11 +89,11 @@
     //线条
     for (NSInteger i =0; i<4; i++) {
         //横线
-        AMDLineView *line = [[AMDLineView alloc]initWithFrame:CGRectMake(0, barheight+bth*i, self.frame.size.width, SSLineHeight) Color:ColorWithRGB(212, 219, 226, 1)];
+        AMDLineView *line = [[AMDLineView alloc]initWithFrame:CGRectMake(0, barheight+bth*i, self.frame.size.width, SSLineHeight) Color:SSColorWithRGB(212, 219, 226, 1)];
         [self addSubview:line];
         //竖线
         if (i==1||i==2) {
-            AMDLineView *shuline = [[AMDLineView alloc]initWithFrame:CGRectMake(btw*i, barheight, SSLineHeight, 216) Color:ColorWithRGB(212, 219, 226, 1)];
+            AMDLineView *shuline = [[AMDLineView alloc]initWithFrame:CGRectMake(btw*i, barheight, SSLineHeight, 216) Color:SSColorWithRGB(212, 219, 226, 1)];
             [self addSubview:shuline];
         }
     }
@@ -102,7 +102,8 @@
 //
 - (UIImage *)imageFromImageName:(NSString *)name
 {
-    UIImage *img = [[UIImage alloc]initWithContentsOfFile:GetFilePath(name)];
+    NSString *path = SSGetFilePathFromBundle(@"SSKeyBoard.bundle", name);
+    UIImage *img = [[UIImage alloc]initWithContentsOfFile:path];
     return img;
 }
 
@@ -182,7 +183,7 @@
         AMDButton *bt = (AMDButton *)[self viewWithTag:10];
         if (_keyboardType == AMDKeyboardTypePrice) {
             bt.userInteractionEnabled = YES;
-            NSString *strResourcesBundle = GetFilePath(@"KeyBoardIcon.bundle");
+            NSString *strResourcesBundle = SSGetFilePath(@"SSKeyBoard.bundle");
             UIImage *image0 = [[UIImage alloc]initWithContentsOfFile:[strResourcesBundle stringByAppendingPathComponent:@"dian.png"]];
             bt.imageView.image = image0;
             _dianBt = bt;

@@ -27,11 +27,10 @@
     [_webViewProgress exit];
     _wkWebView = nil;
     self.webViewProgress = nil;
-    self.reloadAction_UI = nil;
     self.reloadAction_WK = nil;
     self.finishLoadAction_UI = nil;
     self.finishLoadAction_WK = nil;
-    NSLog(@" AMDAnimationWebView  deallc");
+//    NSLog(@" AMDAnimationWebView  deallc");
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -51,7 +50,7 @@
 - (void)loadWebViewAnimate
 {
     UIProgressView *progroess = [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
-    progroess.progressTintColor = ColorWithRGB(30, 206, 109, 1);
+    progroess.progressTintColor = SSColorWithRGB(30, 206, 109, 1);
     progroess.trackTintColor = [UIColor clearColor];
     progroess.transform = CGAffineTransformMakeScale(1.0f,2.0f);
     _progressView = progroess;
@@ -67,16 +66,16 @@
 - (void)initSetUrlView
 {
     UIView *v = [[UIView alloc]initWithFrame:self.bounds];
-    v.backgroundColor = ColorWithRGB(246, 246, 246, 1);
+    v.backgroundColor = SSColorWithRGB(246, 246, 246, 1);
     UIWebView *webView = (UIWebView *)(_wkWebView!=nil?_wkWebView:_uiWebView);
     [webView insertSubview:v belowSubview:webView.scrollView];
     
     //设置网址
     UILabel *urllabel = [[UILabel alloc]init];
     urllabel.backgroundColor = [UIColor clearColor];
-    urllabel.textColor = ColorWithRGB(194, 194, 194, 1);
+    urllabel.textColor = SSColorWithRGB(194, 194, 194, 1);
     urllabel.textAlignment = NSTextAlignmentCenter;
-    urllabel.font = FontWithName(@"", 12);
+    urllabel.font = SSFontWithName(@"", 12);
     [v addSubview:urllabel];
     _websiteLabel = urllabel;
     [urllabel mas_makeConstraints:^(MASConstraintMaker *make) {

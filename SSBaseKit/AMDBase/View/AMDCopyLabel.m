@@ -95,7 +95,7 @@
         _orignTextColor = [self.textColor copy];
     }
     //复制选中色
-//    self.textColor = ColorWithRGB(11, 137, 226, 1);
+//    self.textColor = SSColorWithRGB(11, 137, 226, 1);
     //    self.backgroundColor = [UIColor lightGrayColor];
     
     //    UIMenuItem *copyLink = [[UIMenuItem alloc] initWithTitle:nil action:@selector(copy:)];

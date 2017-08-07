@@ -54,8 +54,8 @@
     UILabel *titleLable = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 140, h)];
     titleLable.backgroundColor = [UIColor clearColor];
     titleLable.text = title;
-    titleLable.font = FontWithName(@"", 14);
-    titleLable.textColor = ColorWithRGB(51, 51, 51, 1);
+    titleLable.font = SSFontWithName(@"", 14);
+    titleLable.textColor = SSColorWithRGB(51, 51, 51, 1);
     [self addSubview:titleLable];
     self.titleLabel = titleLable;
     
@@ -64,7 +64,7 @@
     if ([textView respondsToSelector:@selector(setReturnKeyType:)]) {
         textView.returnKeyType = UIReturnKeyDone;
     }
-    textView.font = FontWithName(@"", 14);
+    textView.font = SSFontWithName(@"", 14);
     [self addSubview:textView];
     self.textView = textView;
     
@@ -162,7 +162,7 @@
         if (!self.placeholderLabel) {
             self.placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 7, CGRectGetWidth(self.textView.frame), 19)];
             self.placeholderLabel.font = self.textView.font;
-            self.placeholderLabel.textColor = ColorWithRGB(119, 119, 119, 1);
+            self.placeholderLabel.textColor = SSColorWithRGB(119, 119, 119, 1);
             [self.textView addSubview:self.placeholderLabel];
         }
         self.placeholderLabel.text = placeholder;

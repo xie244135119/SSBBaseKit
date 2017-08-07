@@ -259,8 +259,8 @@
 //    UILabel *titleLb = [[UILabel alloc]init];
     titleLb.backgroundColor = [UIColor clearColor];
     titleLb.textAlignment = NSTextAlignmentCenter;
-    titleLb.font = FontWithName(@"", 14);
-//    titleLb.textColor = ColorWithRGB(153, 153, 153, 1);
+    titleLb.font = SSFontWithName(@"", 14);
+//    titleLb.textColor = SSColorWithRGB(153, 153, 153, 1);
     titleLb.textColor = [UIColor whiteColor];
     [self addSubview:titleLb];
     _titleLabel = titleLb;
@@ -284,8 +284,8 @@
     UILabel *titleLb = [[UILabel alloc]init];
     titleLb.backgroundColor = [UIColor clearColor];
     titleLb.textAlignment = NSTextAlignmentCenter;
-    titleLb.font = FontWithName(@"", 14);
-    //    titleLb.textColor = ColorWithRGB(153, 153, 153, 1);
+    titleLb.font = SSFontWithName(@"", 14);
+    //    titleLb.textColor = SSColorWithRGB(153, 153, 153, 1);
     titleLb.textColor = [UIColor whiteColor];
     [self addSubview:titleLb];
     _titleLabel = titleLb;
@@ -513,7 +513,7 @@
 //    UILabel *unreadlb = [[UILabel alloc]initWithFrame:unreadimgView.frame];
     UILabel *unreadlb = [[UILabel alloc]init];
     unreadlb.textAlignment = NSTextAlignmentCenter;
-    unreadlb.font = FontWithName(@"", 10);
+    unreadlb.font = SSFontWithName(@"", 10);
     unreadlb.textColor = [UIColor whiteColor];
     unreadlb.hidden = YES;
 //    unreadlb.layer.borderWidth = 1;

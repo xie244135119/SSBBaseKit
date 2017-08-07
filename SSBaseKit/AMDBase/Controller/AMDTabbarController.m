@@ -82,7 +82,7 @@
     [self hideTabBar];
     //背景色
     UIView *barvw = [[UIView alloc]init];
-    barvw.backgroundColor = ColorWithRGB(248, 248, 248, 1);
+    barvw.backgroundColor = SSColorWithRGB(248, 248, 248, 1);
     [self.view addSubview:barvw];
     [barvw mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(@0);
@@ -91,7 +91,7 @@
     _amdTabBar = barvw;
     
     // 线条
-    AMDLineView *line = [[AMDLineView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0.5) Color:ColorWithRGB(200, 200, 200, 0.7)];
+    AMDLineView *line = [[AMDLineView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0.5) Color:SSColorWithRGB(200, 200, 200, 0.7)];
     [barvw addSubview:line];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(@0);
@@ -104,7 +104,7 @@
         AMDTabbarItem *item = [[AMDTabbarItem alloc]init];
         item.itemTitleLabel.text = titles[i];
         [item setImage:images[i] controlState:UIControlStateNormal];
-        [item setTitleColor:ColorWithRGB(101, 111, 130, 1) controlState:UIControlStateNormal];
+        [item setTitleColor:SSColorWithRGB(101, 111, 130, 1) controlState:UIControlStateNormal];
         
         item.tag = i+900;
         [item addTarget:self action:@selector(clickBt_ChangeSelect:) forControlEvents:UIControlEventTouchUpInside];
@@ -201,15 +201,15 @@
 {
     //填充背景色
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
-    [ColorWithRGB(246, 246, 246, 1) setFill];
+    [SSColorWithRGB(246, 246, 246, 1) setFill];
     [path fill];
     
     //绘制圆弧线
     CGContextRef ref = UIGraphicsGetCurrentContext();
     CGContextSetShouldAntialias(ref, NO);      //关闭锯齿  默认情况下，锯齿显示，所以线条宽度为2.0
     CGContextSetLineWidth(ref, 0.5);
-    CGContextSetStrokeColorWithColor(ref, [ColorWithRGB(195, 195, 195, 1) CGColor]);
-    CGContextSetFillColorWithColor(ref, [ColorWithRGB(250, 250, 250, 1) CGColor]);
+    CGContextSetStrokeColorWithColor(ref, [SSColorWithRGB(195, 195, 195, 1) CGColor]);
+    CGContextSetFillColorWithColor(ref, [SSColorWithRGB(250, 250, 250, 1) CGColor]);
     
     // 圆弧的起点
     CGFloat appw = rect.size.width;

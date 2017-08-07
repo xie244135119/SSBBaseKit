@@ -43,8 +43,8 @@
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(15, 0, 140, h)];
     titleLable.backgroundColor = [UIColor clearColor];
     titleLable.text = title;
-    titleLable.font = FontWithName(@"", 14);
-    titleLable.textColor = ColorWithRGB(51, 51, 51, 1);
+    titleLable.font = SSFontWithName(@"", 14);
+    titleLable.textColor = SSColorWithRGB(51, 51, 51, 1);
     [self addSubview:titleLable];
     _titleLabel = titleLable;
     
@@ -54,12 +54,12 @@
     field.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     field.delegate = self;
     field.clearButtonMode = UITextFieldViewModeWhileEditing;
-    [field setValue:ColorWithRGB(119, 119, 119, 1) forKeyPath:@"_placeholderLabel.textColor"];
+    [field setValue:SSColorWithRGB(119, 119, 119, 1) forKeyPath:@"_placeholderLabel.textColor"];
     field.borderStyle = UITextBorderStyleNone;
     if ([field respondsToSelector:@selector(setReturnKeyType:)]) {
         field.returnKeyType = UIReturnKeyDone;
     }
-    field.font = FontWithName(@"", 14);
+    field.font = SSFontWithName(@"", 14);
     [self addSubview:field];
     _textField = field;
     
@@ -72,8 +72,7 @@
         
         if (rightArrowShow) {
             _textField.center = CGPointMake(_textField.center.x-24, _textField.center.y);
-            NSString *arrowpath = GetFilePathFromBundle(@"CommonUIModule.bundle", @"arrow-right.png");
-            UIImage *arrowiamge = [[UIImage alloc]initWithContentsOfFile:arrowpath];
+            UIImage *arrowiamge = SSImageFromName(@"arrow-right.png");
             UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(self.frame.size.width-24-10, (self.frame.size.height-24)/2, 24, 24)];
             imgView.image = arrowiamge;
             [self addSubview:imgView];

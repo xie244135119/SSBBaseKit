@@ -57,8 +57,8 @@
     
     // 消息数量
     UILabel *messagecountlb = [[UILabel alloc]initWithFrame:CGRectMake(30, 0, 50, 44)];
-    messagecountlb.font = FontWithName(@"", 13);
-    messagecountlb.textColor = ColorWithRGB(75, 75, 75, 1);
+    messagecountlb.font = SSFontWithName(@"", 13);
+    messagecountlb.textColor = SSColorWithRGB(75, 75, 75, 1);
     [self addSubview:messagecountlb];
     _mesRemindLabel = messagecountlb;
 }
@@ -77,8 +77,8 @@
     
     // 消息数量
     UILabel *messagecountlb = [[UILabel alloc]initWithFrame:CGRectMake(30, 0, 50, 44)];
-    messagecountlb.font = FontWithName(@"", 13);
-    messagecountlb.textColor = ColorWithRGB(75, 75, 75, 1);
+    messagecountlb.font = SSFontWithName(@"", 13);
+    messagecountlb.textColor = SSColorWithRGB(75, 75, 75, 1);
     [self addSubview:messagecountlb];
     _mesRemindLabel = messagecountlb;
     [messagecountlb mas_makeConstraints:^(MASConstraintMaker *make) {

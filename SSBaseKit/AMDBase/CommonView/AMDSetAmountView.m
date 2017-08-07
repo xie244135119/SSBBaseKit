@@ -55,7 +55,7 @@
     
     //减少按钮
     UIButton *reducecountbt = [UIButton buttonWithType:UIButtonTypeCustom];
-    [reducecountbt setBackgroundColor:ColorWithRGB(242, 242, 242, 1)];
+    [reducecountbt setBackgroundColor:SSColorWithRGB(242, 242, 242, 1)];
     [reducecountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_minus"] forState:UIControlStateNormal];
     [reducecountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_minus-hover"] forState:UIControlStateHighlighted];
     [reducecountbt setFrame:CGRectMake(0, 0, h, h)];
@@ -66,7 +66,7 @@
     //增加按钮
     UIButton *addcountbt = [UIButton buttonWithType:UIButtonTypeCustom];
     [addcountbt setFrame:CGRectMake(w-h, 0, h, h)];
-    [addcountbt setBackgroundColor:ColorWithRGB(242, 242, 242, 1)];
+    [addcountbt setBackgroundColor:SSColorWithRGB(242, 242, 242, 1)];
     [addcountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_add"] forState:UIControlStateNormal];
     [addcountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_add-hover"] forState:UIControlStateHighlighted];
     addcountbt.tag = 2;
@@ -100,7 +100,7 @@
     UIButton *reducecountbt = [UIButton buttonWithType:UIButtonTypeCustom];
     [reducecountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_minus"] forState:UIControlStateNormal];
     [reducecountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_minus-hover"] forState:UIControlStateHighlighted];
-    [reducecountbt setBackgroundColor:ColorWithRGB(242, 242, 242, 1)];
+    [reducecountbt setBackgroundColor:SSColorWithRGB(242, 242, 242, 1)];
 //    [reducecountbt setFrame:CGRectMake(0, 0, h, h)];
     reducecountbt.tag = 1;
     [reducecountbt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -113,7 +113,7 @@
     //增加按钮
     UIButton *addcountbt = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [addcountbt setFrame:CGRectMake(w-h, 0, h, h)];
-    [addcountbt setBackgroundColor:ColorWithRGB(242, 242, 242, 1)];
+    [addcountbt setBackgroundColor:SSColorWithRGB(242, 242, 242, 1)];
     [addcountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_add"] forState:UIControlStateNormal];
     [addcountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_add-hover"] forState:UIControlStateHighlighted];
     addcountbt.tag = 2;

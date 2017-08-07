@@ -25,7 +25,7 @@
 - (id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = ColorWithRGB(246, 246, 246, 1);
+        self.backgroundColor = SSColorWithRGB(246, 246, 246, 1);
         if (_autoLayout) {
             [self initContentView_AutoLayout];
         }
@@ -57,8 +57,8 @@
     
     //文本内容展示
     UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 200, width, 40)];
-    textLabel.font = FontWithName(@"", 13);
-    textLabel.textColor = ColorWithRGB(153, 153, 153, 1);
+    textLabel.font = SSFontWithName(@"", 13);
+    textLabel.textColor = SSColorWithRGB(153, 153, 153, 1);
     textLabel.numberOfLines = 2;
     textLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:textLabel];
@@ -92,8 +92,8 @@
     //文本内容展示
 //    UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 220, width, 40)];
     UILabel *textLabel = [[UILabel alloc]init];
-    textLabel.font = FontWithName(@"", 13);
-    textLabel.textColor = ColorWithRGB(153, 153, 153, 1);
+    textLabel.font = SSFontWithName(@"", 13);
+    textLabel.textColor = SSColorWithRGB(153, 153, 153, 1);
     textLabel.numberOfLines = 2;
     textLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:textLabel];
@@ -126,10 +126,10 @@
         bt = [[AMDButton alloc]init];
     }
     bt.titleLabel.text = title;
-    [bt setBackgroundColor:ColorWithRGB(68,129,235, 1) forState:UIControlStateNormal];
+    [bt setBackgroundColor:SSColorWithRGB(68,129,235, 1) forState:UIControlStateNormal];
     [bt setBackgroundColor:nil forState:UIControlStateHighlighted];
-    [bt setTitleColor:ColorWithRGB(255, 255, 255, 1) forState:UIControlStateNormal];
-    bt.titleLabel.font = FontWithName(@"", 15);
+    [bt setTitleColor:SSColorWithRGB(255, 255, 255, 1) forState:UIControlStateNormal];
+    bt.titleLabel.font = SSFontWithName(@"", 15);
     bt.layer.cornerRadius = SSCornerRadius;
     bt.layer.masksToBounds = YES;
     [bt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];

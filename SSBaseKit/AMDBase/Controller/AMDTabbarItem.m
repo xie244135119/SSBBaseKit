@@ -118,7 +118,7 @@
         //标题
         UILabel *titleLb = [[UILabel alloc]initWithFrame:CGRectMake(0, height-20+2, width, 15)];
         titleLb.backgroundColor = [UIColor clearColor];
-        titleLb.font = FontWithName(@"", 10);
+        titleLb.font = SSFontWithName(@"", 10);
         titleLb.textAlignment = NSTextAlignmentCenter;
         _itemTitleLabel = titleLb;
         [self addSubview:titleLb];
@@ -144,7 +144,7 @@
         //标题
         UILabel *titleLb = [[UILabel alloc]init];
         titleLb.backgroundColor = [UIColor clearColor];
-        titleLb.font = FontWithName(@"", 10);
+        titleLb.font = SSFontWithName(@"", 10);
         titleLb.textAlignment = NSTextAlignmentCenter;
         _itemTitleLabel = titleLb;
         [self addSubview:titleLb];
@@ -285,7 +285,7 @@
         //未读数量
         UILabel *unreadlb = [[UILabel alloc]initWithFrame:CGRectMake(25+(self.frame.size.width-30)/2, 2, 20, 13)];
         unreadlb.textAlignment = NSTextAlignmentCenter;
-        unreadlb.font = FontWithName(@"", 10);
+        unreadlb.font = SSFontWithName(@"", 10);
         unreadlb.layer.cornerRadius = 7;
         unreadlb.layer.masksToBounds = YES;
         unreadlb.backgroundColor = [UIColor redColor];
