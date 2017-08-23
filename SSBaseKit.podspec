@@ -138,7 +138,7 @@ Pod::Spec.new do |s|
     s.dependency "Masonry"
 
 	s.subspec 'Controller' do |cs|
-		cs.source_files = 'SSBaseKit/AMDBase/Controller/*.{h,m}'
+		cs.source_files = 'SSBaseKit/AMDBase/Controller/*.{h,m}','SSBaseKit/AMDBase/Category/*.{h,m}'
 		cs.dependency 'SSBaseKit/ComponentView'
 	end
 
