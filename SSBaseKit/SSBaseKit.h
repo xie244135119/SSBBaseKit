@@ -17,6 +17,9 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <SSBaseKit/PublicHeader.h>
 
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <SSBaseKit/SSGlobalVar.h>
 #import <SSBaseKit/AMDBackControl.h>
 #import <SSBaseKit/AMDBaseCell.h>
 #import <SSBaseKit/AMDBaseView.h>
