@@ -135,7 +135,7 @@
         return;
     }
     
-    NSInteger bytelength = [self byteLengthFromText:self.text];
+    CGFloat bytelength = [self byteLengthFromText:self.text];
     if (bytelength > _maxInputChars) {
         // 做截断处理
         // 计算超出限制的字节部分
@@ -158,7 +158,7 @@
     if (text.length == 0)   return 0;
     
     CGFloat resault = 0;
-    for (int i =0; i<text.length-1;i++) {
+    for (int i =0; i<text.length;i++) {
         NSString *sendertext = [text substringWithRange:NSMakeRange(i, 1)];
         resault += ([self isChinese:sendertext])?1:0.5;
     }

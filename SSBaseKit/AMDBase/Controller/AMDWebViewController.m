@@ -8,11 +8,9 @@
 
 #import "AMDWebViewController.h"
 #import "AMDAnimationWebView.h"
-//#import "AMDTool.h"
 #import "AMDButton.h"
 #import "SSGlobalVar.h"
-//#import "AMDCommonClass.h"
-//#import "YLJsBridgeSDK.h"
+
 
 @interface AMDWebViewController() <AMDWebViewDelegate>
 {
@@ -23,10 +21,6 @@
 
 @implementation AMDWebViewController
 
-//+ (void)load
-//{
-//    [AMDRouter registerURLPattern:AMDWebViewPageURL withClass:[self class] withDescription:@"通用web页面"];
-//}
 
 - (void)dealloc
 {
@@ -58,21 +52,6 @@
     return nil;
 }
 
-
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    
-//    self.navigationController.navigationBarHidden = NO;
-//}
-//
-//
-//- (void)viewWillDisappear:(BOOL)animated
-//{
-//    [super viewWillDisappear:animated];
-//    self.navigationController.navigationBarHidden = YES;
-////    self.titleView.hidden = NO;
-//}
 
 
 #pragma mark - AMDRootProtocol
@@ -219,7 +198,7 @@
     //
     NSString *urlstr = _currentAnimationView.wkWebView.URL.description?_currentAnimationView.wkWebView.URL.description:(_currentAnimationView.uiWebView.request.URL.description?_currentAnimationView.uiWebView.request.URL.description:@"");
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"临时测试使用" message:urlstr preferredStyle:UIAlertControllerStyleAlert];
-    [UIAlertAction actionWithTitle:@"取消"
+    UIAlertAction *cancelaction = [UIAlertAction actionWithTitle:@"取消"
                              style:UIAlertActionStyleDefault
                            handler:nil];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"复制剪切板"
@@ -227,7 +206,7 @@
                            handler:^(UIAlertAction * _Nonnull action) {
                                [[UIPasteboard generalPasteboard] setString:urlstr];
                            }];
-    
+    [alert addAction:cancelaction];
     [alert addAction:action];
     [self presentViewController:alert animated:YES completion:nil];
 }

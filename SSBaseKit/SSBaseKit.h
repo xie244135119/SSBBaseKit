@@ -55,7 +55,6 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 #import <SSBaseKit/AMDSexSetView.h>
 #import <SSBaseKit/AMDSelectItemView.h>
 #import <SSBaseKit/SSLinkageView.h>
-#import <SSBaseKit/SSGlobalVar.h>
 #import <SSBaseKit/UIButton+SSBackground.h>
 #import <SSBaseKit/UIView+SSExtension.h>
 
