@@ -155,7 +155,7 @@
 		CB47CD211EE64DFE00D81CA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD1F1EE64DFE00D81CA3 /* Main.storyboard */; };
 		CB47CD231EE64DFE00D81CA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD221EE64DFE00D81CA3 /* Assets.xcassets */; };
 		CB47CD261EE64DFE00D81CA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD241EE64DFE00D81CA3 /* LaunchScreen.storyboard */; };
-		CB53B2D41F4D1D0B0083A31B /* UIButton+SSBackground.h in Headers */ = {isa = PBXBuildFile; fileRef = CB53B2D21F4D1D0B0083A31B /* UIButton+SSBackground.h */; };
+		CB53B2D41F4D1D0B0083A31B /* UIButton+SSBackground.h in Headers */ = {isa = PBXBuildFile; fileRef = CB53B2D21F4D1D0B0083A31B /* UIButton+SSBackground.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB53B2D51F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */; };
 		CB53B2D61F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */; };
 		CB614A851EE9362900471DE9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CB614A841EE9362900471DE9 /* README */; };

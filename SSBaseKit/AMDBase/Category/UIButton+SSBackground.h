@@ -14,8 +14,8 @@
 /**
  设置button 背景色效果
 
- @param color <#color description#>
- @param state <#state description#>
+ @param color 背景颜色
+ @param state 状态
  */
 - (void)setBackgroundColor:(UIColor *)color forState:(UIControlState)state;
 
