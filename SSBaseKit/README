@@ -47,6 +47,21 @@ pod "SSBaseKit"
 
 
 
+###V1.0.13.9
+1. 新增XQLinkageImageView 滚动视图控件
+2. AMDTextField 新增字数限制
+3. SSBaseKit 添加SSGlobalVar 宏定义
+4. 移除AMDTlSiginTool base64加密类和 AMDErrorTool类
+5. 新增 UIButton+SSBackground.h 类
+6.
+
+
+
+
+
+
+
+
 
 
 

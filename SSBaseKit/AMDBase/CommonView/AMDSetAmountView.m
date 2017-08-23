@@ -56,8 +56,8 @@
     //减少按钮
     UIButton *reducecountbt = [UIButton buttonWithType:UIButtonTypeCustom];
     [reducecountbt setBackgroundColor:SSColorWithRGB(242, 242, 242, 1)];
-    [reducecountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_minus"] forState:UIControlStateNormal];
-    [reducecountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_minus-hover"] forState:UIControlStateHighlighted];
+    [reducecountbt setBackgroundImage:SSImageFromName(@"store_minus.png") forState:UIControlStateNormal];
+    [reducecountbt setBackgroundImage:SSImageFromName(@"store_minus-hover.png") forState:UIControlStateHighlighted];
     [reducecountbt setFrame:CGRectMake(0, 0, h, h)];
     reducecountbt.tag = 1;
     [reducecountbt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -67,8 +67,8 @@
     UIButton *addcountbt = [UIButton buttonWithType:UIButtonTypeCustom];
     [addcountbt setFrame:CGRectMake(w-h, 0, h, h)];
     [addcountbt setBackgroundColor:SSColorWithRGB(242, 242, 242, 1)];
-    [addcountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_add"] forState:UIControlStateNormal];
-    [addcountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_add-hover"] forState:UIControlStateHighlighted];
+    [addcountbt setBackgroundImage:SSImageFromName(@"store_add.png") forState:UIControlStateNormal];
+    [addcountbt setBackgroundImage:SSImageFromName(@"store_add-hover.png") forState:UIControlStateHighlighted];
     addcountbt.tag = 2;
     [addcountbt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:addcountbt];
@@ -98,10 +98,9 @@
     
     //减少按钮
     UIButton *reducecountbt = [UIButton buttonWithType:UIButtonTypeCustom];
-    [reducecountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_minus"] forState:UIControlStateNormal];
-    [reducecountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_minus-hover"] forState:UIControlStateHighlighted];
+    [reducecountbt setBackgroundImage:SSImageFromName(@"store_minus.png") forState:UIControlStateNormal];
+    [reducecountbt setBackgroundImage:SSImageFromName(@"store_minus-hover.png") forState:UIControlStateHighlighted];
     [reducecountbt setBackgroundColor:SSColorWithRGB(242, 242, 242, 1)];
-//    [reducecountbt setFrame:CGRectMake(0, 0, h, h)];
     reducecountbt.tag = 1;
     [reducecountbt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:reducecountbt];
@@ -114,8 +113,8 @@
     UIButton *addcountbt = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [addcountbt setFrame:CGRectMake(w-h, 0, h, h)];
     [addcountbt setBackgroundColor:SSColorWithRGB(242, 242, 242, 1)];
-    [addcountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_add"] forState:UIControlStateNormal];
-    [addcountbt setBackgroundImage:[UIImage imageNamed:@"GoodsModule.bundle/store_add-hover"] forState:UIControlStateHighlighted];
+    [addcountbt setBackgroundImage:SSImageFromName(@"store_add.png") forState:UIControlStateNormal];
+    [addcountbt setBackgroundImage:SSImageFromName(@"store_add-hover.png") forState:UIControlStateHighlighted];
     addcountbt.tag = 2;
     [addcountbt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:addcountbt];

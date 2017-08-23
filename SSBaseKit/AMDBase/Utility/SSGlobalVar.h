@@ -27,6 +27,21 @@
 #define SSImageFromName(a) [[UIImage alloc]initWithContentsOfFile:SSGetFilePathFromBundle(SSBundleName,a)]
 
 
+// - NSUserDefaults
+//获取NSUserDefaults中的值
+#define GetDefaults(key)  [[NSUserDefaults standardUserDefaults] objectForKey:key]
+//设置NSUserDefaults中的键值对
+#define SetDefaults(key,value) [[NSUserDefaults standardUserDefaults] setObject:value forKey:key]
+#define SetDefaultsSynchronize() [[NSUserDefaults standardUserDefaults] synchronize]
+#define RemoveDefaults(key) [[NSUserDefaults standardUserDefaults] removeObjectForKey:key]
+
+
+//屏幕宽高
+#define SScreenWidth [UIScreen mainScreen].bounds.size.width
+#define SScreenHeight [UIScreen mainScreen].bounds.size.height
+
+
+
 // 统一配置
 // 线条高度
 #define SSLineHeight 0.5

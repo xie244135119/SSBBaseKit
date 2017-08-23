@@ -21,7 +21,7 @@
 		CB34AE1A1F18D4970006A562 /* SSKeyBoard.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB34AE181F18D4950006A562 /* SSKeyBoard.bundle */; };
 		CB3E39FF1F382F590003DB57 /* SSBaseKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB3E39FE1F382F590003DB57 /* SSBaseKit.bundle */; };
 		CB3E3A001F382F590003DB57 /* SSBaseKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB3E39FE1F382F590003DB57 /* SSBaseKit.bundle */; };
-		CB44376B1F3192DA00FF108C /* AMDSelectItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB4437691F3192DA00FF108C /* AMDSelectItemView.h */; };
+		CB44376B1F3192DA00FF108C /* AMDSelectItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB4437691F3192DA00FF108C /* AMDSelectItemView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB44376C1F3192DA00FF108C /* AMDSelectItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB44376A1F3192DA00FF108C /* AMDSelectItemView.m */; };
 		CB44376D1F3192DA00FF108C /* AMDSelectItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB44376A1F3192DA00FF108C /* AMDSelectItemView.m */; };
 		CB45E3C91F2B3462009BB7C6 /* AMDBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC6E1EE6471A00D81CA3 /* AMDBaseView.m */; };
@@ -41,10 +41,8 @@
 		CB45E3D71F2B3491009BB7C6 /* AMDMultipleTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC481EE6471A00D81CA3 /* AMDMultipleTypeView.m */; };
 		CB45E3D81F2B3492009BB7C6 /* AMDSetAmountView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC4A1EE6471A00D81CA3 /* AMDSetAmountView.m */; };
 		CB45E3D91F2B3495009BB7C6 /* AMDWebViewPopverView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC4D1EE6471A00D81CA3 /* AMDWebViewPopverView.m */; };
-		CB45E3DA1F2B34A5009BB7C6 /* AMDErrorLogTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC5C1EE6471A00D81CA3 /* AMDErrorLogTool.m */; };
 		CB45E3DB1F2B34A7009BB7C6 /* AMDWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC5E1EE6471A00D81CA3 /* AMDWebViewProgress.m */; };
-		CB45E3DC1F2B34A9009BB7C6 /* AMDYLEncryptSignTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC601EE6471A00D81CA3 /* AMDYLEncryptSignTool.m */; };
-		CB45E3DD1F2B34AA009BB7C6 /* UIView+AMDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */; };
+		CB45E3DD1F2B34AA009BB7C6 /* UIView+SSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC651EE6471A00D81CA3 /* UIView+SSExtension.m */; };
 		CB45E3DE1F2B34AF009BB7C6 /* AMDBackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC6A1EE6471A00D81CA3 /* AMDBackControl.m */; };
 		CB45E3DF1F2B34B0009BB7C6 /* AMDBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC6C1EE6471A00D81CA3 /* AMDBaseCell.m */; };
 		CB45E3E01F2B34B4009BB7C6 /* AMDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC701EE6471A00D81CA3 /* AMDButton.m */; };
@@ -96,15 +94,11 @@
 		CB47CCB41EE6471A00D81CA3 /* AMDWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC561EE6471A00D81CA3 /* AMDWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CCB51EE6471A00D81CA3 /* AMDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC571EE6471A00D81CA3 /* AMDWebViewController.m */; };
 		CB47CCB71EE6471A00D81CA3 /* AMDEntityProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC5A1EE6471A00D81CA3 /* AMDEntityProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CB47CCB81EE6471A00D81CA3 /* AMDErrorLogTool.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC5B1EE6471A00D81CA3 /* AMDErrorLogTool.h */; };
-		CB47CCB91EE6471A00D81CA3 /* AMDErrorLogTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC5C1EE6471A00D81CA3 /* AMDErrorLogTool.m */; };
 		CB47CCBA1EE6471A00D81CA3 /* AMDWebViewProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC5D1EE6471A00D81CA3 /* AMDWebViewProgress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CCBB1EE6471A00D81CA3 /* AMDWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC5E1EE6471A00D81CA3 /* AMDWebViewProgress.m */; };
-		CB47CCBC1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC5F1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h */; };
-		CB47CCBD1EE6471A00D81CA3 /* AMDYLEncryptSignTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC601EE6471A00D81CA3 /* AMDYLEncryptSignTool.m */; };
 		CB47CCC01EE6471A00D81CA3 /* SSGlobalVar.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC631EE6471A00D81CA3 /* SSGlobalVar.h */; };
-		CB47CCC11EE6471A00D81CA3 /* UIView+AMDExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC641EE6471A00D81CA3 /* UIView+AMDExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CB47CCC21EE6471A00D81CA3 /* UIView+AMDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */; };
+		CB47CCC11EE6471A00D81CA3 /* UIView+SSExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC641EE6471A00D81CA3 /* UIView+SSExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB47CCC21EE6471A00D81CA3 /* UIView+SSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC651EE6471A00D81CA3 /* UIView+SSExtension.m */; };
 		CB47CCC51EE6471A00D81CA3 /* AMDBackControl.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC691EE6471A00D81CA3 /* AMDBackControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CCC61EE6471A00D81CA3 /* AMDBackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC6A1EE6471A00D81CA3 /* AMDBackControl.m */; };
 		CB47CCC71EE6471A00D81CA3 /* AMDBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC6B1EE6471A00D81CA3 /* AMDBaseCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -161,7 +155,13 @@
 		CB47CD211EE64DFE00D81CA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD1F1EE64DFE00D81CA3 /* Main.storyboard */; };
 		CB47CD231EE64DFE00D81CA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD221EE64DFE00D81CA3 /* Assets.xcassets */; };
 		CB47CD261EE64DFE00D81CA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB47CD241EE64DFE00D81CA3 /* LaunchScreen.storyboard */; };
+		CB53B2D41F4D1D0B0083A31B /* UIButton+SSBackground.h in Headers */ = {isa = PBXBuildFile; fileRef = CB53B2D21F4D1D0B0083A31B /* UIButton+SSBackground.h */; };
+		CB53B2D51F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */; };
+		CB53B2D61F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */; };
 		CB614A851EE9362900471DE9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CB614A841EE9362900471DE9 /* README */; };
+		CB7AE8501F4AF5A3005E8E1F /* SSLinkageView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */; };
+		CB7AE8511F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
+		CB7AE8521F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -220,15 +220,11 @@
 		CB47CC561EE6471A00D81CA3 /* AMDWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDWebViewController.h; sourceTree = "<group>"; };
 		CB47CC571EE6471A00D81CA3 /* AMDWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDWebViewController.m; sourceTree = "<group>"; };
 		CB47CC5A1EE6471A00D81CA3 /* AMDEntityProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDEntityProtocol.h; sourceTree = "<group>"; };
-		CB47CC5B1EE6471A00D81CA3 /* AMDErrorLogTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDErrorLogTool.h; sourceTree = "<group>"; };
-		CB47CC5C1EE6471A00D81CA3 /* AMDErrorLogTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDErrorLogTool.m; sourceTree = "<group>"; };
 		CB47CC5D1EE6471A00D81CA3 /* AMDWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDWebViewProgress.h; sourceTree = "<group>"; };
 		CB47CC5E1EE6471A00D81CA3 /* AMDWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDWebViewProgress.m; sourceTree = "<group>"; };
-		CB47CC5F1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDYLEncryptSignTool.h; sourceTree = "<group>"; };
-		CB47CC601EE6471A00D81CA3 /* AMDYLEncryptSignTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDYLEncryptSignTool.m; sourceTree = "<group>"; };
 		CB47CC631EE6471A00D81CA3 /* SSGlobalVar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGlobalVar.h; sourceTree = "<group>"; };
-		CB47CC641EE6471A00D81CA3 /* UIView+AMDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AMDExtension.h"; sourceTree = "<group>"; };
-		CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AMDExtension.m"; sourceTree = "<group>"; };
+		CB47CC641EE6471A00D81CA3 /* UIView+SSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SSExtension.h"; sourceTree = "<group>"; };
+		CB47CC651EE6471A00D81CA3 /* UIView+SSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SSExtension.m"; sourceTree = "<group>"; };
 		CB47CC691EE6471A00D81CA3 /* AMDBackControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDBackControl.h; sourceTree = "<group>"; };
 		CB47CC6A1EE6471A00D81CA3 /* AMDBackControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDBackControl.m; sourceTree = "<group>"; };
 		CB47CC6B1EE6471A00D81CA3 /* AMDBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDBaseCell.h; sourceTree = "<group>"; };
@@ -291,7 +287,11 @@
 		CB47CD221EE64DFE00D81CA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB47CD251EE64DFE00D81CA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB47CD271EE64DFE00D81CA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB53B2D21F4D1D0B0083A31B /* UIButton+SSBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SSBackground.h"; sourceTree = "<group>"; };
+		CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SSBackground.m"; sourceTree = "<group>"; };
 		CB614A841EE9362900471DE9 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLinkageView.h; sourceTree = "<group>"; };
+		CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLinkageView.m; sourceTree = "<group>"; };
 		DF4D764CA25168F83786CBD9 /* Pods-SSBaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -366,6 +366,8 @@
 			children = (
 				CB47CC321EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.h */,
 				CB47CC331EE6471A00D81CA3 /* NSTimer+AMDBlockTimer.m */,
+				CB53B2D21F4D1D0B0083A31B /* UIButton+SSBackground.h */,
+				CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -373,6 +375,8 @@
 		CB47CC341EE6471A00D81CA3 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */,
+				CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */,
 				CB2D53401F15B5AC005A1B3F /* AMDSexSetView.h */,
 				CB2D53411F15B5AC005A1B3F /* AMDSexSetView.m */,
 				CB0C75911EEA54CC00E28AA3 /* AASRegionChoiceView.h */,
@@ -425,15 +429,11 @@
 			isa = PBXGroup;
 			children = (
 				CB47CC5A1EE6471A00D81CA3 /* AMDEntityProtocol.h */,
-				CB47CC5B1EE6471A00D81CA3 /* AMDErrorLogTool.h */,
-				CB47CC5C1EE6471A00D81CA3 /* AMDErrorLogTool.m */,
 				CB47CC5D1EE6471A00D81CA3 /* AMDWebViewProgress.h */,
 				CB47CC5E1EE6471A00D81CA3 /* AMDWebViewProgress.m */,
-				CB47CC5F1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h */,
-				CB47CC601EE6471A00D81CA3 /* AMDYLEncryptSignTool.m */,
+				CB47CC641EE6471A00D81CA3 /* UIView+SSExtension.h */,
+				CB47CC651EE6471A00D81CA3 /* UIView+SSExtension.m */,
 				CB47CC631EE6471A00D81CA3 /* SSGlobalVar.h */,
-				CB47CC641EE6471A00D81CA3 /* UIView+AMDExtension.h */,
-				CB47CC651EE6471A00D81CA3 /* UIView+AMDExtension.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -571,7 +571,7 @@
 				CB47CCB71EE6471A00D81CA3 /* AMDEntityProtocol.h in Headers */,
 				CB47CCAB1EE6471A00D81CA3 /* AMDWebViewPopverView.h in Headers */,
 				CB47CCB41EE6471A00D81CA3 /* AMDWebViewController.h in Headers */,
-				CB47CCC11EE6471A00D81CA3 /* UIView+AMDExtension.h in Headers */,
+				CB47CCC11EE6471A00D81CA3 /* UIView+SSExtension.h in Headers */,
 				CB47CCEB1EE6471A00D81CA3 /* CustomTextView.h in Headers */,
 				CB47CCDF1EE6471A00D81CA3 /* AYEActionSheetView.h in Headers */,
 				CB47CCAD1EE6471A00D81CA3 /* AMDRootProtocol.h in Headers */,
@@ -582,6 +582,7 @@
 				CB47CCAE1EE6471A00D81CA3 /* AMDRootViewController.h in Headers */,
 				CB2D53421F15B5AC005A1B3F /* AMDSexSetView.h in Headers */,
 				CB47CCD31EE6471A00D81CA3 /* AMDNoDataView.h in Headers */,
+				CB53B2D41F4D1D0B0083A31B /* UIButton+SSBackground.h in Headers */,
 				CB47CCC91EE6471A00D81CA3 /* AMDBaseView.h in Headers */,
 				CB47CCCD1EE6471A00D81CA3 /* AMDCopyLabel.h in Headers */,
 				CB47CCD71EE6471A00D81CA3 /* AMDRootNavgationBar.h in Headers */,
@@ -608,12 +609,11 @@
 				CB47CCC51EE6471A00D81CA3 /* AMDBackControl.h in Headers */,
 				CB0C75931EEA54CC00E28AA3 /* AASRegionChoiceView.h in Headers */,
 				CB47CCE81EE6471A00D81CA3 /* CustomTableViewDelegate.h in Headers */,
-				CB47CCBC1EE6471A00D81CA3 /* AMDYLEncryptSignTool.h in Headers */,
+				CB7AE8501F4AF5A3005E8E1F /* SSLinkageView.h in Headers */,
 				CB44376B1F3192DA00FF108C /* AMDSelectItemView.h in Headers */,
 				CB47CD001EE6480B00D81CA3 /* AMDMJRefreshBaseView.h in Headers */,
 				CB47CCE11EE6471A00D81CA3 /* AYESheetCell.h in Headers */,
 				CB47CD081EE6480B00D81CA3 /* UIScrollView+AMDMJExtension.h in Headers */,
-				CB47CCB81EE6471A00D81CA3 /* AMDErrorLogTool.h in Headers */,
 				CB47CCE91EE6471A00D81CA3 /* GeneralTableView.h in Headers */,
 				CB47CCFF1EE6480B00D81CA3 /* AMDMJRefresh.h in Headers */,
 				CB47CD0F1EE64D8C00D81CA3 /* UIView+AMDMJExtension.h in Headers */,
@@ -824,12 +824,12 @@
 				CB47CCCA1EE6471A00D81CA3 /* AMDBaseView.m in Sources */,
 				CB47CD071EE6480B00D81CA3 /* AMDMJRefreshHeaderView.m in Sources */,
 				CB47CCD81EE6471A00D81CA3 /* AMDRootNavgationBar.m in Sources */,
+				CB7AE8511F4AF5A3005E8E1F /* SSLinkageView.m in Sources */,
 				CB47CC9F1EE6471A00D81CA3 /* AMDLabelShowView.m in Sources */,
-				CB47CCB91EE6471A00D81CA3 /* AMDErrorLogTool.m in Sources */,
 				CB47CCBB1EE6471A00D81CA3 /* AMDWebViewProgress.m in Sources */,
 				CB47CCA91EE6471A00D81CA3 /* AMDSetAmountView.m in Sources */,
 				CB47CCB51EE6471A00D81CA3 /* AMDWebViewController.m in Sources */,
-				CB47CCC21EE6471A00D81CA3 /* UIView+AMDExtension.m in Sources */,
+				CB47CCC21EE6471A00D81CA3 /* UIView+SSExtension.m in Sources */,
 				CB47CCE21EE6471A00D81CA3 /* AYESheetCell.m in Sources */,
 				CB47CCD01EE6471A00D81CA3 /* AMDImageView.m in Sources */,
 				CB47CC9D1EE6471A00D81CA3 /* AMDLabelFieldView.m in Sources */,
@@ -838,6 +838,7 @@
 				CB47CCAF1EE6471A00D81CA3 /* AMDRootViewController.m in Sources */,
 				CB47CCD41EE6471A00D81CA3 /* AMDNoDataView.m in Sources */,
 				CB47CCB31EE6471A00D81CA3 /* AMDTabbarItem.m in Sources */,
+				CB53B2D51F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */,
 				CB47CCC81EE6471A00D81CA3 /* AMDBaseCell.m in Sources */,
 				CB47CCC61EE6471A00D81CA3 /* AMDBackControl.m in Sources */,
 				CB47CD0E1EE64C7A00D81CA3 /* UIScrollView+AMDMJRefresh.m in Sources */,
@@ -849,7 +850,6 @@
 				CB47CD091EE6480B00D81CA3 /* UIScrollView+AMDMJExtension.m in Sources */,
 				CB47CCA71EE6471A00D81CA3 /* AMDMultipleTypeView.m in Sources */,
 				CB47CCA51EE6471A00D81CA3 /* AMDLoadingView.m in Sources */,
-				CB47CCBD1EE6471A00D81CA3 /* AMDYLEncryptSignTool.m in Sources */,
 				CB47CC9B1EE6471A00D81CA3 /* AMDKeyboradView.m in Sources */,
 				CB47CCEA1EE6471A00D81CA3 /* GeneralTableView.m in Sources */,
 				CB47CCA11EE6471A00D81CA3 /* AMDLabelSwitchView.m in Sources */,
@@ -873,15 +873,14 @@
 				CB45E3C91F2B3462009BB7C6 /* AMDBaseView.m in Sources */,
 				CB45E3E91F2B34C6009BB7C6 /* AMDTextField.m in Sources */,
 				CB45E3E61F2B34C0009BB7C6 /* AMDRootNavgationBar.m in Sources */,
-				CB45E3DA1F2B34A5009BB7C6 /* AMDErrorLogTool.m in Sources */,
 				CB45E3D81F2B3492009BB7C6 /* AMDSetAmountView.m in Sources */,
-				CB45E3DC1F2B34A9009BB7C6 /* AMDYLEncryptSignTool.m in Sources */,
 				CB47CD1B1EE64DFE00D81CA3 /* AppDelegate.m in Sources */,
 				CB45E3CE1F2B347D009BB7C6 /* AASRegionChoiceView.m in Sources */,
 				CB45E3DF1F2B34B0009BB7C6 /* AMDBaseCell.m in Sources */,
+				CB53B2D61F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */,
 				CB45E3EA1F2B34C9009BB7C6 /* AYEActionSheetView.m in Sources */,
 				CB45E3CB1F2B3475009BB7C6 /* AMDTabbarController.m in Sources */,
-				CB45E3DD1F2B34AA009BB7C6 /* UIView+AMDExtension.m in Sources */,
+				CB45E3DD1F2B34AA009BB7C6 /* UIView+SSExtension.m in Sources */,
 				CB44376D1F3192DA00FF108C /* AMDSelectItemView.m in Sources */,
 				CB45E3D21F2B3486009BB7C6 /* AMDLabelFieldView.m in Sources */,
 				CB45E3E51F2B34BE009BB7C6 /* AMDProgressView.m in Sources */,
@@ -898,6 +897,7 @@
 				CB45E3D91F2B3495009BB7C6 /* AMDWebViewPopverView.m in Sources */,
 				CB45E3E31F2B34B9009BB7C6 /* AMDLineView.m in Sources */,
 				CB45E3D01F2B3482009BB7C6 /* AMDImgViewLabelView.m in Sources */,
+				CB7AE8521F4AF5A3005E8E1F /* SSLinkageView.m in Sources */,
 				CB45E3CD1F2B3479009BB7C6 /* AMDWebViewController.m in Sources */,
 				CB45E3D11F2B3484009BB7C6 /* AMDKeyboradView.m in Sources */,
 				CB45E3D31F2B3489009BB7C6 /* AMDLabelShowView.m in Sources */,

@@ -13,6 +13,7 @@
 //#import "AYEActionSheetView.h"
 #import "AMDSelectItemView.h"
 #import "AMDWebViewController.h"
+#import "AMDLabelFieldView.h"
 
 @interface ViewController ()
 
@@ -24,8 +25,9 @@
     [super viewDidLoad];
 //    [self initContentView];
     
-    [self testLineItemView];
+//    [self testLineItemView];
 //    [self performSelector:@selector(initContentView) withObject:nil afterDelay:0.5];
+    [self testTextFieldView];
 }
 
 
@@ -57,6 +59,17 @@
     AMDSelectItemView *itemView = [[AMDSelectItemView alloc]initWithFrame:CGRectMake(100, 100, 24, 24)];
     itemView.strokeColor = [UIColor redColor];
     [self.view addSubview:itemView];
+}
+
+
+- (void)testTextFieldView
+{
+    AMDLabelFieldView *field = [[AMDLabelFieldView alloc]initWithFrame:CGRectMake(0, 100, 300, 50)];
+    field.layer.borderWidth = 1;
+    field.textField.maxInputChars = 5;
+    field.titleLabel.text = @"测试";
+    [self.view addSubview:field];
+    
 }
 
 

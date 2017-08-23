@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (AMDExtension)
+@interface UIView (SSExtension)
 
 @property (assign, nonatomic) CGFloat amd_x;
 @property (assign, nonatomic) CGFloat amd_y;

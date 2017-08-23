@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SSBaseKit/AMDControllerTransitionDelegate.h>
-#import <SSBaseKit/CustomTableView.h>
-//#import "AMDUIFactory.h"
-#import <SSBaseKit/AMDRootNavgationBar.h>
-#import <SSBaseKit/UIView+AMDExtension.h>
-#import <SSBaseKit/AMDRootProtocol.h>
-//#import "AMDRouterURL.h"
+#import "AMDRootProtocol.h"
+#import "AMDRootNavgationBar.h"
+
 
 typedef NS_ENUM(NSUInteger, AMDControllerShowType) {
     AMDControllerShowTypePresent,                 //模态显示

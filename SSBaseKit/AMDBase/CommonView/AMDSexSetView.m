@@ -10,7 +10,7 @@
 #import "SSGlobalVar.h"
 #import "AMDButton.h"
 #import "AMDLineView.h"
-#import "UIView+AMDExtension.h"
+#import "UIView+SSExtension.h"
 
 
 @interface AMDSexSetView()

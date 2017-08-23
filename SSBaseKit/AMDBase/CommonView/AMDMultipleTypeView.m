@@ -9,7 +9,7 @@
 #import "AMDMultipleTypeView.h"
 #import "SSGlobalVar.h"
 #import "AMDLineView.h"
-#import "UIView+AMDExtension.h"
+#import "UIView+SSExtension.h"
 #import <Masonry/Masonry.h>
 
 

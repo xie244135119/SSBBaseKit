@@ -6,9 +6,9 @@
 //  Copyright (c) 2016年 SunSet. All rights reserved.
 //
 
-#import "UIView+AMDExtension.h"
+#import "UIView+SSExtension.h"
 
-@implementation UIView (AMDExtension)
+@implementation UIView (SSExtension)
 
 
 - (void)setAmd_x:(CGFloat)amd_x
