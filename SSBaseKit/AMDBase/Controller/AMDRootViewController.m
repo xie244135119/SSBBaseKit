@@ -14,6 +14,9 @@
 
 
 @interface AMDRootViewController ()
+{
+    AMDBackControl *_backControl;                   //线条颜色
+}
 
 @property(nonatomic) BOOL loadFromNib;     //从xib中加载的话
 //导航是否展示
@@ -35,6 +38,7 @@
 
 - (void)dealloc
 {
+    _backControl = nil;
     NSLog(@"%@ %s",[self class],__FUNCTION__);
 }
 
@@ -186,15 +190,11 @@
     if (_supportBackBt != supportBackBt) {
         _supportBackBt = supportBackBt;
         
-        AMDBackControl *control = (AMDBackControl *)[self.titleView viewWithTag:50];
+        AMDBackControl *control = _backItem;
         if (supportBackBt) {
             if (control == nil) {
                 AMDBackControl *backbt = [[AMDBackControl alloc]initWithFrame:CGRectMake(0, 0, 44+10, 44)];
-                backbt.tag = 50;
                 _backItem = backbt;
-                [backbt setImage:SSImageFromName(@"back_normal.png") forState:UIControlStateNormal];
-                [backbt setImage:SSImageFromName(@"back_selected.png") forState:UIControlStateHighlighted];
-                [backbt setImage:SSImageFromName(@"back_selected.png") forState:UIControlStateSelected];
                 [backbt addTarget:self action:@selector(ClickBt_Back:) forControlEvents:UIControlEventTouchUpInside];
                 self.titleView.leftViews = @[backbt];
             }
@@ -209,7 +209,7 @@
     if (_messageCount != messageCount) {
         _messageCount = messageCount;
         
-        AMDBackControl *control = (AMDBackControl *)[self.titleView viewWithTag:50];
+        AMDBackControl *control = _backControl;
         control.mesRemindLabel.text = [NSString stringWithFormat:@"(%li)",(long)messageCount];
     }
 }

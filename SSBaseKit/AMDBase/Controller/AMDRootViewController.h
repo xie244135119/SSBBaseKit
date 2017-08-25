@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AMDRootProtocol.h"
 #import "AMDRootNavgationBar.h"
+#import "AMDBackControl.h"
 
 
 typedef NS_ENUM(NSUInteger, AMDControllerShowType) {
@@ -26,7 +27,7 @@ typedef NS_ENUM(NSUInteger, AMDControllerShowType) {
 @property(nonatomic, readonly) AMDRootNavgationBar *titleView;
 
 // 支持显示后退按钮
-@property(nonatomic, weak) UIControl *backItem;
+@property(nonatomic, weak) AMDBackControl *backItem;
 @property(nonatomic) BOOL supportBackBt;
 // 设置消息提醒数量(类似微信后退按钮数量处理)
 @property(nonatomic) NSInteger messageCount;

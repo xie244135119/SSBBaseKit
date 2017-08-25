@@ -6,9 +6,9 @@
 //  Copyright © 2017年 SunSet. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AMDRootViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : AMDRootViewController
 
 
 @end

@@ -14,6 +14,7 @@
 #import "AMDSelectItemView.h"
 #import "AMDWebViewController.h"
 #import "AMDLabelFieldView.h"
+#import "AMDBackControl.h"
 
 @interface ViewController ()
 
@@ -23,11 +24,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.supportBackBt = YES;
+//    self.backItem.layer.borderWidth = 1;
+    self.backItem.imgStrokeColor = [UIColor redColor];
 //    [self initContentView];
     
 //    [self testLineItemView];
 //    [self performSelector:@selector(initContentView) withObject:nil afterDelay:0.5];
-    [self testTextFieldView];
+//    [self testTextFieldView];
+//    [self testBackView];
 }
 
 
@@ -72,6 +77,14 @@
     
 }
 
+
+- (void)testBackView
+{
+    AMDBackControl *backView = [[AMDBackControl alloc]initWithFrame:CGRectMake(80, 100, 100, 44)];
+    backView.backgroundColor = [UIColor blackColor];
+    backView.imgStrokeColor = [UIColor whiteColor];
+    [self.view addSubview:backView];
+}
 
 
 
