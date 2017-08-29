@@ -7,10 +7,7 @@
 //
 
 #import "ViewController.h"
-//#import <SSBaseKit/SSBaseKit.h>
-//#import "SSBaseKit.h"
-//#import "SSBaseKit.h"
-//#import "AYEActionSheetView.h"
+#import "SSGlobalVar.h"
 #import "AMDSelectItemView.h"
 #import "AMDWebViewController.h"
 #import "AMDLabelFieldView.h"
@@ -26,9 +23,10 @@
     [super viewDidLoad];
     self.supportBackBt = YES;
 //    self.backItem.layer.borderWidth = 1;
-    self.backItem.imgStrokeColor = [UIColor redColor];
+    self.backItem.imgStrokeColor = SSColorWithRGB(75, 75, 75, 1);
 //    [self initContentView];
     
+    self.titleView.title = @"阿萨帝发送到发送到发送方的";
 //    [self testLineItemView];
 //    [self performSelector:@selector(initContentView) withObject:nil afterDelay:0.5];
 //    [self testTextFieldView];
