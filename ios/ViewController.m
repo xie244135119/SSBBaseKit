@@ -12,9 +12,12 @@
 #import "AMDWebViewController.h"
 #import "AMDLabelFieldView.h"
 #import "AMDBackControl.h"
+#import "AMDButton.h"
 
 @interface ViewController ()
-
+{
+    AMDButton *_currentBt;
+}
 @end
 
 @implementation ViewController
@@ -31,6 +34,8 @@
 //    [self performSelector:@selector(initContentView) withObject:nil afterDelay:0.5];
 //    [self testTextFieldView];
 //    [self testBackView];
+    //
+    [self testButton];
 }
 
 
@@ -84,6 +89,30 @@
     [self.view addSubview:backView];
 }
 
+// 测试按钮
+- (void)testButton
+{
+    AMDButton *bt = [[AMDButton alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
+    bt.layer.borderWidth = 1;
+    bt.titleLabel.textColor = [UIColor redColor];
+    bt.imageView.image = [UIImage imageNamed:@"SSBaseKit/topicinfo_more.png"];
+    bt.imageView.frame = CGRectMake(30, 30, 40, 40);
+    bt.imageView.layer.borderWidth = 1;
+    bt.titleLabel.text = @"测试";
+    [self.contentView addSubview:bt];
+    _currentBt = bt ;
+    //
+    [bt supportRemindNumber];
+    [bt setUnreadCount:3];
+}
+
+
+
+-(IBAction)clickTest:(id)sender
+{
+    NSInteger count = random()*100;
+    [_currentBt setUnreadCount:count];
+}
 
 
 @end

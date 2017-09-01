@@ -68,10 +68,6 @@
     _selectBackgroundColor = nil;
     _normalBackgroundColor = nil;
     _disabledTitleColor = nil;
-    //    self.selectTitleColor = nil;
-    //    self.normalTitleColor = nil;
-//    self.normalImageName = nil;
-//    self.selectImageName = nil;
     _normalTitleColor = nil;
     _selectTitleColor = nil;
     _higlhtedTitleColor = nil;
@@ -496,46 +492,28 @@
 - (void)supportRemindNumber
 {
     //未读数量
-//    CGFloat width = self.frame.size.width;
-//    UIImageView *unreadimgView = [[UIImageView alloc]initWithFrame:CGRectMake(width-14, 4, 14, 14)];
     UnreadImageView *unreadimgView = [[UnreadImageView alloc]init];
     unreadimgView.image = [self imageWithColor:[UIColor redColor]];
-//    unreadimgView.hidden = YES;
-    unreadimgView.layer.cornerRadius = 7;
+    unreadimgView.layer.cornerRadius = 9;
     unreadimgView.layer.masksToBounds = YES;
     [self addSubview:unreadimgView];
-//    [self bringSubviewToFront:unreadimgView];
-    
     _unreadImageView = unreadimgView;
-//    unreadimgView.layer.borderWidth = 1;
-//    unreadimgView.hidden = YES;
     
-//    UILabel *unreadlb = [[UILabel alloc]initWithFrame:unreadimgView.frame];
     UILabel *unreadlb = [[UILabel alloc]init];
     unreadlb.textAlignment = NSTextAlignmentCenter;
-    unreadlb.font = SSFontWithName(@"", 10);
+    unreadlb.font = [UIFont systemFontOfSize:11];
     unreadlb.textColor = [UIColor whiteColor];
     unreadlb.hidden = YES;
-//    unreadlb.layer.borderWidth = 1;
-//    unreadlb.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
     [self addSubview:unreadlb];
     _unreadLb = unreadlb;
     
     // 自动布局处理
-    if (_autoLayout) {
-        [unreadlb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(_imageView.mas_right).with.offset(-5);
-            make.top.equalTo(_imageView.mas_top).with.offset(-5);
-            make.width.greaterThanOrEqualTo(@10);
-            make.height.greaterThanOrEqualTo(@10);
-        }];
-        
-//        [unreadimgView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(unreadlb.mas_left).with.offset(-2);
-//            make.top.equalTo(unreadlb.mas_top).with.offset(-2);
-//            make.width.height.equalTo(@14);
-//        }];
-    }
+    [unreadlb mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_imageView.mas_right).with.offset(-5);
+        make.top.equalTo(_imageView.mas_top).with.offset(-5);
+        make.width.greaterThanOrEqualTo(@14);
+        make.height.equalTo(@14);
+    }];
     
 }
 
@@ -548,42 +526,45 @@
 {
     _currentUnreadCount = unreadcount;
     // 使用自动布局处理
-    if (_autoLayout) {
-        [self _setAutoLayoutUnreadCount:unreadcount];
-        return;
-    }
+//    if (_autoLayout) {
+//        [self _setAutoLayoutUnreadCount:unreadcount];
+//        return;
+//    }
     
-    // 下方的逐渐废弃
-    // 意思是只显示红框 不显示数量
-    UIImageView *senderimgView = (UIImageView *)_unreadLb.superview;
-//    CGFloat width = self.frame.size.width;
-    if (unreadcount == -2) {
-        _unreadLb.text = @"";
-        senderimgView.hidden = NO;
-        senderimgView.frame = CGRectMake(_imageView.frame.origin.x+_imageView.frame.size.width-5, _imageView.frame.origin.y-5, 7, 7);
-        senderimgView.layer.cornerRadius = 3.5;
-        senderimgView.layer.masksToBounds = YES;
-        return;
-    }
-    
-    if (unreadcount <= 0) {
-        senderimgView.hidden = YES;
-    }
-    else {
-        senderimgView.hidden = NO;
-        senderimgView.frame = CGRectMake(_imageView.frame.origin.x+_imageView.frame.size.width-3, _imageView.frame.origin.y-5, 14, 14);
-        senderimgView.layer.cornerRadius = 7;
-        senderimgView.layer.masksToBounds = YES;
-        _unreadLb.text = [NSString stringWithFormat:@"%li",(long)unreadcount];
-        // 超过99条
-        if (unreadcount >= 10) {
-            senderimgView.frame = CGRectMake(senderimgView.frame.origin.x-3, senderimgView.frame.origin.y, 20, 14);
-            // 超过99的话
-            if (unreadcount > 99) {
-                _unreadLb.text = @"99+";
-            }
-        }
-    }
+    [self _setAutoLayoutUnreadCount:unreadcount];
+//    return;
+//    
+//    // 下方的逐渐废弃
+//    // 意思是只显示红框 不显示数量
+//    UIImageView *senderimgView = (UIImageView *)_unreadLb.superview;
+////    CGFloat width = self.frame.size.width;
+//    if (unreadcount == -2) {
+//        _unreadLb.text = @"";
+//        senderimgView.hidden = NO;
+//        senderimgView.frame = CGRectMake(_imageView.frame.origin.x+_imageView.frame.size.width-5, _imageView.frame.origin.y-5, 7, 7);
+//        senderimgView.layer.cornerRadius = 3.5;
+//        senderimgView.layer.masksToBounds = YES;
+//        return;
+//    }
+//    
+//    if (unreadcount <= 0) {
+//        senderimgView.hidden = YES;
+//    }
+//    else {
+//        senderimgView.hidden = NO;
+//        senderimgView.frame = CGRectMake(_imageView.frame.origin.x+_imageView.frame.size.width-3, _imageView.frame.origin.y-5, 14, 14);
+//        senderimgView.layer.cornerRadius = 7;
+//        senderimgView.layer.masksToBounds = YES;
+//        _unreadLb.text = [NSString stringWithFormat:@"%li",(long)unreadcount];
+//        // 超过99条
+//        if (unreadcount >= 10) {
+//            senderimgView.frame = CGRectMake(senderimgView.frame.origin.x-3, senderimgView.frame.origin.y, 20, 14);
+//            // 超过99的话
+//            if (unreadcount > 99) {
+//                _unreadLb.text = @"99+";
+//            }
+//        }
+//    }
 }
 
 // 自动布局下处理
@@ -596,17 +577,21 @@
     
     _unreadLb.text = [[NSString alloc]initWithFormat:@"%li",(long)unreadcount];
     if (unreadcount > 99) {
-        _unreadLb.text = @"99+";
+        _unreadLb.text = @"···";
     }
-    // 自适应
-    [_unreadLb systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    
+    CGFloat reduce = 2;
+    if (unreadcount > 10) { //26*18
+        reduce = 4;
+    }
     // 更新外层视图
     [_unreadImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_unreadLb.mas_left).with.offset(-2);
+        make.left.equalTo(_unreadLb.mas_left).with.offset(-(reduce));
         make.top.equalTo(_unreadLb.mas_top).with.offset(-2);
         make.bottom.equalTo(_unreadLb.mas_bottom).with.offset(2);
-        make.right.equalTo(_unreadLb.mas_right).with.offset(2);
+        make.right.equalTo(_unreadLb.mas_right).with.offset(reduce);
     }];
+    
 }
 
 
@@ -632,6 +617,7 @@
             placeHolder:(UIImage *)placeHolder
 {
     // override
+//    [self setImageWithUrl:url placeHolder:placeHolder completion:nil];
 }
 
 - (void)setImageWithUrl:(NSURL *)url
@@ -639,6 +625,7 @@
              completion:(void (^)(UIImage *, NSError *))completion
 {
     // override
+//    self.imageView.image = placeHolder;
 }
 
 
@@ -646,6 +633,8 @@
              placeHolder:(UIImage *)placeHolder
 {
     // override
+//    [self setImageWithUrl:[NSURL fileURLWithPath:path] placeHolder:placeHolder];
+    
 }
 
 //
@@ -689,7 +678,7 @@
     [super layoutSubviews];
     [super layoutIfNeeded];
     
-    self.layer.cornerRadius = self.frame.size.width/2;
+//    self.layer.cornerRadius = self.frame.size.width/2;
 }
 
 

@@ -32,10 +32,16 @@
 
 
 #pragma mark - 支持右上角数字
-// 支持提示数字(自动布局下的右上角数字支持)
+//
 - (void)supportRemindNumber;
-// 设置或获取未读数量
+
+/**
+ 设置未读数量
+
+ @param unreadcount 未读数量
+ */
 - (void)setUnreadCount:(NSInteger)unreadcount;
+// 获取未读数量
 - (NSInteger)unreadCount;
 
 
