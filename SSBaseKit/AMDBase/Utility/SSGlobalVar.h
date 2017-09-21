@@ -11,10 +11,11 @@
 
 
 #define SSColorWithRGB(r,g,b,a) [UIColor colorWithRed:(float)r/255 green:(float)g/255 blue:(float)b/255 alpha:a]
+#define SSColorWithHex(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 
 //字体
 #define SSFontWithName(n,s) [UIFont fontWithName:@"HiraginoSansGB-W3" size:s]
-//#define SSFontWithName(n,s) [UIFont systemFontOfSize:s]
 #define SSFontBoldWithName(n,s) [UIFont fontWithName:@"HiraginoSansGB-W3" size:s]
 
 
