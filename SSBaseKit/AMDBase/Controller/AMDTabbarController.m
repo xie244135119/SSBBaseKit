@@ -81,6 +81,7 @@
 {
     // 隐藏视图
     UITabBar *tabbar = [self hideTabBar];
+    _currentTabbar = tabbar;
     //背景色
     UIView *barvw = [[UIView alloc]init];
     barvw.backgroundColor = SSColorWithRGB(248, 248, 248, 1);
@@ -106,7 +107,7 @@
         item.itemTitleLabel.text = titles[i];
         [item setImage:images[i] controlState:UIControlStateNormal];
         [item setTitleColor:SSColorWithRGB(101, 111, 130, 1) controlState:UIControlStateNormal];
-        
+
         item.tag = i+900;
         [item addTarget:self action:@selector(clickBt_ChangeSelect:) forControlEvents:UIControlEventTouchUpInside];
         [barvw addSubview:item];
@@ -148,8 +149,8 @@
     for (UIView * v in self.view.subviews) {
         if ([v isKindOfClass:[UITabBar class]]) {
             oldTabBarRect = v.frame;
-            v.layer.borderWidth = 1;
             tabbar = (UITabBar *)v;
+            v.hidden = YES;
             break;
         }
     }
@@ -164,17 +165,9 @@
     
 //  更新布局
     [_amdTabBar mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(_amdTabBar.frame.size.height));
+        make.height.equalTo(@(_currentTabbar.frame.size.height));
     }];
 }
-
-//- (void)viewWillLayoutSubviews
-//{
-//    [super viewWillLayoutSubviews];
-////    NSLog(@"");
-////    [self updateViewConstraints];
-////    [self.view layoutSubviews];
-//}
 
 
 #pragma mark - 按钮事件
