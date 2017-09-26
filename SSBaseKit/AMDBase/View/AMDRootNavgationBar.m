@@ -76,15 +76,15 @@
     if (_title!=title) {
         _title=title;
         
-        NSInteger height = _naviationBar.frame.size.height;
+        NSInteger height = self.frame.size.height;
         if (_titleLabel == nil) {
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(40, (height-44)/2, self.frame.size.width-80, 44)];
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(40, (height-44), self.frame.size.width-80, 44)];
             _titleLabel = label;
             label.tag = 10;
             label.textAlignment = NSTextAlignmentCenter;
             label.font = SSFontWithName(@"", 18);
             label.textColor = SSColorWithRGB(75, 75, 75, 1);
-            [_naviationBar addSubview:label];
+            [self addSubview:label];
         }
         
         // 设置frame
@@ -100,7 +100,7 @@
         CGSize size = [text sizeWithAttributes:@{NSFontAttributeName:_titleLabel.font, NSParagraphStyleAttributeName:parstyle }];
         CGFloat maxWidth = MIN(size.width, self.frame.size.width-50*2);
         
-        _titleLabel.frame = CGRectMake((self.frame.size.width-maxWidth)/2, (height-44)/2, maxWidth, 44);
+        _titleLabel.frame = CGRectMake((self.frame.size.width-maxWidth)/2, (height-44), maxWidth, 44);
         [_titleLabel setText:title];
     }
 }
@@ -120,6 +120,8 @@
         _naviationBarColor = naviationBarColor;
         [_naviationBar setBarTintColor:naviationBarColor];
         self.backgroundColor = naviationBarColor;
+        
+        _naviationBar.alpha = ![naviationBarColor isEqual:[UIColor clearColor]];
     }
 }
 
