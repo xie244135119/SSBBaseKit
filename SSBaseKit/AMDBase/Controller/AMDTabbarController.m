@@ -19,7 +19,7 @@
 
 @interface AMDTabbarController ()
 {
-//    __weak UIView *_currentTabbar;
+    __weak UITabBar *_currentTabbar;
 //    AMDTabbarItem *_retainItem;                 //持有item
 }
 @property(nonatomic,strong) NSArray *itemTitles;//所有的itemtitles
@@ -53,6 +53,7 @@
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+
     [self resetTabbarTitles:_itemTitles images:_itemImages selectImages:_itemSelectImages];
     
 }
@@ -79,14 +80,14 @@
 - (void)resetTabbarTitles:(NSArray *)titles images:(NSArray *)images selectImages:(NSArray *)selectimgs
 {
     // 隐藏视图
-    [self hideTabBar];
+    UITabBar *tabbar = [self hideTabBar];
     //背景色
     UIView *barvw = [[UIView alloc]init];
     barvw.backgroundColor = SSColorWithRGB(248, 248, 248, 1);
     [self.view addSubview:barvw];
     [barvw mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(@0);
-        make.height.equalTo(@49);
+        make.height.equalTo(@(tabbar.frame.size.height));
     }];
     _amdTabBar = barvw;
     
@@ -112,7 +113,8 @@
         [item setImage:selectimgs[i] controlState:UIControlStateSelected];
         
         [item mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.top.equalTo(@0);
+            make.top.equalTo(@0);
+            make.height.equalTo(@49);
             if (_lastItem == nil) {
                 make.left.equalTo(@0);
             }
@@ -139,18 +141,32 @@
 
 
 // 隐藏之前的tabar
--(CGRect)hideTabBar
+- (UITabBar *)hideTabBar
 {
     CGRect oldTabBarRect = CGRectMake(0, 0, 0, 0);
+    UITabBar *tabbar = nil;
     for (UIView * v in self.view.subviews) {
         if ([v isKindOfClass:[UITabBar class]]) {
             oldTabBarRect = v.frame;
+            v.layer.borderWidth = 1;
+            tabbar = (UITabBar *)v;
             break;
         }
     }
-    return oldTabBarRect;
+    return tabbar;
 }
 
+
+#pragma mark - IOS11 底部Tabbar处理
+- (void)viewSafeAreaInsetsDidChange
+{
+    [super viewSafeAreaInsetsDidChange];
+    
+//  更新布局
+    [_amdTabBar mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(_amdTabBar.frame.size.height));
+    }];
+}
 
 //- (void)viewWillLayoutSubviews
 //{

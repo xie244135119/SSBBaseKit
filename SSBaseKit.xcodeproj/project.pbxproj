@@ -683,6 +683,7 @@
 					};
 					CB47CD131EE64DFE00D81CA3 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = R59VTBUQ8S;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -1082,14 +1083,15 @@
 			baseConfigurationReference = ACA114F7AD39C1CAA8529DA3 /* Pods-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = R59VTBUQ8S;
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ylwdwd.wfx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "5e99209a-32b4-4adf-ba48-78a4d39c2993";
+				PROVISIONING_PROFILE_SPECIFIER = ylwdwdwfx_develop;
 			};
 			name = Debug;
 		};
@@ -1103,7 +1105,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ylwdwd.wfx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};

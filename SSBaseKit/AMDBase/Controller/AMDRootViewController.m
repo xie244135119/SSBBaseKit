@@ -32,6 +32,7 @@
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         // 从xib中加载
         _loadFromNib = YES;
+        self.title = @"测试";
     }
     return self;
 }
@@ -135,7 +136,7 @@
     if (!_titileViewHidden) {//标题
         h = 64;
         AMDRootNavgationBar *bar = [[AMDRootNavgationBar alloc]initWithFrame:CGRectMake(0, 0, w, h)];
-//        bar.naviationBarColor = nav_background_color;
+        bar.naviationBarColor = [UIColor redColor];
         _titleView = bar;
         bar.title = self.title;
         [self.view addSubview:bar];

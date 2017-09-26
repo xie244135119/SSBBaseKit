@@ -13,6 +13,8 @@
 #import "AMDLabelFieldView.h"
 #import "AMDBackControl.h"
 #import "AMDButton.h"
+#import <sys/utsname.h>
+#import "AMDTabbarController.h"
 
 @interface ViewController ()
 {
@@ -29,15 +31,17 @@
     self.backItem.imgStrokeColor = SSColorWithRGB(75, 75, 75, 1);
 //    [self initContentView];
     
+    
     self.titleView.title = @"阿萨帝发送到发送到发送方的";
 //    [self testLineItemView];
 //    [self performSelector:@selector(initContentView) withObject:nil afterDelay:0.5];
 //    [self testTextFieldView];
 //    [self testBackView];
     //
-    [self testButton];
+//    [self testButton];
+    
+    [self performSelector:@selector(testTabBar) withObject:nil afterDelay:0.1];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -77,7 +81,6 @@
     field.textField.maxInputChars = 5;
     field.titleLabel.text = @"测试";
     [self.view addSubview:field];
-    
 }
 
 
@@ -105,6 +108,22 @@
     [bt supportRemindNumber];
     [bt setUnreadCount:3];
 }
+
+
+// 底部tabbar
+- (void)testTabBar
+{
+    AMDRootViewController *webVC = [[AMDRootViewController alloc]initWithTitle:@"阿生的"];
+    AMDRootViewController *webVC2 = [[AMDRootViewController alloc]initWithTitle:@"测试"];
+     AMDRootViewController *webVC3 = [[AMDRootViewController alloc]initWithTitle:@"测试"];
+     AMDRootViewController *webVC4 = [[AMDRootViewController alloc]initWithTitle:@"测试"];
+    
+    AMDTabbarController *tabbarVc = [[AMDTabbarController alloc]initWithItemsTitles:@[@"asdf",@"aswew"] itemImages:@[[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"], [UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"]] itemSelctImages:@[[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"], [UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"]]];
+//    UITabBarController *tabbarVc = [[UITabBarController alloc]init];
+    tabbarVc.viewControllers = @[webVC, webVC2,webVC3,webVC4];
+    [self presentViewController:tabbarVc animated:YES completion:nil];
+}
+
 
 
 

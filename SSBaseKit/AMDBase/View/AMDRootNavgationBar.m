@@ -25,8 +25,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        UINavigationBar *bar=[[UINavigationBar alloc]initWithFrame:self.bounds];
-        _naviationBar=bar;
+        CGRect statusframe = [[UIApplication sharedApplication] statusBarFrame];
+        UINavigationBar *bar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, statusframe.size.height, frame.size.width, 44)];
+//        bar.barTintColor = [UIColor clearColor];
+        _naviationBar = bar;
         bar.translucent = NO;
         [self addSubview:bar];
     }
@@ -42,10 +44,11 @@
     if (_leftViews!=leftViews) {
         _leftViews=leftViews;
         
-        NSInteger height=self.frame.size.height;
+        NSInteger height = _naviationBar.frame.size.height;
         for (UIView *v in leftViews ) {//添加页面
             CGRect rect = v.frame;
-            v.frame = CGRectMake(rect.origin.x, rect.origin.y+height-44, v.frame.size.width, v.frame.size.height);
+            CGFloat y = (height-v.frame.size.height)/2;
+            v.frame = CGRectMake(rect.origin.x, y, v.frame.size.width, v.frame.size.height);
             [_naviationBar addSubview:v];
         }
     }
@@ -57,10 +60,11 @@
     if (_rightViews!=rightViews) {
         _rightViews=rightViews;
         
-        NSInteger height=self.frame.size.height;
+        NSInteger height = _naviationBar.frame.size.height;
         for (UIView *v in rightViews ) {//添加页面
-            CGRect rect=v.frame;
-            v.frame=CGRectMake(rect.origin.x, rect.origin.y+height-44, v.frame.size.width, v.frame.size.height);
+            CGRect rect = v.frame;
+            CGFloat y = (height-v.frame.size.height)/2;
+            v.frame = CGRectMake(rect.origin.x, y, v.frame.size.width, v.frame.size.height);
             [_naviationBar addSubview:v];
         }
     }
@@ -72,16 +76,15 @@
     if (_title!=title) {
         _title=title;
         
-        NSInteger height=self.frame.size.height;
+        NSInteger height = _naviationBar.frame.size.height;
         if (_titleLabel == nil) {
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(40,height-44, self.frame.size.width-80, 44)];
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(40, (height-44)/2, self.frame.size.width-80, 44)];
             _titleLabel = label;
             label.tag = 10;
             label.textAlignment = NSTextAlignmentCenter;
             label.font = SSFontWithName(@"", 18);
             label.textColor = SSColorWithRGB(75, 75, 75, 1);
-//            label.textColor = nav_text_color;
-            [self addSubview:label];
+            [_naviationBar addSubview:label];
         }
         
         // 设置frame
@@ -97,7 +100,7 @@
         CGSize size = [text sizeWithAttributes:@{NSFontAttributeName:_titleLabel.font, NSParagraphStyleAttributeName:parstyle }];
         CGFloat maxWidth = MIN(size.width, self.frame.size.width-50*2);
         
-        _titleLabel.frame = CGRectMake((self.frame.size.width-maxWidth)/2, height-44, maxWidth, 44);
+        _titleLabel.frame = CGRectMake((self.frame.size.width-maxWidth)/2, (height-44)/2, maxWidth, 44);
         [_titleLabel setText:title];
     }
 }
@@ -116,6 +119,7 @@
     if (_naviationBarColor != naviationBarColor) {
         _naviationBarColor = naviationBarColor;
         [_naviationBar setBarTintColor:naviationBarColor];
+        self.backgroundColor = naviationBarColor;
     }
 }
 
