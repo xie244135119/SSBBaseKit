@@ -44,12 +44,12 @@
     if (_leftViews!=leftViews) {
         _leftViews=leftViews;
         
-        NSInteger height = _naviationBar.frame.size.height;
+        NSInteger height = self.frame.size.height;
         for (UIView *v in leftViews ) {//添加页面
             CGRect rect = v.frame;
-            CGFloat y = (height-v.frame.size.height)/2;
+            CGFloat y = height-44+((height-44)-v.frame.size.height)/2;
             v.frame = CGRectMake(rect.origin.x, y, v.frame.size.width, v.frame.size.height);
-            [_naviationBar addSubview:v];
+            [self addSubview:v];
         }
     }
 }
@@ -60,12 +60,12 @@
     if (_rightViews!=rightViews) {
         _rightViews=rightViews;
         
-        NSInteger height = _naviationBar.frame.size.height;
+        NSInteger height = self.frame.size.height;
         for (UIView *v in rightViews ) {//添加页面
             CGRect rect = v.frame;
-            CGFloat y = (height-v.frame.size.height)/2;
+            CGFloat y = (height-44)+((height-44)-v.frame.size.height)/2;
             v.frame = CGRectMake(rect.origin.x, y, v.frame.size.width, v.frame.size.height);
-            [_naviationBar addSubview:v];
+            [self addSubview:v];
         }
     }
 }

@@ -18,9 +18,10 @@
     //
     UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
     [bt setTitle:@"测试" forState:UIControlStateNormal];
-    [bt setFrame:CGRectMake(0, 0, 50, 40)];
+    [bt setFrame:CGRectMake(0, 0, 50, 20)];
     bt.layer.borderWidth = 1;
-    [self.contentView addSubview:bt];
+//    [self.contentView addSubview:bt];
+    self.titleView.leftViews = @[bt] ;
 }
 
 
