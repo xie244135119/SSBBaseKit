@@ -68,39 +68,22 @@
         CGFloat h = self.frame.size.height;
     // 名称 左侧展示
         UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(15, 0, 100, h)];
-//    UILabel *titleLable = [[UILabel alloc]init];
     titleLable.backgroundColor = [UIColor clearColor];
     titleLable.font = SSFontWithName(@"", 14);
     titleLable.textColor = SSColorWithRGB(51, 51, 51, 1);
     [self addSubview:titleLable];
-    //    titleLable.layer.borderWidth = 1;
     _titleLabel = titleLable;
-//    [titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self).with.offset(15);        //据左侧15
-//        make.top.bottom.equalTo(self).with.offset(0);   //占满
-//        make.width.equalTo(@100);
-//        make.height.equalTo(self.mas_height);
-//    }];
     
     // 内容 右侧展示
     AMDCopyLabel *contentLable = [[AMDCopyLabel alloc]initWithFrame:CGRectMake(120, 0, self.frame.size.width-120-15, h)];
-//    AMDCopyLabel *contentLable = [[AMDCopyLabel alloc]init];
     contentLable.textAlignment = NSTextAlignmentRight;
     contentLable.backgroundColor = [UIColor clearColor];
     contentLable.font = SSFontWithName(@"", 14);
     contentLable.numberOfLines = 0;
-    //    contentLable.textColor = SSColorWithRGB(51, 51, 51, 1);
     contentLable.textColor = SSColorWithRGB(119, 119, 119, 1);
         contentLable.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    //    contentLable.layer.borderWidth = 1;
     [self addSubview:contentLable];
     _contentLabel = contentLable;
-//    [contentLable mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(titleLable.mas_right).with.offset(5);         //距离左侧控件5
-//        make.right.equalTo(self).with.offset(-15);                      //距离右侧控件左侧15
-//        make.top.bottom.equalTo(self).with.offset(0);                   //占满上下层
-//        make.height.equalTo(self.mas_height);
-//    }];
 }
 
 //视图加载
@@ -108,7 +91,6 @@
 {
 //    CGFloat h = self.frame.size.height;
     // 名称 左侧展示
-//    UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(15, 0, 100, h)];
     UILabel *titleLable = [[UILabel alloc]init];
     titleLable.backgroundColor = [UIColor clearColor];
     titleLable.font = SSFontWithName(@"", 14);
@@ -123,7 +105,6 @@
     }];
     
     // 内容 右侧展示
-//    AMDCopyLabel *contentLable = [[AMDCopyLabel alloc]initWithFrame:CGRectMake(120, 0, self.frame.size.width-120-15, h)];
     AMDCopyLabel *contentLable = [[AMDCopyLabel alloc]init];
     contentLable.textAlignment = NSTextAlignmentRight;
     contentLable.backgroundColor = [UIColor clearColor];

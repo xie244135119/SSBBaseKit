@@ -32,9 +32,9 @@
 
 - (id)init
 {
+    _autoLayout = YES;
     if (self = [super init]) {
         //
-        _autoLayout = YES;
     }
     return self;
 }
