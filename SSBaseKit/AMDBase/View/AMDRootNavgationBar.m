@@ -26,15 +26,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         CGRect statusframe = [[UIApplication sharedApplication] statusBarFrame];
-        UINavigationBar *bar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, statusframe.size.height, frame.size.width, 44)];
-//        bar.barTintColor = [UIColor clearColor];
+        UINavigationBar *bar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, statusframe.size.height, SScreenWidth, 44)];
         _naviationBar = bar;
         bar.translucent = NO;
         [self addSubview:bar];
+     
+        self.frame = CGRectMake(0, 0, bar.frame.size.width, bar.frame.size.height+bar.frame.origin.y);
     }
     return self;
 }
-
 
 
 #pragma mark

@@ -60,6 +60,7 @@
 		CB45E3EC1F2B34CC009BB7C6 /* CustomTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC911EE6471A00D81CA3 /* CustomTextView.m */; };
 		CB45E3ED1F2B34CF009BB7C6 /* CustomTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC8C1EE6471A00D81CA3 /* CustomTableView.m */; };
 		CB45E3EE1F2B34D0009BB7C6 /* GeneralTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC8F1EE6471A00D81CA3 /* GeneralTableView.m */; };
+		CB47BE351F7B628400F1BA65 /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47BE341F7B628400F1BA65 /* TestController.m */; };
 		CB47CC2A1EE6471000D81CA3 /* SSBaseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC281EE6471000D81CA3 /* SSBaseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CC941EE6471A00D81CA3 /* AMDAnimationWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC351EE6471A00D81CA3 /* AMDAnimationWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CC951EE6471A00D81CA3 /* AMDAnimationWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC361EE6471A00D81CA3 /* AMDAnimationWebView.m */; };
@@ -182,6 +183,8 @@
 		CB3E39FE1F382F590003DB57 /* SSBaseKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SSBaseKit.bundle; sourceTree = "<group>"; };
 		CB4437691F3192DA00FF108C /* AMDSelectItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSelectItemView.h; sourceTree = "<group>"; };
 		CB44376A1F3192DA00FF108C /* AMDSelectItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSelectItemView.m; sourceTree = "<group>"; };
+		CB47BE331F7B628400F1BA65 /* TestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
+		CB47BE341F7B628400F1BA65 /* TestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestController.m; sourceTree = "<group>"; };
 		CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB47CC281EE6471000D81CA3 /* SSBaseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSBaseKit.h; sourceTree = "<group>"; };
 		CB47CC291EE6471000D81CA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -527,6 +530,8 @@
 				CB47CD241EE64DFE00D81CA3 /* LaunchScreen.storyboard */,
 				CB47CD271EE64DFE00D81CA3 /* Info.plist */,
 				CB47CD161EE64DFE00D81CA3 /* Supporting Files */,
+				CB47BE331F7B628400F1BA65 /* TestController.h */,
+				CB47BE341F7B628400F1BA65 /* TestController.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -901,6 +906,7 @@
 				CB7AE8521F4AF5A3005E8E1F /* SSLinkageView.m in Sources */,
 				CB45E3CD1F2B3479009BB7C6 /* AMDWebViewController.m in Sources */,
 				CB45E3D11F2B3484009BB7C6 /* AMDKeyboradView.m in Sources */,
+				CB47BE351F7B628400F1BA65 /* TestController.m in Sources */,
 				CB45E3D31F2B3489009BB7C6 /* AMDLabelShowView.m in Sources */,
 				CB45E3EC1F2B34CC009BB7C6 /* CustomTextView.m in Sources */,
 				CB45E3E21F2B34B8009BB7C6 /* AMDImageView.m in Sources */,

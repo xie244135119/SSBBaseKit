@@ -15,6 +15,8 @@
 #import "AMDButton.h"
 #import <sys/utsname.h>
 #import "AMDTabbarController.h"
+#import "TestController.h"
+
 
 @interface ViewController ()
 {
@@ -113,12 +115,13 @@
 // 底部tabbar
 - (void)testTabBar
 {
-    AMDRootViewController *webVC = [[AMDRootViewController alloc]initWithTitle:@"阿生的"];
+    TestController *webVC = [[TestController alloc]initWithTitle:@"阿生的"];
     AMDRootViewController *webVC2 = [[AMDRootViewController alloc]initWithTitle:@"测试"];
      AMDRootViewController *webVC3 = [[AMDRootViewController alloc]initWithTitle:@"测试"];
      AMDRootViewController *webVC4 = [[AMDRootViewController alloc]initWithTitle:@"测试"];
     
     AMDTabbarController *tabbarVc = [[AMDTabbarController alloc]initWithItemsTitles:@[@"asdf",@"aswew",@"232",@"234asdfa"] itemImages:@[[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"], [UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"],[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"],[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"]] itemSelctImages:@[[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"], [UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"],[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"],[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"]]];
+//    UITabBarController *tabbarVc = [[UITabBarController alloc]init];
     tabbarVc.viewControllers = @[webVC, webVC2,webVC3,webVC4];
     [self presentViewController:tabbarVc animated:YES completion:nil];
 }

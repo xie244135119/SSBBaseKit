@@ -150,7 +150,6 @@
         if ([v isKindOfClass:[UITabBar class]]) {
             oldTabBarRect = v.frame;
             tabbar = (UITabBar *)v;
-            v.hidden = YES;
             break;
         }
     }
@@ -167,6 +166,7 @@
     [_amdTabBar mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(_currentTabbar.frame.size.height));
     }];
+    
 }
 
 

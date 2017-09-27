@@ -131,27 +131,27 @@
 - (void)initRootContentView
 {
     NSInteger h = 0;
-    NSInteger w = self.view.frame.size.width;
+//    NSInteger w = self.view.frame.size.width;
     
-    if (!_titileViewHidden) {//标题
-        h = [[UIApplication sharedApplication] statusBarFrame].size.height + 44;
-        AMDRootNavgationBar *bar = [[AMDRootNavgationBar alloc]initWithFrame:CGRectMake(0, 0, w, h)];
+    // 标题
+    if (!_titileViewHidden) {
+        AMDRootNavgationBar *bar = [[AMDRootNavgationBar alloc]init];
         bar.naviationBarColor = [UIColor redColor];
         _titleView = bar;
         bar.title = self.title;
         [self.view addSubview:bar];
-        [bar mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.equalTo(@0);
-            make.height.equalTo(@(h));
-            make.top.equalTo(@0);
-        }];
+        h = bar.frame.size.height;
+//        [bar mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.right.equalTo(@0);
+//            make.height.equalTo(@(h));
+//            make.top.equalTo(@0);
+//        }];
     }
     
     //内部视图
     UIView *contentvw = [[UIView alloc]init];
     _contentView = contentvw;
     contentvw.backgroundColor = SSColorWithRGB(246, 246, 246, 1);
-//    contentvw.layer.borderWidth = 1;
     if (_titleView)
         [self.view insertSubview:contentvw belowSubview:_titleView];
     else
@@ -225,12 +225,18 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
 - (void)viewWillLayoutSubviews
 {
 //    self.contentView.layer.borderWidth = 1;
     // 当视图发生改变的时候
     [super viewWillLayoutSubviews];
+}
+
+
+#pragma mark - IOS11 上位置改变的时候
+- (void)viewSafeAreaInsetsDidChange
+{
+    [super viewSafeAreaInsetsDidChange];
 }
 
 
