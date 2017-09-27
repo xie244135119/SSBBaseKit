@@ -47,7 +47,7 @@
         NSInteger height = self.frame.size.height;
         for (UIView *v in leftViews ) {//添加页面
             CGRect rect = v.frame;
-            CGFloat y = height-44+((height-44)-v.frame.size.height)/2;
+            CGFloat y = height-44+((44-v.frame.size.height)/2);
             v.frame = CGRectMake(rect.origin.x, y, v.frame.size.width, v.frame.size.height);
             [self addSubview:v];
         }
@@ -63,7 +63,7 @@
         NSInteger height = self.frame.size.height;
         for (UIView *v in rightViews ) {//添加页面
             CGRect rect = v.frame;
-            CGFloat y = (height-44)+((height-44)-v.frame.size.height)/2;
+            CGFloat y = (height-44)+(44-v.frame.size.height)/2;
             v.frame = CGRectMake(rect.origin.x, y, v.frame.size.width, v.frame.size.height);
             [self addSubview:v];
         }
