@@ -136,7 +136,7 @@
     // 标题
     if (!_titileViewHidden) {
         AMDRootNavgationBar *bar = [[AMDRootNavgationBar alloc]init];
-        bar.naviationBarColor = [UIColor redColor];
+        bar.naviationBarColor = [UIColor whiteColor];
         _titleView = bar;
         bar.title = self.title;
         [self.view addSubview:bar];
