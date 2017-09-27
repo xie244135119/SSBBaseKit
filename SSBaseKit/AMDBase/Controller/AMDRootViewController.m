@@ -134,7 +134,7 @@
     NSInteger w = self.view.frame.size.width;
     
     if (!_titileViewHidden) {//标题
-        h = 64;
+        h = [[UIApplication sharedApplication] statusBarFrame].size.height + 44;
         AMDRootNavgationBar *bar = [[AMDRootNavgationBar alloc]initWithFrame:CGRectMake(0, 0, w, h)];
         bar.naviationBarColor = [UIColor redColor];
         _titleView = bar;

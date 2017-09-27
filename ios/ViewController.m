@@ -40,7 +40,7 @@
     //
 //    [self testButton];
     
-//    [self performSelector:@selector(testTabBar) withObject:nil afterDelay:0.1];
+    [self performSelector:@selector(testTabBar) withObject:nil afterDelay:0.1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,7 +118,7 @@
      AMDRootViewController *webVC3 = [[AMDRootViewController alloc]initWithTitle:@"测试"];
      AMDRootViewController *webVC4 = [[AMDRootViewController alloc]initWithTitle:@"测试"];
     
-    AMDTabbarController *tabbarVc = [[AMDTabbarController alloc]initWithItemsTitles:@[@"asdf",@"aswew"] itemImages:@[[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"], [UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"]] itemSelctImages:@[[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"], [UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"]]];
+    AMDTabbarController *tabbarVc = [[AMDTabbarController alloc]initWithItemsTitles:@[@"asdf",@"aswew",@"232",@"234asdfa"] itemImages:@[[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"], [UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"],[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"],[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"]] itemSelctImages:@[[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"], [UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"],[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"],[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"]]];
     tabbarVc.viewControllers = @[webVC, webVC2,webVC3,webVC4];
     [self presentViewController:tabbarVc animated:YES completion:nil];
 }
