@@ -16,6 +16,7 @@
 #import <sys/utsname.h>
 #import "AMDTabbarController.h"
 #import "TestController.h"
+#import "AYEActionSheetView.h"
 
 
 @interface ViewController ()
@@ -42,7 +43,9 @@
     //
 //    [self testButton];
     
-    [self performSelector:@selector(testTabBar) withObject:nil afterDelay:0.1];
+//    [self performSelector:@selector(testTabBar) withObject:nil afterDelay:0.1];
+    //
+    [self performSelector:@selector(testActionSheet) withObject:nil afterDelay:0.1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,6 +129,12 @@
     [self presentViewController:tabbarVc animated:YES completion:nil];
 }
 
+// 测试弹出窗口
+- (void)testActionSheet
+{
+    AYEActionSheetView *sheetView = [[AYEActionSheetView alloc]initWithdelegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"测试1",@"测试2",@"差盛大发送到发送到", nil];
+    [sheetView showInView:self.view];
+}
 
 
 
@@ -134,6 +143,25 @@
     NSInteger count = random()*100;
     [_currentBt setUnreadCount:count];
 }
+
+
+#pragma mark -
+- (void)AYEActionSheetView:(AYEActionSheetView *)sheetView DidTapWithTitle:(NSString *)title
+{
+    NSLog(@" 选中了某一个标题  %@",title);
+}
+
+- (void)AYEActionSheetView:(AYEActionSheetView *)sheetView DidTapWithIndex:(NSInteger)index
+{
+    NSLog(@" 选中了某一个index:%i ",index);
+}
+
+- (void)AYEActionSheetView:(AYEActionSheetView *)sheetView willDismissWithIndex:(NSInteger)index
+{
+    NSLog(@" 取消选中了某一个index:%i ",index);
+}
+
+
 
 
 @end

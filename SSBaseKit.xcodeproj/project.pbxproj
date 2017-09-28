@@ -293,6 +293,8 @@
 		CB53B2D21F4D1D0B0083A31B /* UIButton+SSBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SSBackground.h"; sourceTree = "<group>"; };
 		CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SSBackground.m"; sourceTree = "<group>"; };
 		CB614A841EE9362900471DE9 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		CB644C611F7CDC30001BF127 /* FXBlurView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		CB644C621F7CDC31001BF127 /* FXBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLinkageView.h; sourceTree = "<group>"; };
 		CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLinkageView.m; sourceTree = "<group>"; };
 		DF4D764CA25168F83786CBD9 /* Pods-SSBaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -378,6 +380,8 @@
 		CB47CC341EE6471A00D81CA3 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				CB644C611F7CDC30001BF127 /* FXBlurView.h */,
+				CB644C621F7CDC31001BF127 /* FXBlurView.m */,
 				CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */,
 				CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */,
 				CB2D53401F15B5AC005A1B3F /* AMDSexSetView.h */,

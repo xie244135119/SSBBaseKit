@@ -7,18 +7,20 @@
 //
 
 #import "AYEActionSheetView.h"
-#import "AYESheetCell.h"
 #import "SSGlobalVar.h"
+#import "AMDButton.h"
+#import "AMDLineView.h"
 
-#define kFooterHeight 10
+
 #define kCellHeight 50
-#define kBackColorAlpha 0.6
+#define kBackColorAlpha 0.4
+#define kSeperateLineColor SSColorWithRGB(179, 182, 191, 1)     //分割线条颜色
+#define kSeperateLineSpace 6                                    //分割端高度
 
-@interface AYEActionSheetView ()<UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray *arr;
-@property (nonatomic) CGFloat tableViewHeight;
-@property (nonatomic) BOOL hasDestructive;
+@interface AYEActionSheetView ()
+{
+    __weak UIView *_middleView;             //中间视图
+}
 @end
 
 @implementation AYEActionSheetView
@@ -28,31 +30,20 @@
 {
     self = [super init];
     if (self) {
-        [self setup];
         NSMutableArray *mutableArr = [NSMutableArray array];
         {
-            NSMutableArray *titles_arr = [NSMutableArray new];
-            if (destructiveButtonTitle.length > 0) {
-                self.hasDestructive = YES;
-                [titles_arr addObject:destructiveButtonTitle];
-            }
             if (otherButtonTitles) {
-                [titles_arr addObject:otherButtonTitles];
-                NSString *title;
+                [mutableArr addObject:otherButtonTitles];
+                NSString *title = nil;
                 while ((title = va_arg(argList, NSString *))) {
-                    [titles_arr addObject:title];
+                    [mutableArr addObject:title];
                 }
             }
-            [mutableArr addObject:[titles_arr copy]];
         }
-        !(cancelButtonTitle.length > 0) ?: [mutableArr addObject:@[cancelButtonTitle]];
-        self.arr = [mutableArr copy];
-        for (id obj in self.arr) {
-            if ([obj isKindOfClass:[NSArray class]]) {
-                self.tableViewHeight += [obj count] * kCellHeight + kFooterHeight;
-            }
-        }
-        self.tableViewHeight -= kFooterHeight;
+        
+        [self _loadViewWithDestructiveTitle:destructiveButtonTitle
+                               actionTitles:mutableArr
+                                cancelTitle:cancelButtonTitle];
         _delegate = delegate;
     }
     return self;
@@ -62,210 +53,176 @@
 {
     self = [super init];
     if (self) {
-        [self setup];
         NSMutableArray *mutableArr = [NSMutableArray array];
         {
             va_list titles;
             va_start(titles, otherButtonTitles);
-            NSMutableArray *titles_arr = [NSMutableArray new];
-            if (destructiveButtonTitle.length > 0) {
-                self.hasDestructive = YES;
-                [titles_arr addObject:destructiveButtonTitle];
-            }
             if (otherButtonTitles) {
-                [titles_arr addObject:otherButtonTitles];
-                NSString *title;
+                [mutableArr addObject:otherButtonTitles];
+                NSString *title = nil;
                 while ((title = va_arg(titles, NSString *))) {
-                    [titles_arr addObject:title];
+                    [mutableArr addObject:title];
                 }
             }
             va_end(titles);
-            [mutableArr addObject:[titles_arr copy]];
         }
-        !(cancelButtonTitle.length > 0) ?: [mutableArr addObject:@[cancelButtonTitle]];
-        self.arr = [mutableArr copy];
-        for (id obj in self.arr) {
-            if ([obj isKindOfClass:[NSArray class]]) {
-                self.tableViewHeight += [obj count] * kCellHeight + kFooterHeight;
-            }
-        }
-        self.tableViewHeight -= kFooterHeight;
+        [self _loadViewWithDestructiveTitle:destructiveButtonTitle
+                               actionTitles:mutableArr
+                                cancelTitle:cancelButtonTitle];
         _delegate = delegate;
     }
     return self;
 }
 
-- (void)setup {
-    [self addTarget:self action:@selector(DidTap:) forControlEvents:UIControlEventTouchUpInside];
-    UITableView *tab = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    self.tableView = tab;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.scrollEnabled = NO;
-    //    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([AYESheetCell class]) bundle:nil] forCellReuseIdentifier:@"sheetCell"];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self addSubview:self.tableView];
-}
 
-- (void)DidTap:(UITapGestureRecognizer *)sender {
-    [self dismiss];
-}
-
+#pragma mark - public api
+// 显示视图
 - (void)showInView:(UIView *)view
 {
-    if (view && view != self.superview) {
-        if (self.superview) {
-            [self removeFromSuperview];
-        }
-        [view addSubview:self];
-        self.frame = view.frame;
-        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
-        self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), self.tableViewHeight);
-        [self show];
+    if (view == nil) {
+        view = [[UIApplication sharedApplication] keyWindow];
     }
+    self.frame = view.frame;
+    [view addSubview:self];
+    
+    // 动画显示
+    [self _show];
 }
 
-- (void)show {
-    CGFloat y = self.tableView.frame.origin.y;
-    if (y <= CGRectGetHeight(self.frame) - self.tableViewHeight) {
+
+
+#pragma mark - 视图重构
+// 视图加载
+- (void)_loadViewWithDestructiveTitle:(NSString *)destructive
+                         actionTitles:(NSArray *)actionTitles
+                               cancelTitle:(NSString *)cancelTitle
+{
+    //
+    UIView *middleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+    middleView.backgroundColor = [UIColor clearColor];
+    [self addSubview:middleView];
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurView.frame = middleView.bounds;
+    [middleView addSubview:blurView];
+    _middleView = middleView;
+    
+    // 加重提示块
+    CGFloat height = 0;
+    // 创建按钮
+    if (destructive) {
+        // 标注按钮
+        AMDButton *desbt = [self _commonButtonWithFrame:CGRectMake(0, 0, SScreenWidth, kCellHeight)];
+        desbt.titleLabel.text = destructive;
+        desbt.titleLabel.textColor = [UIColor colorWithRed:1.0 green:0.3216 blue:0.2118 alpha:1.0];
+        [_middleView addSubview:desbt];
+        AMDLineView *line = [[AMDLineView alloc]initWithFrame:CGRectMake(0, 49.5, SScreenWidth, 0.5) Color:SSLineColor];
+        [desbt addSubview:line];
+        desbt.tag = -1;
+        height += 50+kSeperateLineSpace;
+    }
+    
+    // 正常的标题
+    for (int i =0; i < actionTitles.count; i++) {
+        AMDButton *bt = [self _commonButtonWithFrame:CGRectMake(0, height, SScreenWidth, kCellHeight)];
+        bt.titleLabel.text = actionTitles[i];
+        [middleView addSubview:bt];
+        AMDLineView *line = [[AMDLineView alloc]initWithFrame:CGRectMake(0, 49.5, SScreenWidth, 0.5) Color:SSLineColor];
+        [bt addSubview:line];
+        bt.tag = i+1;
+        height += 50;
+    }
+    
+    height += kSeperateLineSpace;
+    
+    // 取消按钮
+    if (cancelTitle) {
+        // 标注按钮
+        AMDButton *cancelbt = [self _commonButtonWithFrame:CGRectMake(0, height, SScreenWidth, kCellHeight)];
+        [_middleView addSubview:cancelbt];
+        cancelbt.titleLabel.text = @"取消";
+        height += 50;
+    }
+    // 设置行高
+    middleView.frame = CGRectMake(0, SScreenHeight, SScreenWidth, height);
+}
+
+// 公用按钮
+- (AMDButton *)_commonButtonWithFrame:(CGRect)frame
+{
+    AMDButton *desbt = [[AMDButton alloc]initWithFrame:frame];
+    [desbt setBackgroundColor:SSLineColor forState:UIControlStateHighlighted];
+    [desbt setBackgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [desbt addTarget:self action:@selector(_clickAction:) forControlEvents:UIControlEventTouchUpInside];
+    desbt.titleLabel.font = SSFontWithName(@"", 16);
+    desbt.titleLabel.textColor = SSColorWithRGB(23, 23, 21, 0.9);
+
+    // 线条
+    AMDLineView *line = [[AMDLineView alloc]initWithFrame:CGRectMake(0, 0, SScreenWidth, 0.5) Color:SSLineColor];
+    [desbt addSubview:line];
+    return desbt;
+}
+
+
+
+#pragma mark - private api
+// 按钮事件
+- (void)_clickAction:(AMDButton *)sender
+{
+    NSString *title = title = sender.titleLabel.text;
+    NSInteger index = sender.tag;
+
+    if ([_delegate respondsToSelector:@selector(AYEActionSheetView:DidTapWithTitle:)]) {
+        [_delegate AYEActionSheetView:self DidTapWithTitle:title];
+    }
+    if ([_delegate respondsToSelector:@selector(AYEActionSheetView:DidTapWithIndex:)]) {
+        [_delegate AYEActionSheetView:self DidTapWithIndex:index];
+    }
+    if ([_delegate respondsToSelector:@selector(AYEActionSheetView:willDismissWithIndex:)]) {
+        [_delegate AYEActionSheetView:self willDismissWithIndex:index];
+    }
+    // 隐藏视图
+    [self _hide];
+}
+
+// 显示视图
+- (void)_show
+{
+    __weak typeof(self) weakself = self;
+    weakself.backgroundColor = SSColorWithRGB(0, 0, 0, 0);
+    [UIView animateWithDuration:0.25 animations:^{
+        _middleView.frame = CGRectMake(0, SScreenHeight-_middleView.frame.size.height, _middleView.frame.size.width, _middleView.frame.size.height);
+        weakself.backgroundColor = SSColorWithRGB(0, 0, 0, kBackColorAlpha);
+    }];
+}
+
+// 隐藏视图
+- (void)_hide
+{
+    __weak typeof(self) weakself = self;
+    [UIView animateWithDuration:0.2 animations:^{
+        _middleView.frame = CGRectMake(0, SScreenHeight, _middleView.frame.size.width, _middleView.frame.size.height);
+        weakself.backgroundColor = SSColorWithRGB(0, 0, 0, 0);
+    } completion:^(BOOL finished) {
+        [weakself removeFromSuperview];
+    }];
+}
+
+//
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:touch.view];
+    
+    if (CGRectContainsPoint(_middleView.frame, location)) {
         return;
-    } else {
-        [self.tableView reloadData];
-        [UIView animateWithDuration:0.2
-                              delay:0
-                            options:UIViewAnimationOptionCurveLinear
-                         animations:^{
-                             self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:kBackColorAlpha];
-                             self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.frame) - self.tableViewHeight, CGRectGetWidth(self.frame), self.tableViewHeight);
-                         } completion:nil];
     }
-}
-
-- (void)dismiss {
-    [UIView animateWithDuration:0.2
-                          delay:0
-                        options:UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
-                         //                         self.tableView.alpha = 0;
-                         self.tableView.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), self.tableViewHeight);
-                     }
-                     completion:^(BOOL finished) {
-                         [self removeFromSuperview];
-                     }];
+    //
+    [self _hide];
 }
 
 
 
-
-#pragma mark - SET
-- (void)setBarFont:(UIFont *)barFont
-{
-    if (_barFont != barFont) {
-        _barFont = barFont;
-        
-        if (barFont != nil) {
-            [_tableView reloadData];
-        }
-    }
-}
-
-- (UIFont *)barFont
-{
-    if (_barFont == nil) {
-        return SSFontWithName(@"", 17);
-    }
-    return _barFont;
-}
-
-
-
-
-
-#pragma mark - Table view data source and delegate
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return self.arr.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.arr[section] count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *cellider = @"sheetCell";
-    AYESheetCell *cell = [tableView dequeueReusableCellWithIdentifier:cellider];
-    if (cell == nil) {
-        cell = [[AYESheetCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellider];
-    }
-    cell.sheetTitle_label.text = self.arr[indexPath.section][indexPath.row];
-    //    cell.sheetTitle_label.font = SSFontWithName(@"", 17);
-    cell.sheetTitle_label.font = self.barFont;
-    if (indexPath.section == 0 && indexPath.row == 0 && self.hasDestructive) {
-        cell.sheetTitle_label.textColor = [UIColor colorWithRed:1.0 green:0.3216 blue:0.2118 alpha:1.0];
-    } else {
-        cell.sheetTitle_label.textColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0];
-    }
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return kCellHeight;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return CGFLOAT_MIN;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    if (section == self.arr.count - 1) {
-        return CGFLOAT_MIN;
-    }
-    return kFooterHeight;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(AYEActionSheetView:DidTapWithTitle:)]) {
-        [self.delegate AYEActionSheetView:self DidTapWithTitle:self.arr[indexPath.section][indexPath.row]];
-    }
-    if (self.delegate && [self.delegate respondsToSelector:@selector(AYEActionSheetView:DidTapWithIndex:)]) {
-        NSInteger index = NSNotFound;
-        if (self.hasDestructive && indexPath.section == 0 && indexPath.row == 0) {
-            index = -1;
-        } else if (indexPath.section == 1 && indexPath.row == 0) {
-            index = 0;
-        } else {
-            if (self.hasDestructive) {
-                index = indexPath.row;
-            } else{
-                index = indexPath.row + 1;
-            }
-        }
-        [self.delegate AYEActionSheetView:self DidTapWithIndex:index];
-    }
-    if (self.delegate && [self.delegate respondsToSelector:@selector(AYEActionSheetView:willDismissWithIndex:)]) {
-        NSInteger index = NSNotFound;
-        if (self.hasDestructive && indexPath.section == 0 && indexPath.row == 0) {
-            index = -1;
-        } else if (indexPath.section == 1 && indexPath.row == 0) {
-            index = 0;
-        } else {
-            if (self.hasDestructive) {
-                index = indexPath.row;
-            } else{
-                index = indexPath.row + 1;
-            }
-        }
-        [self.delegate AYEActionSheetView:self willDismissWithIndex:index];
-    }
-    [self dismiss];
-}
 
 @end
 
