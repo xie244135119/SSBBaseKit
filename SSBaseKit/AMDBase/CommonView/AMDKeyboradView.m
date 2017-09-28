@@ -37,7 +37,7 @@
     
     // 完成按钮
     CGFloat barheight = 40;
-    UIToolbar *bar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, barheight)];
+    UIView *bar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, barheight)];
     [self addSubview:bar];
     UIButton *finishbt = [UIButton buttonWithType:UIButtonTypeCustom];
     [finishbt setTitle:@"完成" forState:UIControlStateNormal];
