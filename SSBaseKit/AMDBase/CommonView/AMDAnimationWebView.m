@@ -232,47 +232,7 @@
         }
     }
     
-    
-    // 如果来自我们官方的请求
-//    NSArray *whiteschemes = @[@"wdwd.com",@"maifou.com",@"mai2.cn",@"mai2.cc"];
-//    BOOL platformAuthorize = NO;
-//    for (NSString *scheme in whiteschemes) {
-//        if ([navigationAction.request.URL.host containsString:scheme]) {
-//            platformAuthorize = YES;
-//            break;
-//        }
-//    }
-    
-//#warning 临时禁掉
-    // 平台签名
-    /*if (platformAuthorize) {
-        // 未签名的情况下进入官方网址默认签名处理
-        if (_currentPlatformAuthorize == nil) {
-            _currentPlatformAuthorize = [[AASPlatformAuthorize alloc]init];
-            _currentPlatformAuthorize.prismAppSecret = [self appSecret];
-            _currentPlatformAuthorize.prismAppKey = [self appKey];
-            _currentPlatformAuthorize.presentSenderID = AMDTestPassportID;
-        }
-        
-        // 签名不可用的时候--进入重新签名处理
-        if (![_currentPlatformAuthorize isAvailableWithSign:[navigationAction.request.allHTTPHeaderFields valueForKey:@"Authorization"]]) {
-            BOOL resault = [_currentPlatformAuthorize wkWebView:webView shouldStartLoadWithRequest:navigationAction.request];
-            decisionHandler(resault?WKNavigationActionPolicyAllow:WKNavigationActionPolicyCancel);
-            return;
-        }
-    }
-    
-    // 默认进行oauth登录请求--用于第三方登录
-    if ([navigationAction.request.URL.path rangeOfString:@"/oauth/authorize"].length > 0) {
-        if (_currentWebOauthAuthorize == nil) {
-            _currentWebOauthAuthorize = [[AASWebOauthAuthorize alloc]init];
-            _currentWebOauthAuthorize.prismAppSecret = [self appSecret];
-            _currentWebOauthAuthorize.presentSenderID = AMDTestShopID;
-        }
-        BOOL resault = [_currentWebOauthAuthorize wkWebView:webView shouldStartLoadWithRequest:navigationAction.request];
-        decisionHandler(resault?WKNavigationActionPolicyAllow:WKNavigationActionPolicyCancel);
-        return ;
-    }*/
+    // 签名外层处理
     
     // 当前页面表单提交的话 直接返回
     if (navigationAction.navigationType == UIWebViewNavigationTypeFormSubmitted || navigationAction.navigationType == UIWebViewNavigationTypeFormResubmitted) {
@@ -295,13 +255,6 @@
         return ;
     }
     
-    // 开启此功能后 开启新的webView页面
-//    if (_linkNewPageFunction && [navigationAction.request.URL.description hasPrefix:@"http"]) {
-////#warning 临时禁掉
-////        [self.bridgeSDK performSelector:@selector(enterHtmlViewWithString:) withObject:navigationAction.request.URL.description afterDelay:0.1];
-//        decisionHandler(WKNavigationActionPolicyCancel);
-//        return;
-//    }
     decisionHandler(WKNavigationActionPolicyAllow);
 }
 
@@ -350,21 +303,16 @@
 }
 
 
-// 配置
-//- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error
-//{
-//    NSLog(@" %@ ",error);
-//}
-
-
-
 #pragma mark - WKUIDelegate(实现自定义的Alert方法)
 // 实现Alert方法
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler
 {
-//#warning 临时禁掉
-//    [[AMDCommonClass sharedAMDCommonClass] showAlertTitle:nil Message:message action:nil cancelBt:@"确定" otherButtonTitles: nil];
-    NSLog(@" js: alert %@ ",message);
+    // 提示框处理
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertVc addAction:action];
+    [_controller presentViewController:alertVc animated:YES completion:nil];
+    
     completionHandler();
 }
 
@@ -429,32 +377,7 @@
         }
     }
     
-    // 如果来自我们官方的请求
-    /*if ([request.URL.host rangeOfString:NonNil(GetDefaults(AMDYLDomain), @"")].length > 0) {
-        // 未签名的情况下进入官方网址默认签名处理
-        if (_currentPlatformAuthorize == nil) {
-            _currentPlatformAuthorize = [[AASPlatformAuthorize alloc]init];
-            _currentPlatformAuthorize.prismAppSecret = [self appSecret];
-            _currentPlatformAuthorize.prismAppKey = [self appKey];
-            _currentPlatformAuthorize.presentSenderID = AMDTestPassportID;
-        }
-        
-        // 签名不可用的时候--进入重新签名处理
-        if (![_currentPlatformAuthorize isAvailableWithSign:[request.allHTTPHeaderFields valueForKey:@"Authorization"]]) {
-            return [_currentPlatformAuthorize uiWebView:webView shouldStartLoadWithRequest:request];
-        }
-    }
-    
-    // 默认进行oauth登录请求--用于第三方登录
-    if ([request.URL.path rangeOfString:@"/oauth/authorize"].length > 0) {
-        if (_currentWebOauthAuthorize == nil) {
-            _currentWebOauthAuthorize = [[AASWebOauthAuthorize alloc]init];
-            _currentWebOauthAuthorize.prismAppSecret = [self appSecret];
-            _currentWebOauthAuthorize.presentSenderID = AMDTestShopID;
-        }
-        return [_currentWebOauthAuthorize webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
-    }*/
-    
+    // 相关的签名处理放在外层处理
     
     // 当前页面表单提交的话 直接返回
     if (navigationType == UIWebViewNavigationTypeFormSubmitted || navigationType == UIWebViewNavigationTypeFormResubmitted) {
@@ -473,14 +396,6 @@
     if ([_delegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
         return [_delegate webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
     }
-    
-    // 开启此功能后 开启新的webView页面
-//    if (_linkNewPageFunction && [request.URL.description hasPrefix:@"http"]) {
-//        
-////#warning 临时禁掉
-////        [self.bridgeSDK performSelector:@selector(enterHtmlViewWithString:) withObject:request.URL.description afterDelay:0.1];
-//        return NO ;
-//    }
     
     return YES;
 }
@@ -553,12 +468,7 @@
 
 
 
-
-
 @end
-
-
-
 
 
 
