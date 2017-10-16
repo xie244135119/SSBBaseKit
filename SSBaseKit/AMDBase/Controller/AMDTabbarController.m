@@ -10,8 +10,6 @@
 #import <Masonry/Masonry.h>
 #import "SSGlobalVar.h"
 #import "AMDLineView.h"
-//#import "AMDTabbarItem.h"
-//#import "ATAColorConfig.h"
 
 // tabbar背景图
 @interface AMDTabBarView : UIView
@@ -53,7 +51,6 @@
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-
     [self resetTabbarTitles:_itemTitles images:_itemImages selectImages:_itemSelectImages];
     
 }
@@ -77,7 +74,9 @@
 
 #pragma mark - 视图加载
 // 重新初始化当前的tabbar
-- (void)resetTabbarTitles:(NSArray *)titles images:(NSArray *)images selectImages:(NSArray *)selectimgs
+- (void)resetTabbarTitles:(NSArray *)titles
+                   images:(NSArray<id> *)images
+             selectImages:(NSArray<id> *)selectimgs
 {
     // 隐藏视图
     UITabBar *tabbar = [self hideTabBar];
@@ -105,7 +104,14 @@
     for (NSInteger i = 0; i<titles.count; i++) {
         AMDTabbarItem *item = [[AMDTabbarItem alloc]init];
         item.itemTitleLabel.text = titles[i];
-        [item setImage:images[i] controlState:UIControlStateNormal];
+        id image = images[i];
+        if ([image isKindOfClass:[UIImage class]]) {
+            [item setImage:image controlState:UIControlStateNormal];
+        }
+       else if ([image isKindOfClass:[NSURL class]]) {
+            [item setImageUrl:image controlState:UIControlStateNormal];
+        }
+        
         [item setTitleColor:SSColorWithRGB(101, 111, 130, 1) controlState:UIControlStateNormal];
 
         item.tag = i+900;

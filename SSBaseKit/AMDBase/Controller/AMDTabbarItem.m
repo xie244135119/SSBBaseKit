@@ -17,6 +17,9 @@
     UIImage *_selectImage;                  //选中情况下的图片
     UIImage *_highlightedImage;             //高亮情况下的图片
     
+    NSURL *_normalImgUrl;                    //正常情况下的url
+    NSURL *_selectImgUrl;                    //正常情况下的url
+    
     UIColor *_normalTitleColor;              //正常情况下的字体颜色
     UIColor *_selectTitleColor;              //选中情况下的字体颜色
     UIColor *_highlightedTitleColor;         //高亮情况下的字体颜色
@@ -86,6 +89,26 @@
     }
 }
 
+- (void)setImageUrl:(NSURL *)imageUrl controlState:(UIControlState)state
+{
+    switch (state) {
+        case UIControlStateNormal:{     //正常
+            _normalImgUrl = imageUrl;
+            [_itemImageView setImageWithUrl:imageUrl placeHolder:nil];
+        }
+            break;
+        case UIControlStateSelected:{       //选中状态
+            _selectImgUrl = imageUrl;
+            // 后台下载图片
+            [_itemImageView downloadImageWithUrl:imageUrl completion:nil];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+
 //设置字体颜色
 - (void)setTitleColor:(UIColor *)titleColor controlState:(UIControlState)state
 {
@@ -127,8 +150,7 @@
     if (_itemImageView == nil) {
         //图片
         CGFloat imagew = 30;
-        UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake((width-imagew)/2, 2, imagew, imagew)];
-//        imgView.image = _itemImage;
+        AMDImageView *imgView = [[AMDImageView alloc]initWithFrame:CGRectMake((width-imagew)/2, 2, imagew, imagew)];
         _itemImageView = imgView;
         [self addSubview:imgView];
     }
@@ -158,7 +180,7 @@
     if (_itemImageView == nil) {
         //图片
         CGFloat imagew = 30;
-        UIImageView *imgView = [[UIImageView alloc]init];
+        AMDImageView *imgView = [[AMDImageView alloc]init];
         _itemImageView = imgView;
         [self addSubview:imgView];
         [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -182,6 +204,11 @@
     //选中时候点击的图片
     if (_selectImage) {
         _itemImageView.image = selected?_selectImage:_normalImage;
+    }
+    
+    // 有选中图片
+    if (_selectImgUrl) {
+        [_itemImageView setImageWithUrl:selected?_selectImgUrl:_normalImgUrl placeHolder:nil];
     }
     
     //选中时候点击的字体颜色

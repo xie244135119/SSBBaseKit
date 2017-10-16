@@ -13,16 +13,19 @@
 
 // 自定义tabbar
 @property(nonatomic, weak , nullable) UIView *amdTabBar;
-// 一组ViewControllers
-//@property(nullable, nonatomic, strong) NSArray *amdViewControllers;
 
-/*
- * 实例化
- * @param1 所有的tabbar标题 @param2 正常的图片 @param3选中时候的图片
+
+/**
+ 实例化
+
+ @param titles 一组标题
+ @param imgs 一组图片 可以为 UIImage, NSURL
+ @param selectimgs 一组图片 可以为 UIImage, NSURL
+ @return 一个实例
  */
 -(nonnull instancetype)initWithItemsTitles:(NSArray * _Nonnull)titles
-                        itemImages:(NSArray * _Nonnull)imgs
-                   itemSelctImages:(NSArray * _Nonnull)selectimgs;
+                        itemImages:(NSArray<id> * _Nonnull)imgs
+                   itemSelctImages:(NSArray<id> * _Nonnull)selectimgs;
 
 
 /**

@@ -43,8 +43,8 @@
     tab.delegate = self;
     [self addSubview:tab];
     tab.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    
     [self clearTableViewBottom:tab];
+    tab.estimatedSectionHeaderHeight = 0;
 }
 
 -(void)initTableViewWithType2:(UITableViewStyle)style

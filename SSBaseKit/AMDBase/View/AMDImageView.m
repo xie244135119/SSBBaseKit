@@ -25,7 +25,11 @@
     self.image = placeHolder;
 }
 
-
+- (void)downloadImageWithUrl:(NSURL *)url
+                  completion:(void (^)(UIImage *, NSError *))completion
+{
+    // 下载图片
+}
 
 - (void)setImageWithUrl:(NSURL *)url
             placeHolder:(UIImage *)placeHolder

@@ -36,6 +36,15 @@
              placeHolder:(UIImage *)placeHolder
               completion:(void (^)(UIImage *, NSError *))completion;
 
+/**
+ 下载图片
+
+ @param url 图片地址
+ @param completion 完成事件
+ */
+- (void)downloadImageWithUrl:(NSURL *)url
+                  completion:(void (^)(UIImage *, NSError *))completion;
+
 
 
 @end
