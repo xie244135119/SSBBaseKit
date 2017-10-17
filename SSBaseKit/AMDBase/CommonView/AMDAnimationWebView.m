@@ -452,7 +452,13 @@
     if (!([aRequest.URL.scheme hasPrefix:@"http"] || [aRequest.URL.scheme hasPrefix:@"file"])) {
         if (![aRequest.URL.scheme isEqualToString:@"about"]) {
             if ([[UIApplication sharedApplication] canOpenURL:aRequest.URL]) {
-                [[UIApplication sharedApplication] openURL:aRequest.URL];
+                if([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+                    [[UIApplication sharedApplication] openURL:aRequest.URL options:@{}
+                                             completionHandler:nil];
+                }
+                else {
+                    [[UIApplication sharedApplication] openURL:aRequest.URL];
+                }
                 return NO;
             }
         }

@@ -141,9 +141,10 @@
 - (IBAction)testWebView
 {
     AMDWebViewController *webVc = [[AMDWebViewController alloc]init];
-//    webVc.requestWithSignURL = @"http://m.xuanwonainiu.com/c?pageId=179&nav=0&p=14299&refresh=1";
-    webVc.requestWithSignURL = @"https://www.baidu.com";
-    webVc.showType = @1;
+    webVc.requestWithSignURL = @"http://m.xuanwonainiu.com/c?pageId=179&nav=0&p=14299&refresh=1";
+//    webVc.requestWithSignURL = @"https://www.baidu.com";
+//    webVc.requestWithSignURL = @"http://m.xuanwonainiu.com/sp-dlsearch?p=14299&scale=50&searchText=&splitWord=true";
+    webVc.showType = @0;
     [self.navigationController pushViewController:webVc animated:YES];
 }
 

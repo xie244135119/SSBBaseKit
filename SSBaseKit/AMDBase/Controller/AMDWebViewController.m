@@ -245,6 +245,12 @@
         return;
     }
     
+    // 如果跳转的资源文件--默认禁掉
+    if([navigationAction.request.URL.path hasSuffix:@".txt"]) {
+        decisionHandler(WKNavigationActionPolicyAllow);
+        return;
+    }
+    
     // 当前页面需要跳转新页面
     if ([navigationAction.request.URL.description hasPrefix:@"http"]) {
         // 跳转二级页面
