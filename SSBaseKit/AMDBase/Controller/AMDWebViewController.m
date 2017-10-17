@@ -10,6 +10,7 @@
 #import "AMDAnimationWebView.h"
 #import "AMDButton.h"
 #import "SSGlobalVar.h"
+#import <Masonry/Masonry.h>
 
 
 @interface AMDWebViewController() <AMDWebViewDelegate>
@@ -75,6 +76,9 @@
     animationView.controller = self;
     [self.contentView insertSubview:animationView belowSubview:self.titleView];
     _currentAnimationView = animationView;
+    [animationView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
     
     __weak typeof(self) weakself = self;
     if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
@@ -96,9 +100,22 @@
 - (void)initNavView
 {
     switch (_showType.intValue) {
-//        case 1:         //压栈
-//            self.supportBackBt = YES;
-//            break;
+        case 1:         //压栈
+        {
+            self.supportBackBt = YES;
+            
+#ifdef DEBUG
+            // 更多按钮--仅供调试使用
+            AMDButton *morebt = [[AMDButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-40-5, 2, 40, 40)];
+            morebt.imageView.frame = CGRectMake(8, 8, 24, 24);
+            [morebt setImage:SSImageFromName(@"topicinfo_more.png") forState:UIControlStateNormal];
+            [morebt setImage:SSImageFromName(@"topicinfo_more_select.png") forState:UIControlStateHighlighted];
+            [morebt addTarget:self action:@selector(clickMoreAction:) forControlEvents:UIControlEventTouchUpInside];
+            morebt.tag = 4;
+            self.titleView.rightViews = @[morebt];
+#endif
+        }
+            break;
         case 2:         //模态显示的关闭按钮
         {
             // 右侧关闭按钮
@@ -114,20 +131,6 @@
         }
             break;
         default:
-        {
-            self.supportBackBt = YES;
-            
-#ifdef DEBUG
-            // 更多按钮--仅供调试使用
-            AMDButton *morebt = [[AMDButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-40-5, 2, 40, 40)];
-            morebt.imageView.frame = CGRectMake(8, 8, 24, 24);
-            [morebt setImage:SSImageFromName(@"topicinfo_more.png") forState:UIControlStateNormal];
-            [morebt setImage:SSImageFromName(@"topicinfo_more_select.png") forState:UIControlStateHighlighted];
-            [morebt addTarget:self action:@selector(clickMoreAction:) forControlEvents:UIControlEventTouchUpInside];
-            morebt.tag = 4;
-            self.titleView.rightViews = @[morebt];
-#endif
-        }
             break;
     }
 }

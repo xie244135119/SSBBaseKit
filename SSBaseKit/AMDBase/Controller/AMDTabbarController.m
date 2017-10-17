@@ -105,11 +105,14 @@
         AMDTabbarItem *item = [[AMDTabbarItem alloc]init];
         item.itemTitleLabel.text = titles[i];
         id image = images[i];
+        id image_select = selectimgs[i];
         if ([image isKindOfClass:[UIImage class]]) {
             [item setImage:image controlState:UIControlStateNormal];
+            [item setImage:image_select controlState:UIControlStateNormal];
         }
        else if ([image isKindOfClass:[NSURL class]]) {
             [item setImageUrl:image controlState:UIControlStateNormal];
+           [item setImageUrl:image_select controlState:UIControlStateNormal];
         }
         
         [item setTitleColor:SSColorWithRGB(101, 111, 130, 1) controlState:UIControlStateNormal];
@@ -117,7 +120,6 @@
         item.tag = i+900;
         [item addTarget:self action:@selector(clickBt_ChangeSelect:) forControlEvents:UIControlEventTouchUpInside];
         [barvw addSubview:item];
-        [item setImage:selectimgs[i] controlState:UIControlStateSelected];
         
         [item mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@0);

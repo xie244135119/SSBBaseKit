@@ -45,7 +45,8 @@
     
 //    [self performSelector:@selector(testTabBar) withObject:nil afterDelay:0.1];
     //
-    [self performSelector:@selector(testActionSheet) withObject:nil afterDelay:0.1];
+//    [self performSelector:@selector(testActionSheet) withObject:nil afterDelay:0.1];
+    [self performSelector:@selector(testWebView) withObject:nil afterDelay:0.1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -136,6 +137,14 @@
     [sheetView showInView:self.view];
 }
 
+
+- (void)testWebView
+{
+    AMDWebViewController *webVc = [[AMDWebViewController alloc]init];
+    webVc.requestWithSignURL = @"http://baidu.com";
+    webVc.showType = @2;
+    [self presentViewController:webVc animated:YES completion:nil] ;
+}
 
 
 -(IBAction)clickTest:(id)sender

@@ -99,8 +99,6 @@
             break;
         case UIControlStateSelected:{       //选中状态
             _selectImgUrl = imageUrl;
-            // 后台下载图片
-            [_itemImageView downloadImageWithUrl:imageUrl completion:nil];
         }
             break;
         default:
@@ -290,9 +288,14 @@
                 _itemTitleLabel.textColor = _selectTitleColor;
             }
             
-//            if (_selectImage) {
-            _itemImageView.image = _selectImage?_selectImage:_normalImage;
-//            }
+            if (_selectImage) {
+                _itemImageView.image = _selectImage?_selectImage:_normalImage;
+            }
+            
+            // 有选中图片
+            if (_selectImgUrl) {
+                [_itemImageView setImageWithUrl:_selectImgUrl?_selectImgUrl:_normalImgUrl placeHolder:nil];
+            }
         }
             break;
         default:
