@@ -179,14 +179,6 @@
     // 允许打开Window
     configuration.preferences.javaScriptCanOpenWindowsAutomatically = YES;
     
-    // 配置JS函数
-//#warning 临时处理
-    //    NSString *js = [[NSString alloc]initWithFormat:@"window.webkit.messageHandlers.%@.postMessage()",YLJsBridgeClassName];
-//    WKUserScript *script = [[WKUserScript alloc]initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-//    [configuration.userContentController addUserScript:script];
-//    __weak YLJsBridgeSDK *weakSDK = self.bridgeSDK;
-//    [configuration.userContentController addScriptMessageHandler:weakSDK name:YLJsBridgeClassName];
-    
     WKWebView *webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, 10, 10) configuration:configuration];
     webView.navigationDelegate = self;
     webView.UIDelegate = self;
@@ -214,6 +206,12 @@
 // 判断是否允许加载
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
+    // 空白页 不执行
+    if([navigationAction.request.URL.scheme isEqualToString:@"about"]) {
+        decisionHandler(WKNavigationActionPolicyCancel);
+        return ;
+    }
+    
     // 先校验URL 是否可以加载
     if (![self canLoadURLRequest:navigationAction.request]) {
         decisionHandler(WKNavigationActionPolicyCancel);

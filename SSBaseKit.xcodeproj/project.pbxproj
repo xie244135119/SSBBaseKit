@@ -60,6 +60,10 @@
 		CB45E3EC1F2B34CC009BB7C6 /* CustomTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC911EE6471A00D81CA3 /* CustomTextView.m */; };
 		CB45E3ED1F2B34CF009BB7C6 /* CustomTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC8C1EE6471A00D81CA3 /* CustomTableView.m */; };
 		CB45E3EE1F2B34D0009BB7C6 /* GeneralTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CC8F1EE6471A00D81CA3 /* GeneralTableView.m */; };
+		CB4724F51F95FEFB00F14E87 /* AMDCloseControl.h in Headers */ = {isa = PBXBuildFile; fileRef = CB4724F31F95FEFB00F14E87 /* AMDCloseControl.h */; };
+		CB4724F61F95FEFB00F14E87 /* AMDCloseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4724F41F95FEFB00F14E87 /* AMDCloseControl.m */; };
+		CB4724F71F95FF0100F14E87 /* AMDCloseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4724F41F95FEFB00F14E87 /* AMDCloseControl.m */; };
+		CB4724F91F9602CB00F14E87 /* UIView+AMDMJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CCFD1EE6480B00D81CA3 /* UIView+AMDMJExtension.m */; };
 		CB47BE351F7B628400F1BA65 /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47BE341F7B628400F1BA65 /* TestController.m */; };
 		CB47CC2A1EE6471000D81CA3 /* SSBaseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC281EE6471000D81CA3 /* SSBaseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB47CC941EE6471A00D81CA3 /* AMDAnimationWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB47CC351EE6471A00D81CA3 /* AMDAnimationWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -183,6 +187,8 @@
 		CB3E39FE1F382F590003DB57 /* SSBaseKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SSBaseKit.bundle; sourceTree = "<group>"; };
 		CB4437691F3192DA00FF108C /* AMDSelectItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSelectItemView.h; sourceTree = "<group>"; };
 		CB44376A1F3192DA00FF108C /* AMDSelectItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSelectItemView.m; sourceTree = "<group>"; };
+		CB4724F31F95FEFB00F14E87 /* AMDCloseControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMDCloseControl.h; sourceTree = "<group>"; };
+		CB4724F41F95FEFB00F14E87 /* AMDCloseControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMDCloseControl.m; sourceTree = "<group>"; };
 		CB47BE331F7B628400F1BA65 /* TestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
 		CB47BE341F7B628400F1BA65 /* TestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestController.m; sourceTree = "<group>"; };
 		CB47CC251EE6471000D81CA3 /* SSBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -483,6 +489,8 @@
 				CB47CC911EE6471A00D81CA3 /* CustomTextView.m */,
 				CB4437691F3192DA00FF108C /* AMDSelectItemView.h */,
 				CB44376A1F3192DA00FF108C /* AMDSelectItemView.m */,
+				CB4724F31F95FEFB00F14E87 /* AMDCloseControl.h */,
+				CB4724F41F95FEFB00F14E87 /* AMDCloseControl.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -593,6 +601,7 @@
 				CB47CCD31EE6471A00D81CA3 /* AMDNoDataView.h in Headers */,
 				CB53B2D41F4D1D0B0083A31B /* UIButton+SSBackground.h in Headers */,
 				CB47CCC91EE6471A00D81CA3 /* AMDBaseView.h in Headers */,
+				CB4724F51F95FEFB00F14E87 /* AMDCloseControl.h in Headers */,
 				CB47CCCD1EE6471A00D81CA3 /* AMDCopyLabel.h in Headers */,
 				CB47CCD71EE6471A00D81CA3 /* AMDRootNavgationBar.h in Headers */,
 				CB47CCDB1EE6471A00D81CA3 /* AMDSegmentedControl.h in Headers */,
@@ -862,6 +871,7 @@
 				CB47CCA51EE6471A00D81CA3 /* AMDLoadingView.m in Sources */,
 				CB47CC9B1EE6471A00D81CA3 /* AMDKeyboradView.m in Sources */,
 				CB47CCEA1EE6471A00D81CA3 /* GeneralTableView.m in Sources */,
+				CB4724F61F95FEFB00F14E87 /* AMDCloseControl.m in Sources */,
 				CB47CCA11EE6471A00D81CA3 /* AMDLabelSwitchView.m in Sources */,
 				CB47CCD61EE6471A00D81CA3 /* AMDProgressView.m in Sources */,
 				CB47CCDE1EE6471A00D81CA3 /* AMDTextField.m in Sources */,
@@ -880,6 +890,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB47CD1E1EE64DFE00D81CA3 /* ViewController.m in Sources */,
+				CB4724F71F95FF0100F14E87 /* AMDCloseControl.m in Sources */,
 				CB45E3C91F2B3462009BB7C6 /* AMDBaseView.m in Sources */,
 				CB45E3E91F2B34C6009BB7C6 /* AMDTextField.m in Sources */,
 				CB45E3E61F2B34C0009BB7C6 /* AMDRootNavgationBar.m in Sources */,
@@ -918,6 +929,7 @@
 				CB45E3E11F2B34B6009BB7C6 /* AMDCopyLabel.m in Sources */,
 				CB45E3D41F2B348B009BB7C6 /* AMDLabelSwitchView.m in Sources */,
 				CB45E3EE1F2B34D0009BB7C6 /* GeneralTableView.m in Sources */,
+				CB4724F91F9602CB00F14E87 /* UIView+AMDMJExtension.m in Sources */,
 				CB45E3D61F2B348E009BB7C6 /* AMDLoadingView.m in Sources */,
 				CB45E3DB1F2B34A7009BB7C6 /* AMDWebViewProgress.m in Sources */,
 				CB45E3CC1F2B3477009BB7C6 /* AMDTabbarItem.m in Sources */,

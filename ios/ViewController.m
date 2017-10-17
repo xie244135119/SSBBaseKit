@@ -29,24 +29,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.supportBackBt = YES;
+//    self.supportBackBt = YES;
 //    self.backItem.layer.borderWidth = 1;
-    self.backItem.imgStrokeColor = SSColorWithRGB(75, 75, 75, 1);
+//    self.backItem.imgStrokeColor = SSColorWithRGB(75, 75, 75, 1);
 //    [self initContentView];
     
     
-    self.titleView.title = @"阿萨帝发送到发送到发送方的";
+//    self.titleView.title = @"阿萨帝发送到发送到发送方的";
 //    [self testLineItemView];
 //    [self performSelector:@selector(initContentView) withObject:nil afterDelay:0.5];
 //    [self testTextFieldView];
 //    [self testBackView];
     //
 //    [self testButton];
-    
+
 //    [self performSelector:@selector(testTabBar) withObject:nil afterDelay:0.1];
     //
 //    [self performSelector:@selector(testActionSheet) withObject:nil afterDelay:0.1];
-    [self performSelector:@selector(testWebView) withObject:nil afterDelay:0.1];
+//    [self performSelector:@selector(testWebView) withObject:nil afterDelay:0.1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,7 +108,7 @@
     bt.imageView.frame = CGRectMake(30, 30, 40, 40);
     bt.imageView.layer.borderWidth = 1;
     bt.titleLabel.text = @"测试";
-    [self.contentView addSubview:bt];
+//    [self.contentView addSubview:bt];
     _currentBt = bt ;
     //
     [bt supportRemindNumber];
@@ -138,12 +138,13 @@
 }
 
 
-- (void)testWebView
+- (IBAction)testWebView
 {
     AMDWebViewController *webVc = [[AMDWebViewController alloc]init];
-    webVc.requestWithSignURL = @"http://baidu.com";
-    webVc.showType = @2;
-    [self presentViewController:webVc animated:YES completion:nil] ;
+//    webVc.requestWithSignURL = @"http://m.xuanwonainiu.com/c?pageId=179&nav=0&p=14299&refresh=1";
+    webVc.requestWithSignURL = @"https://www.baidu.com";
+    webVc.showType = @1;
+    [self.navigationController pushViewController:webVc animated:YES];
 }
 
 

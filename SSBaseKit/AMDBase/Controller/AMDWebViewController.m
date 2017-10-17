@@ -9,14 +9,14 @@
 #import "AMDWebViewController.h"
 #import "AMDAnimationWebView.h"
 #import "AMDButton.h"
+#import "AMDCloseControl.h"
 #import "SSGlobalVar.h"
 #import <Masonry/Masonry.h>
-
 
 @interface AMDWebViewController() <AMDWebViewDelegate>
 {
     AMDAnimationWebView *_currentAnimationView;              //动画视图
-    __weak AMDButton *_currentCloseBt;
+    __weak AMDCloseControl *_currentCloseBt;
 }
 @end
 
@@ -36,10 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self initContentView];
     [self initNavView];
-//    [self initContentView];
-    
-    [self performSelectorOnMainThread:@selector(initContentView) withObject:nil waitUntilDone:NO];
 }
 
 
@@ -70,7 +68,7 @@
 {
     self.titleView.title = @"";
     //加载框
-    AMDAnimationWebView *animationView = [[AMDAnimationWebView alloc]initWithFrame:self.contentView.bounds];
+    AMDAnimationWebView *animationView = [[AMDAnimationWebView alloc]init];
     animationView.requestWithSignURL = _requestWithSignURL;
     animationView.delegate = self;
     animationView.controller = self;
@@ -119,10 +117,10 @@
         case 2:         //模态显示的关闭按钮
         {
             // 右侧关闭按钮
-            AMDButton *closebt = [[AMDButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-35-10, 0, 35, 44)];
-            closebt.titleLabel.text = @"关闭";
-            closebt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
-            closebt.titleLabel.font = SSFontWithName(@"", 16);
+            AMDCloseControl *closebt = [[AMDCloseControl alloc]initWithFrame:CGRectMake(self.view.frame.size.width-35-10, 0, 35, 44)];
+//            closebt.titleLabel.text = @"关闭";
+//            closebt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
+//            closebt.titleLabel.font = SSFontWithName(@"", 16);
             //        closebt.layer.borderWidth = 1;
             closebt.tag = 2;
             [closebt addTarget:self action:@selector(clickBackAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -130,7 +128,9 @@
             _currentCloseBt = closebt;
         }
             break;
-        default:
+        default: {      //一级页面的时候 默认跳转二级页面
+            _currentAnimationView.delegate = self;
+        }
             break;
     }
 }
@@ -143,18 +143,23 @@
         return;
     }
     
-    if (self.showType.intValue != 2)
+    if (self.showType.intValue == 1)
     {   //非模态情况下展示关闭按钮
         if (_currentCloseBt == nil) {
-            AMDButton *closebt = [[AMDButton alloc]initWithFrame:CGRectMake(25, 0, 35, 44)];
-            closebt.titleLabel.text = @"关闭";
+            AMDCloseControl *closebt = [[AMDCloseControl alloc]initWithFrame:CGRectMake(40, 0, 35, 44)];
+//            closebt.titleLabel.text = @"关闭";
             closebt.tag = 1;
-            closebt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
-            closebt.titleLabel.font = SSFontWithName(@"", 15);
+//            closebt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
+//            closebt.titleLabel.font = SSFontWithName(@"", 15);
             //        closebt.layer.borderWidth = 1;
             [closebt addTarget:self action:@selector(clickBackAction:) forControlEvents:UIControlEventTouchUpInside];
             self.titleView.leftViews = @[closebt];
             _currentCloseBt = closebt;
+            
+            // 改变后退按钮的位置
+            CGRect backitemframe = self.backItem.frame;
+            backitemframe.size.width = closebt.frame.origin.x;
+            self.backItem.frame = backitemframe;
         }
     }
 }
@@ -231,6 +236,24 @@
     }
 }
 
+// 跳转二级页面
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+{
+    // 如果不是一级页面 自动后退
+    if(_showType != 0) {
+        decisionHandler(WKNavigationActionPolicyAllow);
+        return;
+    }
+    
+    // 当前页面需要跳转新页面
+    if ([navigationAction.request.URL.description hasPrefix:@"http"]) {
+        // 跳转二级页面
+        [self performSelector:@selector(_pushWebViewWithUrl:) withObject:navigationAction.request.URL.description afterDelay:0.1];
+        decisionHandler(WKNavigationActionPolicyCancel);
+        return;
+    }
+    decisionHandler(WKNavigationActionPolicyAllow);
+}
 
 
 #pragma mark - 检测标题 发生变化 触发后退按钮
@@ -252,6 +275,17 @@
     }
 }
 
+
+
+#pragma mark - private api
+// 跳转控制器
+- (void)_pushWebViewWithUrl:(NSString *)aUrl
+{
+    AMDWebViewController *webVc = [[AMDWebViewController alloc]init];
+    webVc.requestWithSignURL = aUrl;
+    webVc.showType = @1;
+    [self.navigationController pushViewController:webVc animated:YES];
+}
 
 
 

@@ -8,7 +8,7 @@
 
 #import "AMDRootViewController.h"
 
-@interface ViewController : AMDRootViewController
+@interface ViewController : UIViewController
 
 
 @end
