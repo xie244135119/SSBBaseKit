@@ -41,18 +41,6 @@
 }
 
 
-- (instancetype)initWithTitle:(NSString *)title
-{
-    return [super initWithTitle:title];
-}
-
-- (instancetype)initWithTitle:(NSString *)title titileViewShow:(BOOL)titleViewShow tabBarShow:(BOOL)tabbarshow
-{
-    return nil;
-}
-
-
-
 #pragma mark - AMDRootProtocol
 // 页面刷新
 - (void)preReload
@@ -78,19 +66,25 @@
         make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
-    __weak typeof(self) weakself = self;
-    if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
-        // 建立对title的监听
-        [self initObserverForWkTitle];
-        animationView.finishLoadAction_WK = ^(WKWebView *webView){
-            weakself.titleView.title = webView.title;
-        };
+    if (_priorityTitle.length > 0) {
+        self.titleView.title = _priorityTitle;
     }
     else {
-        animationView.finishLoadAction_UI = ^(UIWebView *webView){
-            // 题目的标题由document的title提供
-            weakself.titleView.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-        };
+        // 获取html标题
+        __weak typeof(self) weakself = self;
+        if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
+            // 建立对title的监听
+            [self initObserverForWkTitle];
+            animationView.finishLoadAction_WK = ^(WKWebView *webView){
+                weakself.titleView.title = webView.title;
+            };
+        }
+        else {
+            animationView.finishLoadAction_UI = ^(UIWebView *webView){
+                // 题目的标题由document的title提供
+                weakself.titleView.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+            };
+        }
     }
 }
 
@@ -117,11 +111,7 @@
         case 2:         //模态显示的关闭按钮
         {
             // 右侧关闭按钮
-            AMDCloseControl *closebt = [[AMDCloseControl alloc]initWithFrame:CGRectMake(self.view.frame.size.width-35-10, 0, 35, 44)];
-//            closebt.titleLabel.text = @"关闭";
-//            closebt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
-//            closebt.titleLabel.font = SSFontWithName(@"", 16);
-            //        closebt.layer.borderWidth = 1;
+            AMDCloseControl *closebt = [[AMDCloseControl alloc]initWithFrame:CGRectMake(self.view.frame.size.width-35-10, 0, 35, 44) lineColor:self.backItem.imgStrokeColor];
             closebt.tag = 2;
             [closebt addTarget:self action:@selector(clickBackAction:) forControlEvents:UIControlEventTouchUpInside];
             self.titleView.leftViews = @[closebt];
@@ -146,12 +136,8 @@
     if (self.showType.intValue == 1)
     {   //非模态情况下展示关闭按钮
         if (_currentCloseBt == nil) {
-            AMDCloseControl *closebt = [[AMDCloseControl alloc]initWithFrame:CGRectMake(40, 0, 35, 44)];
-//            closebt.titleLabel.text = @"关闭";
+            AMDCloseControl *closebt = [[AMDCloseControl alloc]initWithFrame:CGRectMake(40, 0, 35, 44) lineColor:self.backItem.imgStrokeColor];
             closebt.tag = 1;
-//            closebt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
-//            closebt.titleLabel.font = SSFontWithName(@"", 15);
-            //        closebt.layer.borderWidth = 1;
             [closebt addTarget:self action:@selector(clickBackAction:) forControlEvents:UIControlEventTouchUpInside];
             self.titleView.leftViews = @[closebt];
             _currentCloseBt = closebt;

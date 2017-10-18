@@ -10,4 +10,21 @@
 
 @interface AMDCloseControl : UIControl
 
+// 关闭线条的颜色
+//@property(nonatomic, strong) UIColor *closeLineColor;
+
+
+/**
+ 实例化
+
+ @param frame 大小
+ @param lineColor 颜色
+ @return 实例
+ */
+- (id)initWithFrame:(CGRect)frame
+          lineColor:(UIColor *)lineColor;
+
 @end
+
+
+

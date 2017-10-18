@@ -1073,7 +1073,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.SSBaseKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ylwdwd.SSBaseKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1094,7 +1094,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.SSBaseKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ylwdwd.SSBaseKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1110,10 +1110,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ylwdwd.wfx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ylwdwd.mengmeng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5e99209a-32b4-4adf-ba48-78a4d39c2993";
-				PROVISIONING_PROFILE_SPECIFIER = ylwdwdwfx_develop;
+				PROVISIONING_PROFILE = "222266e8-c759-4d34-8012-5a7d936a6c34";
+				PROVISIONING_PROFILE_SPECIFIER = "memgmeng dev";
 			};
 			name = Debug;
 		};
@@ -1127,7 +1127,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ylwdwd.wfx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ylwdwd.mengmeng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
