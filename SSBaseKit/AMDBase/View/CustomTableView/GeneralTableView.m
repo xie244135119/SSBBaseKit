@@ -18,7 +18,7 @@
 - (instancetype)initWithFrame:(CGRect)frame TableViewType:(UITableViewStyle)style
 {
     if (self = [super initWithFrame:frame]) {
-        [self initTableViewWithType:style];
+        [self _tableViewWithframe:frame type:style];
     }
     return self;
 }
@@ -26,16 +26,16 @@
 -(instancetype)initWithTableViewType:(UITableViewStyle)style
 {
     if (self = [super init]) {
-        [self initTableViewWithType2:style];
+        [self _tableViewWithframe:CGRectZero type:style];
     }
     return self;
 }
 
 
 #pragma mark - 初始化View
--(void)initTableViewWithType:(UITableViewStyle)style
+-(void)_tableViewWithframe:(CGRect)frame type:(UITableViewStyle)style
 {
-    UITableView * tab = [[UITableView alloc] initWithFrame:self.bounds style:style];
+    UITableView * tab = [[UITableView alloc] initWithFrame:frame style:style];
     tab.dataSource = self;
     tab.backgroundColor = [UIColor clearColor];
     tab.separatorColor = [UIColor clearColor];
@@ -44,23 +44,17 @@
     [self addSubview:tab];
     tab.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     [self clearTableViewBottom:tab];
-    tab.estimatedSectionHeaderHeight = 0;
-}
-
--(void)initTableViewWithType2:(UITableViewStyle)style
-{
-    UITableView * tab = [[UITableView alloc] initWithFrame:CGRectZero style:style];
-    tab.dataSource = self;
-    tab.backgroundColor = [UIColor clearColor];
-    tab.separatorColor = [UIColor clearColor];
-    _tableView = tab;
-    tab.delegate = self;
-    [self addSubview:tab];
-    [tab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
-    }];
+    if (CGRectEqualToRect(CGRectZero, frame)) {
+        [tab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self);
+        }];
+    }
     
-    [self clearTableViewBottom:tab];
+    // 禁掉偏移量
+    tab.estimatedSectionHeaderHeight = 0;
+    if (@available(iOS 11.0, *)) {
+            tab.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
 }
 
 
