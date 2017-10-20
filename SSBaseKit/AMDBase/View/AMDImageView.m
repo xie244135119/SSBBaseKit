@@ -12,8 +12,7 @@
 
 - (void)setImageWithUrl:(NSURL *)url placeHolder:(UIImage *)placeHolder
 {
-    // 实现主项目实现
-    self.image = placeHolder;
+    [self setImageWithUrl:url placeHolder:placeHolder completion:nil];
 }
 
 
@@ -23,47 +22,27 @@
 {
     // 实现主项目实现
     self.image = placeHolder;
+    self.imageUrl = url;
 }
-
-- (void)downloadImageWithUrl:(NSURL *)url
-                  completion:(void (^)(UIImage *, NSError *))completion
-{
-    // 下载图片
-}
-
-- (void)setImageWithUrl:(NSURL *)url
-            placeHolder:(UIImage *)placeHolder
-                success:(void (^)(UIImage *))success
-                   fail:(void (^)(NSError *))fail
-{
-    // 主项目实现
-    self.image = placeHolder;
-}
-
-
 
 
 - (void)setImageWithPath:(NSString *)path
              placeHolder:(UIImage *)placeHolder
 {
     // 实现主项目实现
-    self.image = placeHolder;
+    [self setImageWithPath:path placeHolder:placeHolder completion:nil];
+    
 }
 
-- (void)setImageWithPath:(NSURL *)url
+- (void)setImageWithPath:(NSString *)path
              placeHolder:(UIImage *)placeHolder
               completion:(void (^)(UIImage *, NSError *))completion
 {
     // 实现主项目实现
     self.image = placeHolder;
-}
-
-- (void)setImageWithPath:(NSURL *)url
-             placeHolder:(UIImage *)placeHolder
-                 success:(void (^)(UIImage *))success
-                    fail:(void (^)(NSError *))fail
-{
-    self.image = placeHolder;
+    if (path) {
+        self.imageUrl = [NSURL fileURLWithPath:path];
+    }
 }
 
 

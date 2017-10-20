@@ -10,6 +10,8 @@
 
 @interface AMDImageView : UIImageView
 
+// 加载中的imageurl
+@property(nonatomic, copy) NSURL *imageUrl;
 
 /**
  根据图片地址设置图片
@@ -32,19 +34,9 @@
  */
 - (void)setImageWithPath:(NSString *)path
              placeHolder:(UIImage *)placeHolder;
-- (void)setImageWithPath:(NSURL *)url
+- (void)setImageWithPath:(NSString *)path
              placeHolder:(UIImage *)placeHolder
               completion:(void (^)(UIImage *, NSError *))completion;
-
-/**
- 下载图片
-
- @param url 图片地址
- @param completion 完成事件
- */
-- (void)downloadImageWithUrl:(NSURL *)url
-                  completion:(void (^)(UIImage *, NSError *))completion;
-
 
 
 @end

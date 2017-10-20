@@ -35,7 +35,7 @@
 #pragma mark - 初始化View
 -(void)_tableViewWithframe:(CGRect)frame type:(UITableViewStyle)style
 {
-    UITableView * tab = [[UITableView alloc] initWithFrame:frame style:style];
+    UITableView * tab = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height) style:style];
     tab.dataSource = self;
     tab.backgroundColor = [UIColor clearColor];
     tab.separatorColor = [UIColor clearColor];
