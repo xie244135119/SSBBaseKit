@@ -167,6 +167,8 @@
 		CB7AE8501F4AF5A3005E8E1F /* SSLinkageView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */; };
 		CB7AE8511F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
 		CB7AE8521F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
+		CB9A69AC1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
+		CB9A69AD1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -855,6 +857,7 @@
 				CB47CCC21EE6471A00D81CA3 /* UIView+SSExtension.m in Sources */,
 				CB47CCE21EE6471A00D81CA3 /* AYESheetCell.m in Sources */,
 				CB47CCD01EE6471A00D81CA3 /* AMDImageView.m in Sources */,
+				CB9A69AD1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */,
 				CB47CC9D1EE6471A00D81CA3 /* AMDLabelFieldView.m in Sources */,
 				CB47CC991EE6471A00D81CA3 /* AMDImgViewLabelView.m in Sources */,
 				CB0C75941EEA54CC00E28AA3 /* AASRegionChoiceView.m in Sources */,
@@ -929,6 +932,7 @@
 				CB45E3D31F2B3489009BB7C6 /* AMDLabelShowView.m in Sources */,
 				CB45E3EC1F2B34CC009BB7C6 /* CustomTextView.m in Sources */,
 				CB45E3E21F2B34B8009BB7C6 /* AMDImageView.m in Sources */,
+				CB9A69AC1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */,
 				CB45E3D71F2B3491009BB7C6 /* AMDMultipleTypeView.m in Sources */,
 				CB45E3E11F2B34B6009BB7C6 /* AMDCopyLabel.m in Sources */,
 				CB45E3D41F2B348B009BB7C6 /* AMDLabelSwitchView.m in Sources */,
