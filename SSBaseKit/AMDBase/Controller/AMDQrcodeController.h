@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 SunSet. All rights reserved.
 //
 
-typedef void(^AMDQrcodeScanAction)(NSString *codeStr,NSString *source);
-
 #import <SSBaseKit/SSBaseKit.h>
+//
+typedef void(^AMDQrcodeScanAction)(NSString *codeStr, NSError *error);
 
 @interface AMDQrcodeController : AMDRootViewController
 

@@ -8,7 +8,7 @@
 
 #import "AMDQrcodeController.h"
 #import <AVFoundation/AVFoundation.h>
-#import "AMDCommonClass.h"
+//#import "AMDCommonClass.h"
 
 @interface AMDQrcodeController() <AVCaptureMetadataOutputObjectsDelegate>
 {
@@ -63,7 +63,9 @@
     NSError *error = nil;
     AVCaptureDeviceInput *input = [[AVCaptureDeviceInput alloc]initWithDevice:device error:&error];
     if (input == nil || error) {
-        [AMDUIFactory makeToken:self.contentView message:@"当前设备不支持相机"];
+        if (_scanAction) {
+            _scanAction(nil, error);
+        }
         return;
     }
     
@@ -76,7 +78,6 @@
     //    CGFloat rectx = (CGFloat)40/320;
     //    CGFloat recty = (CGFloat)40/320;
     //    output.rectOfInterest = CGRectMake(rectx, rectx, 1.0-(2*rectx), 1.0-(2*recty));
-    
     
     //捕获会话捕获输入或输出
     AVCaptureSession *session = [[AVCaptureSession alloc]init];
@@ -113,7 +114,7 @@
     [self.contentView addSubview:popverview];
     
     //选中框
-    UIView *borderView = [[UIView alloc]initWithFrame:CGRectMake((APPWidth-210)/2, (self.contentView.frame.size.height-210)/2, 210, 210)];
+    UIView *borderView = [[UIView alloc]initWithFrame:CGRectMake((SScreenWidth-210)/2, (self.contentView.frame.size.height-210)/2, 210, 210)];
     borderView.layer.borderWidth = 1;
     borderView.layer.borderColor = [[UIColor whiteColor] CGColor];
     [popverview addSubview:borderView];
@@ -142,32 +143,32 @@
 
 
 #pragma mark - 二维码解析
-- (NSArray *)qrcodeParseWithCodeStr:(NSString *)codestr
-{
-    //目前仅支持两种数据
-    //店铺店址 http://m.wdwd.com/supplier/sindex/1K6ZP
-    //带推荐人的店铺地址 http://m.wdwd.com/supplier/sindex/1K6ZP/source/C9ZBGH67
-    if (![codestr hasPrefix:@"http"]) {
-        return nil;
-    }
-    NSURL *url = [[NSURL alloc]initWithString:codestr];
-    NSArray *params = [url.path componentsSeparatedByString:@"/"];
-    
-    NSArray *resault = nil;
-    //店铺地址
-    switch (params.count) {
-        case 4:     //不带推荐人的店铺地址
-            resault = @[[params lastObject]];
-            break;
-        case 6:     //带推荐人的店铺地址
-            resault = @[params[3],[params lastObject]];
-            break;
-            
-        default:
-            break;
-    }
-    return resault;
-}
+//- (NSArray *)qrcodeParseWithCodeStr:(NSString *)codestr
+//{
+//    //目前仅支持两种数据
+//    //店铺店址 http://m.wdwd.com/supplier/sindex/1K6ZP
+//    //带推荐人的店铺地址 http://m.wdwd.com/supplier/sindex/1K6ZP/source/C9ZBGH67
+//    if (![codestr hasPrefix:@"http"]) {
+//        return nil;
+//    }
+//    NSURL *url = [[NSURL alloc]initWithString:codestr];
+//    NSArray *params = [url.path componentsSeparatedByString:@"/"];
+//
+//    NSArray *resault = nil;
+//    //店铺地址
+//    switch (params.count) {
+//        case 4:     //不带推荐人的店铺地址
+//            resault = @[[params lastObject]];
+//            break;
+//        case 6:     //带推荐人的店铺地址
+//            resault = @[params[3],[params lastObject]];
+//            break;
+//
+//        default:
+//            break;
+//    }
+//    return resault;
+//}
 
 
 
@@ -190,32 +191,38 @@
                 break;
             }
         }
-        dispatch_async(kGCDMain, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             //扫描出了二维码
             if (codeValue.length > 0) {
                 if ([_delegate respondsToSelector:@selector(viewController:object:)]) {
                     [_delegate viewController:self object:codeValue];
                 }
                 
-                //解析数据
-                NSArray *resault = [self qrcodeParseWithCodeStr:codeValue];
-                if (resault.count > 0) {
-                    //扫描行为---只执行一次
-                    if (_scanAction && !_scanFinish) {
-                        _scanFinish = YES;
-                        [self dismissViewControllerAnimated:YES completion:^{
-                            _scanAction(resault[0],resault.count>1?resault[1]:nil);
-                        }];
-                    }
+                if (_scanAction) {
+                    _scanAction(codeValue, nil);
                 }
-                else{
-                    [[AMDCommonClass sharedAMDCommonClass] showAlertTitle:@"无法识别" Message:@"请扫描供应商的二维码" action:^(NSInteger index) {
-                        [weakself.captureSession startRunning];
-                    } cancelBt:nil otherButtonTitles:@"确定", nil];
-                    //
-//                    [AMDUIFactory makeToken:nil message:@"无效的二维码"];
-                    
-                }
+                
+//                //解析数据
+//                NSArray *resault = [self qrcodeParseWithCodeStr:codeValue];
+//                if (resault.count > 0) {
+//                    //扫描行为---只执行一次
+//                    if (_scanAction && !_scanFinish) {
+//                        _scanFinish = YES;
+//                        [self dismissViewControllerAnimated:YES completion:^{
+//                            _scanAction(resault[0],resault.count>1?resault[1]:nil);
+//                        }];
+//                    }
+//                }
+//                else{
+//                    [[AMDCommonClass sharedAMDCommonClass] showAlertTitle:@"无法识别" Message:@"请扫描供应商的二维码" action:^(NSInteger index) {
+//                        [weakself.captureSession startRunning];
+//                    } cancelBt:nil otherButtonTitles:@"确定", nil];
+//                    //
+////                    [AMDUIFactory makeToken:nil message:@"无效的二维码"];
+//
+//                    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"无法识别" message:@"请扫描的二维码" preferredStyle:<#(UIAlertControllerStyle)#>];
+//
+//                }
                 
             }
         });
