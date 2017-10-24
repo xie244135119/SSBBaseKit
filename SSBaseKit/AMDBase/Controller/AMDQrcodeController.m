@@ -8,7 +8,7 @@
 
 #import "AMDQrcodeController.h"
 #import <AVFoundation/AVFoundation.h>
-//#import "AMDCommonClass.h"
+#import "SSGlobalVar.h"
 
 @interface AMDQrcodeController() <AVCaptureMetadataOutputObjectsDelegate>
 {

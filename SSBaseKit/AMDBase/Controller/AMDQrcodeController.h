@@ -6,7 +6,9 @@
 //  Copyright (c) 2015年 SunSet. All rights reserved.
 //
 
-#import <SSBaseKit/SSBaseKit.h>
+
+#import "AMDRootViewController.h"
+#import "AMDControllerTransitionDelegate.h"
 //
 typedef void(^AMDQrcodeScanAction)(NSString *codeStr, NSError *error);
 
