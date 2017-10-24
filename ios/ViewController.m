@@ -19,7 +19,7 @@
 #import "AYEActionSheetView.h"
 
 
-@interface ViewController ()
+@interface ViewController ()<UINavigationControllerDelegate>
 {
     AMDButton *_currentBt;
 }
@@ -29,6 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.delegate = self;
 //    self.supportBackBt = YES;
 //    self.backItem.layer.borderWidth = 1;
 //    self.backItem.imgStrokeColor = SSColorWithRGB(75, 75, 75, 1);
@@ -172,6 +174,21 @@
     NSLog(@" 取消选中了某一个index:%i ",index);
 }
 
+
+
+#pragma mark -
+//
+- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                            animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                         fromViewController:(UIViewController *)fromVC
+                                                           toViewController:(UIViewController *)toVC
+{
+    if ([toVC isKindOfClass:[AMDRootViewController class]]) {
+        AMDRootViewController *vc = (AMDRootViewController *)toVC;
+        vc.supportBack = YES;
+    }
+    return nil;
+}
 
 
 

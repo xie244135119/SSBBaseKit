@@ -48,10 +48,7 @@
     return self;
 }
 
-
-
 @end
-
 
 
 @implementation AMDCloseImgView

@@ -19,9 +19,6 @@
 @property(nonatomic, copy) NSString *priorityTitle;
 
 
-// "优先使用 [YLJsBridgeSDK bridgeWithActionType:YLJsBridgeActionTypeLink actionParams:urlstr] 方法调用");
-
-
 @end
 
 

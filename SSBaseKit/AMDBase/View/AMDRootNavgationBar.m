@@ -8,6 +8,14 @@
 
 #import "AMDRootNavgationBar.h"
 #import "SSGlobalVar.h"
+#import <Masonry/Masonry.h>
+
+@interface AMDRootNavgationBar()
+{
+    CGFloat _maxLeftWidth;              //左侧最大宽度
+    CGFloat _maxRightWidth;             //右侧最大宽度
+}
+@end
 
 @implementation AMDRootNavgationBar
 
@@ -30,6 +38,10 @@
         _naviationBar = bar;
         bar.translucent = NO;
         [self addSubview:bar];
+//        [bar mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.right.bottom.equalTo(@0);
+//            make.height.equalTo(@44);
+//        }];
      
         self.frame = CGRectMake(0, 0, bar.frame.size.width, bar.frame.size.height+bar.frame.origin.y);
     }
@@ -45,11 +57,16 @@
         _leftViews=leftViews;
         
         NSInteger height = self.frame.size.height;
+        _maxLeftWidth = 0;
         for (UIView *v in leftViews ) {//添加页面
             CGRect rect = v.frame;
             CGFloat y = height-44+((44-v.frame.size.height)/2);
             v.frame = CGRectMake(rect.origin.x, y, v.frame.size.width, v.frame.size.height);
             [self addSubview:v];
+//            [v mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.width.equalTo(@(v.frame.size.width));
+//            }];
+            _maxLeftWidth += (v.frame.size.width+v.frame.origin.x);
         }
     }
 }
@@ -57,15 +74,17 @@
 
 - (void)setRightViews:(NSArray *)rightViews
 {
-    if (_rightViews!=rightViews) {
-        _rightViews=rightViews;
+    if (_rightViews != rightViews) {
+        _rightViews = rightViews;
         
         NSInteger height = self.frame.size.height;
+        _maxRightWidth = 0;
         for (UIView *v in rightViews ) {//添加页面
             CGRect rect = v.frame;
             CGFloat y = (height-44)+(44-v.frame.size.height)/2;
             v.frame = CGRectMake(rect.origin.x, y, v.frame.size.width, v.frame.size.height);
             [self addSubview:v];
+            _maxRightWidth = MAX(_maxRightWidth, SScreenWidth-v.frame.origin.x);
         }
     }
 }
@@ -73,8 +92,8 @@
 
 - (void)setTitle:(NSString *)title
 {//设置标题
-    if (_title!=title) {
-        _title=title;
+    if (_title != title) {
+        _title = title;
         
         NSInteger height = self.frame.size.height;
         if (_titleLabel == nil) {
@@ -87,19 +106,15 @@
             [self addSubview:label];
         }
         
-        // 设置frame
-        CGFloat rightw = 10;
-        for (UIView *v in _rightViews) {
-            rightw += v.frame.size.width;
-        }
-        
         NSMutableParagraphStyle *parstyle = [NSParagraphStyle defaultParagraphStyle].mutableCopy;
         parstyle.lineBreakMode = NSLineBreakByWordWrapping;
         parstyle.lineSpacing = 2;
         NSString *text = title;
         CGSize size = [text sizeWithAttributes:@{NSFontAttributeName:_titleLabel.font, NSParagraphStyleAttributeName:parstyle }];
-        CGFloat maxWidth = MIN(size.width, self.frame.size.width-50*2);
+        CGFloat maxreduce = MAX(MAX(_maxRightWidth, _maxLeftWidth), 50);
+        CGFloat maxWidth = MIN(size.width, self.frame.size.width-maxreduce*2);
         
+        // 计算左侧视图最大的宽度 和右侧视图最大的宽度
         _titleLabel.frame = CGRectMake((self.frame.size.width-maxWidth)/2, (height-44), maxWidth, 44);
         [_titleLabel setText:title];
     }

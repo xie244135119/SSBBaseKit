@@ -14,9 +14,9 @@
 
 
 @interface AMDRootViewController ()
-{
-    AMDBackControl *_backControl;                   //线条颜色
-}
+//{
+//    AMDBackControl *_backControl;                   //线条颜色
+//}
 
 @property(nonatomic) BOOL loadFromNib;     //从xib中加载的话
 //导航是否展示
@@ -32,14 +32,13 @@
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         // 从xib中加载
         _loadFromNib = YES;
-        self.title = @"测试";
     }
     return self;
 }
 
 - (void)dealloc
 {
-    _backControl = nil;
+//    _backControl = nil;
     NSLog(@"%@ %s",[self class],__FUNCTION__);
 }
 
@@ -61,11 +60,9 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    
-//    [AMDTool clearMembory];
+
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     
-    //    if (self.isViewLoaded && !self.view.window)// 是否是正在使用的视图
     if (!self.isViewLoaded){
         self.view = nil;// 目的是再次进入时能够重新加载调用viewDidLoad函数。
     }
@@ -76,7 +73,6 @@
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleDefault;
-//    return [[LoginInfoStorage sharedStorage] statusBarStyle];
 }
 
 
@@ -94,8 +90,6 @@
 
 
 
-
-
 #pragma mark -
 
 - (instancetype)init
@@ -105,21 +99,19 @@
 //
 - (instancetype)initWithTitle:(NSString *)title
 {
-//    if (self = [super init]) {
-        //默认展示导航 不展示tabbar
-        _titileViewHidden = NO;
-        _tabBarHidden = YES;
-        self.title = title;
-    _loadFromNib = NO;
-//    }
-    return self;
+    return [self initWithTitle:title titileViewShow:YES];
+}
+
+- (instancetype)initWithTitle:(NSString *)title
+               titileViewShow:(BOOL)titleViewShow
+{
+    return [self initWithTitle:title titileViewShow:titleViewShow tabBarShow:NO];
 }
 
 - (instancetype)initWithTitle:(NSString *)title
                titileViewShow:(BOOL)titleViewShow
                    tabBarShow:(BOOL)tabbar
 {
-    //    if (self = [super initWithNibName:nil bundle:nil]) {
     _titileViewHidden = !titleViewShow;
     _tabBarHidden = !tabbar;
     self.title = title;
@@ -146,6 +138,11 @@
 //            make.height.equalTo(@(h));
 //            make.top.equalTo(@0);
 //        }];
+        
+        // 加载后退按钮
+        if (_supportBackBt || _supportBack) {
+            [self _loadBackBt];
+        }
     }
     
     //内部视图
@@ -167,6 +164,18 @@
     self.view.multipleTouchEnabled = NO;
 }
 
+// 加载后退视图
+- (void)_loadBackBt
+{
+    if (_backItem == nil) {
+        AMDBackControl *backbt = [[AMDBackControl alloc]initWithFrame:CGRectMake(0, 0, 44+10, 44)];
+        _backItem = backbt;
+        [backbt addTarget:self action:@selector(ClickBt_Back:) forControlEvents:UIControlEventTouchUpInside];
+        self.titleView.leftViews = @[backbt];
+    }
+}
+
+
 
 #pragma mark - PriavteAPI
 //
@@ -185,24 +194,18 @@
     }
 }
 
-
--(void)setSupportBackBt:(BOOL)supportBackBt
-{
-    if (_supportBackBt != supportBackBt) {
-        _supportBackBt = supportBackBt;
-        
-        AMDBackControl *control = _backItem;
-        if (supportBackBt) {
-            if (control == nil) {
-                AMDBackControl *backbt = [[AMDBackControl alloc]initWithFrame:CGRectMake(0, 0, 44+10, 44)];
-                _backItem = backbt;
-                [backbt addTarget:self action:@selector(ClickBt_Back:) forControlEvents:UIControlEventTouchUpInside];
-                self.titleView.leftViews = @[backbt];
-            }
-        }
-        control.hidden = !supportBackBt;
-    }
-}
+//
+//-(void)setSupportBackBt:(BOOL)supportBackBt
+//{
+//    if (_supportBackBt != supportBackBt) {
+//        _supportBackBt = supportBackBt;
+//
+//        // 加载后退按钮
+//        [self _loadBackBt];
+//        // 隐藏或者显示
+//        _backItem.hidden = !supportBackBt;
+//    }
+//}
 
 
 - (void)setMessageCount:(NSInteger)messageCount
@@ -210,7 +213,7 @@
     if (_messageCount != messageCount) {
         _messageCount = messageCount;
         
-        AMDBackControl *control = _backControl;
+        AMDBackControl *control = _backItem;
         control.mesRemindLabel.text = [NSString stringWithFormat:@"(%li)",(long)messageCount];
     }
 }
@@ -227,7 +230,6 @@
 
 - (void)viewWillLayoutSubviews
 {
-//    self.contentView.layer.borderWidth = 1;
     // 当视图发生改变的时候
     [super viewWillLayoutSubviews];
 }
@@ -276,6 +278,7 @@
 {
     return [[self class] description];
 }
+
 
 
 @end

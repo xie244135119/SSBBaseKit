@@ -298,6 +298,8 @@
 		CB47CD271EE64DFE00D81CA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB53B2D21F4D1D0B0083A31B /* UIButton+SSBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SSBackground.h"; sourceTree = "<group>"; };
 		CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SSBackground.m"; sourceTree = "<group>"; };
+		CB58B3C21F99CAFB00360891 /* AMDQrcodeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMDQrcodeController.h; sourceTree = "<group>"; };
+		CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMDQrcodeController.m; sourceTree = "<group>"; };
 		CB614A841EE9362900471DE9 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		CB644C611F7CDC30001BF127 /* FXBlurView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		CB644C621F7CDC31001BF127 /* FXBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
@@ -434,6 +436,8 @@
 				CB47CC551EE6471A00D81CA3 /* AMDTabbarItem.m */,
 				CB47CC561EE6471A00D81CA3 /* AMDWebViewController.h */,
 				CB47CC571EE6471A00D81CA3 /* AMDWebViewController.m */,
+				CB58B3C21F99CAFB00360891 /* AMDQrcodeController.h */,
+				CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

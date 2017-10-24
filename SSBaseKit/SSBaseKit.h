@@ -35,12 +35,7 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 #import <SSBaseKit/AMDTextField.h>
 #import <SSBaseKit/CustomTextView.h>
 #import <SSBaseKit/CustomTableView.h>
-#import <SSBaseKit/AMDRootViewController.h>
-#import <SSBaseKit/AMDRootProtocol.h>
-#import <SSBaseKit/AMDControllerTransitionDelegate.h>
-#import <SSBaseKit/AMDTabbarController.h>
 #import <SSBaseKit/AMDTabbarItem.h>
-#import <SSBaseKit/AMDWebViewController.h>
 #import <SSBaseKit/AMDAnimationWebView.h>
 #import <SSBaseKit/AMDImgViewLabelView.h>
 #import <SSBaseKit/AMDKeyboradView.h>
@@ -60,6 +55,13 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 #import <SSBaseKit/SSLinkageView.h>
 #import <SSBaseKit/UIButton+SSBackground.h>
 #import <SSBaseKit/UIView+SSExtension.h>
+// 控制器
+#import <SSBaseKit/AMDQrcodeController.h>
+#import <SSBaseKit/AMDRootProtocol.h>
+#import <SSBaseKit/AMDRootViewController.h>
+#import <SSBaseKit/AMDControllerTransitionDelegate.h>
+#import <SSBaseKit/AMDTabbarController.h>
+#import <SSBaseKit/AMDWebViewController.h>
 
 
 

@@ -94,7 +94,7 @@
     switch (_showType.intValue) {
         case 1:         //压栈
         {
-            self.supportBackBt = YES;
+//            self.supportBackBt = YES;
             
 #ifdef DEBUG
             // 更多按钮--仅供调试使用
@@ -133,8 +133,8 @@
         return;
     }
     
-    if (self.showType.intValue == 1)
-    {   //非模态情况下展示关闭按钮
+//    if (self.showType.intValue == 1)
+//    {   //非模态情况下展示关闭按钮
         if (_currentCloseBt == nil) {
             AMDCloseControl *closebt = [[AMDCloseControl alloc]initWithFrame:CGRectMake(40, 0, 35, 44) lineColor:self.backItem.imgStrokeColor];
             closebt.tag = 1;
@@ -147,7 +147,7 @@
             backitemframe.size.width = closebt.frame.origin.x;
             self.backItem.frame = backitemframe;
         }
-    }
+//    }
 }
 
 
@@ -213,7 +213,7 @@
 //#else
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    if (_requestWithSignURL && self.supportBackBt) {
+    if (_requestWithSignURL && (self.supportBack)) {
         if (![_requestWithSignURL isEqualToString:webView.request.URL.description]) {
 //            if (navigationType == UIWebViewNavigationTypeOther) {
                 [self initCloseBt];
