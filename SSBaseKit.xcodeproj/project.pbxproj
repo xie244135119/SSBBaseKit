@@ -169,6 +169,7 @@
 		CB7AE8521F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
 		CB9A69AC1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
 		CB9A69AD1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
+		CB9A69AE1F9F507E00B306E5 /* AMDQrcodeController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB58B3C21F99CAFB00360891 /* AMDQrcodeController.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -598,6 +599,7 @@
 				CB47CCEB1EE6471A00D81CA3 /* CustomTextView.h in Headers */,
 				CB47CCDF1EE6471A00D81CA3 /* AYEActionSheetView.h in Headers */,
 				CB47CCAD1EE6471A00D81CA3 /* AMDRootProtocol.h in Headers */,
+				CB9A69AE1F9F507E00B306E5 /* AMDQrcodeController.h in Headers */,
 				CB47CCB01EE6471A00D81CA3 /* AMDTabbarController.h in Headers */,
 				CB47CCB21EE6471A00D81CA3 /* AMDTabbarItem.h in Headers */,
 				CB47CC941EE6471A00D81CA3 /* AMDAnimationWebView.h in Headers */,
