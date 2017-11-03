@@ -91,7 +91,7 @@
 // 加载导航
 - (void)initNavView
 {
-    switch (_showType.intValue) {
+    switch (_showType) {
         case 1:         //压栈
         {
 //            self.supportBackBt = YES;
@@ -275,7 +275,7 @@
 {
     AMDWebViewController *webVc = [[AMDWebViewController alloc]init];
     webVc.requestWithSignURL = aUrl;
-    webVc.showType = @1;
+    webVc.showType = 1;
     [self.navigationController pushViewController:webVc animated:YES];
 }
 

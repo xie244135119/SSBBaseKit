@@ -241,7 +241,8 @@
     // 当前页面的话---
     NSString *urlStr = navigationAction.request.URL.description;
     if (_requestWithSignURL) {
-        if ([urlStr rangeOfString:_requestWithSignURL].length > 0 ) {
+//        if ([urlStr rangeOfString:_requestWithSignURL].length > 0 ) {
+        if ([urlStr isEqualToString:_requestWithSignURL]) {
             decisionHandler(WKNavigationActionPolicyAllow);
             return;
         }

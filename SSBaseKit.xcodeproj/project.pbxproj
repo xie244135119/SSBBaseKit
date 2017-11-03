@@ -170,6 +170,8 @@
 		CB9A69AC1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
 		CB9A69AD1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
 		CB9A69AE1F9F507E00B306E5 /* AMDQrcodeController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB58B3C21F99CAFB00360891 /* AMDQrcodeController.h */; };
+		CBD53CF71FA32912006D3268 /* SSImageCropController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD53CF61FA328FA006D3268 /* SSImageCropController.m */; };
+		CBD53CF81FA32912006D3268 /* SSImageCropController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD53CF61FA328FA006D3268 /* SSImageCropController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -308,6 +310,8 @@
 		CB644C621F7CDC31001BF127 /* FXBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLinkageView.h; sourceTree = "<group>"; };
 		CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLinkageView.m; sourceTree = "<group>"; };
+		CBD53CF51FA328FA006D3268 /* SSImageCropController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSImageCropController.h; sourceTree = "<group>"; };
+		CBD53CF61FA328FA006D3268 /* SSImageCropController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSImageCropController.m; sourceTree = "<group>"; };
 		DF4D764CA25168F83786CBD9 /* Pods-SSBaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -441,6 +445,8 @@
 				CB47CC571EE6471A00D81CA3 /* AMDWebViewController.m */,
 				CB58B3C21F99CAFB00360891 /* AMDQrcodeController.h */,
 				CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */,
+				CBD53CF51FA328FA006D3268 /* SSImageCropController.h */,
+				CBD53CF61FA328FA006D3268 /* SSImageCropController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -882,6 +888,7 @@
 				CB47CCEA1EE6471A00D81CA3 /* GeneralTableView.m in Sources */,
 				CB4724F61F95FEFB00F14E87 /* AMDCloseControl.m in Sources */,
 				CB47CCA11EE6471A00D81CA3 /* AMDLabelSwitchView.m in Sources */,
+				CBD53CF81FA32912006D3268 /* SSImageCropController.m in Sources */,
 				CB47CCD61EE6471A00D81CA3 /* AMDProgressView.m in Sources */,
 				CB47CCDE1EE6471A00D81CA3 /* AMDTextField.m in Sources */,
 				CB47CCDC1EE6471A00D81CA3 /* AMDSegmentedControl.m in Sources */,
@@ -914,6 +921,7 @@
 				CB44376D1F3192DA00FF108C /* AMDSelectItemView.m in Sources */,
 				CB45E3D21F2B3486009BB7C6 /* AMDLabelFieldView.m in Sources */,
 				CB45E3E51F2B34BE009BB7C6 /* AMDProgressView.m in Sources */,
+				CBD53CF71FA32912006D3268 /* SSImageCropController.m in Sources */,
 				CB45E3ED1F2B34CF009BB7C6 /* CustomTableView.m in Sources */,
 				CB47CD181EE64DFE00D81CA3 /* main.m in Sources */,
 				CB45E3E01F2B34B4009BB7C6 /* AMDButton.m in Sources */,

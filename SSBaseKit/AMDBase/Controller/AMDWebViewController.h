@@ -14,7 +14,7 @@
 // 使用平台签名的请求地址
 @property(nonatomic, copy) NSString *requestWithSignURL;
 // 跳转类型 1:正常压栈(默认) 2：模态显示 0默认一级页面
-@property(nonatomic, strong) NSNumber *showType;
+@property(nonatomic) NSInteger showType;
 // 优先设置的标题
 @property(nonatomic, copy) NSString *priorityTitle;
 

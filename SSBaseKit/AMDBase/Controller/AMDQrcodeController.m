@@ -201,29 +201,7 @@
                 if (_scanAction) {
                     _scanAction(codeValue, nil);
                 }
-                
-//                //解析数据
-//                NSArray *resault = [self qrcodeParseWithCodeStr:codeValue];
-//                if (resault.count > 0) {
-//                    //扫描行为---只执行一次
-//                    if (_scanAction && !_scanFinish) {
-//                        _scanFinish = YES;
-//                        [self dismissViewControllerAnimated:YES completion:^{
-//                            _scanAction(resault[0],resault.count>1?resault[1]:nil);
-//                        }];
-//                    }
-//                }
-//                else{
-//                    [[AMDCommonClass sharedAMDCommonClass] showAlertTitle:@"无法识别" Message:@"请扫描供应商的二维码" action:^(NSInteger index) {
-//                        [weakself.captureSession startRunning];
-//                    } cancelBt:nil otherButtonTitles:@"确定", nil];
-//                    //
-////                    [AMDUIFactory makeToken:nil message:@"无效的二维码"];
-//
-//                    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"无法识别" message:@"请扫描的二维码" preferredStyle:<#(UIAlertControllerStyle)#>];
-//
-//                }
-                
+                [weakself.navigationController popViewControllerAnimated:YES];
             }
         });
     });
