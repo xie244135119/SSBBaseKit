@@ -12,6 +12,8 @@
 		CB0C75931EEA54CC00E28AA3 /* AASRegionChoiceView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB0C75911EEA54CC00E28AA3 /* AASRegionChoiceView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB0C75941EEA54CC00E28AA3 /* AASRegionChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */; };
 		CB17995C1EF0CC2C00EA83FC /* AMDMJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB17995B1EF0CC2C00EA83FC /* AMDMJRefresh.bundle */; };
+		CB1CF7431FB939A800BB02CE /* SSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1CF7411FB939A500BB02CE /* SSNavigationController.m */; };
+		CB1CF7441FB939A900BB02CE /* SSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1CF7411FB939A500BB02CE /* SSNavigationController.m */; };
 		CB1DF4CD1EE66EAE00B93F81 /* UIView+AMDMJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47CCFD1EE6480B00D81CA3 /* UIView+AMDMJExtension.m */; };
 		CB2D53421F15B5AC005A1B3F /* AMDSexSetView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB2D53401F15B5AC005A1B3F /* AMDSexSetView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB2D53431F15B5AC005A1B3F /* AMDSexSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2D53411F15B5AC005A1B3F /* AMDSexSetView.m */; };
@@ -184,6 +186,8 @@
 		CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASRegionChoiceView.m; sourceTree = "<group>"; };
 		CB0C75951EEAA61E00E28AA3 /* Pods_SSBaseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_SSBaseKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/SSBaseKit-ffnqbiiyirahkqgzbxcxzjybypbp/Build/Products/Debug-iphonesimulator/Pods_SSBaseKit.framework"; sourceTree = "<group>"; };
 		CB17995B1EF0CC2C00EA83FC /* AMDMJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMDMJRefresh.bundle; sourceTree = "<group>"; };
+		CB1CF7411FB939A500BB02CE /* SSNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSNavigationController.m; sourceTree = "<group>"; };
+		CB1CF7421FB939A600BB02CE /* SSNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSNavigationController.h; sourceTree = "<group>"; };
 		CB1DF49E1EE653DA00B93F81 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = "../../../Library/Developer/Xcode/DerivedData/SSBaseKit-ffnqbiiyirahkqgzbxcxzjybypbp/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework"; sourceTree = "<group>"; };
 		CB2D53401F15B5AC005A1B3F /* AMDSexSetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSexSetView.h; sourceTree = "<group>"; };
 		CB2D53411F15B5AC005A1B3F /* AMDSexSetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSexSetView.m; sourceTree = "<group>"; };
@@ -447,6 +451,8 @@
 				CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */,
 				CBD53CF51FA328FA006D3268 /* SSImageCropController.h */,
 				CBD53CF61FA328FA006D3268 /* SSImageCropController.m */,
+				CB1CF7421FB939A600BB02CE /* SSNavigationController.h */,
+				CB1CF7411FB939A500BB02CE /* SSNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -888,6 +894,7 @@
 				CB47CCEA1EE6471A00D81CA3 /* GeneralTableView.m in Sources */,
 				CB4724F61F95FEFB00F14E87 /* AMDCloseControl.m in Sources */,
 				CB47CCA11EE6471A00D81CA3 /* AMDLabelSwitchView.m in Sources */,
+				CB1CF7441FB939A900BB02CE /* SSNavigationController.m in Sources */,
 				CBD53CF81FA32912006D3268 /* SSImageCropController.m in Sources */,
 				CB47CCD61EE6471A00D81CA3 /* AMDProgressView.m in Sources */,
 				CB47CCDE1EE6471A00D81CA3 /* AMDTextField.m in Sources */,
@@ -947,6 +954,7 @@
 				CB45E3E11F2B34B6009BB7C6 /* AMDCopyLabel.m in Sources */,
 				CB45E3D41F2B348B009BB7C6 /* AMDLabelSwitchView.m in Sources */,
 				CB45E3EE1F2B34D0009BB7C6 /* GeneralTableView.m in Sources */,
+				CB1CF7431FB939A800BB02CE /* SSNavigationController.m in Sources */,
 				CB4724F91F9602CB00F14E87 /* UIView+AMDMJExtension.m in Sources */,
 				CB45E3D61F2B348E009BB7C6 /* AMDLoadingView.m in Sources */,
 				CB45E3DB1F2B34A7009BB7C6 /* AMDWebViewProgress.m in Sources */,

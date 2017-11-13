@@ -63,6 +63,7 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 #import <SSBaseKit/AMDTabbarController.h>
 #import <SSBaseKit/AMDWebViewController.h>
 #import <SSBaseKit/SSImageCropController.h>
+#import <SSBaseKit/SSNavigationController.h>
 
 
 
