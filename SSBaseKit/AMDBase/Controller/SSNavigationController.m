@@ -31,9 +31,11 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     // 设置后退按钮
-    if ([viewController isKindOfClass:[AMDRootViewController class]]) {
-        AMDRootViewController *Vc = (AMDRootViewController *)viewController;
-        Vc.supportBack = YES;
+    if(self.viewControllers.count > 0) {
+        if ([viewController isKindOfClass:[AMDRootViewController class]]) {
+            AMDRootViewController *Vc = (AMDRootViewController *)viewController;
+            Vc.supportBack = YES;
+        }
     }
     
     [super pushViewController:viewController animated:animated];

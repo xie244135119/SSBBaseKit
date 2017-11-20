@@ -66,6 +66,10 @@
         make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
+    // 建立监听
+    [self initObserverForWkTitle];
+    
+    // 有优先级标题
     if (_priorityTitle.length > 0) {
         self.titleView.title = _priorityTitle;
     }
@@ -73,15 +77,12 @@
         // 获取html标题
         __weak typeof(self) weakself = self;
         if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
-            // 建立对title的监听
-            [self initObserverForWkTitle];
             animationView.finishLoadAction_WK = ^(WKWebView *webView){
                 weakself.titleView.title = webView.title;
             };
         }
         else {
             animationView.finishLoadAction_UI = ^(UIWebView *webView){
-                // 题目的标题由document的title提供
                 weakself.titleView.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
             };
         }
@@ -251,7 +252,9 @@
 #pragma mark - 检测标题 发生变化 触发后退按钮
 - (void)initObserverForWkTitle
 {
-    [_currentAnimationView.wkWebView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    if ([_currentAnimationView.wkWebView isKindOfClass:[WKWebView class]]) {
+        [_currentAnimationView.wkWebView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
