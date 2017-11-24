@@ -227,7 +227,7 @@
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
     // 如果不是一级页面 自动后退
-    if(_showType != 0) {
+    if(self.supportBack) {
         decisionHandler(WKNavigationActionPolicyAllow);
         return;
     }
