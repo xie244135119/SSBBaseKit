@@ -80,6 +80,7 @@
     layer.fillColor = [UIColor clearColor].CGColor;
     layer.lineWidth = 1.5;
     [self.layer addSublayer:layer];
+    CFRelease(path);
     _shapeLayer = layer;
 }
 

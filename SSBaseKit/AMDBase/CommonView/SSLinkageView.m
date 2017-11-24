@@ -327,22 +327,14 @@ static NSInteger SSLinkageTime = 5;
             NSInteger width = 2*self.frame.size.width;
             NSInteger height = 2*self.frame.size.height;
             NSString *urlstr = [[NSString alloc]initWithFormat:@"%@?imageView2/1/w/%@/h/%@",imageNameOrURL,@(width),@(height)];
-//            [self.imageView sd_setImageWithURL:[NSURL URLWithString:urlstr] placeholderImage:AMDLoadingImage];
             [self.imageView setImageWithUrl:[NSURL URLWithString:urlstr] placeHolder:nil];
         }
         else{
-            self.imageView.image = [UIImage imageNamed:imageNameOrURL];
+            self.imageView.image = [UIImage imageNamed:imageNameOrURL?imageNameOrURL:@""];
         }
     }
 }
 
-//- (void)setImageIndex:(NSInteger)imageIndex
-//{
-//    if (_imageIndex != imageIndex) {
-//        _imageIndex = imageIndex;
-//        
-//    }
-//}
 
 @end
 

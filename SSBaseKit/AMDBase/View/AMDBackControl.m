@@ -158,6 +158,7 @@
     layer.lineJoin = @"round";
     [self.layer addSublayer:layer];
     _shapeLayer = layer;
+    CFRelease(path);
 }
 
 

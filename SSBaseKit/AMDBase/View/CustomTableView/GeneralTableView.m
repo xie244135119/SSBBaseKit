@@ -82,7 +82,7 @@
     if ([_delegate respondsToSelector:@selector(tableView:CellAtIndexPath:)]) {
         return [_delegate tableView:tableView CellAtIndexPath:indexPath];
     }
-    return nil;
+    return [[UITableViewCell alloc]init];
 }
 
 ////支持多选删除

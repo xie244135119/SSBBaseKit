@@ -51,6 +51,7 @@
     layer.lineWidth = 1.5;
     layer.lineJoin = @"round";
     [self.layer addSublayer:layer];
+    CFRelease(path);
 }
 
 

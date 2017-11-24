@@ -122,7 +122,7 @@
 
 - (void)initRootContentView
 {
-    NSInteger h = 0;
+//    NSInteger h = 0;
 //    NSInteger w = self.view.frame.size.width;
     
     // 标题
@@ -132,7 +132,7 @@
         _titleView = bar;
         bar.title = self.title;
         [self.view addSubview:bar];
-        h = bar.frame.size.height;
+//        h = bar.frame.size.height;
 //        [bar mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.left.right.equalTo(@0);
 //            make.height.equalTo(@(h));

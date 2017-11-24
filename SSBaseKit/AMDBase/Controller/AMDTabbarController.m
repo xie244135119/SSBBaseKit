@@ -152,11 +152,11 @@
 // 隐藏之前的tabar
 - (UITabBar *)hideTabBar
 {
-    CGRect oldTabBarRect = CGRectMake(0, 0, 0, 0);
+//    CGRect oldTabBarRect;
     UITabBar *tabbar = nil;
     for (UIView * v in self.view.subviews) {
         if ([v isKindOfClass:[UITabBar class]]) {
-            oldTabBarRect = v.frame;
+//            oldTabBarRect = v.frame;
             tabbar = (UITabBar *)v;
             break;
         }
@@ -279,9 +279,6 @@
 {
     NSInteger index = [self.amdTabBarController.viewControllers indexOfObject:self];
     AMDTabbarItem *item = [self.amdTabBarController.amdTabBar viewWithTag:(900+index)];
-    if (![item isKindOfClass:[AMDTabbarItem class]]) {
-        return nil;
-    }
     return item;
 }
 

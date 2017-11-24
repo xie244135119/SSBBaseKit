@@ -200,7 +200,7 @@
 {
     if (_provincesSource == nil) {
         NSArray *provinces = self.regionSourceDict[@"provinces"];
-        _provincesSource = [[NSArray alloc]initWithArray:provinces];
+        _provincesSource = provinces;
     }
     return _provincesSource;
 }
