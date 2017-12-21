@@ -28,7 +28,7 @@
     _wkWebView = nil;
     self.webViewProgress = nil;
     self.reloadAction_WK = nil;
-    self.finishLoadAction_UI = nil;
+//    self.finishLoadAction_UI = nil;
     self.finishLoadAction_WK = nil;
 //    NSLog(@" AMDAnimationWebView  deallc");
 }
@@ -39,9 +39,9 @@
         if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
             [self initWkWebView];
         }
-        else {
-            [self initUIWebView];
-        }
+//        else {
+//            [self initUIWebView];
+//        }
     }
     return self;
 }
@@ -67,8 +67,9 @@
 {
     UIView *v = [[UIView alloc]initWithFrame:self.bounds];
     v.backgroundColor = SSColorWithRGB(246, 246, 246, 1);
-    UIWebView *webView = (UIWebView *)(_wkWebView!=nil?_wkWebView:_uiWebView);
-    [webView insertSubview:v belowSubview:webView.scrollView];
+//    UIWebView *webView = (UIWebView *)(_wkWebView!=nil?_wkWebView:_uiWebView);
+//    [webView insertSubview:v belowSubview:webView.scrollView];
+    [_wkWebView insertSubview:v belowSubview:_wkWebView.scrollView];
     
     //设置网址
     UILabel *urllabel = [[UILabel alloc]init];
@@ -95,11 +96,11 @@
         _websiteLabel.hidden = supportRefresh;
         //支持刷新
         if (supportRefresh) {
-            [_uiWebView.scrollView addHeaderWithTarget:self action:@selector(webViewRefresh:)];
+//            [_uiWebView.scrollView addHeaderWithTarget:self action:@selector(webViewRefresh:)];
             [_wkWebView.scrollView addHeaderWithTarget:self action:@selector(webViewRefresh:)];
         }
         else{
-            [_uiWebView.scrollView removeHeader];
+//            [_uiWebView.scrollView removeHeader];
             [_wkWebView.scrollView removeHeader];
         }
     }
@@ -117,7 +118,7 @@
         NSString *urlstr = requestWithSignURL;
         NSURL *url = [[NSURL alloc]initWithString:urlstr];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
-        [_uiWebView loadRequest:request];
+//        [_uiWebView loadRequest:request];
         [_wkWebView loadRequest:request];
         
         NSString *host = [[NSURL URLWithString:requestWithSignURL] host];
@@ -128,18 +129,40 @@
     }
 }
 
+- (void)setWebViewURL:(NSURL *)webViewURL
+{
+    if (_webViewURL != webViewURL) {
+        _webViewURL = webViewURL;
+        
+        // 签名方式
+        if (webViewURL) {
+            NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:webViewURL];
+            [_wkWebView loadRequest:request];
+            
+            NSString *host = [webViewURL host];
+            // 将host 转化为 IP请求
+            if ([host rangeOfString:@"wdwd.com"].length == 0) {
+                _websiteLabel.text = [NSString stringWithFormat:@"由%@提供",host];
+            }
+        }
+    }
+}
+
+
+
 //
 - (void)setExtraUserAgent:(NSString *)extraUserAgent
 {
     if (_extraUserAgent != extraUserAgent) {
         _extraUserAgent = extraUserAgent;
         
-        if (_uiWebView) {
-            NSMutableString *defaultUserAgent = [[[[UIWebView alloc] init] stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"] mutableCopy];
-            [defaultUserAgent appendFormat:@" %@",extraUserAgent];
-            [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent":defaultUserAgent}];
-        }
-        else if (_wkWebView) {
+//        if (_uiWebView) {
+//            NSMutableString *defaultUserAgent = [[[[UIWebView alloc] init] stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"] mutableCopy];
+//            [defaultUserAgent appendFormat:@" %@",extraUserAgent];
+//            [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent":defaultUserAgent}];
+//        }
+//        else
+            if (_wkWebView) {
             [_wkWebView setValue:extraUserAgent forKey:@"applicationNameForUserAgent"];
         }
     }
@@ -150,14 +173,15 @@
 #pragma mark - 刷新功能
 - (void)webViewRefresh:(UIScrollView *)tableView
 {
-    if (_reloadAction_UI) {
-        _reloadAction_UI(_uiWebView);
-    }
-    else if (_reloadAction_WK){
+//    if (_reloadAction_UI) {
+//        _reloadAction_UI(_uiWebView);
+//    }
+//    else
+        if (_reloadAction_WK){
         _reloadAction_WK(_wkWebView);
     }
     else {
-        [_uiWebView reload];
+//        [_uiWebView reload];
         [_wkWebView reload];
     }
 }
@@ -333,29 +357,29 @@
 
 #pragma mark - 7.0 - 8.0 使用UIWebView
 //视图加载
-- (void)initUIWebView
-{
-    //添加进度条动画
-    [self loadWebViewAnimate];
-    
-    // 加载视图
-    UIWebView *webView = [[UIWebView alloc]initWithFrame:self.bounds];
-    _uiWebView = webView;
-    webView.scrollView.backgroundColor = [UIColor clearColor];
-    webView.delegate = self.webViewProgress;
-
-    [self insertSubview:webView belowSubview:_progressView];
-    
-    // 设置User-Agent
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        NSString *userAgent = [self webviewUserAgent:nil];
-//        [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent":userAgent}];
-//    });
-    
-    // 网址来源
-    [self initSetUrlView];
-}
+//- (void)initUIWebView
+//{
+//    //添加进度条动画
+//    [self loadWebViewAnimate];
+//
+//    // 加载视图
+//    UIWebView *webView = [[UIWebView alloc]initWithFrame:self.bounds];
+//    _uiWebView = webView;
+//    webView.scrollView.backgroundColor = [UIColor clearColor];
+//    webView.delegate = self.webViewProgress;
+//
+//    [self insertSubview:webView belowSubview:_progressView];
+//
+//    // 设置User-Agent
+////    static dispatch_once_t onceToken;
+////    dispatch_once(&onceToken, ^{
+////        NSString *userAgent = [self webviewUserAgent:nil];
+////        [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent":userAgent}];
+////    });
+//
+//    // 网址来源
+//    [self initSetUrlView];
+//}
 
 
 #pragma mark UIWebViewDelegate
@@ -403,7 +427,8 @@
 {
     // 结束刷新状态
     if (_supportRefresh) {
-        [_uiWebView.scrollView headerEndRefreshing];
+//        [_uiWebView.scrollView headerEndRefreshing];
+        [_wkWebView.scrollView headerEndRefreshing];
     }
     
     [UIView animateWithDuration:0.25 animations:^{
@@ -425,7 +450,8 @@
     
     // 取消下拉刷新
     if (_supportRefresh) {
-        [_uiWebView.scrollView headerEndRefreshing];
+//        [_uiWebView.scrollView headerEndRefreshing];
+        [_wkWebView.scrollView headerEndRefreshing];
     }
     
     // 建立桥接-<App最低版本号为8.0 所以底部不在做支持>
@@ -433,8 +459,11 @@
 //    [self.bridgeSDK bridgeForWebView:webView webViewDelegate:self];
     
     // 如果有加载完成事件
-    if (_finishLoadAction_UI) {
-        _finishLoadAction_UI(webView);
+//    if (_finishLoadAction_UI) {
+//        _finishLoadAction_UI(webView);
+//    }
+    if (_finishLoadAction_WK) {
+        _finishLoadAction_WK(_wkWebView);
     }
     
     // 重写子类的方法

@@ -45,7 +45,7 @@
 // 页面刷新
 - (void)preReload
 {
-    [_currentAnimationView.uiWebView reload];
+//    [_currentAnimationView.uiWebView reload];
     [_currentAnimationView.wkWebView reload];
 }
 
@@ -81,49 +81,45 @@
                 weakself.titleView.title = webView.title;
             };
         }
-        else {
-            animationView.finishLoadAction_UI = ^(UIWebView *webView){
-                weakself.titleView.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-            };
-        }
+//        else {
+//            animationView.finishLoadAction_UI = ^(UIWebView *webView){
+//                weakself.titleView.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+//            };
+//        }
     }
 }
 
 // 加载导航
 - (void)initNavView
 {
-    switch (_showType) {
-        case 1:         //压栈
-        {
-//            self.supportBackBt = YES;
-            
+    // 压栈
+    if (self.supportBack) {
 #ifdef DEBUG
-            // 更多按钮--仅供调试使用
-            AMDButton *morebt = [[AMDButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-40-5, 2, 40, 40)];
-            morebt.imageView.frame = CGRectMake(8, 8, 24, 24);
-            [morebt setImage:SSImageFromName(@"topicinfo_more.png") forState:UIControlStateNormal];
-            [morebt setImage:SSImageFromName(@"topicinfo_more_select.png") forState:UIControlStateHighlighted];
-            [morebt addTarget:self action:@selector(clickMoreAction:) forControlEvents:UIControlEventTouchUpInside];
-            morebt.tag = 4;
-            self.titleView.rightViews = @[morebt];
+        // 更多按钮--仅供调试使用
+        AMDButton *morebt = [[AMDButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-40-5, 2, 40, 40)];
+        morebt.imageView.frame = CGRectMake(8, 8, 24, 24);
+        [morebt setImage:SSImageFromName(@"topicinfo_more.png") forState:UIControlStateNormal];
+        [morebt setImage:SSImageFromName(@"topicinfo_more_select.png") forState:UIControlStateHighlighted];
+        [morebt addTarget:self action:@selector(clickMoreAction:) forControlEvents:UIControlEventTouchUpInside];
+        morebt.tag = 4;
+        self.titleView.rightViews = @[morebt];
 #endif
-        }
-            break;
-        case 2:         //模态显示的关闭按钮
-        {
-            // 右侧关闭按钮
-            AMDCloseControl *closebt = [[AMDCloseControl alloc]initWithFrame:CGRectMake(self.view.frame.size.width-35-10, 0, 35, 44) lineColor:self.backItem.imgStrokeColor];
-            closebt.tag = 2;
-            [closebt addTarget:self action:@selector(clickBackAction:) forControlEvents:UIControlEventTouchUpInside];
-            self.titleView.leftViews = @[closebt];
-            _currentCloseBt = closebt;
-        }
-            break;
-        default: {      //一级页面的时候 默认跳转二级页面
-            _currentAnimationView.delegate = self;
-        }
-            break;
+        return;
     }
+    
+    // 模态显示
+    if (_showType == 2) {
+        // 右侧关闭按钮
+        AMDCloseControl *closebt = [[AMDCloseControl alloc]initWithFrame:CGRectMake(self.view.frame.size.width-35-10, 0, 35, 44) lineColor:self.backItem.imgStrokeColor];
+        closebt.tag = 2;
+        [closebt addTarget:self action:@selector(clickBackAction:) forControlEvents:UIControlEventTouchUpInside];
+        self.titleView.leftViews = @[closebt];
+        _currentCloseBt = closebt;
+        return;
+    }
+    
+    // 处于一级页面的时候
+    _currentAnimationView.delegate = self;
 }
 
 // 左侧添加关闭按钮--用于关闭当前页面
@@ -164,10 +160,10 @@
     }
     
     // 先后退页面
-    if ([_currentAnimationView.uiWebView canGoBack]) {
-        [_currentAnimationView.uiWebView goBack];
-        return ;
-    }
+//    if ([_currentAnimationView.uiWebView canGoBack]) {
+//        [_currentAnimationView.uiWebView goBack];
+//        return ;
+//    }
     
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -191,7 +187,8 @@
 - (void)clickMoreAction:(AMDButton *)sender
 {
     //
-    NSString *urlstr = _currentAnimationView.wkWebView.URL.description?_currentAnimationView.wkWebView.URL.description:(_currentAnimationView.uiWebView.request.URL.description?_currentAnimationView.uiWebView.request.URL.description:@"");
+    NSString *urlstr = _currentAnimationView.wkWebView.URL.description?_currentAnimationView.wkWebView.URL.description:@"";
+    //(_currentAnimationView.uiWebView.request.URL.description?_currentAnimationView.uiWebView.request.URL.description:@"");
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"临时测试使用" message:urlstr preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelaction = [UIAlertAction actionWithTitle:@"取消"
                              style:UIAlertActionStyleDefault
@@ -278,21 +275,14 @@
 {
     AMDWebViewController *webVc = [[AMDWebViewController alloc]init];
     webVc.requestWithSignURL = aUrl;
-    webVc.showType = 1;
+//    webVc.showType = 1;
+    webVc.supportBack = YES;
     [self.navigationController pushViewController:webVc animated:YES];
 }
 
 
 
-
 @end
-
-
-
-
-
-
-
 
 
 

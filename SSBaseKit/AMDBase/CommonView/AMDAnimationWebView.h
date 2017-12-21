@@ -17,8 +17,14 @@
 
 
 @property(nonatomic, copy) NSString *requestWithSignURL;
+
+#pragma mark - V2.0 方案
+// 优先取 webViewURL > requestWithSignURL
+@property(nonatomic, strong) NSURL *webViewURL;
+
 @property(nonatomic, weak) UILabel *websiteLabel;                       //网址标签
 @property(nonatomic, weak) UIProgressView *progressView;                //加载的进度条
+
 
 /* 自定义的扩展的userAgent  */
 @property(nonatomic, copy) NSString *extraUserAgent;
@@ -55,16 +61,16 @@
 
 
 
-@property(nonatomic, strong, readonly) UIWebView *uiWebView;                      //webView
+//@property(nonatomic, strong, readonly) UIWebView *uiWebView;                      //webView
 /**
  UIWebView页面加载完成之后的事件
  */
-@property(nonatomic, copy) void (^finishLoadAction_UI)(UIWebView *webView);
+//@property(nonatomic, copy) void (^finishLoadAction_UI)(UIWebView *webView);
 
 /**
  UIWebView刷新后的事件
  */
-@property(nonatomic, copy) void (^reloadAction_UI)(UIWebView *webView) NS_AVAILABLE_IOS(8_0);
+//@property(nonatomic, copy) void (^reloadAction_UI)(UIWebView *webView) NS_AVAILABLE_IOS(8_0);
 
 
 #pragma mark - 是否支持刷新
