@@ -60,7 +60,13 @@
     animationView.requestWithSignURL = _requestWithSignURL;
     animationView.delegate = self;
     animationView.controller = self;
-    [self.contentView insertSubview:animationView belowSubview:self.titleView];
+    if (self.titleView) {
+        [self.contentView insertSubview:animationView belowSubview:self.titleView];
+    }
+    else {
+        [self.contentView addSubview:animationView];
+    }
+    
     _currentAnimationView = animationView;
     [animationView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
