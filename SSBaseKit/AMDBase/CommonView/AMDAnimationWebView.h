@@ -61,11 +61,11 @@
 
 
 
-//@property(nonatomic, strong, readonly) UIWebView *uiWebView;                      //webView
+@property(nonatomic, strong, readonly) UIWebView *uiWebView;                      //webView
 /**
  UIWebView页面加载完成之后的事件
  */
-//@property(nonatomic, copy) void (^finishLoadAction_UI)(UIWebView *webView);
+@property(nonatomic, copy) void (^finishLoadAction_UI)(UIWebView *webView);
 
 /**
  UIWebView刷新后的事件
