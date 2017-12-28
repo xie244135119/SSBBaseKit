@@ -19,7 +19,7 @@
 #import "AYEActionSheetView.h"
 
 
-@interface ViewController ()<UINavigationControllerDelegate>
+@interface ViewController ()<UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 {
     AMDButton *_currentBt;
 }
@@ -31,11 +31,29 @@
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
     self.navigationController.delegate = self;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+    // 文本颜色
+    UIColor *backitemcolor = [self preferredStatusBarStyle]==UIStatusBarStyleDefault?[UIColor colorWithRed:(CGFloat)75/255 green:(CGFloat)75/255 blue:(CGFloat)75/255 alpha:1]:[UIColor whiteColor];
+    [[UINavigationBar appearance] setTintColor:backitemcolor];
+    // 导航默认颜色 和 文本颜色
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
+    //
+    
 //    self.supportBackBt = YES;
 //    self.backItem.layer.borderWidth = 1;
 //    self.backItem.imgStrokeColor = SSColorWithRGB(75, 75, 75, 1);
 //    [self initContentView];
-    
+//    self.contentView.layer.borderWidth = 1;
+//    self.view.layer.borderWidth = 1;
+//    self.view.layer.borderColor = [UIColor redColor].CGColor;
+//    if (@available(iOS 11.0, *)) {
+//        self.view.safeAreaLayoutGuide.owningView.layer.borderWidth = 1;
+//    } else {
+//        // Fallback on earlier versions
+//    }
+//    self.view.safeAreaLayoutGuide.owningView.layer.borderColor = [UIColor redColor].CGColor;
     
 //    self.titleView.title = @"阿萨帝发送到发送到发送方的";
 //    [self testLineItemView];
@@ -55,6 +73,29 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+//    UIEdgeInsets inset = self.view.safeAreaInsets;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+//    UIEdgeInsets inset = self.view.safeAreaInsets;
+}
+
+
+//- (void)viewSafeAreaInsetsDidChange
+//{
+//    //
+//    [super viewSafeAreaInsetsDidChange];
+//
+//}
+
 
 
 // 视图加载
@@ -146,15 +187,16 @@
 //    webVc.requestWithSignURL = @"http://m.xuanwonainiu.com/c?pageId=179&nav=0&p=14299&refresh=1";
     webVc.requestWithSignURL = @"https://baidu.com/";
 //    webVc.requestWithSignURL = @"http://m.xuanwonainiu.com/sp-dlsearch?p=14299&scale=50&searchText=&splitWord=true";
-    webVc.showType = 0;
+//    webVc.showType = 0;
     [self.navigationController pushViewController:webVc animated:YES];
 }
 
 
 -(IBAction)clickTest:(id)sender
 {
-    NSInteger count = random()*100;
-    [_currentBt setUnreadCount:count];
+//    NSInteger count = random()*100;
+//    [_currentBt setUnreadCount:count];
+    [self testTabBar];
 }
 
 
@@ -178,16 +220,25 @@
 
 #pragma mark -
 //
-- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                            animationControllerForOperation:(UINavigationControllerOperation)operation
-                                                         fromViewController:(UIViewController *)fromVC
-                                                           toViewController:(UIViewController *)toVC
+//- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+//                                            animationControllerForOperation:(UINavigationControllerOperation)operation
+//                                                         fromViewController:(UIViewController *)fromVC
+//                                                           toViewController:(UIViewController *)toVC
+//{
+//    if ([toVC isKindOfClass:[AMDRootViewController class]]) {
+//        AMDRootViewController *vc = (AMDRootViewController *)toVC;
+//        vc.supportBack = YES;
+//    }
+//    return nil;
+//}
+
+
+
+#pragma mark - UIGestureRecognizerDelegate 滑动后退
+//
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    if ([toVC isKindOfClass:[AMDRootViewController class]]) {
-        AMDRootViewController *vc = (AMDRootViewController *)toVC;
-        vc.supportBack = YES;
-    }
-    return nil;
+    return YES;
 }
 
 

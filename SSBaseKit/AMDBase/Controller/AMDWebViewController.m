@@ -87,11 +87,6 @@
                 weakself.titleView.title = webView.title;
             };
         }
-//        else {
-//            animationView.finishLoadAction_UI = ^(UIWebView *webView){
-//                weakself.titleView.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-//            };
-//        }
     }
 }
 
@@ -139,7 +134,7 @@
 //    if (self.showType.intValue == 1)
 //    {   //非模态情况下展示关闭按钮
         if (_currentCloseBt == nil) {
-            AMDCloseControl *closebt = [[AMDCloseControl alloc]initWithFrame:CGRectMake(40, 0, 35, 44) lineColor:self.backItem.imgStrokeColor];
+            AMDCloseControl *closebt = [[AMDCloseControl alloc]initWithFrame:CGRectMake(35, 0, 35, 44) lineColor:self.backItem.imgStrokeColor];
             closebt.tag = 1;
             [closebt addTarget:self action:@selector(clickBackAction:) forControlEvents:UIControlEventTouchUpInside];
             self.titleView.leftViews = @[closebt];
@@ -281,7 +276,6 @@
 {
     AMDWebViewController *webVc = [[AMDWebViewController alloc]init];
     webVc.requestWithSignURL = aUrl;
-//    webVc.showType = 1;
     webVc.supportBack = YES;
     [self.navigationController pushViewController:webVc animated:YES];
 }

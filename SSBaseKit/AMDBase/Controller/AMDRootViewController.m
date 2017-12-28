@@ -14,9 +14,6 @@
 
 
 @interface AMDRootViewController ()
-//{
-//    AMDBackControl *_backControl;                   //线条颜色
-//}
 
 @property(nonatomic) BOOL loadFromNib;     //从xib中加载的话
 //导航是否展示
@@ -122,23 +119,19 @@
 
 - (void)initRootContentView
 {
-//    NSInteger h = 0;
-//    NSInteger w = self.view.frame.size.width;
-    
     // 标题
     if (!_titileViewHidden) {
         AMDRootNavgationBar *bar = [[AMDRootNavgationBar alloc]init];
-        bar.naviationBarColor = [UIColor whiteColor];
         _titleView = bar;
         bar.title = self.title;
         [self.view addSubview:bar];
-//        h = bar.frame.size.height;
-//        [bar mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.right.equalTo(@0);
-//            make.height.equalTo(@(h));
-//            make.top.equalTo(@0);
-//        }];
-        
+        [bar mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(@0);
+            make.top.equalTo(@0);
+            // 底部距离规定的高度一直未44
+            make.bottom.equalTo(self.mas_topLayoutGuide).with.offset(44);
+        }];
+
         // 加载后退按钮
         if (_supportBackBt || _supportBack) {
             [self _loadBackBt];
@@ -155,13 +148,15 @@
         [self.view addSubview:_contentView];
     
     [contentvw mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(@0);
+        make.left.right.equalTo(@0);
+        make.bottom.equalTo(@0);
         if (_titleView)
             make.top.equalTo(_titleView.mas_bottom).with.offset(0);
         else
-            make.top.equalTo(@0);
+            make.top.equalTo(self.mas_topLayoutGuide);
     }];
     self.view.multipleTouchEnabled = NO;
+    self.view.backgroundColor = contentvw.backgroundColor;
 }
 
 // 加载后退视图
@@ -194,19 +189,6 @@
     }
 }
 
-//
-//-(void)setSupportBackBt:(BOOL)supportBackBt
-//{
-//    if (_supportBackBt != supportBackBt) {
-//        _supportBackBt = supportBackBt;
-//
-//        // 加载后退按钮
-//        [self _loadBackBt];
-//        // 隐藏或者显示
-//        _backItem.hidden = !supportBackBt;
-//    }
-//}
-
 
 - (void)setMessageCount:(NSInteger)messageCount
 {
@@ -232,6 +214,7 @@
 {
     // 当视图发生改变的时候
     [super viewWillLayoutSubviews];
+//    NSLog(@" %@ ",NSStringFromCGRect(self.view.readableContentGuide.layoutFrame), NSStringFromCGRect(self.view.layoutMarginsGuide.layoutFrame),NSStringFromCGRect(self.view.l.layoutFrame),NSStringFromCGRect(self.view.readableContentGuide.layoutFrame) );
 }
 
 
@@ -239,7 +222,19 @@
 - (void)viewSafeAreaInsetsDidChange
 {
     [super viewSafeAreaInsetsDidChange];
+    
+    // 做安全区域兼容
+    __weak typeof(self) weakself = self;
+    [_contentView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(@(-weakself.view.safeAreaInsets.bottom));
+    }];
+//    [_titleView mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(@(weakself.view.safeAreaInsets.top));
+//        make.height.equalTo(@(64+weakself.view.safeAreaInsets.top));
+//    }];
 }
+
+#pragma mark -
 
 
 - (AMDControllerShowType)controllerShowType

@@ -174,7 +174,6 @@
     [_amdTabBar mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(_currentTabbar.frame.size.height));
     }];
-    
 }
 
 

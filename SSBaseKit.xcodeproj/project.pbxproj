@@ -169,6 +169,7 @@
 		CB7AE8501F4AF5A3005E8E1F /* SSLinkageView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */; };
 		CB7AE8511F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
 		CB7AE8521F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
+		CB9079E81FF4D9D400275296 /* AMDRootViewController+UMStatistic.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9079E71FF4D9D400275296 /* AMDRootViewController+UMStatistic.m */; };
 		CB9A69AC1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
 		CB9A69AD1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
 		CB9A69AE1F9F507E00B306E5 /* AMDQrcodeController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB58B3C21F99CAFB00360891 /* AMDQrcodeController.h */; };
@@ -314,6 +315,8 @@
 		CB644C621F7CDC31001BF127 /* FXBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLinkageView.h; sourceTree = "<group>"; };
 		CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLinkageView.m; sourceTree = "<group>"; };
+		CB9079E61FF4D9D300275296 /* AMDRootViewController+UMStatistic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AMDRootViewController+UMStatistic.h"; sourceTree = "<group>"; };
+		CB9079E71FF4D9D400275296 /* AMDRootViewController+UMStatistic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AMDRootViewController+UMStatistic.m"; sourceTree = "<group>"; };
 		CBD53CF51FA328FA006D3268 /* SSImageCropController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSImageCropController.h; sourceTree = "<group>"; };
 		CBD53CF61FA328FA006D3268 /* SSImageCropController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSImageCropController.m; sourceTree = "<group>"; };
 		DF4D764CA25168F83786CBD9 /* Pods-SSBaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -552,6 +555,8 @@
 		CB47CD151EE64DFE00D81CA3 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				CB9079E61FF4D9D300275296 /* AMDRootViewController+UMStatistic.h */,
+				CB9079E71FF4D9D400275296 /* AMDRootViewController+UMStatistic.m */,
 				CB47CD191EE64DFE00D81CA3 /* AppDelegate.h */,
 				CB47CD1A1EE64DFE00D81CA3 /* AppDelegate.m */,
 				CB47CD1C1EE64DFE00D81CA3 /* ViewController.h */,
@@ -956,6 +961,7 @@
 				CB45E3EE1F2B34D0009BB7C6 /* GeneralTableView.m in Sources */,
 				CB1CF7431FB939A800BB02CE /* SSNavigationController.m in Sources */,
 				CB4724F91F9602CB00F14E87 /* UIView+AMDMJExtension.m in Sources */,
+				CB9079E81FF4D9D400275296 /* AMDRootViewController+UMStatistic.m in Sources */,
 				CB45E3D61F2B348E009BB7C6 /* AMDLoadingView.m in Sources */,
 				CB45E3DB1F2B34A7009BB7C6 /* AMDWebViewProgress.m in Sources */,
 				CB45E3CC1F2B3477009BB7C6 /* AMDTabbarItem.m in Sources */,
@@ -1097,6 +1103,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = SSBaseKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ylwdwd.SSBaseKit;
@@ -1118,6 +1125,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = SSBaseKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ylwdwd.SSBaseKit;

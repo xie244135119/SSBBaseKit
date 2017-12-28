@@ -11,6 +11,11 @@
 
 @interface AMDBackControl : UIControl
 
+/*
+ * 设置默认后退按钮颜色
+ [[UINavigationBar appearance]setTintColor:[UIColorwhiteColor]]
+ */
+
 
 // 消息提醒标签
 @property(nonatomic, weak) UILabel *mesRemindLabel;

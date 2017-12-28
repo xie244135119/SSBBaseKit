@@ -33,40 +33,76 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        CGRect statusframe = [[UIApplication sharedApplication] statusBarFrame];
-        UINavigationBar *bar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, statusframe.size.height, SScreenWidth, 44)];
+        // 导航栏
+        UINavigationBar *bar = [[UINavigationBar alloc]init];
         _naviationBar = bar;
         bar.translucent = NO;
         [self addSubview:bar];
-//        [bar mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.right.bottom.equalTo(@0);
-//            make.height.equalTo(@44);
-//        }];
-     
-        self.frame = CGRectMake(0, 0, bar.frame.size.width, bar.frame.size.height+bar.frame.origin.y);
+        [bar mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.equalTo(@0);
+            //            make.top.equalTo(@0);
+        }];
+        
+        // 标题
+        UILabel *label = [[UILabel alloc]init];
+        _titleLabel = label;
+        label.tag = 10;
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = SSFontWithName(@"", 18);
+        label.textColor = SSColorWithRGB(75, 75, 75, 1);
+        label.preferredMaxLayoutWidth = SScreenWidth-100;
+        [self addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@44);
+            make.bottom.equalTo(@0);
+            make.left.equalTo(@50);
+            make.right.equalTo(@-50);
+        }];
+        // 调整文本
+        [self _adjustTitleLabel];
+        
+        // 加载初始化配置
+        [self initConfig];
     }
     return self;
 }
 
 
-#pragma mark
+#pragma mark - 适配ios11
+// 安全区域变化
+//- (void)safeAreaInsetsDidChange
+//{
+//    [super safeAreaInsetsDidChange];
+//    
+//    // 适配ios11 iphonex
+//    __weak typeof(self) weakself = self;
+////    [_naviationBar mas_updateConstraints:^(MASConstraintMaker *make) {
+////        make.top.equalTo(@(-weakself.safeAreaInsets.top));
+////        NSLog(@" 置顶: %f ",weakself.safeAreaInsets.top);
+////    }];
+//}
+
+
 #pragma mark 重写属性的Set方法
 - (void)setLeftViews:(NSArray *)leftViews
 {
     if (_leftViews!=leftViews) {
-        _leftViews=leftViews;
+        _leftViews = leftViews;
         
-        NSInteger height = self.frame.size.height;
-        _maxLeftWidth = 0;
-        for (UIView *v in leftViews ) {//添加页面
-            CGRect rect = v.frame;
-            CGFloat y = height-44+((44-v.frame.size.height)/2);
-            v.frame = CGRectMake(rect.origin.x, y, v.frame.size.width, v.frame.size.height);
-            [self addSubview:v];
-//            [v mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.width.equalTo(@(v.frame.size.width));
-//            }];
-            _maxLeftWidth += (v.frame.size.width+v.frame.origin.x);
+        if (_leftViews.count > 0) {
+            _maxLeftWidth = 0;
+            for (UIView *v in leftViews ) {//添加页面
+                [self addSubview:v];
+                [v mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.width.equalTo(@(v.frame.size.width));
+                    make.bottom.equalTo(@0);
+                    make.left.equalTo(@(v.frame.origin.x));
+                    make.height.equalTo(@(v.frame.size.height));
+                }];
+                _maxLeftWidth += (v.frame.size.width+v.frame.origin.x);
+            }
+            // 调整标题大小
+            [self _adjustTitleLabel];
         }
     }
 }
@@ -77,46 +113,31 @@
     if (_rightViews != rightViews) {
         _rightViews = rightViews;
         
-        NSInteger height = self.frame.size.height;
-        _maxRightWidth = 0;
-        for (UIView *v in rightViews ) {//添加页面
-            CGRect rect = v.frame;
-            CGFloat y = (height-44)+(44-v.frame.size.height)/2;
-            v.frame = CGRectMake(rect.origin.x, y, v.frame.size.width, v.frame.size.height);
-            [self addSubview:v];
-            _maxRightWidth = MAX(_maxRightWidth, SScreenWidth-v.frame.origin.x);
+        if (_rightViews.count > 0) {
+            NSInteger height = self.frame.size.height;
+            _maxRightWidth = 0;
+            for (UIView *v in rightViews ) {//添加页面
+                CGRect rect = v.frame;
+                CGFloat y = (height-44)+(44-v.frame.size.height)/2;
+                v.frame = CGRectMake(rect.origin.x, y, v.frame.size.width, v.frame.size.height);
+                [self addSubview:v];
+                _maxRightWidth = MAX(_maxRightWidth, SScreenWidth-v.frame.origin.x);
+            }
+            // 调整标题大小
+            [self _adjustTitleLabel];
         }
     }
 }
 
-
+// 设置标题
 - (void)setTitle:(NSString *)title
-{//设置标题
+{
     if (_title != title) {
         _title = title;
         
-        NSInteger height = self.frame.size.height;
-        if (_titleLabel == nil) {
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(40, (height-44), self.frame.size.width-80, 44)];
-            _titleLabel = label;
-            label.tag = 10;
-            label.textAlignment = NSTextAlignmentCenter;
-            label.font = SSFontWithName(@"", 18);
-            label.textColor = SSColorWithRGB(75, 75, 75, 1);
-            [self addSubview:label];
-        }
-        
-        NSMutableParagraphStyle *parstyle = [NSParagraphStyle defaultParagraphStyle].mutableCopy;
-        parstyle.lineBreakMode = NSLineBreakByWordWrapping;
-        parstyle.lineSpacing = 2;
-        NSString *text = title;
-        CGSize size = [text sizeWithAttributes:@{NSFontAttributeName:_titleLabel.font, NSParagraphStyleAttributeName:parstyle }];
-        CGFloat maxreduce = MAX(MAX(_maxRightWidth, _maxLeftWidth), 50);
-        CGFloat maxWidth = MIN(size.width, self.frame.size.width-maxreduce*2);
-        
-        // 计算左侧视图最大的宽度 和右侧视图最大的宽度
-        _titleLabel.frame = CGRectMake((self.frame.size.width-maxWidth)/2, (height-44), maxWidth, 44);
-        [_titleLabel setText:title];
+//        if (title.length > 0) {
+            _titleLabel.text = title;
+//        }
     }
 }
 
@@ -139,6 +160,37 @@
         _naviationBar.alpha = ![naviationBarColor isEqual:[UIColor clearColor]];
     }
 }
+
+
+#pragma mark - private api
+// 调整titlelabel大小
+- (void)_adjustTitleLabel
+{
+    CGFloat maxreduce = MAX(MAX(_maxRightWidth, _maxLeftWidth), 50);
+    if (maxreduce > 0) {
+        [_titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@(maxreduce));
+            make.right.equalTo(@(-maxreduce));
+        }];
+    }
+}
+
+// 初始化配置
+- (void)initConfig
+{
+    // 设置背景色
+    UIColor *backgroundcolor = [[UINavigationBar appearance] barTintColor];
+    if (backgroundcolor) {
+        [self setNaviationBarColor:backgroundcolor];
+    }
+    
+    // 设置文字颜色
+    UIColor *textcolor = [[[UINavigationBar appearance] titleTextAttributes] objectForKey:NSForegroundColorAttributeName];
+    if (textcolor) {
+        _titleLabel.textColor = textcolor;
+    }
+}
+
 
 
 @end

@@ -38,21 +38,31 @@
 //    _hightLightImage = nil;
 }
 
-- (id)init
-{
-    if (self = [super init]) {
-        [self initContentView2];
-    }
-    return self;
-}
+//- (id)init
+//{
+//    if (self = [super init]) {
+//        [self initContentView2];
+//    }
+//    return self;
+//}
 
 
 - (id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        [self initContentView];
+        if (CGRectEqualToRect(frame, CGRectZero)) {
+            [self initContentView2];
+        }
+        else {
+           [self initContentView];
+        }
+        
+        // 配置默认后退颜色
+        UIColor *strokeColor = [UINavigationBar appearance].tintColor;
+        if (strokeColor) {
+            [self setImgStrokeColor:strokeColor];
+        }
     }
-    
     return self;
 }
 
@@ -99,7 +109,6 @@
         make.width.equalTo(@50);
         make.height.equalTo(@44);
     }];
-    
 }
 
 
@@ -113,8 +122,7 @@
 }
 
 
-
-
+// 设置线条颜色
 - (void)setImgStrokeColor:(UIColor *)imgStrokeColor
 {
     if (_imgStrokeColor != imgStrokeColor) {
