@@ -168,7 +168,10 @@
 // 调整titlelabel大小
 - (void)_adjustTitleLabel
 {
-    CGFloat maxreduce = MAX(MAX(_maxRightWidth, _maxLeftWidth), 50);
+    CGFloat maxreduce = MAX(_maxRightWidth, _maxLeftWidth);
+    maxreduce = MAX(maxreduce, 50);
+    // 最大宽度不能超过中间位置
+    maxreduce = MIN(maxreduce, (SScreenWidth-40)/2);
     if (maxreduce > 0) {
         [_titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(@(maxreduce));
