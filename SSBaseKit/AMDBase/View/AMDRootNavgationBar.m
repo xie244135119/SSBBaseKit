@@ -95,7 +95,7 @@
                 [self addSubview:v];
                 [v mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.width.equalTo(@(v.frame.size.width));
-                    make.bottom.equalTo(@0);
+                    make.bottom.equalTo(@((v.frame.size.height-44)/2));
                     make.left.equalTo(@(v.frame.origin.x));
                     make.height.equalTo(@(v.frame.size.height));
                 }];
@@ -114,13 +114,15 @@
         _rightViews = rightViews;
         
         if (_rightViews.count > 0) {
-            NSInteger height = self.frame.size.height;
             _maxRightWidth = 0;
             for (UIView *v in rightViews ) {//添加页面
-                CGRect rect = v.frame;
-                CGFloat y = (height-44)+(44-v.frame.size.height)/2;
-                v.frame = CGRectMake(rect.origin.x, y, v.frame.size.width, v.frame.size.height);
                 [self addSubview:v];
+                [v mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.width.equalTo(@(v.frame.size.width));
+                    make.bottom.equalTo(@((v.frame.size.height-44)/2));
+                    make.left.equalTo(@(v.frame.origin.x));
+                    make.height.equalTo(@(v.frame.size.height));
+                }];
                 _maxRightWidth = MAX(_maxRightWidth, SScreenWidth-v.frame.origin.x);
             }
             // 调整标题大小
