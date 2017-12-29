@@ -194,6 +194,8 @@
 
 -(IBAction)clickTest:(id)sender
 {
+    [self testActionSheet];
+    return;
 //    NSInteger count = random()*100;
 //    [_currentBt setUnreadCount:count];
     [self testTabBar];

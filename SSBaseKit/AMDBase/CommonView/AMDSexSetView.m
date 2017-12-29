@@ -135,6 +135,19 @@
 }
 
 
+#pragma mark - 安全区域
+// 安全区域改变的时候
+- (void)safeAreaInsetsDidChange
+{
+    [super safeAreaInsetsDidChange];
+    
+    // 改变frame
+    CGRect frame = self.frame;
+    frame.origin.y -= self.safeAreaInsets.bottom;
+    self.frame = frame;
+}
+
+
 
 #pragma mark - 按钮事件
 - (void)setSelectBt:(AMDButton *)selectBt

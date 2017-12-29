@@ -108,6 +108,19 @@
 }
 
 
+#pragma mark - 安全区域
+// 安全区域改变的时候
+- (void)safeAreaInsetsDidChange
+{
+    [super safeAreaInsetsDidChange];
+    
+    // 改变frame
+    CGRect frame = self.frame;
+    frame.size.height += self.safeAreaInsets.bottom;
+    self.frame = frame;
+}
+
+
 
 #pragma mark - 按钮事件
 // 完成事件

@@ -35,7 +35,7 @@
 
 - (void)dealloc
 {
-//    _backControl = nil;
+    //    _backControl = nil;
     NSLog(@"%@ %s",[self class],__FUNCTION__);
 }
 
@@ -57,7 +57,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-
+    
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     
     if (!self.isViewLoaded){
@@ -131,7 +131,7 @@
             // 底部距离规定的高度一直未44
             make.bottom.equalTo(self.mas_topLayoutGuide).with.offset(44);
         }];
-
+        
         // 加载后退按钮
         if (_supportBackBt || _supportBack) {
             [self _loadBackBt];
@@ -153,7 +153,8 @@
         if (_titleView)
             make.top.equalTo(_titleView.mas_bottom).with.offset(0);
         else
-            make.top.equalTo(self.mas_topLayoutGuide);
+//            make.top.equalTo(self.mas_topLayoutGuide);
+            make.top.equalTo(@0);
     }];
     self.view.multipleTouchEnabled = NO;
     self.view.backgroundColor = contentvw.backgroundColor;
@@ -182,7 +183,8 @@
         
         [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
             if (titileViewHidden)
-                make.top.equalTo(self.mas_topLayoutGuide);
+//                make.top.equalTo(self.mas_topLayoutGuide);
+                make.top.equalTo(@0);
             else
                 make.top.equalTo(_titleView.mas_bottom).with.offset(0);
         }];
@@ -214,7 +216,7 @@
 {
     // 当视图发生改变的时候
     [super viewWillLayoutSubviews];
-//    NSLog(@" %@ ",NSStringFromCGRect(self.view.readableContentGuide.layoutFrame), NSStringFromCGRect(self.view.layoutMarginsGuide.layoutFrame),NSStringFromCGRect(self.view.l.layoutFrame),NSStringFromCGRect(self.view.readableContentGuide.layoutFrame) );
+    //    NSLog(@" %@ ",NSStringFromCGRect(self.view.readableContentGuide.layoutFrame), NSStringFromCGRect(self.view.layoutMarginsGuide.layoutFrame),NSStringFromCGRect(self.view.l.layoutFrame),NSStringFromCGRect(self.view.readableContentGuide.layoutFrame) );
 }
 
 
@@ -228,10 +230,10 @@
     [_contentView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(@(-weakself.view.safeAreaInsets.bottom));
     }];
-//    [_titleView mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(@(weakself.view.safeAreaInsets.top));
-//        make.height.equalTo(@(64+weakself.view.safeAreaInsets.top));
-//    }];
+    //    [_titleView mas_updateConstraints:^(MASConstraintMaker *make) {
+    //        make.top.equalTo(@(weakself.view.safeAreaInsets.top));
+    //        make.height.equalTo(@(64+weakself.view.safeAreaInsets.top));
+    //    }];
 }
 
 #pragma mark -

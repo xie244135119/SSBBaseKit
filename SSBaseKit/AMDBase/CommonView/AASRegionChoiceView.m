@@ -49,7 +49,7 @@
     // pickerView
     UIPickerView *pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 162)];
     //用于自定义pickview大小
-    pickerView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    pickerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     pickerView.delegate = self;
     pickerView.dataSource = self;
     [self addSubview:pickerView];
@@ -135,6 +135,20 @@
         [_pickerView selectRow:districtindex inComponent:2 animated:NO];
         [self pickerView:_pickerView didSelectRow:districtindex inComponent:2];
     }
+}
+
+
+
+#pragma mark - 安全区域
+// 安全区域改变的时候
+- (void)safeAreaInsetsDidChange
+{
+    [super safeAreaInsetsDidChange];
+    
+    // 改变frame
+    CGRect frame = self.frame;
+    frame.size.height += self.safeAreaInsets.bottom;
+    self.frame = frame;
 }
 
 

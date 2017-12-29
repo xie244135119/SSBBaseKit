@@ -75,6 +75,20 @@
 }
 
 
+#pragma mark -
+// 安全区域改变的时候
+- (void)safeAreaInsetsDidChange
+{
+    [super safeAreaInsetsDidChange];
+    
+    // 改变frame
+    CGRect frame = self.frame;
+    frame.origin.y -= self.safeAreaInsets.bottom;
+    self.frame = frame;
+}
+
+
+
 #pragma mark - public api
 // 显示视图
 - (void)showInView:(UIView *)view
