@@ -23,14 +23,14 @@
 
 - (void)dealloc
 {
+    _wkWebView.navigationDelegate = nil;
+    _wkWebView.UIDelegate = nil;
     [_wkWebView.configuration.userContentController removeAllUserScripts];
     [_webViewProgress exit];
     _wkWebView = nil;
     self.webViewProgress = nil;
     self.reloadAction_WK = nil;
-//    self.finishLoadAction_UI = nil;
     self.finishLoadAction_WK = nil;
-//    NSLog(@" AMDAnimationWebView  deallc");
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -67,8 +67,6 @@
 {
     UIView *v = [[UIView alloc]initWithFrame:self.bounds];
     v.backgroundColor = SSColorWithRGB(246, 246, 246, 1);
-//    UIWebView *webView = (UIWebView *)(_wkWebView!=nil?_wkWebView:_uiWebView);
-//    [webView insertSubview:v belowSubview:webView.scrollView];
     [_wkWebView insertSubview:v belowSubview:_wkWebView.scrollView];
     
     //设置网址
@@ -96,11 +94,9 @@
         _websiteLabel.hidden = supportRefresh;
         //支持刷新
         if (supportRefresh) {
-//            [_uiWebView.scrollView addHeaderWithTarget:self action:@selector(webViewRefresh:)];
             [_wkWebView.scrollView addHeaderWithTarget:self action:@selector(webViewRefresh:)];
         }
         else{
-//            [_uiWebView.scrollView removeHeader];
             [_wkWebView.scrollView removeHeader];
         }
     }
@@ -118,7 +114,6 @@
         NSString *urlstr = requestWithSignURL;
         NSURL *url = [[NSURL alloc]initWithString:urlstr];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
-//        [_uiWebView loadRequest:request];
         [_wkWebView loadRequest:request];
         
         NSString *host = [[NSURL URLWithString:requestWithSignURL] host];
@@ -217,11 +212,6 @@
     [self loadWebViewAnimate];
     // 设置进度条
     self.webViewProgress.wkWebView = webView;
-    
-    // 设置自定义用户Agent
-//    NSString *extraUserAgent = @"";
-//    [self webviewUserAgent:&extraUserAgent];
-//    [webView setValue:extraUserAgent forKey:@"applicationNameForUserAgent"];
 }
 
 
@@ -241,7 +231,6 @@
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     }
-    
     
     // 预加载Url判断
     if (_shouldStartLoad) {
@@ -473,7 +462,6 @@
 }
 
 
-
 #pragma mark - 公用处理
 // 处理是否可以加载当前请求
 - (BOOL)canLoadURLRequest:(NSURLRequest *)aRequest
@@ -501,11 +489,7 @@
 
 
 
-
 @end
-
-
-
 
 
 

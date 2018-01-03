@@ -21,7 +21,6 @@
  */
 @property(nonatomic, weak) UISwitch *operSwitch;
 
-
 /**
  配置线条
 

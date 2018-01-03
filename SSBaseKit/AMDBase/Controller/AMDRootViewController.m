@@ -206,10 +206,10 @@
 -(void)ClickBt_Back:(UIControl *)sender
 {
     //最后一层视图
-    if (self.navigationController.viewControllers.count == 2) {
+    if ([self.navigationController.topViewController isKindOfClass:[self class]]) {
+        [self.navigationController popViewControllerAnimated:YES];
         return;
     }
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewWillLayoutSubviews

@@ -42,22 +42,16 @@
     @autoreleasepool {
         [self performSelectorOnMainThread:@selector(initContentView) withObject:nil waitUntilDone:NO];
     }
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
 #pragma mark - 视图加载
-
 //
 - (void)initContentView
 {
-//    self.supportBackBt = YES;
+    // 遮罩效果
+    [self initPopverView];
+    
     //输入设备
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     NSError *error = nil;
@@ -69,28 +63,28 @@
         return;
     }
     
+    AVCaptureSession *session = [[AVCaptureSession alloc]init];
+    [session setSessionPreset:AVCaptureSessionPresetHigh];
+    self.captureSession = session;
+    //捕获会话捕获输入或输出
+    if (![session canAddInput:input]) {
+        if (_scanAction) {
+            _scanAction(nil, error);
+        }
+        return;
+    }
+    [session addInput:input];
+    
+    
     //输出设备
     AVCaptureMetadataOutput *output = [[AVCaptureMetadataOutput alloc]init];
     dispatch_queue_t outputqueue = dispatch_queue_create("qrcode", DISPATCH_QUEUE_SERIAL);
     [output setMetadataObjectsDelegate:self queue:outputqueue];
-    
-    //设置搜索区域
-    //    CGFloat rectx = (CGFloat)40/320;
-    //    CGFloat recty = (CGFloat)40/320;
-    //    output.rectOfInterest = CGRectMake(rectx, rectx, 1.0-(2*rectx), 1.0-(2*recty));
-    
-    //捕获会话捕获输入或输出
-    AVCaptureSession *session = [[AVCaptureSession alloc]init];
-    [session setSessionPreset:AVCaptureSessionPresetHigh];
-    self.captureSession = session;
-    if ([session canAddInput:input]) {
-        [session addInput:input];
-    }
     if ([session canAddOutput:output]) {
         [session addOutput:output];
     }
     
-    //设置条码类型必须要放在 addoutpu 之后
+    //设置条码类型必须要放在 addoutput 之后
     output.metadataObjectTypes = @[AVMetadataObjectTypeCode39Code,AVMetadataObjectTypeCode39Mod43Code,AVMetadataObjectTypeEAN13Code,AVMetadataObjectTypeEAN8Code,AVMetadataObjectTypeCode93Code,AVMetadataObjectTypeCode128Code,AVMetadataObjectTypeQRCode];
     
     // 输出设备展示被捕获的数据流
@@ -98,78 +92,91 @@
     viedolayer.frame = self.contentView.bounds;
     viedolayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     [self.contentView.layer addSublayer:viedolayer];
-    
+    // 开始显示
     [session startRunning];
-    
-    [self initPopverView];
 }
 
 // 添加浮层效果和动画效果
 - (void)initPopverView
 {
     //浮层效果
-    UIView *popverview = [[UIView alloc]initWithFrame:self.contentView.bounds];
-    popverview.backgroundColor = [UIColor blackColor];
-    popverview.alpha = 0.2;
-    [self.contentView addSubview:popverview];
+    CGRect frame = self.contentView.bounds;
+    CGRect scanframe = CGRectMake(60, 150, frame.size.width-60*2, frame.size.width-60*2);
     
-    //选中框
-    UIView *borderView = [[UIView alloc]initWithFrame:CGRectMake((SScreenWidth-210)/2, (self.contentView.frame.size.height-210)/2, 210, 210)];
-    borderView.layer.borderWidth = 1;
-    borderView.layer.borderColor = [[UIColor whiteColor] CGColor];
-    [popverview addSubview:borderView];
+    // 选中框大小
+    CGMutablePathRef scanrectpath = CGPathCreateMutable();
+    CGPathAddRect(scanrectpath, NULL, scanframe);
     
-    //图片
-    /*UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 210, 14)];
-    imgView.image = imageFromPath(@"pic_QRcode_scan.png");
-    [borderView addSubview:imgView];
-    //动画
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-    animation.duration = 1;
-    animation.repeatCount = FLT_MAX;
-    animation.Autoreverses = YES;   //自动反面,在首次动画结束后，从结束的时候向前移动
-    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(210/2, 7)]; // 起始帧
-    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(210/2, 210)]; // 终了帧
-    animation.fillMode = kCAFillModeForwards;
-//    [imgView.layer addAnimation:animation forKey:@"move-layer"];*/
+    // 位置
+    CGMutablePathRef path = CGPathCreateMutable();
+    // 第一种方式
+//    CGPathMoveToPoint(path, NULL, frame.origin.x, frame.origin.y);
+//    CGPathAddLineToPoint(path, NULL, frame.origin.x, frame.origin.y+frame.size.height);
+//    CGPathAddLineToPoint(path, NULL, frame.origin.x+frame.size.width, frame.origin.y+frame.size.height);
+//    CGPathAddLineToPoint(path, NULL, frame.origin.x+frame.size.width, frame.origin.y);
+//    CGPathAddLineToPoint(path, NULL, frame.origin.x, frame.origin.y);
+//    CGPathAddPath(path, NULL, scanrectpath);
+    
+    // 第二种方式
+    CGPathAddRect(path, NULL, frame);
+    CGPathAddPath(path, NULL, scanrectpath);
+    
+    // 默认大小
+    CAShapeLayer *popverlayer = [CAShapeLayer layer];
+    popverlayer.path = path;
+    popverlayer.fillColor = [SSColorWithRGB(0, 0, 0, 0.3) CGColor];
+    // 采用奇偶规则
+    popverlayer.fillRule = @"even-odd";
+    [self.contentView.layer addSublayer:popverlayer];
+    
+    //选中框<类似支付宝效果>
+    CAShapeLayer *scanLayer = [CAShapeLayer layer];
+    scanLayer.strokeColor = [UIColor blueColor].CGColor;
+    scanLayer.fillColor = [UIColor clearColor].CGColor;
+    scanLayer.lineWidth = 0.5;
+    scanLayer.path = scanrectpath;
+    [self.contentView.layer insertSublayer:scanLayer above:popverlayer];
+    //
+    CGFloat cornerspcaewidth = scanframe.size.width-20*2-4;
+    CGRect cornerrect = CGRectMake(scanframe.origin.x+2, scanframe.origin.y+2, scanframe.size.width-4, scanframe.size.width-4);
+    CAShapeLayer *scancornerlayer = [CAShapeLayer layer];
+    scancornerlayer.path = [UIBezierPath bezierPathWithRect:cornerrect].CGPath;
+    scancornerlayer.strokeColor = scanLayer.strokeColor;
+    scancornerlayer.fillColor = [UIColor clearColor].CGColor;
+    scancornerlayer.lineWidth = 4;
+    scancornerlayer.lineDashPattern = @[@20,@(cornerspcaewidth),@20,@0];
+    [scanLayer addSublayer:scancornerlayer];
 
+    // 扫描动画效果
+    CALayer *linelayer = [CALayer layer];
+    linelayer.backgroundColor = scanLayer.strokeColor;
+    linelayer.position = scanframe.origin;
+    linelayer.anchorPoint = CGPointMake(0, 0);
+    linelayer.opacity = 0;
+    linelayer.bounds = CGRectMake(0, 0, scanframe.size.width, 2);
+    [scanLayer addSublayer:linelayer];
+
+    CGFloat animateduration = 2;
+    // 动画效果 渐隐效果+滑动效果
+    CAMediaTimingFunction *timfunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    CABasicAnimation *opacityanimate = [CABasicAnimation animation];
+    opacityanimate.keyPath = @"opacity";
+    opacityanimate.fromValue = @0;
+    opacityanimate.toValue = @1;
+    opacityanimate.duration = animateduration;
+    opacityanimate.timingFunction = timfunction;
+    opacityanimate.repeatCount = INFINITY;
+    [linelayer addAnimation:opacityanimate forKey:@"opacity"];
+    
+    CABasicAnimation *positionanimate = [CABasicAnimation animation];
+    positionanimate.keyPath = @"position.y";
+    positionanimate.duration = animateduration;
+    positionanimate.byValue = @(scanframe.size.height);
+    positionanimate.repeatCount = INFINITY;
+    positionanimate.timingFunction = timfunction;
+    [linelayer addAnimation:positionanimate forKey:@"position.y"];
+    
 }
-
-
-- (void)ClickBt_Back:(UIControl *)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-#pragma mark - 二维码解析
-//- (NSArray *)qrcodeParseWithCodeStr:(NSString *)codestr
-//{
-//    //目前仅支持两种数据
-//    //店铺店址 http://m.wdwd.com/supplier/sindex/1K6ZP
-//    //带推荐人的店铺地址 http://m.wdwd.com/supplier/sindex/1K6ZP/source/C9ZBGH67
-//    if (![codestr hasPrefix:@"http"]) {
-//        return nil;
-//    }
-//    NSURL *url = [[NSURL alloc]initWithString:codestr];
-//    NSArray *params = [url.path componentsSeparatedByString:@"/"];
-//
-//    NSArray *resault = nil;
-//    //店铺地址
-//    switch (params.count) {
-//        case 4:     //不带推荐人的店铺地址
-//            resault = @[[params lastObject]];
-//            break;
-//        case 6:     //带推荐人的店铺地址
-//            resault = @[params[3],[params lastObject]];
-//            break;
-//
-//        default:
-//            break;
-//    }
-//    return resault;
-//}
-
 
 
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate
@@ -187,7 +194,6 @@
                 AVMetadataMachineReadableCodeObject *a = (AVMetadataMachineReadableCodeObject *)object;
                 codeValue = a.stringValue;
                 [weakself.captureSession stopRunning];
-//                _scanFinish = YES;
                 break;
             }
         }
@@ -209,7 +215,23 @@
 
 
 
+#pragma mark - 创建网格
+// 创建网格视图
+- (void)_createGridOnLayer:(CALayer *)layer
+{
+    // 每5像素创建一条线条
+//    CAGradientLayer
+}
+
+
+
+
+
 @end
+
+
+
+
 
 
 

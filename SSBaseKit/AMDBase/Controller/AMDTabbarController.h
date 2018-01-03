@@ -35,18 +35,6 @@
  */
 - (void)selectTabbarIndex:(NSInteger)index;
 
-// 显示新消息
-//- (void)showNewMessageCount:(NSInteger)count;
-
-/**
- *  设置消息数量 count:消息数量 索引数量:index 0开始
- */
-//- (void)setShowMessageCount:(NSInteger)count index:(NSInteger)index;
-
-
-#pragma mark - 支持消息右上角提示
-//- (void)supportMessageRemindWithIndex:(NSInteger)index;
-
 @end
 
 

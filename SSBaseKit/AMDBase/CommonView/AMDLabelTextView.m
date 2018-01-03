@@ -8,7 +8,6 @@
 
 #import "AMDLabelTextView.h"
 #import "SSGlobalVar.h"
-//#import "NSObject+BindValue.h"
 
 @interface AMDLabelTextView ()
 @property(nonatomic, strong, readwrite) UILabel *titleLabel;

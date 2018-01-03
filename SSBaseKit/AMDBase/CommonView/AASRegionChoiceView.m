@@ -10,10 +10,7 @@
 #import "SSGlobalVar.h"
 
 @interface AASRegionChoiceView() <UIPickerViewDataSource,UIPickerViewDelegate>
-{
-//    __weak UIButton *_cancelBt;     //取消按钮
-//    __weak UIButton *_commitBt;     //提交按钮
-}
+
 @property(nonatomic,weak) UIPickerView *pickerView;                 //选择器
 
 @property(nonatomic,strong) __block NSDictionary *regionSourceDict;             //数据源
@@ -188,21 +185,6 @@
 - (NSDictionary *)regionSourceDict
 {
     if (_regionSourceDict == nil) {
-        /*NSString *urlpath = [NSHomeDirectory() stringByAppendingString:@"/Documents/RegionCacheProperty.plist"];
-        _regionSourceDict = [[NSDictionary alloc]initWithContentsOfFile:urlpath];
-        
-        // 如果本地尚未缓存 就用项目中的文件临时处理
-        if (_regionSourceDict.allKeys.count == 0) {
-            NSString *tempurlpath = GetFilePath(@"RegionCacheProperty.plist");
-            _regionSourceDict = [[NSDictionary alloc]initWithContentsOfFile:tempurlpath];
-        }*/
-        
-        // 获取数据源
-//        if ([_dataSource respondsToSelector:@selector(getRegionChoiceSourceCompletion:)]) {
-//            [_dataSource getRegionChoiceSourceCompletion:^(NSDictionary *source) {
-//                _regionSourceDict = source;
-//            }];
-//        }
         if ([_dataSource respondsToSelector:@selector(regionChoiceSource)]) {
             _regionSourceDict = [_dataSource regionChoiceSource];
         }
@@ -246,14 +228,6 @@
     }
     return _selectRegionSource;
 }
-
-// 根据省份获取
-//- (NSString *)zipCodePathWithProvince:(NSString *)provincestr city:(NSString *)city district:(NSString *)district
-//{
-//    for (NSDictionary *province in self.provincesSource) {
-//        
-//    }
-//}
 
 
 #pragma mark - UIPickerViewDataSource

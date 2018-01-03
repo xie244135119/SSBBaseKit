@@ -9,7 +9,6 @@
 #import "AMDLabelShowView.h"
 #import "AMDLineView.h"
 #import "SSGlobalVar.h"
-//#import <Masonry/Masonry.h>
 #import <Masonry/Masonry.h>
 
 
@@ -42,30 +41,20 @@
 - (id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        if (_autoLayout) {
-            [self initContentView];
+        if (CGRectEqualToRect(frame, CGRectZero)) {
+            [self initContentView_AutoLayout];
         }
         else{
-            [self initContentView2];
+            [self initContentView];
         }
     }
     return self;
 }
 
-- (id)init
+
+- (void)initContentView
 {
-    _autoLayout = YES;
-    if (self = [super init]) {
-        //
-    }
-    return self;
-}
-
-
-
-- (void)initContentView2
-{
-        CGFloat h = self.frame.size.height;
+    CGFloat h = self.frame.size.height;
     // 名称 左侧展示
         UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(15, 0, 100, h)];
     titleLable.backgroundColor = [UIColor clearColor];
@@ -87,9 +76,8 @@
 }
 
 //视图加载
-- (void)initContentView
+- (void)initContentView_AutoLayout
 {
-//    CGFloat h = self.frame.size.height;
     // 名称 左侧展示
     UILabel *titleLable = [[UILabel alloc]init];
     titleLable.backgroundColor = [UIColor clearColor];
@@ -110,9 +98,7 @@
     contentLable.backgroundColor = [UIColor clearColor];
     contentLable.font = SSFontWithName(@"", 14);
     contentLable.numberOfLines = 0;
-//    contentLable.textColor = SSColorWithRGB(51, 51, 51, 1);
     contentLable.textColor = SSColorWithRGB(119, 119, 119, 1);
-//    contentLable.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     [self addSubview:contentLable];
     _contentLabel = contentLable;
     [contentLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -161,7 +147,6 @@
             if (_rightArrowShow) {
                 self.backgroundColor = highlighted ?SSLineColor:[UIColor whiteColor];
             }
-            
             break;
         case UIControlStateNormal:
             self.backgroundColor = _normalBackgroundColor?_normalBackgroundColor:[UIColor clearColor];
@@ -191,7 +176,6 @@
         
         if (rightArrowShow) {
             if (_currentArrowImgview == nil) {
-//                NSString *arrowpath = SSImageFromName(@"arrow-right.png");
                 UIImage *arrowiamge = SSImageFromName(@"arrow-right.png");
                 UIImageView *imgView = [[UIImageView alloc]init];
                 imgView.tag = 2;
@@ -211,8 +195,10 @@
 
     // 更新内容展示视图布局
     [_contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_titleLabel.mas_right).with.offset(5);    //距离左侧控件5
-        make.right.equalTo(self).with.offset(-15-(rightArrowShow?24:0));                   //距离右侧控件左侧15
+        //距离左侧控件5
+        make.left.equalTo(_titleLabel.mas_right).with.offset(5);
+        //距离右侧控件左侧15
+        make.right.equalTo(self).with.offset(-15-(rightArrowShow?24:0));
         make.top.bottom.equalTo(self).with.offset(0);
     }];
 }

@@ -17,6 +17,7 @@
 #import "AMDTabbarController.h"
 #import "TestController.h"
 #import "AYEActionSheetView.h"
+#import "AMDQrcodeController.h"
 
 
 @interface ViewController ()<UINavigationControllerDelegate, UIGestureRecognizerDelegate>
@@ -194,12 +195,26 @@
 
 -(IBAction)clickTest:(id)sender
 {
+    [self _testScan];
+    return;
+    
     [self testActionSheet];
     return;
 //    NSInteger count = random()*100;
 //    [_currentBt setUnreadCount:count];
     [self testTabBar];
 }
+
+
+#pragma mark - 扫描
+// 扫描二维码
+- (void)_testScan
+{
+    AMDQrcodeController *codeVc = [[AMDQrcodeController alloc]init];
+//    codeVc.
+    [self.navigationController pushViewController:codeVc animated:YES];
+}
+
 
 
 #pragma mark -

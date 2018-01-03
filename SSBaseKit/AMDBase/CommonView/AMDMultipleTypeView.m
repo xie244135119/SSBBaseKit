@@ -13,7 +13,6 @@
 #import <Masonry/Masonry.h>
 
 
-
 @interface AMDMultipleTypeView()
 {
     __weak UIView * _shadowView;                //底部阴影视图

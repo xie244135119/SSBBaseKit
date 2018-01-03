@@ -13,14 +13,12 @@
 @implementation AMDImgViewLabelView
 {
     __weak UIImageView *_jiantouImgView;            //箭头视图
-    
-    BOOL _autoLayout;                               //自动布局
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        if (_autoLayout) {
+        if (CGRectEqualToRect(frame, CGRectZero)) {
             [self initAutoLayoutView];
         }
         else {
@@ -30,14 +28,6 @@
     return self;
 }
 
-- (id)init
-{
-    _autoLayout = YES;
-    if (self = [super init]) {
-        //
-    }
-    return self;
-}
 
 - (void)setHighlighted:(BOOL)highlighted
 {
@@ -67,7 +57,7 @@
     [self addSubview:textLabel];
     _textLabel = textLabel;
     
-    //箭头
+    // 箭头
     UIImage *arrowiamge = SSImageFromName(@"arrow-right.png");
     UIImageView *jiantou = [[UIImageView alloc]initWithFrame:CGRectMake(w-30, (h-24)/2, 24, 24)];
     jiantou.image = arrowiamge;

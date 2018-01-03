@@ -38,7 +38,6 @@
     
     // 鼓励金额的开关
     UISwitch *guliswitch = [[UISwitch alloc]init];
-//    guliswitch.onTintColor = AMDNavBarColor;
     [self addSubview:guliswitch];
     _operSwitch = guliswitch;
     [guliswitch mas_makeConstraints:^(MASConstraintMaker *make) {

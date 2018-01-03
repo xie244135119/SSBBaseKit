@@ -15,7 +15,6 @@ typedef NS_ENUM(NSUInteger, AMDKeyboardType) {
 };
 
 
-
 @interface AMDKeyboradView : UIView
 
 

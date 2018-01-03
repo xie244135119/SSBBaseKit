@@ -70,8 +70,6 @@
 }
 
 
-
-
 #pragma mark - 按钮事件
 // 取消事件
 - (void)clickCancel:(UIButton *)sender

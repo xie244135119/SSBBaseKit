@@ -93,9 +93,6 @@
     self.layer.cornerRadius = 2;
     self.layer.masksToBounds = YES;
     
-//    CGFloat h = self.frame.size.height;
-//    CGFloat w = self.frame.size.width;
-    
     //减少按钮
     UIButton *reducecountbt = [UIButton buttonWithType:UIButtonTypeCustom];
     [reducecountbt setBackgroundImage:SSImageFromName(@"store_minus.png") forState:UIControlStateNormal];
