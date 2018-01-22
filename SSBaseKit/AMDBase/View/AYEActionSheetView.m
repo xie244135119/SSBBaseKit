@@ -115,10 +115,10 @@
     UIView *middleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
     middleView.backgroundColor = [UIColor clearColor];
     [self addSubview:middleView];
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    blurView.frame = middleView.bounds;
-    [middleView addSubview:blurView];
+//    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+//    UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+//    blurView.frame = middleView.bounds;
+//    [middleView addSubview:blurView];
     _middleView = middleView;
     
     // 加重提示块
