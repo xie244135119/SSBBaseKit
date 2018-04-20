@@ -169,6 +169,7 @@
 		CB7AE8501F4AF5A3005E8E1F /* SSLinkageView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */; };
 		CB7AE8511F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
 		CB7AE8521F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
+		CB81723720899E8A00776FB8 /* AMDBaseCellDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = CB81723620899E8A00776FB8 /* AMDBaseCellDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB9079E81FF4D9D400275296 /* AMDRootViewController+UMStatistic.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9079E71FF4D9D400275296 /* AMDRootViewController+UMStatistic.m */; };
 		CB9A69AC1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
 		CB9A69AD1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
@@ -315,6 +316,7 @@
 		CB644C621F7CDC31001BF127 /* FXBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLinkageView.h; sourceTree = "<group>"; };
 		CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLinkageView.m; sourceTree = "<group>"; };
+		CB81723620899E8A00776FB8 /* AMDBaseCellDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMDBaseCellDataSource.h; sourceTree = "<group>"; };
 		CB9079E61FF4D9D300275296 /* AMDRootViewController+UMStatistic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AMDRootViewController+UMStatistic.h"; sourceTree = "<group>"; };
 		CB9079E71FF4D9D400275296 /* AMDRootViewController+UMStatistic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AMDRootViewController+UMStatistic.m"; sourceTree = "<group>"; };
 		CBD53CF51FA328FA006D3268 /* SSImageCropController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSImageCropController.h; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				CB47CC6A1EE6471A00D81CA3 /* AMDBackControl.m */,
 				CB47CC6B1EE6471A00D81CA3 /* AMDBaseCell.h */,
 				CB47CC6C1EE6471A00D81CA3 /* AMDBaseCell.m */,
+				CB81723620899E8A00776FB8 /* AMDBaseCellDataSource.h */,
 				CB47CC6D1EE6471A00D81CA3 /* AMDBaseView.h */,
 				CB47CC6E1EE6471A00D81CA3 /* AMDBaseView.m */,
 				CB47CC6F1EE6471A00D81CA3 /* AMDButton.h */,
@@ -647,6 +650,7 @@
 				CB34AE171F18C5540006A562 /* AMDControllerTransitionDelegate.h in Headers */,
 				CB47CC9A1EE6471A00D81CA3 /* AMDKeyboradView.h in Headers */,
 				CB47CCE61EE6471A00D81CA3 /* CustomTableView.h in Headers */,
+				CB81723720899E8A00776FB8 /* AMDBaseCellDataSource.h in Headers */,
 				CB47CCD11EE6471A00D81CA3 /* AMDLineView.h in Headers */,
 				CB47CCA61EE6471A00D81CA3 /* AMDMultipleTypeView.h in Headers */,
 				CB47CCC51EE6471A00D81CA3 /* AMDBackControl.h in Headers */,

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMDBaseCellDataSource.h"
 
-@interface AMDBaseCell : UITableViewCell
-
+@interface AMDBaseCell : UITableViewCell<AMDBaseCellDataSource>
 
 
 /*
@@ -41,6 +41,11 @@
 - (void)hideHitView;
 
 @end
+
+
+
+
+
 
 
 

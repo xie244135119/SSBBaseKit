@@ -22,6 +22,7 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 #import <SSBaseKit/SSGlobalVar.h>
 #import <SSBaseKit/AMDBackControl.h>
 #import <SSBaseKit/AMDBaseCell.h>
+#import <SSBaseKit/AMDBaseCellDataSource.h>
 #import <SSBaseKit/AMDBaseView.h>
 #import <SSBaseKit/AMDButton.h>
 #import <SSBaseKit/AMDCopyLabel.h>
