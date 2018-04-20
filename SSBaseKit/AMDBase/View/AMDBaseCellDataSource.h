@@ -13,6 +13,9 @@
 @optional
 // 赋值数据
 - (void)assignSourceModel:(id)model;
+// cell高度
++ (CGFloat)cellHeight;
+
 
 
 @end
