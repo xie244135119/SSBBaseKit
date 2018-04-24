@@ -11,38 +11,35 @@
 
 @implementation AMDCopyLabel
 {
-    UIColor *_orignTextColor;            //原始的文字颜色
+    UIColor *_orignTextColor;               //原始的文字颜色
+    UIColor *_originBackGroundColor;        //原始背景色
+    UILongPressGestureRecognizer *_longPressGesture;        //长按手势
 }
 
 - (void)dealloc
 {
+    _longPressGesture = nil;
     _orignTextColor = nil;
     self.customCopyStr = nil;
+    _originBackGroundColor = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(BOOL)canBecomeFirstResponder
+- (BOOL)canBecomeFirstResponder
 {
     return YES;
 }
 
 // 可以响应的方法
--(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
     return (action == @selector(menuItemCopy:)) || (action == @selector(menuItemCollect:)) || (action == @selector(menuItemJoin:)) || (action == @selector(menuItemTransmit:));
 }
 
-//针对于响应方法的实现
-/*-(void)copy:(id)sender
-{
-    UIPasteboard *pboard = [UIPasteboard generalPasteboard];
-    pboard.string = self.text;
-    self.textColor = _orignTextColor;
-}*/
 
 
 //UILabel默认是不接收事件的，我们需要自己添加touch事件
--(void)attachTapHandler
+- (void)attachTapHandler
 {
     self.userInteractionEnabled = YES;  //用户交互的总开关
 //    UILongPressGestureRecognizer *press = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap:)];
@@ -56,7 +53,8 @@
 {
     self = [super initWithFrame:frame];
     if (self){
-        
+        //
+        [self supportCopyFunction];
     }
     return self;
 }
@@ -70,7 +68,7 @@
     
     self.userInteractionEnabled = YES;
     //通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuControllerWillHide:) name:UIMenuControllerWillHideMenuNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuControllerDidHide:) name:UIMenuControllerDidHideMenuNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuControllerWillShow:) name:UIMenuControllerWillShowMenuNotification object:nil];
 }
 
@@ -79,54 +77,70 @@
 - (void)setResponderView:(UIView *)responderView
 {
     if (_responderView != responderView) {
-        _responderView = responderView;
+        // 移除之前默认的长按手势
+        if (_longPressGesture) {
+            [_responderView removeGestureRecognizer:_longPressGesture];
+        }
         
+        _responderView = responderView;
+    }
+    
+    if (responderView) {
         UILongPressGestureRecognizer *press = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressGestureRecognizer:)];
         [responderView addGestureRecognizer:press];
+        _longPressGesture = press;
     }
 }
 
 
-#pragma mark - 手势页面
-/*-(void)handleTap:(UIGestureRecognizer*) recognizer
+#pragma mark - Public Api
+// 重置
+- (void)reset
 {
-    [self becomeFirstResponder];
-    if (_orignTextColor == nil) {
-        _orignTextColor = [self.textColor copy];
+    // 背景色
+    if (_originBackGroundColor) {
+        self.backgroundColor = _originBackGroundColor;
     }
-    //复制选中色
-//    self.textColor = SSColorWithRGB(11, 137, 226, 1);
-    //    self.backgroundColor = [UIColor lightGrayColor];
-    
-    //    UIMenuItem *copyLink = [[UIMenuItem alloc] initWithTitle:nil action:@selector(copy:)];
-    //默认复制
-    [[UIMenuController sharedMenuController] setMenuItems:nil];
+    // 菜单可选
+    if ([UIMenuController sharedMenuController].menuVisible) {
+        [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
+    }
+}
 
-    
-    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    style.lineBreakMode = self.lineBreakMode;
-    style.lineSpacing = 5;
-    NSDictionary *att = @{NSFontAttributeName:self.font,NSParagraphStyleAttributeName:style};
-    CGRect textrect = [self.text boundingRectWithSize:self.frame.size options:NSStringDrawingUsesLineFragmentOrigin attributes:att context:nil];
-    CGSize size = textrect.size;
-    CGRect frame = CGRectMake(self.frame.origin.x+self.frame.size.width-size.width, self.frame.origin.y, size.width, self.frame.size.height);
-    [[UIMenuController sharedMenuController] setTargetRect:frame inView:self.superview];
-    [[UIMenuController sharedMenuController] setMenuVisible:YES animated: YES];
-}*/
+// 选中
+- (void)select
+{
+    // 记录背景色
+    if (_originBackGroundColor) {
+        _originBackGroundColor = self.backgroundColor;
+    }
+    // 选中色
+    self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2];
+}
+
+
+
+#pragma mark - UITouch事件
+// 点击事件
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    // 重置
+    [self reset];
+}
+
 
 
 #pragma mark - 通知页面
-//menuitem隐藏
+// menuitem隐藏
 - (void)menuControllerWillHide:(NSNotification *)noti
 {
-//    self.textColor = _orignTextColor;
-    //    self.backgroundColor = [UIColor clearColor];
+    [self reset];
 }
 
+//
 - (void)menuControllerWillShow:(NSNotification *)noti
 {
-    //    self.textColor = _orignTextColor;
-    //    self.backgroundColor = [UIColor clearColor];
+    //
 }
 
 
@@ -134,7 +148,10 @@
 - (void)longPressGestureRecognizer:(UILongPressGestureRecognizer *)recognizer
 {
     if (recognizer.state == UIGestureRecognizerStateBegan) {
+        //
         [self becomeFirstResponder];
+        //
+        [self select];
         
         UIMenuItem * itemPase = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(menuItemCopy:)];
         UIMenuController * menuController = [UIMenuController sharedMenuController];
@@ -151,7 +168,6 @@
 // 复制
 - (void)menuItemCopy:(UIMenuItem *)menuItem
 {
-    NSLog(@" 复制 ");
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = _customCopyStr?_customCopyStr:self.text;
 }
@@ -177,12 +193,13 @@
 
 
 #pragma mark - 自适应Api
-
+//
 - (CGSize)calculateSize
 {
     return [self calculateSizeWithLineSpace:3];
 }
 
+//
 - (CGSize)calculateSizeWithLineSpace:(CGFloat)lineSpace {
     CGFloat lineS = lineSpace;
     CGSize size;

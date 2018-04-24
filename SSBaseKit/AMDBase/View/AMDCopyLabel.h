@@ -10,20 +10,27 @@
 
 @interface AMDCopyLabel : UILabel
 
+// 自定义响应视图
+@property(nonatomic, weak) UIView *responderView;
+// 自定义响应视图
+@property(nonatomic, copy) NSString *customCopyStr;
 
-@property(nonatomic, weak) UIView *responderView;           //自定义响应视图
-@property(nonatomic, copy) NSString *customCopyStr;         //自定义复制文本串
-//@property(nonatomic, copy) NSString *copyStr;               //复制的字符串
-//@property(nonatomic,  )
 
-// 支持复制功能--需要先配置responderView
+/**
+ 重置默认状态
+ */
+- (void)reset;
+
+/**
+ 支持复制功能--需要先配置responderView
+ */
 - (void)supportCopyFunction;
 
 
-
-// 文字自动换行显示 返回最高的宽高
-
-/** 行间距默认为 3 */
+/**
+ 文字自动换行显示 返回最高的宽高
+ 行间距默认为 3
+ */
 - (CGSize)calculateSize;
 
 /**
