@@ -132,7 +132,7 @@
 
 #pragma mark - 通知页面
 // menuitem隐藏
-- (void)menuControllerWillHide:(NSNotification *)noti
+- (void)menuControllerDidHide:(NSNotification *)noti
 {
     [self reset];
 }
