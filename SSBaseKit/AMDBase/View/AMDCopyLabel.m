@@ -41,11 +41,7 @@
 //UILabel默认是不接收事件的，我们需要自己添加touch事件
 - (void)attachTapHandler
 {
-    self.userInteractionEnabled = YES;  //用户交互的总开关
-//    UILongPressGestureRecognizer *press = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap:)];
-//    UILongPressGestureRecognizer *press = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressGestureRecognizer:)];
-    //    press
-//    [self addGestureRecognizer:press];
+    self.userInteractionEnabled = YES;
 }
 
 //绑定事件
@@ -111,7 +107,7 @@
 - (void)select
 {
     // 记录背景色
-    if (_originBackGroundColor) {
+    if (_originBackGroundColor == nil) {
         _originBackGroundColor = self.backgroundColor;
     }
     // 选中色
