@@ -50,7 +50,7 @@
     self = [super initWithFrame:frame];
     if (self){
         //
-        [self supportCopyFunction];
+//        [self supportCopyFunction];
     }
     return self;
 }
