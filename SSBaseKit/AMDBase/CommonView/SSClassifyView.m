@@ -36,9 +36,7 @@
     scrollview.showsHorizontalScrollIndicator = NO;
     //如果是水平
     if (_direcrion == SSClassifyHorizontal) {
-        scrollview.contentSize = CGSizeMake((urls.count+1)*itemWidth, 0);
-    }else{
-        scrollview.contentSize = CGSizeMake(0, (column+1)*_rowHeight-_rowHeight);
+        scrollview.contentSize = CGSizeMake((urls.count)*itemWidth+10*(urls.count+1), 0);
     }
     [self addSubview:scrollview];
     [scrollview mas_makeConstraints:^(MASConstraintMaker *make) {
