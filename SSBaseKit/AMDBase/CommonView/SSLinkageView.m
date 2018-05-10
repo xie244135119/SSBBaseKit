@@ -10,27 +10,24 @@
 #import "AMDImageView.h"
 #import "SSGlobalVar.h"
 
-//static NSString *const kBindSender = @"XQScrollImageName";
-
 typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     SSScrollLocationTypeLeft,           //左侧
     SSScrollLocationTypeMiddle,         //中间
     SSScrollLocationTypeRight           //右侧
 };
 
-static NSInteger SSLinkageTime = 5;
 
 @interface SSLinkageImageView : UIControl
 
 @property(nonatomic, weak) AMDImageView *imageView;        //图片视图
-@property(nonatomic, copy) NSString *imageNameOrURL;      //图片名称或url地址
+@property(nonatomic, strong) NSURL *imageURL;      //图片名称或url地址
 @property(nonatomic) NSInteger imageIndex;          //图片索引值
 
 @end
 
 @interface SSLinkageView()  <UIScrollViewDelegate>
 {
-    __weak AMDImageView *_topImageView;      //顶部视图
+    __weak AMDImageView *_topImageView;         //顶部视图
     
     __weak SSLinkageImageView *_leftImageView;              //左侧视图
     __weak SSLinkageImageView *_middleImageView;            //中间视图
@@ -44,14 +41,23 @@ static NSInteger SSLinkageTime = 5;
 
 - (void)dealloc
 {
-    _imageNameOrURLs = nil;
+    _imageURLs = nil;
     _currentTimer = nil;
 }
 
-- (id)initWithFrame:(CGRect)frame imageNames:(NSArray *)imagenames
+- (instancetype)initWithFrame:(CGRect)frame imageUrls:(NSArray *)imageUrls
 {
     if (self = [super initWithFrame:frame]) {
-        _imageNameOrURLs = imagenames;
+        _imageURLs = imageUrls;
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if(self = [super initWithFrame:frame]){
+        // 默认滚动时间
+        _linkageDuration = 5;
         [self config];
     }
     return self;
@@ -63,17 +69,10 @@ static NSInteger SSLinkageTime = 5;
 }
 
 
-// 设置定时器时间
-+ (void)configLinkageTime:(NSInteger)time
-{
-    SSLinkageTime = time;
-}
-
-
 #pragma mark - 初始化
 - (void)config
 {
-    _currentTimer = [NSTimer scheduledTimerWithTimeInterval:SSLinkageTime target:self selector:@selector(change:) userInfo:nil repeats:YES];
+    _currentTimer = [NSTimer scheduledTimerWithTimeInterval:_linkageDuration target:self selector:@selector(change:) userInfo:nil repeats:YES];
     
     [self initView];
 }
@@ -106,19 +105,19 @@ static NSInteger SSLinkageTime = 5;
         switch (i) {
             case 0:{
                 _leftImageView = imgview;
-                imgview.imageNameOrURL = _imageNameOrURLs[_imageNameOrURLs.count-1];
-                imgview.imageIndex = _imageNameOrURLs.count-1;
+                imgview.imageURL = _imageURLs[_imageURLs.count-1];
+                imgview.imageIndex = _imageURLs.count-1;
             }
                 break;
             case 1:{
                 _middleImageView = imgview;
-                imgview.imageNameOrURL = _imageNameOrURLs[0];
+                imgview.imageURL = _imageURLs[0];
                 imgview.imageIndex = 0;
             }
                 break;
             case 2:{
                 _rightImageView = imgview;
-                imgview.imageNameOrURL = _imageNameOrURLs.count>1?_imageNameOrURLs[1]:_imageNameOrURLs[0];
+                imgview.imageURL = _imageURLs.count>1?_imageURLs[1]:_imageURLs[0];
                 imgview.imageIndex = 1;
             }
                 break;
@@ -131,7 +130,7 @@ static NSInteger SSLinkageTime = 5;
     [self initPageControlView];
     
     // 如果图片只有1张的情况下 不允许滚动
-    if (_imageNameOrURLs.count == 1) {
+    if (_imageURLs.count == 1) {
         scrollView.scrollEnabled = NO;
         _currentPageControl.hidden = YES;
         [self invalidate];  //定时器无效
@@ -153,7 +152,7 @@ static NSInteger SSLinkageTime = 5;
 - (void)initPageControlView
 {
     UIPageControl *control = [[UIPageControl alloc]initWithFrame:CGRectMake(0, self.frame.size.height-20, self.frame.size.width, 20)];
-    control.numberOfPages = _imageNameOrURLs.count;
+    control.numberOfPages = _imageURLs.count;
     control.currentPageIndicatorTintColor = [UIColor whiteColor];
     control.pageIndicatorTintColor = SSColorWithRGB(60, 53, 53, 1);
     [self addSubview:control];
@@ -163,12 +162,12 @@ static NSInteger SSLinkageTime = 5;
 
 
 #pragma mark - SET
-- (void)setImageNameOrURLs:(NSArray *)imageNameOrURLs
+- (void)setimageURLs:(NSArray *)imageURLs
 {
-    if (_imageNameOrURLs != imageNameOrURLs) {
-        _imageNameOrURLs = imageNameOrURLs;
+    if (_imageURLs != imageURLs) {
+        _imageURLs = imageURLs;
         
-        if (imageNameOrURLs) {
+        if (imageURLs) {
             [self config];
         }
     }
@@ -206,21 +205,21 @@ static NSInteger SSLinkageTime = 5;
             
             //设置右侧视图
             _rightImageView.imageIndex = _middleImageView.imageIndex;
-            _rightImageView.imageNameOrURL = _middleImageView.imageNameOrURL;
+            _rightImageView.imageURL = _middleImageView.imageURL;
             //设置中间视图
             _middleImageView.imageIndex = _leftImageView.imageIndex;
-            _middleImageView.imageNameOrURL = _leftImageView.imageNameOrURL;
+            _middleImageView.imageURL = _leftImageView.imageURL;
             
             //设置左侧视图的效果
             NSInteger leftindex = _leftImageView.imageIndex;
             if (leftindex == 0) {   //首页
-                leftindex = _imageNameOrURLs.count-1;
+                leftindex = _imageURLs.count-1;
             }
             else{
                 leftindex--;
             }
             _leftImageView.imageIndex = leftindex;
-            _leftImageView.imageNameOrURL = _imageNameOrURLs[leftindex];
+            _leftImageView.imageURL = _imageURLs[leftindex];
             
         }
             break;
@@ -233,24 +232,24 @@ static NSInteger SSLinkageTime = 5;
             
             //设置左侧视图
             _leftImageView.imageIndex = _middleImageView.imageIndex;
-            _leftImageView.imageNameOrURL = _middleImageView.imageNameOrURL;
+            _leftImageView.imageURL = _middleImageView.imageURL;
             
             //设置中间视图
             _middleImageView.imageIndex = _rightImageView.imageIndex;
-            _middleImageView.imageNameOrURL = _rightImageView.imageNameOrURL;
+            _middleImageView.imageURL = _rightImageView.imageURL;
             
             //设置左侧视图的效果
             NSInteger rightIndex = _rightImageView.imageIndex;
-            if (rightIndex == _imageNameOrURLs.count-1) {   //
+            if (rightIndex == _imageURLs.count-1) {   //
                 rightIndex = 0;
             }
             else {
                 rightIndex++;
             }
             
-            if (_imageNameOrURLs.count > rightIndex) {
+            if (_imageURLs.count > rightIndex) {
                 _rightImageView.imageIndex = rightIndex;
-                _rightImageView.imageNameOrURL = _imageNameOrURLs[rightIndex];
+                _rightImageView.imageURL = _imageURLs[rightIndex];
             }
             
         }
@@ -313,36 +312,22 @@ static NSInteger SSLinkageTime = 5;
 
 - (void)dealloc
 {
-    self.imageNameOrURL = nil;
+    self.imageURL = nil;
 }
 
 //设置图像
-- (void)setImageNameOrURL:(NSString *)imageNameOrURL
+- (void)setImageURL:(NSURL *)imageURL
 {
-    if (_imageNameOrURL != imageNameOrURL) {
-        _imageNameOrURL = imageNameOrURL;
+    if (_imageURL != imageURL) {
+        _imageURL = imageURL;
         
-        //如果包含主机地址--则是网络请求
-        if ([imageNameOrURL hasPrefix:@"http"]) {
-            NSInteger width = 2*self.frame.size.width;
-            NSInteger height = 2*self.frame.size.height;
-            NSString *urlstr = [[NSString alloc]initWithFormat:@"%@?imageView2/1/w/%@/h/%@",imageNameOrURL,@(width),@(height)];
-            [self.imageView setImageWithUrl:[NSURL URLWithString:urlstr] placeHolder:nil];
-        }
-        else{
-            self.imageView.image = [UIImage imageNamed:imageNameOrURL?imageNameOrURL:@""];
-        }
+        // 如果包含主机地址--则是网络请求
+        [_imageView setImageWithUrl:imageURL placeHolder:nil];
     }
 }
 
 
 @end
-
-
-
-
-
-
 
 
 

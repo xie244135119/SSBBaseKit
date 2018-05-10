@@ -28,11 +28,7 @@ typedef NS_ENUM(NSUInteger, AMDControllerShowType) {
 
 // 支持显示后退按钮
 @property(nonatomic, weak) AMDBackControl *backItem;
-@property(nonatomic) BOOL supportBackBt NS_DEPRECATED_IOS(2_0, 7_0, "已废弃无用 后续不需要再自行处理后退按钮事件") ;
 @property(nonatomic) BOOL supportBack;
-// 设置消息提醒数量(类似微信后退按钮数量处理)
-@property(nonatomic) NSInteger messageCount;
-
 
 /*
  * 控制器实例化
@@ -42,7 +38,9 @@ typedef NS_ENUM(NSUInteger, AMDControllerShowType) {
 - (instancetype)initWithTitle:(NSString *)title
                titileViewShow:(BOOL)titleViewShow;
 /*
- * @param1 导航栏是否展示 @param2 标题  @param3 tabbar栏高度是否展示
+ * @param1 导航栏是否展示
+   @param2 标题
+   @param3 tabbar栏高度是否展示
  */
 - (instancetype)initWithTitle:(NSString *)title
                titileViewShow:(BOOL)titleViewShow
@@ -53,7 +51,12 @@ typedef NS_ENUM(NSUInteger, AMDControllerShowType) {
  */
 - (AMDControllerShowType)controllerShowType;
 
+/**
+ 进入页面是否需要动画 默认为YES
 
+ @return 是否需要动画
+ */
+- (BOOL)controllerShowAnimate;
 
 @end
 

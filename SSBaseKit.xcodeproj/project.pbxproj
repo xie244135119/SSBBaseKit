@@ -166,6 +166,14 @@
 		CB53B2D51F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */; };
 		CB53B2D61F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */; };
 		CB614A851EE9362900471DE9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CB614A841EE9362900471DE9 /* README */; };
+		CB6E2C8320A4029300724033 /* SSFont.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6E2C8120A4029300724033 /* SSFont.h */; };
+		CB6E2C8420A4029300724033 /* SSFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C8220A4029300724033 /* SSFont.m */; };
+		CB6E2C8520A4029300724033 /* SSFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C8220A4029300724033 /* SSFont.m */; };
+		CB6E2C8720A404EC00724033 /* HiraginoSansGBW3.otf in Resources */ = {isa = PBXBuildFile; fileRef = CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */; };
+		CB6E2C8820A404EC00724033 /* HiraginoSansGBW3.otf in Resources */ = {isa = PBXBuildFile; fileRef = CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */; };
+		CB6E2C9220A4272900724033 /* SSClassifyView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6E2C9020A4272900724033 /* SSClassifyView.h */; };
+		CB6E2C9320A4272900724033 /* SSClassifyView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C9120A4272900724033 /* SSClassifyView.m */; };
+		CB6E2C9420A4272900724033 /* SSClassifyView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C9120A4272900724033 /* SSClassifyView.m */; };
 		CB7AE8501F4AF5A3005E8E1F /* SSLinkageView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */; };
 		CB7AE8511F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
 		CB7AE8521F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
@@ -314,6 +322,11 @@
 		CB614A841EE9362900471DE9 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		CB644C611F7CDC30001BF127 /* FXBlurView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		CB644C621F7CDC31001BF127 /* FXBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		CB6E2C8120A4029300724033 /* SSFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSFont.h; sourceTree = "<group>"; };
+		CB6E2C8220A4029300724033 /* SSFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSFont.m; sourceTree = "<group>"; };
+		CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HiraginoSansGBW3.otf; sourceTree = "<group>"; };
+		CB6E2C9020A4272900724033 /* SSClassifyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSClassifyView.h; sourceTree = "<group>"; };
+		CB6E2C9120A4272900724033 /* SSClassifyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSClassifyView.m; sourceTree = "<group>"; };
 		CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLinkageView.h; sourceTree = "<group>"; };
 		CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLinkageView.m; sourceTree = "<group>"; };
 		CB81723620899E8A00776FB8 /* AMDBaseCellDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMDBaseCellDataSource.h; sourceTree = "<group>"; };
@@ -381,6 +394,7 @@
 		CB47CC301EE6471A00D81CA3 /* AMDBase */ = {
 			isa = PBXGroup;
 			children = (
+				CB6E2C8020A4029300724033 /* Extends */,
 				CB47CC311EE6471A00D81CA3 /* Category */,
 				CB47CC341EE6471A00D81CA3 /* CommonView */,
 				CB47CC4E1EE6471A00D81CA3 /* Controller */,
@@ -404,6 +418,8 @@
 		CB47CC341EE6471A00D81CA3 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				CB6E2C9020A4272900724033 /* SSClassifyView.h */,
+				CB6E2C9120A4272900724033 /* SSClassifyView.m */,
 				CB644C611F7CDC30001BF127 /* FXBlurView.h */,
 				CB644C621F7CDC31001BF127 /* FXBlurView.m */,
 				CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */,
@@ -558,6 +574,7 @@
 		CB47CD151EE64DFE00D81CA3 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */,
 				CB9079E61FF4D9D300275296 /* AMDRootViewController+UMStatistic.h */,
 				CB9079E71FF4D9D400275296 /* AMDRootViewController+UMStatistic.m */,
 				CB47CD191EE64DFE00D81CA3 /* AppDelegate.h */,
@@ -581,6 +598,15 @@
 				CB47CD171EE64DFE00D81CA3 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB6E2C8020A4029300724033 /* Extends */ = {
+			isa = PBXGroup;
+			children = (
+				CB6E2C8120A4029300724033 /* SSFont.h */,
+				CB6E2C8220A4029300724033 /* SSFont.m */,
+			);
+			path = Extends;
 			sourceTree = "<group>";
 		};
 		D2256BCD79D60BB95CC08E1E /* Pods */ = {
@@ -633,6 +659,7 @@
 				CB47CCCD1EE6471A00D81CA3 /* AMDCopyLabel.h in Headers */,
 				CB47CCD71EE6471A00D81CA3 /* AMDRootNavgationBar.h in Headers */,
 				CB47CCDB1EE6471A00D81CA3 /* AMDSegmentedControl.h in Headers */,
+				CB6E2C9220A4272900724033 /* SSClassifyView.h in Headers */,
 				CB47CCD91EE6471A00D81CA3 /* AMDScrollView.h in Headers */,
 				CB47CCBA1EE6471A00D81CA3 /* AMDWebViewProgress.h in Headers */,
 				CB47CCA81EE6471A00D81CA3 /* AMDSetAmountView.h in Headers */,
@@ -667,6 +694,7 @@
 				CB47CD021EE6480B00D81CA3 /* AMDMJRefreshConst.h in Headers */,
 				CB47CD061EE6480B00D81CA3 /* AMDMJRefreshHeaderView.h in Headers */,
 				CB47CC2A1EE6471000D81CA3 /* SSBaseKit.h in Headers */,
+				CB6E2C8320A4029300724033 /* SSFont.h in Headers */,
 				CB47CCC01EE6471A00D81CA3 /* SSGlobalVar.h in Headers */,
 				CB47CD041EE6480B00D81CA3 /* AMDMJRefreshFooterView.h in Headers */,
 			);
@@ -721,7 +749,7 @@
 		CB47CC1C1EE6471000D81CA3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = SunSet;
 				TargetAttributes = {
 					CB47CC241EE6471000D81CA3 = {
@@ -762,6 +790,7 @@
 				CB17995C1EF0CC2C00EA83FC /* AMDMJRefresh.bundle in Resources */,
 				CB3E39FF1F382F590003DB57 /* SSBaseKit.bundle in Resources */,
 				CB614A851EE9362900471DE9 /* README in Resources */,
+				CB6E2C8720A404EC00724033 /* HiraginoSansGBW3.otf in Resources */,
 				CB34AE191F18D4950006A562 /* SSKeyBoard.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -774,6 +803,7 @@
 				CB47CD261EE64DFE00D81CA3 /* LaunchScreen.storyboard in Resources */,
 				CB34AE1A1F18D4970006A562 /* SSKeyBoard.bundle in Resources */,
 				CB47CD231EE64DFE00D81CA3 /* Assets.xcassets in Resources */,
+				CB6E2C8820A404EC00724033 /* HiraginoSansGBW3.otf in Resources */,
 				CB47CD211EE64DFE00D81CA3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -869,6 +899,7 @@
 				CB2D53431F15B5AC005A1B3F /* AMDSexSetView.m in Sources */,
 				CB47CCE71EE6471A00D81CA3 /* CustomTableView.m in Sources */,
 				CB47CCEC1EE6471A00D81CA3 /* CustomTextView.m in Sources */,
+				CB6E2C9320A4272900724033 /* SSClassifyView.m in Sources */,
 				CB47CCCA1EE6471A00D81CA3 /* AMDBaseView.m in Sources */,
 				CB47CD071EE6480B00D81CA3 /* AMDMJRefreshHeaderView.m in Sources */,
 				CB47CCD81EE6471A00D81CA3 /* AMDRootNavgationBar.m in Sources */,
@@ -905,6 +936,7 @@
 				CB47CCA11EE6471A00D81CA3 /* AMDLabelSwitchView.m in Sources */,
 				CB1CF7441FB939A900BB02CE /* SSNavigationController.m in Sources */,
 				CBD53CF81FA32912006D3268 /* SSImageCropController.m in Sources */,
+				CB6E2C8420A4029300724033 /* SSFont.m in Sources */,
 				CB47CCD61EE6471A00D81CA3 /* AMDProgressView.m in Sources */,
 				CB47CCDE1EE6471A00D81CA3 /* AMDTextField.m in Sources */,
 				CB47CCDC1EE6471A00D81CA3 /* AMDSegmentedControl.m in Sources */,
@@ -943,6 +975,7 @@
 				CB45E3E01F2B34B4009BB7C6 /* AMDButton.m in Sources */,
 				CB2D53441F15B5FA005A1B3F /* AMDSexSetView.m in Sources */,
 				CB45E3E41F2B34BC009BB7C6 /* AMDNoDataView.m in Sources */,
+				CB6E2C9420A4272900724033 /* SSClassifyView.m in Sources */,
 				CB45E3CA1F2B346F009BB7C6 /* AMDRootViewController.m in Sources */,
 				CB45E3CF1F2B3480009BB7C6 /* AMDAnimationWebView.m in Sources */,
 				CB45E3D51F2B348C009BB7C6 /* AMDLabelTextView.m in Sources */,
@@ -956,6 +989,7 @@
 				CB45E3D11F2B3484009BB7C6 /* AMDKeyboradView.m in Sources */,
 				CB47BE351F7B628400F1BA65 /* TestController.m in Sources */,
 				CB45E3D31F2B3489009BB7C6 /* AMDLabelShowView.m in Sources */,
+				CB6E2C8520A4029300724033 /* SSFont.m in Sources */,
 				CB45E3EC1F2B34CC009BB7C6 /* CustomTextView.m in Sources */,
 				CB45E3E21F2B34B8009BB7C6 /* AMDImageView.m in Sources */,
 				CB9A69AC1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */,
@@ -1006,7 +1040,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1014,7 +1050,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1058,7 +1098,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1066,7 +1108,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

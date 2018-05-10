@@ -21,11 +21,10 @@
 
 - (void)dealloc
 {
-    self.naviationBar=nil;
-    self.leftViews=nil;
-    self.rightViews=nil;
-    self.backgroundimage=nil;
-    self.title=nil;
+    self.leftViews = nil;
+    self.rightViews = nil;
+    self.backgroundimage = nil;
+    self.title = nil;
     self.naviationBarColor = nil;
 }
 
@@ -40,7 +39,6 @@
         [self addSubview:bar];
         [bar mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.equalTo(@0);
-            //            make.top.equalTo(@0);
         }];
         
         // 标题

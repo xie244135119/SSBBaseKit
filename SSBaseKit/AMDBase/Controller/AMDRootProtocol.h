@@ -13,11 +13,15 @@
 
 @optional
 /** 重写后退方法(临时使用) */
--(void)ClickBt_Back:(UIControl *)sender;
+- (void)ClickBt_Back:(UIControl *)sender;
 
 
-/* 每个类特定的url串 */
-//- (NSString *)
+ /**
+   每个类特定的url串
+
+  @return 字符串
+  */
+- (NSString *)globalUniqueIdentifier;
 
 
 /**

@@ -1,8 +1,8 @@
 //
 //  XQLinkageView.h
-//  TestScrollView联动效果
 //
-//  Created by 谢强 on 14-12-2.
+//  自滚动页面
+//  Created by SunSet on 14-12-2.
 //  Copyright (c) 2014年 SunSet. All rights reserved.
 //
 
@@ -12,27 +12,45 @@
 
 @interface SSLinkageView : UIView
 
+
 @property(nonatomic, weak) id<SSLinkageViewDelegate> delegate;
-@property(nonatomic, readonly) UIScrollView *scrollView;                //滚动视图
-@property(nonatomic,strong,readwrite) NSArray *imageNameOrURLs;          //图片名称或请求地址
-@property(nonatomic,weak) UIPageControl *currentPageControl;            //当前pagecontrol
 
-- (id)initWithFrame:(CGRect)frame imageNames:(NSArray *)imagenames;
+/**
+ 滚动视图
+ */
+@property(nonatomic, readonly) UIScrollView *scrollView;
 
-//使定时器无效
-- (void)invalidate;
+/**
+ pageControl
+ */
+@property(nonatomic, weak) UIPageControl *currentPageControl;
 
+/**
+ 一组请求地址
+ */
+@property(nonatomic, strong, readwrite) NSArray<NSURL *> *imageURLs;
 
+/**
+ 轮播时间 默认为5s
+ */
+@property(nonatomic, assign) NSInteger linkageDuration;
 
 
 /**
- 配置滚动时间 默认为5s
+ 实例化
 
- @param time 默认为5s
+ @param frame frame
+ @param imageUrls 图片没名称
+ @return 实例化
  */
-+ (void)configLinkageTime:(NSInteger)time;
+- (instancetype)initWithFrame:(CGRect)frame
+         imageUrls:(NSArray *)imageUrls;
 
 
+/**
+ 定时器无效
+ */
+- (void)invalidate;
 
 @end
 

@@ -18,6 +18,7 @@
 #import "TestController.h"
 #import "AYEActionSheetView.h"
 #import "AMDQrcodeController.h"
+#import "AMDLabelShowView.h"
 
 
 @interface ViewController ()<UINavigationControllerDelegate, UIGestureRecognizerDelegate>
@@ -45,7 +46,7 @@
 //    self.supportBackBt = YES;
 //    self.backItem.layer.borderWidth = 1;
 //    self.backItem.imgStrokeColor = SSColorWithRGB(75, 75, 75, 1);
-//    [self initContentView];
+    [self initContentView];
 //    self.contentView.layer.borderWidth = 1;
 //    self.view.layer.borderWidth = 1;
 //    self.view.layer.borderColor = [UIColor redColor].CGColor;
@@ -103,17 +104,17 @@
 - (void)initContentView
 {
     //
-//    AMDLabelShowView *labelshow = [[AMDLabelShowView alloc]initWithFrame:CGRectMake(0, 100, 320, 50)];
-//    labelshow.layer.borderWidth = 1;
-//    labelshow.titleLabel.text = @"用户名";
-//    labelshow.contentLabel.text = @"18721025826";
-//    [self.view addSubview:labelshow];
-//    AYEActionSheetView *sheetView = [[AYEActionSheetView alloc]initWithdelegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"测试", nil];
-//    [sheetView showInView:self.view];
+    AMDLabelShowView *labelshow = [[AMDLabelShowView alloc]initWithFrame:CGRectMake(0, 100, 320, 50)];
+    labelshow.layer.borderWidth = 1;
+    labelshow.titleLabel.text = @"用户名";
+    labelshow.contentLabel.text = @"18721025826";
+    [self.view addSubview:labelshow];
+    AYEActionSheetView *sheetView = [[AYEActionSheetView alloc]initWithdelegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"测试", nil];
+    [sheetView showInView:self.view];
     
-    AMDRootViewController *webVC = [[AMDRootViewController alloc]initWithTitle:@"阿萨帝发送到发送到发的啥发送的阿萨德发生的"];
-    [self presentViewController:webVC animated:YES completion:nil];
-//
+//    AMDRootViewController *webVC = [[AMDRootViewController alloc]initWithTitle:@"阿萨帝发送到发送到发的啥发送的阿萨德发生的"];
+//    [self presentViewController:webVC animated:YES completion:nil];
+////
 }
 
 - (void)testLineItemView

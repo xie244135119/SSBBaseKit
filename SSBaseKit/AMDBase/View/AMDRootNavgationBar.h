@@ -18,18 +18,39 @@
  */
 
 
-// 左侧的views
-@property(nonatomic,strong) NSArray *leftViews;
-// 右侧的views
-@property(nonatomic,strong) NSArray *rightViews;
-// 背景色
+/**
+ 一组左侧的views
+ */
+@property(nonatomic,strong) NSArray<UIView *> *leftViews;
+
+/**
+ 一组右侧的views
+ */
+@property(nonatomic,strong) NSArray<UIView *> *rightViews;
+
+/**
+ 导航背景色
+ */
 @property(nonatomic,strong) UIImage *backgroundimage;
-// 标题
+
+/**
+ 导航标题
+ */
 @property(nonatomic,copy) NSString *title;
+
+/**
+ 导航标题组件
+ */
 @property(nonatomic,weak) UILabel *titleLabel;
-// 导航栏
-@property(nonatomic,weak) UINavigationBar *naviationBar;
-// 导航背景色
+
+/**
+ 导航栏
+ */
+@property(nonatomic, readonly) UINavigationBar *naviationBar;
+
+/**
+ 导航背景色
+ */
 @property(nonatomic,strong) UIColor *naviationBarColor;
 
 

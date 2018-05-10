@@ -8,6 +8,7 @@
 
 #ifndef SSGlobalVar_h
 #define SSGlobalVar_h
+#import "SSFont.h"
 
 
 #define SSColorWithRGB(r,g,b,a) [UIColor colorWithRed:(float)r/255 green:(float)g/255 blue:(float)b/255 alpha:a]
@@ -15,8 +16,8 @@
 
 
 //字体
-#define SSFontWithName(n,s) [UIFont fontWithName:@"HiraginoSansGB-W3" size:s]
-#define SSFontBoldWithName(n,s) [UIFont fontWithName:@"HiraginoSansGB-W3" size:s]
+#define SSFontWithName(n,s) [SSFont ssSystemFontOfSize:s]
+#define SSFontBoldWithName(n,s) [SSFont boldSystemFontOfSize:s]
 
 
 // bundle名称
@@ -29,9 +30,9 @@
 
 
 // - NSUserDefaults
-//获取NSUserDefaults中的值
+// 获取NSUserDefaults中的值
 #define GetDefaults(key)  [[NSUserDefaults standardUserDefaults] objectForKey:key]
-//设置NSUserDefaults中的键值对
+// 设置NSUserDefaults中的键值对
 #define SetDefaults(key,value) [[NSUserDefaults standardUserDefaults] setObject:value forKey:key]
 #define SetDefaultsSynchronize() [[NSUserDefaults standardUserDefaults] synchronize]
 #define RemoveDefaults(key) [[NSUserDefaults standardUserDefaults] removeObjectForKey:key]

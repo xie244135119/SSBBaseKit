@@ -120,6 +120,7 @@
 - (void)initRootContentView
 {
     // 标题
+    __weak typeof(self) weakself = self;
     if (!_titileViewHidden) {
         AMDRootNavgationBar *bar = [[AMDRootNavgationBar alloc]init];
         _titleView = bar;
@@ -129,11 +130,11 @@
             make.left.right.equalTo(@0);
             make.top.equalTo(@0);
             // 底部距离规定的高度一直未44
-            make.bottom.equalTo(self.mas_topLayoutGuide).with.offset(44);
+            make.bottom.equalTo(weakself.mas_topLayoutGuide).with.offset(44);
         }];
         
         // 加载后退按钮
-        if (_supportBackBt || _supportBack) {
+        if (_supportBack) {
             [self _loadBackBt];
         }
     }
@@ -151,7 +152,7 @@
         make.left.right.equalTo(@0);
         make.bottom.equalTo(@0);
         if (_titleView)
-            make.top.equalTo(_titleView.mas_bottom).with.offset(0);
+            make.top.equalTo(weakself.titleView.mas_bottom).with.offset(0);
         else
 //            make.top.equalTo(self.mas_topLayoutGuide);
             make.top.equalTo(@0);
@@ -181,26 +182,17 @@
         self.titleView.hidden = titileViewHidden;
         _titileViewHidden = titileViewHidden;
         
+        __weak typeof(self) weakself = self;
         [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
             if (titileViewHidden)
 //                make.top.equalTo(self.mas_topLayoutGuide);
                 make.top.equalTo(@0);
             else
-                make.top.equalTo(_titleView.mas_bottom).with.offset(0);
+                make.top.equalTo(weakself.titleView.mas_bottom).with.offset(0);
         }];
     }
 }
 
-
-- (void)setMessageCount:(NSInteger)messageCount
-{
-    if (_messageCount != messageCount) {
-        _messageCount = messageCount;
-        
-        AMDBackControl *control = _backItem;
-        control.mesRemindLabel.text = [NSString stringWithFormat:@"(%li)",(long)messageCount];
-    }
-}
 
 /*后退按钮*/
 -(void)ClickBt_Back:(UIControl *)sender
@@ -216,11 +208,10 @@
 {
     // 当视图发生改变的时候
     [super viewWillLayoutSubviews];
-    //    NSLog(@" %@ ",NSStringFromCGRect(self.view.readableContentGuide.layoutFrame), NSStringFromCGRect(self.view.layoutMarginsGuide.layoutFrame),NSStringFromCGRect(self.view.l.layoutFrame),NSStringFromCGRect(self.view.readableContentGuide.layoutFrame) );
 }
 
 
-#pragma mark - IOS11 上位置改变的时候
+#pragma mark - 兼容ios 11
 - (void)viewSafeAreaInsetsDidChange
 {
     [super viewSafeAreaInsetsDidChange];
@@ -230,19 +221,21 @@
     [_contentView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(@(-weakself.view.safeAreaInsets.bottom));
     }];
-    //    [_titleView mas_updateConstraints:^(MASConstraintMaker *make) {
-    //        make.top.equalTo(@(weakself.view.safeAreaInsets.top));
-    //        make.height.equalTo(@(64+weakself.view.safeAreaInsets.top));
-    //    }];
 }
 
-#pragma mark -
-
-
+#pragma mark - 页面跳转类型和动画
+//
 - (AMDControllerShowType)controllerShowType
 {
     return AMDControllerShowTypePush;
 }
+
+// 是否需要动画
+- (BOOL)controllerShowAnimate
+{
+    return YES;
+}
+
 
 // 处理KVC机制
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key

@@ -52,7 +52,7 @@ typedef enum {
 /**
  *  开始进入刷新状态就会调用
  */
-@property (nonatomic, copy) void (^beginRefreshingCallback)();
+@property (nonatomic, copy) void (^beginRefreshingCallback)(void);
 
 #pragma mark - 刷新相关
 /**
