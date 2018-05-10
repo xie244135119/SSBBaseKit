@@ -151,7 +151,7 @@
     [contentvw mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(@0);
         make.bottom.equalTo(@0);
-        if (_titleView)
+        if (weakself.titleView)
             make.top.equalTo(weakself.titleView.mas_bottom).with.offset(0);
         else
 //            make.top.equalTo(self.mas_topLayoutGuide);
