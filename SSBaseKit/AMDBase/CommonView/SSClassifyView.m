@@ -29,9 +29,11 @@
 
     NSInteger row = 0;// i/count;
     NSInteger column = 0;  //i%count;
-    CGFloat itemWidth = (SScreenWidth-((_visableItemCount+1)*10))/_visableItemCount+10;//每个item宽度
+    CGFloat itemWidth = (SScreenWidth-((_visableItemCount+1)*10))/_visableItemCount;//每个item宽度
     //底部滑动视图
     UIScrollView *scrollview = [[UIScrollView alloc] init];
+    scrollview.showsVerticalScrollIndicator = NO;
+    scrollview.showsHorizontalScrollIndicator = NO;
     //如果是水平
     if (_direcrion == SSClassifyHorizontal) {
         scrollview.contentSize = CGSizeMake((urls.count+1)*itemWidth, 0);
@@ -71,7 +73,6 @@
             //分类anniu
             NSURL *imageurl = urls[i];
             AMDButton *bt = [[AMDButton alloc]init];
-            bt.layer.borderWidth = 1;
             [bt setImageWithUrl:imageurl placeHolder:nil];
             bt.titleLabel.text = titles[i];
             bt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
