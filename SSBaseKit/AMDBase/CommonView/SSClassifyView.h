@@ -75,7 +75,7 @@ typedef NS_ENUM(NSUInteger, SSClassifyDirection) {
 @property(nonatomic, assign) CGFloat imageCornerRadius;
 
 /**
- 标题label字体 默认系统字体 11
+ 标题label字体 默认系统字体 10
  */
 @property(nonatomic, strong) UIFont *titleFont;
 

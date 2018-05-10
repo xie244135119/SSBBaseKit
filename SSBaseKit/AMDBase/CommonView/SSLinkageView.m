@@ -58,7 +58,6 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     if(self = [super initWithFrame:frame]){
         // 默认滚动时间
         _linkageDuration = 5;
-        [self config];
     }
     return self;
 }
@@ -68,6 +67,10 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     [_currentTimer invalidate];
 }
 
+- (void)prepareLoad
+{
+    [self config];
+}
 
 #pragma mark - 初始化
 - (void)config

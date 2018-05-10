@@ -75,8 +75,8 @@
             AMDButton *bt = [[AMDButton alloc]init];
             [bt setImageWithUrl:imageurl placeHolder:nil];
             bt.titleLabel.text = titles[i];
-            bt.titleLabel.textColor = SSColorWithRGB(51, 51, 51, 1);
-            bt.titleLabel.font = SSFontWithName(@"", 10);
+            bt.titleLabel.textColor = _titleColor;
+            bt.titleLabel.font = _titleFont;
             [bt addTarget:self action:@selector(clickClassifyAction:) forControlEvents:UIControlEventTouchUpInside];
             if (contentView) {
                 [contentView addSubview:bt];
@@ -88,7 +88,7 @@
                     make.left.top.bottom.right.offset(0);
                 }];
             }else{
-                bt.imageView.layer.cornerRadius = 22;
+                bt.imageView.layer.cornerRadius = _imageCornerRadius;
                 bt.imageView.layer.masksToBounds = YES;
                 [bt.imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.centerX.equalTo(bt.mas_centerX);
@@ -107,7 +107,7 @@
                 // 第一个按钮不存在的时候
                 if (_firstBt == nil) {
                     make.top.equalTo(@0);
-                    make.left.equalTo(@10);
+                    make.left.equalTo(@(_rowSpace));
                     if (_direcrion == SSClassifyHorizontal) {
                         // 设置等宽度
                         make.width.equalTo(@(itemWidth));
@@ -126,18 +126,18 @@
                     if (row == 0) {
                         make.top.equalTo(_firstBt.mas_top);
                     }else {  //其余行的时候
-                        make.top.equalTo(_upBt.mas_bottom).with.offset(10);
+                        make.top.equalTo(_upBt.mas_bottom).with.offset(_rowSpace);
                     }
 
                     // 首列
                     if (column == 0) {
-                        make.left.equalTo(@10);
+                        make.left.equalTo(@(_rowSpace));
                     }else {// 设置左侧约束
-                        make.left.equalTo(_lastBt.mas_right).with.offset(10);
+                        make.left.equalTo(_lastBt.mas_right).with.offset(_rowSpace);
                         if (_direcrion != SSClassifyHorizontal) {
                             // 末列
                             if (column == _visableItemCount-1) {
-                                make.right.offset(-10).priorityHigh();
+                                make.right.offset(-_rowSpace).priorityHigh();
                             }
                         }
                     }
@@ -154,7 +154,7 @@
         // 修正当配置数量少于一行的时候
         if (urls.count < _visableItemCount) {
             [_lastBt mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.right.equalTo(@-10);
+                make.right.equalTo(@(-_rowSpace));
             }];
         }
     
@@ -181,9 +181,10 @@
         _visableItemCount = 5;
         _rowHeight = 65;
         _rowSpace = 10;
+        _titleFont = SSFontWithName(@"", 10);
         _imageSize = CGSizeMake(44, 44);
-        _titleFont = [UIFont systemFontOfSize:11];;
         _titleColor = SSColorWithRGB(51, 51, 51, 1);
+        _imageCornerRadius = _imageSize.width/2;
     }
     return self;
 }
@@ -212,7 +213,10 @@
 
 
 - (void)reload{
-    
+    //移除所有子视图
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    //重新加载
+    [self prepareForLoad];
 }
 
 
