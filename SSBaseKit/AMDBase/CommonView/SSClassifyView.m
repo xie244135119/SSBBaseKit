@@ -71,6 +71,7 @@
             //分类anniu
             NSURL *imageurl = urls[i];
             AMDButton *bt = [[AMDButton alloc]init];
+            bt.tag = i;
             [bt setImageWithUrl:imageurl placeHolder:nil];
             bt.titleLabel.text = titles[i];
             bt.titleLabel.textColor = _titleColor;
