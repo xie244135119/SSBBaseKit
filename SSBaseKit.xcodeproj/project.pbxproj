@@ -166,12 +166,12 @@
 		CB53B2D51F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */; };
 		CB53B2D61F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */; };
 		CB614A851EE9362900471DE9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CB614A841EE9362900471DE9 /* README */; };
-		CB6E2C8320A4029300724033 /* SSFont.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6E2C8120A4029300724033 /* SSFont.h */; };
+		CB6E2C8320A4029300724033 /* SSFont.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6E2C8120A4029300724033 /* SSFont.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB6E2C8420A4029300724033 /* SSFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C8220A4029300724033 /* SSFont.m */; };
 		CB6E2C8520A4029300724033 /* SSFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C8220A4029300724033 /* SSFont.m */; };
 		CB6E2C8720A404EC00724033 /* HiraginoSansGBW3.otf in Resources */ = {isa = PBXBuildFile; fileRef = CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */; };
 		CB6E2C8820A404EC00724033 /* HiraginoSansGBW3.otf in Resources */ = {isa = PBXBuildFile; fileRef = CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */; };
-		CB6E2C9220A4272900724033 /* SSClassifyView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6E2C9020A4272900724033 /* SSClassifyView.h */; };
+		CB6E2C9220A4272900724033 /* SSClassifyView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6E2C9020A4272900724033 /* SSClassifyView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB6E2C9320A4272900724033 /* SSClassifyView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C9120A4272900724033 /* SSClassifyView.m */; };
 		CB6E2C9420A4272900724033 /* SSClassifyView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C9120A4272900724033 /* SSClassifyView.m */; };
 		CB7AE8501F4AF5A3005E8E1F /* SSLinkageView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */; };

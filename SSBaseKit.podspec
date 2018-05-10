@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SSBaseKit"
-  s.version      = "1.0.13.56"
+  s.version      = "1.0.13.57"
   s.summary      = "SSBaseKit 基础框架类 "
 
   # This description is used to generate tags and improve search results.
@@ -154,7 +154,7 @@ Pod::Spec.new do |s|
         end	
 	
 	s.subspec 'UIKit' do |cs|
-                cs.source_files = 'SSBaseKit/AMDBase/View/*.{h,m}','SSBaseKit/AMDBase/View/*/*.{h,m}'
+                cs.source_files = 'SSBaseKit/AMDBase/View/*.{h,m}','SSBaseKit/AMDBase/View/*/*.{h,m}','SSBaseKit/AMDBase/Extends/*/*.{h,m}'
 		cs.dependency 'SSBaseKit/Private'
 		cs.dependency 'SSBaseKit/MJRefresh'
         end
