@@ -166,14 +166,14 @@
 		CB53B2D51F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */; };
 		CB53B2D61F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */; };
 		CB614A851EE9362900471DE9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CB614A841EE9362900471DE9 /* README */; };
-		CB6E2C8320A4029300724033 /* SSFont.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6E2C8120A4029300724033 /* SSFont.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CB6E2C8420A4029300724033 /* SSFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C8220A4029300724033 /* SSFont.m */; };
-		CB6E2C8520A4029300724033 /* SSFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C8220A4029300724033 /* SSFont.m */; };
 		CB6E2C8720A404EC00724033 /* HiraginoSansGBW3.otf in Resources */ = {isa = PBXBuildFile; fileRef = CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */; };
 		CB6E2C8820A404EC00724033 /* HiraginoSansGBW3.otf in Resources */ = {isa = PBXBuildFile; fileRef = CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */; };
 		CB6E2C9220A4272900724033 /* SSClassifyView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6E2C9020A4272900724033 /* SSClassifyView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB6E2C9320A4272900724033 /* SSClassifyView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C9120A4272900724033 /* SSClassifyView.m */; };
 		CB6E2C9420A4272900724033 /* SSClassifyView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C9120A4272900724033 /* SSClassifyView.m */; };
+		CB6E2C9C20A42B2400724033 /* SSFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C9A20A42B2400724033 /* SSFont.m */; };
+		CB6E2C9D20A42B2400724033 /* SSFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C9A20A42B2400724033 /* SSFont.m */; };
+		CB6E2C9E20A42B2400724033 /* SSFont.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6E2C9B20A42B2400724033 /* SSFont.h */; };
 		CB7AE8501F4AF5A3005E8E1F /* SSLinkageView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */; };
 		CB7AE8511F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
 		CB7AE8521F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
@@ -322,11 +322,11 @@
 		CB614A841EE9362900471DE9 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		CB644C611F7CDC30001BF127 /* FXBlurView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		CB644C621F7CDC31001BF127 /* FXBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
-		CB6E2C8120A4029300724033 /* SSFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSFont.h; sourceTree = "<group>"; };
-		CB6E2C8220A4029300724033 /* SSFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSFont.m; sourceTree = "<group>"; };
 		CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HiraginoSansGBW3.otf; sourceTree = "<group>"; };
 		CB6E2C9020A4272900724033 /* SSClassifyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSClassifyView.h; sourceTree = "<group>"; };
 		CB6E2C9120A4272900724033 /* SSClassifyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSClassifyView.m; sourceTree = "<group>"; };
+		CB6E2C9A20A42B2400724033 /* SSFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSFont.m; sourceTree = "<group>"; };
+		CB6E2C9B20A42B2400724033 /* SSFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSFont.h; sourceTree = "<group>"; };
 		CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLinkageView.h; sourceTree = "<group>"; };
 		CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLinkageView.m; sourceTree = "<group>"; };
 		CB81723620899E8A00776FB8 /* AMDBaseCellDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMDBaseCellDataSource.h; sourceTree = "<group>"; };
@@ -481,6 +481,8 @@
 		CB47CC581EE6471A00D81CA3 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				CB6E2C9B20A42B2400724033 /* SSFont.h */,
+				CB6E2C9A20A42B2400724033 /* SSFont.m */,
 				CB47CC5A1EE6471A00D81CA3 /* AMDEntityProtocol.h */,
 				CB47CC5D1EE6471A00D81CA3 /* AMDWebViewProgress.h */,
 				CB47CC5E1EE6471A00D81CA3 /* AMDWebViewProgress.m */,
@@ -603,8 +605,6 @@
 		CB6E2C8020A4029300724033 /* Extends */ = {
 			isa = PBXGroup;
 			children = (
-				CB6E2C8120A4029300724033 /* SSFont.h */,
-				CB6E2C8220A4029300724033 /* SSFont.m */,
 			);
 			path = Extends;
 			sourceTree = "<group>";
@@ -694,7 +694,7 @@
 				CB47CD021EE6480B00D81CA3 /* AMDMJRefreshConst.h in Headers */,
 				CB47CD061EE6480B00D81CA3 /* AMDMJRefreshHeaderView.h in Headers */,
 				CB47CC2A1EE6471000D81CA3 /* SSBaseKit.h in Headers */,
-				CB6E2C8320A4029300724033 /* SSFont.h in Headers */,
+				CB6E2C9E20A42B2400724033 /* SSFont.h in Headers */,
 				CB47CCC01EE6471A00D81CA3 /* SSGlobalVar.h in Headers */,
 				CB47CD041EE6480B00D81CA3 /* AMDMJRefreshFooterView.h in Headers */,
 			);
@@ -936,7 +936,7 @@
 				CB47CCA11EE6471A00D81CA3 /* AMDLabelSwitchView.m in Sources */,
 				CB1CF7441FB939A900BB02CE /* SSNavigationController.m in Sources */,
 				CBD53CF81FA32912006D3268 /* SSImageCropController.m in Sources */,
-				CB6E2C8420A4029300724033 /* SSFont.m in Sources */,
+				CB6E2C9C20A42B2400724033 /* SSFont.m in Sources */,
 				CB47CCD61EE6471A00D81CA3 /* AMDProgressView.m in Sources */,
 				CB47CCDE1EE6471A00D81CA3 /* AMDTextField.m in Sources */,
 				CB47CCDC1EE6471A00D81CA3 /* AMDSegmentedControl.m in Sources */,
@@ -989,7 +989,7 @@
 				CB45E3D11F2B3484009BB7C6 /* AMDKeyboradView.m in Sources */,
 				CB47BE351F7B628400F1BA65 /* TestController.m in Sources */,
 				CB45E3D31F2B3489009BB7C6 /* AMDLabelShowView.m in Sources */,
-				CB6E2C8520A4029300724033 /* SSFont.m in Sources */,
+				CB6E2C9D20A42B2400724033 /* SSFont.m in Sources */,
 				CB45E3EC1F2B34CC009BB7C6 /* CustomTextView.m in Sources */,
 				CB45E3E21F2B34B8009BB7C6 /* AMDImageView.m in Sources */,
 				CB9A69AC1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */,
