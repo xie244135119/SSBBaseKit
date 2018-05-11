@@ -111,48 +111,6 @@ typedef NS_ENUM(NSUInteger, SSClassifyDirection) {
 
 
 
-
-
-/**
- 初始化分类视图(不带标题,自动布局下视图width默认self.frame.size.width)
-
- @pram frame 视图位置（高度是通过布局之后动态计算出的）
- @param count 一行最多放几个item数量 可不传 默认5
- @param sourceArray 数据源
- @param height item高度 （默认间隔10）
- @param isogony item是否等宽等高 默认No
- @return 实例化对象
- */
-//+ (instancetype)initWithFrame:(CGRect)frame
-//                  maxRowCount:(NSUInteger)count
-//                  sourceArray:(NSArray<AppEntFeatureModel> *)sourceArray
-//               classifyHeight:(CGFloat)height
-//                      isogony:(BOOL)isogony;
-
-
-/**
- 带有标题的分类视图
-
- @param frame 视图位置（高度是通过布局之后动态计算出的）
- @param count 一行最多放几个item数量 可不传 默认5
- @param sourceArray  数据源
- @param height item高度 （默认间隔10）
- @param isogony  item是否等宽等高 默认No
- @return 实例化对象
- */
-//+ (instancetype)initClassifyWithFrame:(CGRect)frame
-//                  maxRowCount:(NSUInteger)count
-//                  sourceArray:(NSArray<AppEntFeatureModel> *)sourceArray
-//               classifyHeight:(CGFloat)height
-//                      isogony:(BOOL)isogony;
-//
-//
-////点击每一个item的触发方法
-//@property (nonatomic, copy) void(^clickItem)(AppEntFeatureModel  *model);
-
-
-
-
 @end
 
 
