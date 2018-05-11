@@ -12,6 +12,10 @@
 #import "SSGlobalVar.h"
 
 @interface SSClassifyView()
+{
+    BOOL _autoLayout;                       //自动布局
+
+}
 @property (nonatomic, weak)SSClassifyView *contentView;
 @end
 
@@ -29,15 +33,15 @@
 
     NSInteger row = 0;// i/count;
     NSInteger column = 0;  //i%count;
-    CGFloat itemWidth = (SScreenWidth-((_visableItemCount+1)*10))/_visableItemCount;//每个item宽度
+//    CGFloat itemWidth = (SScreenWidth-((_visableItemCount+1)*_rowSpace))/_visableItemCount;//每个item宽度
     //底部滑动视图
     UIScrollView *scrollview = [[UIScrollView alloc] init];
     scrollview.showsVerticalScrollIndicator = NO;
     scrollview.showsHorizontalScrollIndicator = NO;
     //如果是水平
-    if (_direcrion == SSClassifyHorizontal) {
-        scrollview.contentSize = CGSizeMake((urls.count)*itemWidth+10*(urls.count+1), 0);
-    }
+//    if (_direcrion == SSClassifyHorizontal) {
+//        scrollview.contentSize = CGSizeMake((urls.count)*itemWidth+_rowSpace*(urls.count+1), 0);
+//    }
     [self addSubview:scrollview];
     [scrollview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
@@ -71,6 +75,9 @@
             //分类anniu
             NSURL *imageurl = urls[i];
             AMDButton *bt = [[AMDButton alloc]init];
+//            bt.imageView.layer.borderWidth = 1;
+//            bt.layer.borderWidth = 1;
+//            bt.layer.borderColor = [UIColor redColor].CGColor;
             bt.tag = i;
             [bt setImageWithUrl:imageurl placeHolder:nil];
             bt.titleLabel.text = titles[i];
@@ -109,13 +116,13 @@
                     make.left.equalTo(@(_rowSpace));
                     if (_direcrion == SSClassifyHorizontal) {
                         // 设置等宽度
-                        make.width.equalTo(@(itemWidth));
+//                        make.width.equalTo(@(itemWidth));
                     }
                 }
                 else {
                     if (_direcrion == SSClassifyHorizontal) {
                         // 设置等宽度
-                        make.width.equalTo(@(itemWidth));
+//                        make.width.equalTo(@(itemWidth));
                     }else{
                         // 设置等宽度
                         make.width.equalTo(_lastBt.mas_width);
@@ -158,9 +165,13 @@
         }
     
     // 更新一下高度
-    [self mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(_rowHeight*(row+1)+_rowSpace*(row)));
-    }];
+    if (_autoLayout) {
+            [self mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.equalTo(@(_rowHeight*(row+1)+_rowSpace*(row)));
+            }];
+    }else{
+        self.frame = CGRectMake(self.bounds.origin.x, self.bounds.origin.y, self.bounds.size.width, _rowHeight*(row+1)+_rowSpace*(row));
+    }
 }
 
 
@@ -173,17 +184,24 @@
 
 
 #pragma mark - 改造
+-(instancetype)init{
+    if(self = [super init]) {
+        _autoLayout = YES;
+    }
+    return self;
+}
+
 // 初始化
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
         _visableItemCount = 5;
         _rowHeight = 65;
-        _rowSpace = 10;
+        _rowSpace = 0;
         _titleFont = SSFontWithName(@"", 10);
         _imageSize = CGSizeMake(44, 44);
         _titleColor = SSColorWithRGB(51, 51, 51, 1);
-        _imageCornerRadius = _imageSize.width/2;
+//        _imageCornerRadius = _imageSize.width/2;
     }
     return self;
 }

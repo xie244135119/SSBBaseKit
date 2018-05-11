@@ -39,7 +39,7 @@
 
 typedef NS_ENUM(NSUInteger, SSClassifyDirection) {
     SSClassifyVertical,                    //垂直方向
-    SSClassifyHorizontal,               //水平
+    SSClassifyHorizontal,               //水平     <暂不支持>
 };
 
 @interface SSClassifyView : UIView
@@ -60,7 +60,7 @@ typedef NS_ENUM(NSUInteger, SSClassifyDirection) {
 @property(nonatomic, assign) CGFloat rowHeight;
 
 /**
- 行间距 默认10（direction 为SSClassifyVertical 有效）
+ 行间距 默认0（direction 为SSClassifyVertical 有效）
  */
 @property(nonatomic, assign) CGFloat rowSpace;
 
@@ -70,7 +70,7 @@ typedef NS_ENUM(NSUInteger, SSClassifyDirection) {
 @property(nonatomic, assign) CGSize imageSize;
 
 /**
- 图片圆角，默认为图片默认高度的一半
+ 图片圆角
  */
 @property(nonatomic, assign) CGFloat imageCornerRadius;
 
