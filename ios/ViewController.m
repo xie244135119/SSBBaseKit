@@ -107,6 +107,7 @@
     SSClassifyView *view = [[SSClassifyView alloc]init];
     view.delegate = self;
     view.dataSource = self;
+    view.rowSpace = 10;
     view.imageSize = CGSizeMake(80, 80);
     view.rowHeight = 100;
     [self.view addSubview:view];
