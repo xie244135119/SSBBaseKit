@@ -288,6 +288,11 @@
 - (NSArray<NSURL *> *)classifyImageUrls{
     return @[@"",@"",@""];
 }
+
+- (void)classiftView:(SSClassifyView *)view didSelectAtIndex:(NSInteger)index{
+    NSLog(@"index = %ld",(long)index);
+}
+
 @end
 
 

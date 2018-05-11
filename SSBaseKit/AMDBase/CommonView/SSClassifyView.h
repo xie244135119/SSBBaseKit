@@ -39,7 +39,7 @@
 
 typedef NS_ENUM(NSUInteger, SSClassifyDirection) {
     SSClassifyVertical,                    //垂直方向
-    SSClassifyHorizontal,               //水平     <暂不支持>
+//    SSClassifyHorizontal,               //水平     <暂不支持>
 };
 
 @interface SSClassifyView : UIView
