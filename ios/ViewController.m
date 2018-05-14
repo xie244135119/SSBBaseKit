@@ -20,6 +20,8 @@
 #import "AMDQrcodeController.h"
 #import "AMDLabelShowView.h"
 #import "SSLinkageView.h"
+#import "SSClassifyView.h"
+#import <Masonry/Masonry.h>
 
 @interface ViewController ()<UINavigationControllerDelegate,
                                 UIGestureRecognizerDelegate,
@@ -106,6 +108,22 @@
 // 视图加载
 - (void)initContentView
 {
+    SSClassifyView *view = [[SSClassifyView alloc]init];
+    view.delegate = self;
+    view.dataSource = self;
+    view.rowSpace = 10;
+    view.imageSize = CGSizeMake(80, 80);
+    view.rowHeight = 100;
+    [self.view addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.offset(0);
+        make.width.offset(400);
+        make.height.offset(200);
+    }];
+    [view prepareForLoad];
+    view.layer.borderWidth = 1;
+    
+    return;
     //
     AMDLabelShowView *labelshow = [[AMDLabelShowView alloc]initWithFrame:CGRectMake(0, 100, 320, 50)];
     labelshow.layer.borderWidth = 1;
@@ -272,6 +290,21 @@
 }
 
 
+#pragma mark -
+- (NSArray<NSString *> *)classifyTitles{
+    return @[@"奥术大师多",@"阿斯顿发送到",@"阿斯顿发送到2"];
+}
+
+/**
+ @return 一组分类图片地址
+ */
+- (NSArray<NSURL *> *)classifyImageUrls{
+    return @[@"",@"",@""];
+}
+
+- (void)classiftView:(SSClassifyView *)view didSelectAtIndex:(NSInteger)index{
+    NSLog(@"index = %ld",(long)index);
+}
 
 #pragma mark - SSLinkageViewDelegate
 //

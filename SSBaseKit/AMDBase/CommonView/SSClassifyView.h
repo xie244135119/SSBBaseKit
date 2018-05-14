@@ -39,7 +39,7 @@
 
 typedef NS_ENUM(NSUInteger, SSClassifyDirection) {
     SSClassifyVertical,                    //垂直方向
-    SSClassifyHorizontal,               //水平
+//    SSClassifyHorizontal,               //水平     <暂不支持>
 };
 
 @interface SSClassifyView : UIView
@@ -60,7 +60,7 @@ typedef NS_ENUM(NSUInteger, SSClassifyDirection) {
 @property(nonatomic, assign) CGFloat rowHeight;
 
 /**
- 行间距 默认10（direction 为SSClassifyVertical 有效）
+ 行间距 默认0（direction 为SSClassifyVertical 有效）
  */
 @property(nonatomic, assign) CGFloat rowSpace;
 
@@ -70,12 +70,12 @@ typedef NS_ENUM(NSUInteger, SSClassifyDirection) {
 @property(nonatomic, assign) CGSize imageSize;
 
 /**
- 图片圆角，默认为图片默认高度的一半
+ 图片圆角
  */
 @property(nonatomic, assign) CGFloat imageCornerRadius;
 
 /**
- 标题label字体 默认系统字体 11
+ 标题label字体 默认系统字体 10
  */
 @property(nonatomic, strong) UIFont *titleFont;
 
@@ -107,48 +107,6 @@ typedef NS_ENUM(NSUInteger, SSClassifyDirection) {
  */
 - (void)reload;
 
-
-
-
-
-
-
-/**
- 初始化分类视图(不带标题,自动布局下视图width默认self.frame.size.width)
-
- @pram frame 视图位置（高度是通过布局之后动态计算出的）
- @param count 一行最多放几个item数量 可不传 默认5
- @param sourceArray 数据源
- @param height item高度 （默认间隔10）
- @param isogony item是否等宽等高 默认No
- @return 实例化对象
- */
-//+ (instancetype)initWithFrame:(CGRect)frame
-//                  maxRowCount:(NSUInteger)count
-//                  sourceArray:(NSArray<AppEntFeatureModel> *)sourceArray
-//               classifyHeight:(CGFloat)height
-//                      isogony:(BOOL)isogony;
-
-
-/**
- 带有标题的分类视图
-
- @param frame 视图位置（高度是通过布局之后动态计算出的）
- @param count 一行最多放几个item数量 可不传 默认5
- @param sourceArray  数据源
- @param height item高度 （默认间隔10）
- @param isogony  item是否等宽等高 默认No
- @return 实例化对象
- */
-//+ (instancetype)initClassifyWithFrame:(CGRect)frame
-//                  maxRowCount:(NSUInteger)count
-//                  sourceArray:(NSArray<AppEntFeatureModel> *)sourceArray
-//               classifyHeight:(CGFloat)height
-//                      isogony:(BOOL)isogony;
-//
-//
-////点击每一个item的触发方法
-//@property (nonatomic, copy) void(^clickItem)(AppEntFeatureModel  *model);
 
 
 

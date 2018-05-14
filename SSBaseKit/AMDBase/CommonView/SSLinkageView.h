@@ -52,6 +52,11 @@
  */
 - (void)invalidate;
 
+/**
+ 预加载
+ */
+- (void)prepareLoad;
+
 @end
 
 
