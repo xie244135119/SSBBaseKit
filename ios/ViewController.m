@@ -19,9 +19,11 @@
 #import "AYEActionSheetView.h"
 #import "AMDQrcodeController.h"
 #import "AMDLabelShowView.h"
+#import "SSLinkageView.h"
 
-
-@interface ViewController ()<UINavigationControllerDelegate, UIGestureRecognizerDelegate>
+@interface ViewController ()<UINavigationControllerDelegate,
+                                UIGestureRecognizerDelegate,
+                                SSLinkageViewDelegate>
 {
     AMDButton *_currentBt;
 }
@@ -46,7 +48,8 @@
 //    self.supportBackBt = YES;
 //    self.backItem.layer.borderWidth = 1;
 //    self.backItem.imgStrokeColor = SSColorWithRGB(75, 75, 75, 1);
-    [self initContentView];
+//    [self initContentView];
+    [self testLinkPageView];
 //    self.contentView.layer.borderWidth = 1;
 //    self.view.layer.borderWidth = 1;
 //    self.view.layer.borderColor = [UIColor redColor].CGColor;
@@ -193,6 +196,15 @@
     [self.navigationController pushViewController:webVc animated:YES];
 }
 
+// 测试轮播视图
+- (void)testLinkPageView
+{
+    SSLinkageView *linkPageView = [[SSLinkageView alloc]initWithFrame:CGRectMake(0, 0, 300, 200) imageUrls:@[@"http://wdwd-prod.wdwdcdn.com/5ad81142d0d91.jpg", @"http://wdwd-prod.wdwdcdn.com/5ad8115ac02c4.jpg"]];
+    [self.view addSubview:linkPageView];
+    linkPageView.layer.borderWidth = 1;
+    linkPageView.delegate = self;
+}
+
 
 -(IBAction)clickTest:(id)sender
 {
@@ -261,7 +273,34 @@
 
 
 
+#pragma mark - SSLinkageViewDelegate
+//
+- (void)linkPageView:(SSLinkageView *)pageView
+    didScrollToImage:(UIView *)imageView
+             atIndex:(NSInteger)index
+{
+    //
+    UIView *senderView = [imageView viewWithTag:1000];
+    if (senderView == nil) {
+        UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 100, 200, 50)];
+        v.tag = 1000;
+        [imageView addSubview:senderView];
+        v.layer.borderWidth = 1;
+
+        // label
+        UILabel *senderlb = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
+        senderlb.text = @"阿萨撒旦法师打发";
+        [v addSubview:senderlb];
+    }
+}
+
+
+
+
+
 @end
+
+
 
 
 

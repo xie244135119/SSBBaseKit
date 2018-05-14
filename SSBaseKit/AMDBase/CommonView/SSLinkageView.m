@@ -9,6 +9,7 @@
 #import "SSLinkageView.h"
 #import "AMDImageView.h"
 #import "SSGlobalVar.h"
+#import <Masonry/Masonry.h>
 
 typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     SSScrollLocationTypeLeft,           //左侧
@@ -45,13 +46,15 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     _currentTimer = nil;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame imageUrls:(NSArray *)imageUrls
+- (instancetype)initWithFrame:(CGRect)frame
+                    imageUrls:(NSArray *)imageUrls
 {
     if (self = [super initWithFrame:frame]) {
         _imageURLs = imageUrls;
     }
     return self;
 }
+
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -184,10 +187,15 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 
 
 #pragma mark - 按钮事件
+// 按钮事件
 - (void)clickAction:(SSLinkageImageView *)sender
 {
     if ([_delegate respondsToSelector:@selector(linkPageView:index:)]) {
         [_delegate linkPageView:self index:sender.imageIndex];
+    }
+    
+    if ([_delegate respondsToSelector:@selector(linkPageView:index:)]) {
+        [_delegate linkPageView:self actionAtIndex:sender.imageIndex];
     }
 }
 
@@ -262,6 +270,13 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     [_scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:NO];
     [_currentPageControl setCurrentPage:_middleImageView.imageIndex];
     _topImageView.hidden = YES;
+    
+    // 做滑动处理
+    if ([_delegate respondsToSelector:@selector(linkPageView:didScrollToImage:atIndex:)]) {
+        [_delegate linkPageView:self
+               didScrollToImage:_middleImageView
+                        atIndex:_middleImageView.imageIndex];
+    }
 }
 
 
@@ -289,7 +304,6 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     else{//当前状态--不做任何处理
         type = SSScrollLocationTypeMiddle;
     }
-    
     [self dealInBackgroundWithType:type];
 }
 

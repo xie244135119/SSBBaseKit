@@ -44,7 +44,7 @@
  @return 实例化
  */
 - (instancetype)initWithFrame:(CGRect)frame
-         imageUrls:(NSArray *)imageUrls;
+                    imageUrls:(NSArray *)imageUrls;
 
 
 /**
@@ -59,8 +59,30 @@
 @protocol SSLinkageViewDelegate <NSObject>
 
 @optional
-// 点击事件
-- (void)linkPageView:(SSLinkageView *)pageView index:(NSInteger)index;
+
+/**
+ 点击事件
+ NS_DEPRECATED_IOS(2_0, 8_0, "Use -linkPageView:actionAtIndex:")
+ @param pageView 当前视图
+ @param index 当前索引
+ */
+- (void)linkPageView:(SSLinkageView *)pageView
+               index:(NSInteger)index ;
+- (void)linkPageView:(SSLinkageView *)pageView
+       actionAtIndex:(NSInteger)index;
+
+
+/**
+ 即将滑动到某个视图
+ (注：由于视图会重用，请调用方自行处理重用问题)
+ @param pageView pageView
+ @param imageView 即将滑动展现的视图
+ @param index 索引
+ */
+- (void)linkPageView:(SSLinkageView *)pageView
+    didScrollToImage:(UIView *)imageView
+             atIndex:(NSInteger)index;
+
 
 @end
 
