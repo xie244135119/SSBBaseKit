@@ -45,6 +45,7 @@
  */
 - (instancetype)initWithFrame:(CGRect)frame
                     imageUrls:(NSArray *)imageUrls;
+- (instancetype)initWithImageUrls:(NSArray *)imageUrls;
 
 
 /**
@@ -85,9 +86,11 @@
  @param index 索引
  */
 - (void)linkPageView:(SSLinkageView *)pageView
+    willScrollToImage:(UIView *)imageView
+             atIndex:(NSInteger)index;
+- (void)linkPageView:(SSLinkageView *)pageView
     didScrollToImage:(UIView *)imageView
              atIndex:(NSInteger)index;
-
 
 @end
 
