@@ -209,14 +209,14 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 
 
 #pragma mark - 按钮事件
-// 按钮事件
+// 选中某一个图片视图
 - (void)clickAction:(SSLinkageImageView *)sender
 {
     if ([_delegate respondsToSelector:@selector(linkPageView:index:)]) {
         [_delegate linkPageView:self index:sender.imageIndex];
     }
     
-    if ([_delegate respondsToSelector:@selector(linkPageView:index:)]) {
+    if ([_delegate respondsToSelector:@selector(linkPageView:actionAtIndex:)]) {
         [_delegate linkPageView:self actionAtIndex:sender.imageIndex];
     }
 }

@@ -340,6 +340,12 @@
     label.text = [NSString stringWithFormat:@"阿萨斯多发送方 %i",index];
 }
 
+//
+- (void)linkPageView:(SSLinkageView *)pageView actionAtIndex:(NSInteger)index
+{
+    NSLog(@" 按钮点击事件 %i ", index);
+}
+
 
 
 
