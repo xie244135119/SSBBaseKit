@@ -39,7 +39,7 @@
 
 
 
-@interface UIViewController (AMDTabBarControllerItem)
+@interface UIViewController (AMDTabBarController)
 
 // 自定义tabbarItem
 @property(null_resettable, nonatomic, strong) AMDTabbarItem *amdTabBarItem;

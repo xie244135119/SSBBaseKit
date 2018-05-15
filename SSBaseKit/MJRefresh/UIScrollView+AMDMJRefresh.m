@@ -54,7 +54,7 @@ static char AMDMJRefreshFooterViewKey;
  *
  *  @param callback 回调
  */
-- (void)addHeaderWithCallback:(void (^)())callback
+- (void)addHeaderWithCallback:(void (^)(void))callback
 {
     // 1.创建新的header
     if (!self.header) {

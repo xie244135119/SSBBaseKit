@@ -321,8 +321,6 @@
 		CB58B3C21F99CAFB00360891 /* AMDQrcodeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMDQrcodeController.h; sourceTree = "<group>"; };
 		CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMDQrcodeController.m; sourceTree = "<group>"; };
 		CB614A841EE9362900471DE9 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		CB644C611F7CDC30001BF127 /* FXBlurView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
-		CB644C621F7CDC31001BF127 /* FXBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		CB6C8FF620A978740081AC1A /* AMDImageView+ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMDImageView+ImageCache.m"; sourceTree = "<group>"; };
 		CB6C8FF720A978740081AC1A /* AMDImageView+ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMDImageView+ImageCache.h"; sourceTree = "<group>"; };
 		CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HiraginoSansGBW3.otf; sourceTree = "<group>"; };
@@ -423,8 +421,6 @@
 			children = (
 				CB6E2C9020A4272900724033 /* SSClassifyView.h */,
 				CB6E2C9120A4272900724033 /* SSClassifyView.m */,
-				CB644C611F7CDC30001BF127 /* FXBlurView.h */,
-				CB644C621F7CDC31001BF127 /* FXBlurView.m */,
 				CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */,
 				CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */,
 				CB2D53401F15B5AC005A1B3F /* AMDSexSetView.h */,

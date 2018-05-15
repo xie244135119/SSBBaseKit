@@ -304,8 +304,8 @@
     
     // 结束的时候
     [UIView animateWithDuration:0.25 animations:^{
-        _progressView.alpha = 0;
-        [_progressView setProgress:1 animated:NO];
+        self->_progressView.alpha = 0;
+        [self->_progressView setProgress:1 animated:NO];
     } completion:nil];
     
     // 视图重新加载
@@ -421,8 +421,8 @@
     }
     
     [UIView animateWithDuration:0.25 animations:^{
-        _progressView.alpha = 0;
-        [_progressView setProgress:1 animated:NO];
+        self->_progressView.alpha = 0;
+        [self->_progressView setProgress:1 animated:NO];
     } completion:nil];
     
     // 视图重新加载
@@ -470,9 +470,9 @@
     if (!([aRequest.URL.scheme hasPrefix:@"http"] || [aRequest.URL.scheme hasPrefix:@"file"])) {
         if (![aRequest.URL.scheme isEqualToString:@"about"]) {
             if ([[UIApplication sharedApplication] canOpenURL:aRequest.URL]) {
-                if([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
-                    [[UIApplication sharedApplication] openURL:aRequest.URL options:@{}
-                                             completionHandler:nil];
+                if (@available(iOS 10.0, *)) {
+                        [[UIApplication sharedApplication] openURL:aRequest.URL options:@{}
+                                                 completionHandler:nil];
                 }
                 else {
                     [[UIApplication sharedApplication] openURL:aRequest.URL];

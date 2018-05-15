@@ -60,8 +60,8 @@
             [bt.imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(bt.mas_centerX);
                 make.top.offset(0);
-                make.width.offset(_imageSize.width);
-                make.height.offset(_imageSize.height);
+                make.width.offset(self->_imageSize.width);
+                make.height.offset(self->_imageSize.height);
             }];
             [bt.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.left.right.bottom.offset(0);
@@ -70,11 +70,11 @@
         }
         
         [bt mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@(_rowHeight));
+            make.height.equalTo(@(self->_rowHeight));
             // 第一个按钮不存在的时候
             if (_firstBt == nil) {
                 make.top.equalTo(@0);
-                make.left.equalTo(@(_rowSpace));
+                make.left.equalTo(@(self->_rowSpace));
             }
             else {
                 // 设置等宽度
@@ -84,21 +84,21 @@
                 if (row == 0) {
                     make.top.equalTo(_firstBt.mas_top);
                 }else {  //其余行的时候
-                    make.top.equalTo(_upBt.mas_bottom).with.offset(_rowSpace);
+                    make.top.equalTo(_upBt.mas_bottom).with.offset(self->_rowSpace);
                 }
                 
                 // 首列
                 if (column == 0) {
-                    make.left.equalTo(@(_rowSpace));
+                    make.left.equalTo(@(self->_rowSpace));
                 }else {// 设置左侧约束
-                    make.left.equalTo(_lastBt.mas_right).with.offset(_rowSpace);
+                    make.left.equalTo(_lastBt.mas_right).with.offset(self->_rowSpace);
                     // 末列
-                    if (column == _visableItemCount-1) {
-                        make.right.offset(-_rowSpace).priorityHigh();
+                    if (column == self->_visableItemCount-1) {
+                        make.right.offset(-self->_rowSpace).priorityHigh();
                     }
                 }
             }
-            if (column == _visableItemCount-1) {
+            if (column == self->_visableItemCount-1) {
                 _upBt = bt;
             }
         }];
@@ -110,14 +110,14 @@
     // 修正当配置数量少于一行的时候
     if (urls.count < _visableItemCount) {
         [_lastBt mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(@(-_rowSpace));
+            make.right.equalTo(@(-self->_rowSpace));
         }];
     }
     
     // 更新一下高度
     if (_autoLayout) {
         [self mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@(_rowHeight*(row+1)+_rowSpace*(row)));
+            make.height.equalTo(@(self->_rowHeight*(row+1)+self->_rowSpace*(row)));
         }];
     }else{
         self.frame = CGRectMake(self.bounds.origin.x, self.bounds.origin.y, self.bounds.size.width, _rowHeight*(row+1)+_rowSpace*(row));
