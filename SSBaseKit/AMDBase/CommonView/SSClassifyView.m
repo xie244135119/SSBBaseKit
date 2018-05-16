@@ -85,7 +85,7 @@
     NSInteger row = 0;// i/count;
     NSInteger column = 0;  //i%count;
     
-    for (int i = 0; i < urls.count; i++) {
+    for (int i = 0; i < MAX(urls.count, images.count); i++) {
         //垂直方向 行数固定 列数自适应
         //行
         row = i/_visableItemCount;
