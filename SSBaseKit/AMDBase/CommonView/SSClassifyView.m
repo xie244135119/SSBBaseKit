@@ -22,9 +22,60 @@
 @implementation SSClassifyView
 
 
+#pragma mark - 改造
+-(instancetype)init{
+    if(self = [super init]) {
+        _autoLayout = YES;
+    }
+    return self;
+}
+
+// 初始化
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        _visableItemCount = 5;
+        _rowHeight = 65;
+        _rowSpace = 0;
+        _titleFont = SSFontWithName(@"", 10);
+        _imageSize = CGSizeMake(44, 44);
+        _titleColor = SSColorWithRGB(51, 51, 51, 1);
+        //        _imageCornerRadius = _imageSize.width/2;
+    }
+    return self;
+}
+
+
+//搭建内容视图
+- (void)initContentView{
+    NSArray *titles = nil;
+    NSArray<NSURL *> *imageUrls = nil;
+    NSArray<UIImage *> *images = nil;
+    //名称
+    if ([_dataSource respondsToSelector:@selector(classifyTitles)]) {
+        titles = [_dataSource classifyTitles];
+    }
+    // 图像
+    if ([_dataSource respondsToSelector:@selector(classifyImages)]) {
+        images = [_dataSource classifyImages];
+    }
+    // 一组图片地址
+    if ([_dataSource respondsToSelector:@selector(classifyImageUrls)]) {
+        imageUrls = [_dataSource classifyImageUrls];
+    }
+    // 加载
+    [self _initContentViewWithTitles:titles
+                           imageUrls:imageUrls
+                              images:images];
+}
+
+
+
 #pragma mark - 本地方法
 //初始化内容视图
-- (void)_initContentViewWithTitles:(NSArray *)titles imageUrls:(NSArray *)urls;
+- (void)_initContentViewWithTitles:(NSArray *)titles
+                         imageUrls:(NSArray<NSURL *> *)urls
+                            images:(NSArray<UIImage *> *)images
 {
     //默认一行最多数量
     __weak AMDButton *_firstBt = nil;
@@ -45,6 +96,7 @@
         AMDButton *bt = [[AMDButton alloc]init];
         bt.tag = i;
         [bt setImageWithUrl:imageurl placeHolder:nil];
+        bt.imageView.image = images[i];
         bt.titleLabel.text = titles[i];
         bt.titleLabel.textColor = _titleColor;
         bt.titleLabel.font = _titleFont;
@@ -133,53 +185,17 @@
 }
 
 
-#pragma mark - 改造
--(instancetype)init{
-    if(self = [super init]) {
-        _autoLayout = YES;
-    }
-    return self;
-}
 
-// 初始化
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    if (self = [super initWithFrame:frame]) {
-        _visableItemCount = 5;
-        _rowHeight = 65;
-        _rowSpace = 0;
-        _titleFont = SSFontWithName(@"", 10);
-        _imageSize = CGSizeMake(44, 44);
-        _titleColor = SSColorWithRGB(51, 51, 51, 1);
-//        _imageCornerRadius = _imageSize.width/2;
-    }
-    return self;
-}
-
-
+#pragma mark - Public-Api
 //预加载
-- (void)prepareForLoad{
+- (void)prepareForLoad
+{
     [self initContentView];
 }
 
 
-//搭建内容视图
-- (void)initContentView{
-    NSArray *titles = nil;
-    NSArray *imageUrls = nil;
-    //名称
-    if ([_dataSource respondsToSelector:@selector(classifyTitles)]) {
-        titles = [_dataSource classifyTitles];
-    }
-    //图片
-    if ([_dataSource respondsToSelector:@selector(classifyImageUrls)]) {
-            imageUrls = [_dataSource classifyImageUrls];
-    }
-    [self _initContentViewWithTitles:titles imageUrls:imageUrls];
-}
-
-
-- (void)reload{
+- (void)reload
+{
     //移除所有子视图
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     //重新加载
@@ -188,9 +204,6 @@
 
 
 @end
-
-
-
 
 
 

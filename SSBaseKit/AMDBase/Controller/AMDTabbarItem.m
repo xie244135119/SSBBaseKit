@@ -226,7 +226,7 @@
                     self->_itemImageView.frame = CGRectMake((weakself.frame.size.width-40)/2, (49-40)/2, 40, 40);
                     //文字渐渐消失
                     self->_itemTitleLabel.alpha = 0;
-                    self->_itemTitleLabel.center = CGPointMake(_itemTitleLabel.center.x, _itemTitleLabel.center.y-50);
+                    self->_itemTitleLabel.center = CGPointMake(self->_itemTitleLabel.center.x, _itemTitleLabel.center.y-50);
                     self->_itemTitleLabel.transform = CGAffineTransformMakeScale(2, 2);
                 }completion:^(BOOL finished) {
                     self->_itemTitleLabel.transform = CGAffineTransformMakeScale(1, 1);

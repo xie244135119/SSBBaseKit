@@ -138,7 +138,7 @@ static char AMDMJRefreshFooterViewKey;
  *
  *  @param callback 回调
  */
-- (void)addFooterWithCallback:(void (^)())callback
+- (void)addFooterWithCallback:(void (^)(void))callback
 {
     // 1.创建新的footer
     if (!self.footer) {

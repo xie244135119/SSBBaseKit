@@ -215,7 +215,7 @@
 {
     __weak typeof(self) weakself = self;
     [UIView animateWithDuration:0.2 animations:^{
-        _middleView.frame = CGRectMake(0, SScreenHeight, _middleView.frame.size.width, _middleView.frame.size.height);
+        self->_middleView.frame = CGRectMake(0, SScreenHeight, self->_middleView.frame.size.width, self->_middleView.frame.size.height);
         weakself.backgroundColor = SSColorWithRGB(0, 0, 0, 0);
     } completion:^(BOOL finished) {
         [weakself removeFromSuperview];

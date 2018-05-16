@@ -196,7 +196,7 @@
     // 更新内容展示视图布局
     [_contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         //距离左侧控件5
-        make.left.equalTo(_titleLabel.mas_right).with.offset(5);
+        make.left.equalTo(self->_titleLabel.mas_right).with.offset(5);
         //距离右侧控件左侧15
         make.right.equalTo(self).with.offset(-15-(rightArrowShow?24:0));
         make.top.bottom.equalTo(self).with.offset(0);
