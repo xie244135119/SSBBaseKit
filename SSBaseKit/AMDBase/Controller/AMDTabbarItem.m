@@ -223,28 +223,28 @@
                 _implementAnimated = YES;
                 [UIView animateWithDuration:0.25 animations:^{
                     //图片放大
-                    _itemImageView.frame = CGRectMake((weakself.frame.size.width-40)/2, (49-40)/2, 40, 40);
+                    self->_itemImageView.frame = CGRectMake((weakself.frame.size.width-40)/2, (49-40)/2, 40, 40);
                     //文字渐渐消失
-                    _itemTitleLabel.alpha = 0;
-                    _itemTitleLabel.center = CGPointMake(_itemTitleLabel.center.x, _itemTitleLabel.center.y-50);
-                    _itemTitleLabel.transform = CGAffineTransformMakeScale(2, 2);
+                    self->_itemTitleLabel.alpha = 0;
+                    self->_itemTitleLabel.center = CGPointMake(self->_itemTitleLabel.center.x, _itemTitleLabel.center.y-50);
+                    self->_itemTitleLabel.transform = CGAffineTransformMakeScale(2, 2);
                 }completion:^(BOOL finished) {
-                    _itemTitleLabel.transform = CGAffineTransformMakeScale(1, 1);
+                    self->_itemTitleLabel.transform = CGAffineTransformMakeScale(1, 1);
                 }];
             }
         }
         else{
             //如果还没开始动画
-            if (_implementAnimated) {
-                _implementAnimated = NO;
-                _itemTitleLabel.transform = CGAffineTransformMakeScale(1, 1);
+            if (self->_implementAnimated) {
+                self->_implementAnimated = NO;
+                self->_itemTitleLabel.transform = CGAffineTransformMakeScale(1, 1);
                 
                 [UIView animateWithDuration:0.25 animations:^{
                     //图片放大
-                    _itemImageView.frame = CGRectMake((weakself.frame.size.width-30)/2, 2, 30, 30);
+                    self->_itemImageView.frame = CGRectMake((weakself.frame.size.width-30)/2, 2, 30, 30);
                     //文字渐渐消失
-                    _itemTitleLabel.alpha = 1;
-                    _itemTitleLabel.frame = CGRectMake(0, weakself.frame.size.height-20+2, weakself.frame.size.width, 15);
+                    self->_itemTitleLabel.alpha = 1;
+                    self->_itemTitleLabel.frame = CGRectMake(0, weakself.frame.size.height-20+2, weakself.frame.size.width, 15);
                 }completion:^(BOOL finished) {
                 }];
             }
@@ -365,26 +365,7 @@
     }
 }
 
-
-
-
-
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -184,7 +184,7 @@
     [UIView animateWithDuration:0.15 animations:^{
         shadowView.center = CGPointMake(sender.center.x, shadowView.center.y);
     } completion:^(BOOL finished) {
-        [_delegate messageChoiceView:self sender:sender];
+        [self->_delegate messageChoiceView:self sender:sender];
     }];
 }
 
@@ -341,13 +341,13 @@
     //动画结束后调用回调事件
     [UIView animateWithDuration:0.15 animations:^{
         // 更新动画
-        [_shadowView mas_updateConstraints:^(MASConstraintMaker *make) {
+        [self->_shadowView mas_updateConstraints:^(MASConstraintMaker *make) {
             // 调整左侧距离
             make.left.equalTo(@(sender.frame.origin.x));
         }];
-         [_shadowView.superview layoutIfNeeded];
+         [self->_shadowView.superview layoutIfNeeded];
     } completion:^(BOOL finished) {
-        [_delegate messageChoiceView:self sender:sender];
+        [self->_delegate messageChoiceView:self sender:sender];
     }];
 }
 

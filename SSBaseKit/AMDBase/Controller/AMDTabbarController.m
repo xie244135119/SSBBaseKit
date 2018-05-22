@@ -64,7 +64,6 @@
 - (void)setSelectedViewController:(__kindof UIViewController *)selectedViewController
 {
 //    [super setSelectedViewController:selectedViewController];
-    
     // 选中当前项目
     NSInteger index = [self.viewControllers indexOfObject:selectedViewController];
     [self selectTabbarIndex:index];
@@ -166,28 +165,38 @@
 
 
 #pragma mark - IOS11 底部Tabbar处理
+//
 - (void)viewSafeAreaInsetsDidChange
 {
     [super viewSafeAreaInsetsDidChange];
     
 //  更新布局
     [_amdTabBar mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(_currentTabbar.frame.size.height));
+        make.height.equalTo(@(self->_currentTabbar.frame.size.height));
     }];
 }
 
 
 #pragma mark - 按钮事件
+//
 - (void)clickBt_ChangeSelect:(AMDTabbarItem *)sender
 {
     [self selectTabbarIndex:sender.tag-900];
 }
 
+
+#pragma mark - Public Api
+// 选中某一个index
 - (void)selectTabbarIndex:(NSInteger)index
 {
-    if (self.selectedIndex == index) {
-        
-        return;
+    //
+    if (self.selectedIndex == index)  return;
+    
+    // 是否允许点击当前控制器
+    if ([self.delegate respondsToSelector:@selector(tabBarController:shouldSelectViewController:)]) {
+        if (![self.delegate tabBarController:self shouldSelectViewController:self.viewControllers[index]]) {
+            return;
+        }
     }
     
     //清除之前的选中状态
@@ -201,8 +210,11 @@
     AMDTabbarItem *sender = (AMDTabbarItem *)[self.view viewWithTag:self.selectedIndex+900];
     sender.selected = YES;
     
+    // 点击当前控制器
+    if ([self.delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)]) {
+        [self.delegate tabBarController:self didSelectViewController:self.viewControllers[index]];
+    }
 }
-
 
 @end
 
@@ -262,7 +274,7 @@
 
 
 
-@implementation UIViewController (AMDTabBarControllerItem)
+@implementation UIViewController (AMDTabBarController)
 
 @dynamic amdTabBarController;
 @dynamic amdTabBarItem;
@@ -273,16 +285,13 @@
     return (AMDTabbarController *)self.tabBarController;
 }
 
-
+//
 - (AMDTabbarItem *)amdTabBarItem
 {
     NSInteger index = [self.amdTabBarController.viewControllers indexOfObject:self];
     AMDTabbarItem *item = [self.amdTabBarController.amdTabBar viewWithTag:(900+index)];
     return item;
 }
-
-
-
 
 
 @end

@@ -12,7 +12,7 @@
 @implementation NSTimer (AMDBlockTimer)
 
 
-+ (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void (^)())block repeats:(BOOL)yesOrNo
++ (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void (^)(void))block repeats:(BOOL)yesOrNo
 {
     return [self scheduledTimerWithTimeInterval:ti target:self selector:@selector(amd_BlockSel:) userInfo:[block copy] repeats:yesOrNo];
 }

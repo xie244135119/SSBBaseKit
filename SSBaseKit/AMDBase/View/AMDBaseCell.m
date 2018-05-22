@@ -255,22 +255,22 @@
 {
     __weak AMDHitView *hitView = _currentHitView;
     [UIView animateWithDuration:0.25 animations:^{
-        _contentInfoView.center = CGPointMake(x, _contentInfoView.center.y);
+        self->_contentInfoView.center = CGPointMake(x, self->_contentInfoView.center.y);
     } completion:^(BOOL finished) {
         //隐藏编辑视图的时候
         if (x == self.frame.size.width/2) {
             //            _rightSlideView.hidden = YES;
-            _tableView.scrollEnabled = YES;
+            self->_tableView.scrollEnabled = YES;
             [hitView removeFromSuperview];
         
             //移除当前选中滑动的cell
-            [_tableView bindWeakValue:nil forKey:@"AASHitView"];
-            [_tableView bindWeakValue:nil forKey:AASCurrentSlideCell];
+            [self->_tableView bindWeakValue:nil forKey:@"AASHitView"];
+            [self->_tableView bindWeakValue:nil forKey:AASCurrentSlideCell];
 //            [_tableView removeBindObjects];
         }
         else{
             //显示编辑视图的时候
-            _tableView.scrollEnabled = NO;
+            self->_tableView.scrollEnabled = NO;
         }
     }];
 }

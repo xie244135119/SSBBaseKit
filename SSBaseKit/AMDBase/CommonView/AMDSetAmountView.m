@@ -201,13 +201,12 @@
     }
     else{
         [UIView animateWithDuration:0.25 animations:^{
-            _offSetView.center = _beginOffset;
+            self->_offSetView.center = _beginOffset;
         }];
     }
     
     //超过最大数值的时候
     if (textField.text.doubleValue > _maxStoreAmount && _maxStoreAmount != -1) {
-//        [AMDUIFactory makeToken:nil message:@"不能超过最大库存"];
         textField.text = [NSString stringWithFormat:@"%li",(long)_maxStoreAmount];
     }
     

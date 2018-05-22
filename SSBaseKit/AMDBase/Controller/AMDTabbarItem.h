@@ -13,11 +13,11 @@
 
 
 // 显示的标题
-@property(nonatomic,readonly,weak) UILabel *itemTitleLabel;
-
+@property(nullable, nonatomic, readonly) UILabel *itemTitleLabel;
 // 显示的图片
-@property(nonatomic,strong) UIImage *itemSelectImage;
-@property(nonatomic,readonly,weak) AMDImageView *itemImageView;
+@property(nullable, nonatomic, strong) UIImage *itemSelectImage;
+// 图片视图
+@property(nullable, nonatomic, readonly) AMDImageView *itemImageView;
 
 // 支持选中动画
 @property(nonatomic) BOOL supportAnimation;
@@ -31,15 +31,20 @@
  @param image UIImage 或 NSUrl
  @param state 状态
  */
-- (void)setImage:(UIImage *)image controlState:(UIControlState)state;
-- (void)setImageUrl:(NSURL *)imageUrl controlState:(UIControlState)state;
+- (void)setImage:(UIImage *_Nullable)image controlState:(UIControlState)state;
+- (void)setImageUrl:(NSURL *_Nullable)imageUrl controlState:(UIControlState)state;
 
 // 根据不同的状态设置不同
-- (void)setTitleColor:(UIColor *)titleColor controlState:(UIControlState)state;
+- (void)setTitleColor:(UIColor *_Nullable)titleColor controlState:(UIControlState)state;
 
 @end
 
 
+@interface UIViewController (AMDTabBarItem)
+// 自定义tabbarItem
+@property(null_resettable, nonatomic, strong) AMDTabbarItem *amdTabBarItem;
+
+@end
 
 
 

@@ -166,6 +166,9 @@
 		CB53B2D51F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */; };
 		CB53B2D61F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CB53B2D31F4D1D0B0083A31B /* UIButton+SSBackground.m */; };
 		CB614A851EE9362900471DE9 /* README in Resources */ = {isa = PBXBuildFile; fileRef = CB614A841EE9362900471DE9 /* README */; };
+		CB6C8FF820A978740081AC1A /* AMDImageView+ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6C8FF620A978740081AC1A /* AMDImageView+ImageCache.m */; };
+		CB6C8FFA20A97ACD0081AC1A /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
+		CB6C8FFB20A97ACE0081AC1A /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
 		CB6E2C8720A404EC00724033 /* HiraginoSansGBW3.otf in Resources */ = {isa = PBXBuildFile; fileRef = CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */; };
 		CB6E2C8820A404EC00724033 /* HiraginoSansGBW3.otf in Resources */ = {isa = PBXBuildFile; fileRef = CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */; };
 		CB6E2C9220A4272900724033 /* SSClassifyView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6E2C9020A4272900724033 /* SSClassifyView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -175,8 +178,6 @@
 		CB6E2C9D20A42B2400724033 /* SSFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6E2C9A20A42B2400724033 /* SSFont.m */; };
 		CB6E2C9E20A42B2400724033 /* SSFont.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6E2C9B20A42B2400724033 /* SSFont.h */; };
 		CB7AE8501F4AF5A3005E8E1F /* SSLinkageView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */; };
-		CB7AE8511F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
-		CB7AE8521F4AF5A3005E8E1F /* SSLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */; };
 		CB81723720899E8A00776FB8 /* AMDBaseCellDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = CB81723620899E8A00776FB8 /* AMDBaseCellDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB9079E81FF4D9D400275296 /* AMDRootViewController+UMStatistic.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9079E71FF4D9D400275296 /* AMDRootViewController+UMStatistic.m */; };
 		CB9A69AC1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
@@ -320,8 +321,8 @@
 		CB58B3C21F99CAFB00360891 /* AMDQrcodeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMDQrcodeController.h; sourceTree = "<group>"; };
 		CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMDQrcodeController.m; sourceTree = "<group>"; };
 		CB614A841EE9362900471DE9 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		CB644C611F7CDC30001BF127 /* FXBlurView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
-		CB644C621F7CDC31001BF127 /* FXBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		CB6C8FF620A978740081AC1A /* AMDImageView+ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMDImageView+ImageCache.m"; sourceTree = "<group>"; };
+		CB6C8FF720A978740081AC1A /* AMDImageView+ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMDImageView+ImageCache.h"; sourceTree = "<group>"; };
 		CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HiraginoSansGBW3.otf; sourceTree = "<group>"; };
 		CB6E2C9020A4272900724033 /* SSClassifyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSClassifyView.h; sourceTree = "<group>"; };
 		CB6E2C9120A4272900724033 /* SSClassifyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSClassifyView.m; sourceTree = "<group>"; };
@@ -420,8 +421,6 @@
 			children = (
 				CB6E2C9020A4272900724033 /* SSClassifyView.h */,
 				CB6E2C9120A4272900724033 /* SSClassifyView.m */,
-				CB644C611F7CDC30001BF127 /* FXBlurView.h */,
-				CB644C621F7CDC31001BF127 /* FXBlurView.m */,
 				CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */,
 				CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */,
 				CB2D53401F15B5AC005A1B3F /* AMDSexSetView.h */,
@@ -577,6 +576,8 @@
 			isa = PBXGroup;
 			children = (
 				CB6E2C8620A404EB00724033 /* HiraginoSansGBW3.otf */,
+				CB6C8FF720A978740081AC1A /* AMDImageView+ImageCache.h */,
+				CB6C8FF620A978740081AC1A /* AMDImageView+ImageCache.m */,
 				CB9079E61FF4D9D300275296 /* AMDRootViewController+UMStatistic.h */,
 				CB9079E71FF4D9D400275296 /* AMDRootViewController+UMStatistic.m */,
 				CB47CD191EE64DFE00D81CA3 /* AppDelegate.h */,
@@ -817,9 +818,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ios/Pods-ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -847,13 +853,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ios-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CAEBE1195A52C1D4B2027427 /* [CP] Check Pods Manifest.lock */ = {
@@ -862,13 +871,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SSBaseKit-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DAB4B2CE0BB12DBC62094B7E /* [CP] Copy Pods Resources */ = {
@@ -903,7 +915,6 @@
 				CB47CCCA1EE6471A00D81CA3 /* AMDBaseView.m in Sources */,
 				CB47CD071EE6480B00D81CA3 /* AMDMJRefreshHeaderView.m in Sources */,
 				CB47CCD81EE6471A00D81CA3 /* AMDRootNavgationBar.m in Sources */,
-				CB7AE8511F4AF5A3005E8E1F /* SSLinkageView.m in Sources */,
 				CB47CC9F1EE6471A00D81CA3 /* AMDLabelShowView.m in Sources */,
 				CB47CCBB1EE6471A00D81CA3 /* AMDWebViewProgress.m in Sources */,
 				CB47CCA91EE6471A00D81CA3 /* AMDSetAmountView.m in Sources */,
@@ -918,6 +929,7 @@
 				CB47CCAF1EE6471A00D81CA3 /* AMDRootViewController.m in Sources */,
 				CB47CCD41EE6471A00D81CA3 /* AMDNoDataView.m in Sources */,
 				CB47CCB31EE6471A00D81CA3 /* AMDTabbarItem.m in Sources */,
+				CB6C8FFB20A97ACE0081AC1A /* SSLinkageView.m in Sources */,
 				CB53B2D51F4D1D0B0083A31B /* UIButton+SSBackground.m in Sources */,
 				CB47CCC81EE6471A00D81CA3 /* AMDBaseCell.m in Sources */,
 				CB47CCC61EE6471A00D81CA3 /* AMDBackControl.m in Sources */,
@@ -977,6 +989,7 @@
 				CB45E3E41F2B34BC009BB7C6 /* AMDNoDataView.m in Sources */,
 				CB6E2C9420A4272900724033 /* SSClassifyView.m in Sources */,
 				CB45E3CA1F2B346F009BB7C6 /* AMDRootViewController.m in Sources */,
+				CB6C8FFA20A97ACD0081AC1A /* SSLinkageView.m in Sources */,
 				CB45E3CF1F2B3480009BB7C6 /* AMDAnimationWebView.m in Sources */,
 				CB45E3D51F2B348C009BB7C6 /* AMDLabelTextView.m in Sources */,
 				CB45E3DE1F2B34AF009BB7C6 /* AMDBackControl.m in Sources */,
@@ -984,7 +997,6 @@
 				CB45E3D91F2B3495009BB7C6 /* AMDWebViewPopverView.m in Sources */,
 				CB45E3E31F2B34B9009BB7C6 /* AMDLineView.m in Sources */,
 				CB45E3D01F2B3482009BB7C6 /* AMDImgViewLabelView.m in Sources */,
-				CB7AE8521F4AF5A3005E8E1F /* SSLinkageView.m in Sources */,
 				CB45E3CD1F2B3479009BB7C6 /* AMDWebViewController.m in Sources */,
 				CB45E3D11F2B3484009BB7C6 /* AMDKeyboradView.m in Sources */,
 				CB47BE351F7B628400F1BA65 /* TestController.m in Sources */,
@@ -1002,6 +1014,7 @@
 				CB9079E81FF4D9D400275296 /* AMDRootViewController+UMStatistic.m in Sources */,
 				CB45E3D61F2B348E009BB7C6 /* AMDLoadingView.m in Sources */,
 				CB45E3DB1F2B34A7009BB7C6 /* AMDWebViewProgress.m in Sources */,
+				CB6C8FF820A978740081AC1A /* AMDImageView+ImageCache.m in Sources */,
 				CB45E3CC1F2B3477009BB7C6 /* AMDTabbarItem.m in Sources */,
 				CB45E3E71F2B34C2009BB7C6 /* AMDScrollView.m in Sources */,
 				CB45E3E81F2B34C4009BB7C6 /* AMDSegmentedControl.m in Sources */,

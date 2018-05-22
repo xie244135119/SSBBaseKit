@@ -114,8 +114,7 @@
     CGSize size = [UIScreen mainScreen].bounds.size;
     __weak typeof(self) weakself = self;
     [UIView animateWithDuration:0.25 animations:^{
-//        _middleView.frame = CGRectMake(0, APPHeight-_middleView.frame.size.height, APPWidth, _middleView.frame.size.height);
-        _middleView.amd_y = size.height-_middleView.frame.size.height;
+        self->_middleView.amd_y = size.height-self->_middleView.frame.size.height;
         weakself.backgroundColor = SSColorWithRGB(0, 0, 0, 0.56);
     }];
 }
@@ -127,7 +126,7 @@
     __weak typeof(self) weakself = self;
     [UIView animateWithDuration:0.25 animations:^{
 //        _middleView.frame = CGRectMake(0, APPHeight, APPWidth, _middleView.frame.size.height);
-        _middleView.amd_y = size.height;
+        self->_middleView.amd_y = size.height;
         weakself.backgroundColor = SSColorWithRGB(0, 0, 0, 0);
     } completion:^(BOOL finished) {
         [weakself removeFromSuperview];

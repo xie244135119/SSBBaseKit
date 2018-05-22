@@ -19,10 +19,13 @@
 #import "AYEActionSheetView.h"
 #import "AMDQrcodeController.h"
 #import "AMDLabelShowView.h"
+#import "SSLinkageView.h"
 #import "SSClassifyView.h"
 #import <Masonry/Masonry.h>
 
-@interface ViewController ()<UINavigationControllerDelegate, UIGestureRecognizerDelegate,SSClassifyDelegate,SSClassifyDataSource>
+@interface ViewController ()<UINavigationControllerDelegate,
+                                UIGestureRecognizerDelegate,
+                                SSLinkageViewDelegate>
 {
     AMDButton *_currentBt;
 }
@@ -47,7 +50,8 @@
 //    self.supportBackBt = YES;
 //    self.backItem.layer.borderWidth = 1;
 //    self.backItem.imgStrokeColor = SSColorWithRGB(75, 75, 75, 1);
-    [self initContentView];
+//    [self initContentView];
+    [self testLinkPageView];
 //    self.contentView.layer.borderWidth = 1;
 //    self.view.layer.borderWidth = 1;
 //    self.view.layer.borderColor = [UIColor redColor].CGColor;
@@ -210,6 +214,21 @@
     [self.navigationController pushViewController:webVc animated:YES];
 }
 
+// 测试轮播视图
+- (void)testLinkPageView
+{
+    SSLinkageView *linkPageView = [[SSLinkageView alloc]initWithFrame:CGRectMake(0, 0, 300, 200) imageUrls:@[@"http://wdwd-prod.wdwdcdn.com/5ad81142d0d91.jpg", @"http://wdwd-prod.wdwdcdn.com/5ad8115ac02c4.jpg", @"http://wdwd-prod.wdwdcdn.com/5ad810080cb40.png", @"http://wdwd-prod.wdwdcdn.com/5ad806369fadb.png"]];
+    [self.view addSubview:linkPageView];
+//    linkPageView.layer.borderWidth = 1;
+    linkPageView.delegate = self;
+    [linkPageView prepareLoad];
+    [linkPageView.currentPageControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(@-20);
+        make.height.equalTo(@20);
+        make.bottom.equalTo(@-10);
+    }];
+}
+
 
 -(IBAction)clickTest:(id)sender
 {
@@ -293,7 +312,47 @@
     NSLog(@"index = %ld",(long)index);
 }
 
+#pragma mark - SSLinkageViewDelegate
+//
+- (void)linkPageView:(SSLinkageView *)pageView
+    willScrollToImage:(UIView *)imageView
+             atIndex:(NSInteger)index
+{
+    //
+    UIView *senderView = [pageView viewWithTag:1000];
+    if (senderView == nil) {
+        UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 100, 200, 50)];
+        v.tag = 1000;
+        [pageView addSubview:v];
+//        v.layer.borderWidth = 1;
+
+        // label
+        UILabel *senderlb = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 20)];
+        senderlb.text = @"阿萨撒旦法师打发";
+        senderlb.font = SSFontWithName(@"", 17);
+        senderlb.tag = 1001;
+        senderlb.textColor = [UIColor whiteColor];
+        [v addSubview:senderlb];
+        senderView = v;
+    }
+    
+    UILabel *label = [senderView viewWithTag:1001];
+    label.text = [NSString stringWithFormat:@"阿萨斯多发送方 %i",index];
+}
+
+//
+- (void)linkPageView:(SSLinkageView *)pageView actionAtIndex:(NSInteger)index
+{
+    NSLog(@" 按钮点击事件 %i ", index);
+}
+
+
+
+
+
 @end
+
+
 
 
 

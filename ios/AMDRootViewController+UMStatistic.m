@@ -27,7 +27,7 @@
     [self exchangeSel:@selector(viewWillAppear:) senderSel:@selector(amd_viewWillAppear:)];
     [self exchangeSel:@selector(viewWillDisappear:) senderSel:@selector(amd_viewWillDisappear:)];
     [self exchangeSel:@selector(viewDidLoad) senderSel:@selector(amd_viewDidLoad)];
-    [self exchangeSel:@selector(preferredStatusBarStyle) senderSel:@selector(amd_preferredStatusBarStyle)];
+//    [self exchangeSel:@selector(preferredStatusBarStyle) senderSel:@selector(amd_preferredStatusBarStyle)];
 }
 
 

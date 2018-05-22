@@ -289,10 +289,10 @@ static const float afterInteractiveMaxProgressValue = 0.9;
         
         // 0.25s 完成最后的动画
         [UIView animateWithDuration:0.1 animations:^{
-            [_progressView setProgress:1 animated:YES];
+            [self->_progressView setProgress:1 animated:YES];
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:0.2 animations:^{
-                _progressView.alpha = 0;
+                self->_progressView.alpha = 0;
             }];
         }];
         return;

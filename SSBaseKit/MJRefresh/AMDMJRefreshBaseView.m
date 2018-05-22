@@ -235,8 +235,8 @@ typedef void (*send_type)(void *, SEL, UIView *);
                 }];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(AMDMJRefreshSlowAnimationDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     // 再次设置回normal
-                    _state = AMDMJRefreshStatePulling;
-                    self.state = AMDMJRefreshStateNormal;
+                    self->_state = AMDMJRefreshStatePulling;
+                    self->state = AMDMJRefreshStateNormal;
                 });
                 // 直接返回
                 return;

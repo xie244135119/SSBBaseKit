@@ -200,12 +200,12 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             //扫描出了二维码
             if (codeValue.length > 0) {
-                if ([_delegate respondsToSelector:@selector(viewController:object:)]) {
-                    [_delegate viewController:self object:codeValue];
+                if ([self->_delegate respondsToSelector:@selector(viewController:object:)]) {
+                    [self->_delegate viewController:self object:codeValue];
                 }
                 
-                if (_scanAction) {
-                    _scanAction(codeValue, nil);
+                if (self->_scanAction) {
+                    self->_scanAction(codeValue, nil);
                 }
                 [weakself.navigationController popViewControllerAnimated:YES];
             }

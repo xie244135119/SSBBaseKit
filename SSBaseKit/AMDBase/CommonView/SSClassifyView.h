@@ -23,9 +23,16 @@
 - (NSArray<NSString *> *)classifyTitles;
 
 /**
+ @return 一组分类图片图像
+ */
+- (NSArray<UIImage *> *)classifyImages;
+
+/**
+ 优先级: classifyImagess -> classifyImageUrls
  @return 一组分类图片地址
  */
 - (NSArray<NSURL *> *)classifyImageUrls;
+
 @end
 
 
@@ -108,26 +115,7 @@ typedef NS_ENUM(NSUInteger, SSClassifyDirection) {
 - (void)reload;
 
 
-
-
-
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

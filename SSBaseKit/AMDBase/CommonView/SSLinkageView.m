@@ -9,6 +9,7 @@
 #import "SSLinkageView.h"
 #import "AMDImageView.h"
 #import "SSGlobalVar.h"
+#import <Masonry/Masonry.h>
 
 typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     SSScrollLocationTypeLeft,           //左侧
@@ -27,7 +28,7 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 
 @interface SSLinkageView()  <UIScrollViewDelegate>
 {
-    __weak AMDImageView *_topImageView;         //顶部视图
+//    __weak AMDImageView *_topImageView;         //顶部视图
     
     __weak SSLinkageImageView *_leftImageView;              //左侧视图
     __weak SSLinkageImageView *_middleImageView;            //中间视图
@@ -45,13 +46,23 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     _currentTimer = nil;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame imageUrls:(NSArray *)imageUrls
+- (instancetype)initWithFrame:(CGRect)frame
+                    imageUrls:(NSArray *)imageUrls
 {
-    if (self = [super initWithFrame:frame]) {
+    if (self = [self initWithFrame:frame]) {
         _imageURLs = imageUrls;
     }
     return self;
 }
+
+- (instancetype)initWithImageUrls:(NSArray *)imageUrls
+{
+    if (self = [super init]) {
+        _imageURLs = imageUrls;
+    }
+    return self;
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -129,8 +140,20 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
         }
     }
     
-//    [self initTopShowView];
+    // 加载pageControl
     [self initPageControlView];
+    
+    // 即将切换中间视图
+    if ([_delegate respondsToSelector:@selector(linkPageView:willScrollToImage:atIndex:)]) {
+        [_delegate linkPageView:self
+              willScrollToImage:_middleImageView
+                        atIndex:_middleImageView.imageIndex];
+    }
+    if ([_delegate respondsToSelector:@selector(linkPageView:didScrollToImage:atIndex:)]) {
+        [_delegate linkPageView:self
+               didScrollToImage:_middleImageView
+                        atIndex:_middleImageView.imageIndex];
+    }
     
     // 如果图片只有1张的情况下 不允许滚动
     if (_imageURLs.count == 1) {
@@ -138,18 +161,17 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
         _currentPageControl.hidden = YES;
         [self invalidate];  //定时器无效
     }
-    
 }
 
 //增加一个显示的视图---目前么用
-- (void)initTopShowView
-{
-    //底部视图
-    AMDImageView *topimgView = [[AMDImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width,  self.frame.size.height)];
-    [self addSubview:topimgView];
-    topimgView.hidden = YES;
-    _topImageView = topimgView;
-}
+//- (void)initTopShowView
+//{
+//    //底部视图
+//    AMDImageView *topimgView = [[AMDImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width,  self.frame.size.height)];
+//    [self addSubview:topimgView];
+//    topimgView.hidden = YES;
+//    _topImageView = topimgView;
+//}
 
 //pagecontrol效果
 - (void)initPageControlView
@@ -187,10 +209,15 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 
 
 #pragma mark - 按钮事件
+// 选中某一个图片视图
 - (void)clickAction:(SSLinkageImageView *)sender
 {
     if ([_delegate respondsToSelector:@selector(linkPageView:index:)]) {
         [_delegate linkPageView:self index:sender.imageIndex];
+    }
+    
+    if ([_delegate respondsToSelector:@selector(linkPageView:actionAtIndex:)]) {
+        [_delegate linkPageView:self actionAtIndex:sender.imageIndex];
     }
 }
 
@@ -199,12 +226,20 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 //加载一张页面显示视图--用于处理--加载后端处理操作
 - (void)dealInBackgroundWithType:(XQScrollLocationType)type
 {
-    _topImageView.hidden = NO;
+//    _topImageView.hidden = NO;
+//    _topImageView.layer.borderWidth = 1;
+    
+    // 即将切换中间视图
+    if ([_delegate respondsToSelector:@selector(linkPageView:willScrollToImage:atIndex:)]) {
+        [_delegate linkPageView:self
+               willScrollToImage:_middleImageView
+                        atIndex:_middleImageView.imageIndex];
+    }
     
     //后台处理图片的换位问题
     switch (type) {
         case SSScrollLocationTypeLeft:{
-            _topImageView.image = _leftImageView.imageView.image;
+//            _topImageView.image = _leftImageView.imageView.image;
             
             //设置右侧视图
             _rightImageView.imageIndex = _middleImageView.imageIndex;
@@ -231,7 +266,7 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
         }
             break;
         case SSScrollLocationTypeRight:{
-            _topImageView.image = _rightImageView.imageView.image;
+//            _topImageView.image = _rightImageView.imageView.image;
             
             //设置左侧视图
             _leftImageView.imageIndex = _middleImageView.imageIndex;
@@ -264,17 +299,24 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     
     [_scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:NO];
     [_currentPageControl setCurrentPage:_middleImageView.imageIndex];
-    _topImageView.hidden = YES;
+    
+    // 做滑动处理
+    if ([_delegate respondsToSelector:@selector(linkPageView:didScrollToImage:atIndex:)]) {
+        [_delegate linkPageView:self
+               didScrollToImage:_middleImageView
+                        atIndex:_middleImageView.imageIndex];
+    }
 }
 
 
 #pragma mark - UIScrollViewDelegate
-//结束减速---即当scrollView滑动停止的时候
+// 结束减速---即当scrollView滑动停止的时候
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self dealOffSetX:scrollView.contentOffset.x];
 }
 
+// 结束动画的时候
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
     [self scrollViewDidEndDecelerating:scrollView];
@@ -292,7 +334,6 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     else{//当前状态--不做任何处理
         type = SSScrollLocationTypeMiddle;
     }
-    
     [self dealInBackgroundWithType:type];
 }
 

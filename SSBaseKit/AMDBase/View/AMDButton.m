@@ -509,8 +509,8 @@
     
     // 自动布局处理
     [unreadlb mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_imageView.mas_right).with.offset(-5);
-        make.top.equalTo(_imageView.mas_top).with.offset(-5);
+        make.left.equalTo(self->_imageView.mas_right).with.offset(-5);
+        make.top.equalTo(self->_imageView.mas_top).with.offset(-5);
         make.width.greaterThanOrEqualTo(@14);
         make.height.equalTo(@14);
     }];
@@ -586,10 +586,10 @@
     }
     // 更新外层视图
     [_unreadImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_unreadLb.mas_left).with.offset(-(reduce));
-        make.top.equalTo(_unreadLb.mas_top).with.offset(-2);
-        make.bottom.equalTo(_unreadLb.mas_bottom).with.offset(2);
-        make.right.equalTo(_unreadLb.mas_right).with.offset(reduce);
+        make.left.equalTo(self->_unreadLb.mas_left).with.offset(-(reduce));
+        make.top.equalTo(self->_unreadLb.mas_top).with.offset(-2);
+        make.bottom.equalTo(self->_unreadLb.mas_bottom).with.offset(2);
+        make.right.equalTo(self->_unreadLb.mas_right).with.offset(reduce);
     }];
     
 }

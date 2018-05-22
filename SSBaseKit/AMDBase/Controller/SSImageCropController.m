@@ -219,7 +219,7 @@
             // 小图的话 归位上或者下
             CGRect newframe = [self fixMoveOverflow:_showImgView.frame];
             [UIView  animateWithDuration:0.25 animations:^{
-                _showImgView.frame = newframe;
+                self->_showImgView.frame = newframe;
             }];
         }
             break;
@@ -291,7 +291,7 @@
             newFrame = [self fixScaleOverflow:newFrame];
             newFrame = [self fixMoveOverflow:newFrame];
             [UIView animateWithDuration:0.25 animations:^{
-                _showImgView.frame = newFrame;
+                self->_showImgView.frame = newFrame;
             }];
         }
             break;

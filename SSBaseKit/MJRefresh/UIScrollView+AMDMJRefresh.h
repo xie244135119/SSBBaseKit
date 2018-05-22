@@ -62,7 +62,7 @@
  *
  *  @param callback 回调
  */
-- (void)addFooterWithCallback:(void (^)())callback;
+- (void)addFooterWithCallback:(void (^)(void))callback;
 
 /**
  *  添加一个上拉刷新尾部控件
