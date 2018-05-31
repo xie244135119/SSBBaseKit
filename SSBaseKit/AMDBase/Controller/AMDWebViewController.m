@@ -30,6 +30,7 @@
     }
     self.requestWithSignURL = nil;
     _currentAnimationView = nil;
+    _webViewURL = nil;
 }
 
 
@@ -58,6 +59,7 @@
     //加载框
     AMDAnimationWebView *animationView = [[AMDAnimationWebView alloc]init];
     animationView.requestWithSignURL = _requestWithSignURL;
+    animationView.webViewURL = _webViewURL;
     animationView.delegate = self;
     animationView.controller = self;
     if (self.titleView) {
@@ -212,11 +214,11 @@
 //#else
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    if (_requestWithSignURL && (self.supportBack)) {
-        if (![_requestWithSignURL isEqualToString:webView.request.URL.description]) {
-//            if (navigationType == UIWebViewNavigationTypeOther) {
-                [self initCloseBt];
-//            }
+    if ((_requestWithSignURL||_webViewURL) && (self.supportBack)) {
+        if (![_requestWithSignURL isEqualToString:webView.request.URL.description] || ![_webViewURL.description isEqualToString:webView.request.URL.description]) {
+            //            if (navigationType == UIWebViewNavigationTypeOther) {
+            [self initCloseBt];
+            //            }
         }
     }
 }
@@ -276,6 +278,7 @@
 {
     AMDWebViewController *webVc = [[AMDWebViewController alloc]init];
     webVc.requestWithSignURL = aUrl;
+    webVc.webViewURL = [NSURL URLWithString:aUrl];
     webVc.supportBack = YES;
     [self.navigationController pushViewController:webVc animated:YES];
 }
