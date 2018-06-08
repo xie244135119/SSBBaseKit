@@ -49,8 +49,6 @@
 #define SSLineHeight 0.5
 // 线条颜色
 #define SSLineColor SSColorWithRGB(230, 230, 230, 1)
-// 默认圆角
-#define SSCornerRadius 3
 
 
 
