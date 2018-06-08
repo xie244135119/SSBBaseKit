@@ -160,7 +160,7 @@
     }
     
     // 修正当配置数量少于一行的时候
-    if (urls.count < _visableItemCount) {
+    if (MAX(urls.count, images.count) < _visableItemCount) {
         [_lastBt mas_updateConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(@(-self->_rowSpace));
         }];

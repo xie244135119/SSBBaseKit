@@ -91,7 +91,8 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 - (void)config
 {
     _currentTimer = [NSTimer scheduledTimerWithTimeInterval:_linkageDuration target:self selector:@selector(change:) userInfo:nil repeats:YES];
-    
+    //避免滑动拖拽时造成timer停止工作
+    [[NSRunLoop currentRunLoop] addTimer:_currentTimer forMode:UITrackingRunLoopMode];
     [self initView];
 }
 
