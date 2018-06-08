@@ -35,9 +35,9 @@ typedef NS_ENUM(NSUInteger, AMDControllerShowType) {
  * 控制器实例化 (尽量不要调用)
  * @param1 标题
  */
-- (instancetype)initWithTitle:(NSString *)title NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithTitle:(NSString *)title NS_DEPRECATED_IOS(2_0, 8_0);
 - (instancetype)initWithTitle:(NSString *)title
-               titileViewShow:(BOOL)titleViewShow NS_DESIGNATED_INITIALIZER;
+               titileViewShow:(BOOL)titleViewShow NS_DEPRECATED_IOS(2_0, 8_0);
 
 
 #pragma mark - 进去页面方式

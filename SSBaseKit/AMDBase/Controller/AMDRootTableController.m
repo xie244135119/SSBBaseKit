@@ -35,7 +35,7 @@
 #pragma mark - 初始化视图
 // 初始化视图
 - (void)setupViews
-{UICollectionView
+{
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     tableView.dataSource = self;
     tableView.delegate = self;
@@ -43,10 +43,20 @@
     tableView.separatorColor = [UIColor clearColor];
     [self.contentView addSubview:tableView];
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.inset(UIEdgeInsetsZero);
+        make.edges.insets(UIEdgeInsetsZero);
     }];
 }
 
+
+#pragma mark -
+// 数据源
+- (NSMutableArray *)sourceArry
+{
+    if (_sourceArry == nil) {
+        _sourceArry = [[NSMutableArray alloc]init];
+    }
+    return _sourceArry;
+}
 
 
 #pragma mark - UITableViewDataSource

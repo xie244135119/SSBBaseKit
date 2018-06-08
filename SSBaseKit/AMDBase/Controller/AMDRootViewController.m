@@ -88,7 +88,7 @@
 
 - (instancetype)init
 {
-    return [self initWithTitle:nil];
+    return [self initWithTitle:nil titileViewShow:YES tabBarShow:NO];
 }
 //
 - (instancetype)initWithTitle:(NSString *)title
