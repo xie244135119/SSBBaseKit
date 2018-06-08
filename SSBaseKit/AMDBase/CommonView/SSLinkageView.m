@@ -76,10 +76,14 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 - (void)invalidate
 {
     [_currentTimer invalidate];
+    _currentTimer = nil;
 }
 
 - (void)prepareLoad
 {
+    // 使之前的定时器无效
+    [self invalidate];
+    // 初始化配置
     [self config];
 }
 
@@ -162,16 +166,6 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
         [self invalidate];  //定时器无效
     }
 }
-
-//增加一个显示的视图---目前么用
-//- (void)initTopShowView
-//{
-//    //底部视图
-//    AMDImageView *topimgView = [[AMDImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width,  self.frame.size.height)];
-//    [self addSubview:topimgView];
-//    topimgView.hidden = YES;
-//    _topImageView = topimgView;
-//}
 
 //pagecontrol效果
 - (void)initPageControlView

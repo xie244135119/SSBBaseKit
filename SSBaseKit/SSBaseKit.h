@@ -62,6 +62,7 @@ FOUNDATION_EXPORT const unsigned char SSBaseKitVersionString[];
 #import <SSBaseKit/AMDQrcodeController.h>
 #import <SSBaseKit/AMDRootProtocol.h>
 #import <SSBaseKit/AMDRootViewController.h>
+#import <SSBaseKit/AMDRootTableController.h>
 #import <SSBaseKit/AMDControllerTransitionDelegate.h>
 #import <SSBaseKit/AMDTabbarController.h>
 #import <SSBaseKit/AMDWebViewController.h>

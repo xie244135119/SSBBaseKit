@@ -28,24 +28,19 @@ typedef NS_ENUM(NSUInteger, AMDControllerShowType) {
 
 // 支持显示后退按钮
 @property(nonatomic, weak) AMDBackControl *backItem;
+// 默认为YES
 @property(nonatomic) BOOL supportBack;
 
 /*
- * 控制器实例化
+ * 控制器实例化 (尽量不要调用)
  * @param1 标题
  */
-- (instancetype)initWithTitle:(NSString *)title;
+- (instancetype)initWithTitle:(NSString *)title NS_DESIGNATED_INITIALIZER;
 - (instancetype)initWithTitle:(NSString *)title
-               titileViewShow:(BOOL)titleViewShow;
-/*
- * @param1 导航栏是否展示
-   @param2 标题
-   @param3 tabbar栏高度是否展示
- */
-- (instancetype)initWithTitle:(NSString *)title
-               titileViewShow:(BOOL)titleViewShow
-                   tabBarShow:(BOOL)tabbarshow;
+               titileViewShow:(BOOL)titleViewShow NS_DESIGNATED_INITIALIZER;
 
+
+#pragma mark - 进去页面方式
 /**
  *  进入页面方式 模态还是压栈
  */
@@ -57,6 +52,7 @@ typedef NS_ENUM(NSUInteger, AMDControllerShowType) {
  @return 是否需要动画
  */
 - (BOOL)controllerShowAnimate;
+
 
 @end
 

@@ -14,12 +14,10 @@
 
 
 @interface AMDRootViewController ()
-
-@property(nonatomic) BOOL loadFromNib;     //从xib中加载的话
-//导航是否展示
+// 从xib中加载的话
+@property(nonatomic) BOOL loadFromNib;
+// 导航是否展示
 @property(nonatomic) BOOL titileViewHidden;
-//底部tabbar的高度是否展示
-@property(nonatomic) BOOL tabBarHidden;
 @end
 
 @implementation AMDRootViewController
@@ -76,15 +74,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    //
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
+    //
 }
-
 
 
 #pragma mark -
@@ -110,10 +107,8 @@
                    tabBarShow:(BOOL)tabbar
 {
     _titileViewHidden = !titleViewShow;
-    _tabBarHidden = !tabbar;
     self.title = title;
     _loadFromNib = NO;
-    //    }
     return self;
 }
 
@@ -204,12 +199,6 @@
     }
 }
 
-- (void)viewWillLayoutSubviews
-{
-    // 当视图发生改变的时候
-    [super viewWillLayoutSubviews];
-}
-
 
 #pragma mark - 兼容ios 11
 - (void)viewSafeAreaInsetsDidChange
@@ -269,6 +258,15 @@
     return [[self class] description];
 }
 
+
+#pragma mark - SET
+//
+- (void)setTitle:(NSString *)title
+{
+    [super setTitle:title];
+    // 设置标题
+    self.titleView.title = title;
+}
 
 
 @end
