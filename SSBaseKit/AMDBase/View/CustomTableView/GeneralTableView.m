@@ -39,22 +39,20 @@
     tab.dataSource = self;
     tab.backgroundColor = [UIColor clearColor];
     tab.separatorColor = [UIColor clearColor];
+    tab.tableFooterView = [UIView new];
     _tableView = tab;
     tab.delegate = self;
     [self addSubview:tab];
     tab.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    [self clearTableViewBottom:tab];
-    if (CGRectEqualToRect(CGRectZero, frame)) {
-        [tab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
-        }];
-    }
+    [tab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
+    }];
     
     // 禁掉偏移量
     tab.estimatedSectionHeaderHeight = 0;
     if (@available(iOS 11.0, *)) {
-            tab.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
+        tab.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
 }
 
 

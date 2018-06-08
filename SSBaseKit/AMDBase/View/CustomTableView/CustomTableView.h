@@ -16,9 +16,6 @@ typedef NS_ENUM(NSUInteger, CustomTableViewType) {
     kCustomTableViewTypeGeneralPlain,   //普通的tableView，没有分组功能,数据为NSDictionary类型
     kCustomTableViewTypeGroup,          //Group样式,没有标题,单纯的Section,数据为NSArry类型
     kCustomTableViewTypeGroupPlain,     //Group样式的tableView，数据为NSDictionary类型
-    
-    //    kCustomTableViewTypeRefresh,        //带下拉刷新功能的tableView
-    //    kCustomTableViewTypeRefrshSlide,    //带下拉刷新功能的tableView,同时支持滑动操作--右侧编辑视图
     kCustomTableViewTypeIndex,            //表格带索引的tableView,数据为NSDictionary类型
     kCustomTableViewTypeWeChatRefresh,    //类似微信的下拉刷新类型
 };
@@ -37,12 +34,20 @@ typedef NS_ENUM(NSUInteger, CustomTableViewType) {
 @property(nonatomic,weak,readonly) UITableView * tableView;
 
 
-//带下拉刷新功能
-@property(nonatomic) BOOL refresh;
-@property(nonatomic) BOOL loadMore;                 //仅供支持加载更多<Temp property>
-@property(nonatomic) BOOL reachedTheEnd;            //到达最后 默认是NO
-@property(nonatomic) BOOL reachedTheTop;            //到达顶部--类似微信的下拉加载更多功能使用
+#pragma mark - v1.0
+// 带下拉刷新功能
+@property(nonatomic) BOOL refresh NS_DEPRECATED_IOS(2_0, 8_0, "请使用downRefresh和upLoadMore");
+@property(nonatomic) BOOL loadMore NS_DEPRECATED_IOS(2_0, 8_0, "请使用downRefresh和upLoadMore");                 //仅供支持加载更多<Temp property>
+@property(nonatomic) BOOL reachedTheEnd NS_DEPRECATED_IOS(2_0, 8_0, "请使用downRefresh和upLoadMore");            //到达最后 默认是NO
+// 到达顶部--类似微信的下拉加载更多功能使用
+@property(nonatomic) BOOL reachedTheTop;
 
+
+#pragma mark - v2.0
+// 下拉刷新
+@property(nonatomic) BOOL downRefresh;
+// 加载更多
+@property(nonatomic) BOOL upLoadMore;
 
 
 #pragma mark - Mj刷新样式
@@ -52,9 +57,6 @@ typedef NS_ENUM(NSUInteger, CustomTableViewType) {
 //停止刷新
 - (void)headerEndRefreshing;
 - (void)footerEndRefreshing;
-
-
-#pragma mark - 微信刷新样式---从本地获取数据
 
 
 
@@ -69,27 +71,10 @@ typedef NS_ENUM(NSUInteger, CustomTableViewType) {
 // 自动布局支持
 - (instancetype)initWithType:(CustomTableViewType)type;
 
-
-
 // 清空tableView的下方空白
--(void)clearTableViewBottom:(UITableView *)tableView;
-
-
-
-
+- (void)clearTableViewBottom:(UITableView *)tableView NS_DEPRECATED_IOS(2_0, 8_0, "默认没有空白请不要再次调用");
 
 @end
-
-
-
-
-
-
-
-
-
-
-
 
 
 

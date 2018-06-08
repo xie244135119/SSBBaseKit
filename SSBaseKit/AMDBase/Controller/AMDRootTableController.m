@@ -8,6 +8,8 @@
 
 #import "AMDRootTableController.h"
 #import <Masonry/Masonry.h>
+#import "UIScrollView+AMDMJRefresh.h"
+#import "tab"
 
 @interface AMDRootTableController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -24,6 +26,8 @@
     [super viewDidLoad];
     // 初始化
     [self setupViews];
+    // 配置
+    [self setupPreference];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,10 +45,25 @@
     tableView.delegate = self;
     tableView.tableFooterView = [UIView new];
     tableView.separatorColor = [UIColor clearColor];
+    tableView.separatorInset = UIEdgeInsetsZero;
     [self.contentView addSubview:tableView];
+    _tableView = tableView;
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsZero);
     }];
+}
+
+// 初始化配置
+- (void)setupPreference
+{
+    // 下拉刷新
+    if (_downRefresh) {
+        self.downRefresh = YES;
+    }
+    // 加载更多
+    if (_upLoadMore) {
+        self.upLoadMore = YES;
+    }
 }
 
 
@@ -56,6 +75,34 @@
         _sourceArry = [[NSMutableArray alloc]init];
     }
     return _sourceArry;
+}
+
+// 下拉刷新
+- (void)setDownRefresh:(BOOL)downRefresh
+{
+    if (_downRefresh != downRefresh) {
+        _downRefresh = downRefresh;
+        if (downRefresh) {
+            [_tableView addHeaderWithTarget:self action:@selector(pullingTableViewDidStartRefreshing:)];
+        }
+        else {
+            [_tableView removeHeader];
+        }
+    }
+}
+
+// 加载更多
+- (void)setUpLoadMore:(BOOL)upLoadMore
+{
+    if (_upLoadMore != upLoadMore) {
+        _upLoadMore = upLoadMore;
+        if (upLoadMore) {
+            [_tableView addFooterWithTarget:self action:@selector(pullingTableViewDidStartLoading:)];
+        }
+        else {
+            [_tableView removeFooter];
+        }
+    }
 }
 
 
@@ -93,6 +140,19 @@
     // Over-ride
 }
 
+
+#pragma mark - 下拉刷新
+// 下拉刷新
+- (void)pullingTableViewDidStartRefreshing:(UITableView *)tableView
+{
+    //
+}
+
+// 加载更多
+- (void)pullingTableViewDidStartLoading:(UITableView *)tableView
+{
+    //
+}
 
 
 @end
