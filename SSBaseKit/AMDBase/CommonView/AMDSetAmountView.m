@@ -201,7 +201,7 @@
     }
     else{
         [UIView animateWithDuration:0.25 animations:^{
-            self->_offSetView.center = _beginOffset;
+            self->_offSetView.center = self->_beginOffset;
         }];
     }
     
