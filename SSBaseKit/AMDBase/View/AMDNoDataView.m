@@ -10,12 +10,9 @@
 #import "AMDButton.h"
 #import "SSGlobalVar.h"
 #import <Masonry/Masonry.h>
-//#import "AMDTool.h"
-//#import "ATAColorConfig.h"
 
 @interface AMDNoDataView()
 {
-    BOOL _autoLayout;               //自动布局
     __weak AMDButton *_showBt;      //显示的文字<当前变量后期将取消>
 }
 @end
@@ -26,7 +23,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = SSColorWithRGB(246, 246, 246, 1);
-        if (_autoLayout) {
+        if (CGRectEqualToRect(frame, CGRectZero)) {
             [self initContentView_AutoLayout];
         }
         else {
@@ -36,21 +33,11 @@
     return self;
 }
 
-- (id)init
-{
-    _autoLayout = YES;
-    if (self = [super init]) {
-        //
-    }
-    return self;
-}
-
 //视图加载
 - (void)initContentView
 {
     //无数据的时候显示 视图
     CGFloat width = self.frame.size.width;
-//    CGFloat height = self.frame.size.height;
     UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake((width-120)/2, 45+15, 120, 120)];
     [self addSubview:imgView];
     _nodataImageView = imgView;
@@ -118,15 +105,12 @@
 - (AMDButton *)comonButtonWithFrame:(CGRect)frame title:(NSString *)title
 {
     AMDButton *bt = [[AMDButton alloc]initWithFrame:frame];
-    if (_autoLayout) {
-        bt = [[AMDButton alloc]init];
-    }
     bt.titleLabel.text = title;
     [bt setBackgroundColor:SSColorWithRGB(68,129,235, 1) forState:UIControlStateNormal];
     [bt setBackgroundColor:nil forState:UIControlStateHighlighted];
     [bt setTitleColor:SSColorWithRGB(255, 255, 255, 1) forState:UIControlStateNormal];
     bt.titleLabel.font = SSFontWithName(@"", 15);
-    bt.layer.cornerRadius = SSCornerRadius;
+    bt.layer.cornerRadius = 3;
     bt.layer.masksToBounds = YES;
     [bt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
     return bt;

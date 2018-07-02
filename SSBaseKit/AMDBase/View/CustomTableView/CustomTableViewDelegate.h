@@ -13,7 +13,7 @@
 @protocol CustomTableViewDelegate <NSObject,UIScrollViewDelegate>
 
 @required
--(UITableViewCell *)tableView:(UITableView *)tableView CellAtIndexPath:(NSIndexPath *)indexPath;
+- (UITableViewCell *)tableView:(UITableView *)tableView CellAtIndexPath:(NSIndexPath *)indexPath;
 
 
 @optional

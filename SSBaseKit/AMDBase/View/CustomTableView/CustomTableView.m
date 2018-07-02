@@ -88,9 +88,7 @@
 -(void)clearTableViewBottom:(UITableView *)tableView
 {
     //去除表格下方的空白
-    UIView * bottomView = [[UIView alloc]init];
-    bottomView.backgroundColor = [UIColor clearColor];
-    tableView.tableFooterView = bottomView;
+//    tableView.tableFooterView = [UIView new];
 }
 
 
@@ -129,7 +127,6 @@
         
         if (refresh) {
             [self.tableView addHeaderWithTarget:self action:@selector(tableViewDidStartRefreshing:)];
-            //            [self.tableView addFooterWithTarget:self action:@selector(tableViewDidStartLoading:)];
         }
         else{
             [self.tableView removeHeader];
@@ -161,10 +158,11 @@
         _reachedTheEnd = reachedTheEnd;
         
         self.tableView.footerHidden = reachedTheEnd;
-        if (reachedTheEnd == NO) {
-            if (!self.tableView.footer) {
-                [self.tableView addFooterWithTarget:self action:@selector(tableViewDidStartLoading:)];
-            }
+        if (!reachedTheEnd) {
+            [self.tableView addFooterWithTarget:self action:@selector(tableViewDidStartLoading:)];
+        }
+        else{
+            [self.tableView removeFooter];
         }
     }
 }

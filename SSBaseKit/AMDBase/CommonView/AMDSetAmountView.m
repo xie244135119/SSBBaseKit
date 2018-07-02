@@ -108,7 +108,6 @@
     
     //增加按钮
     UIButton *addcountbt = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [addcountbt setFrame:CGRectMake(w-h, 0, h, h)];
     [addcountbt setBackgroundColor:SSColorWithRGB(242, 242, 242, 1)];
     [addcountbt setBackgroundImage:SSImageFromName(@"store_add.png") forState:UIControlStateNormal];
     [addcountbt setBackgroundImage:SSImageFromName(@"store_add-hover.png") forState:UIControlStateHighlighted];
@@ -164,7 +163,6 @@
             break;
         case 2://增加
             if (_amountField.text.intValue >= _maxStoreAmount && _maxStoreAmount != -1) {
-//                [AMDUIFactory makeToken:nil message:@"已到最大库存数量"];
                 return;
             }
             _amountField.text = [NSString stringWithFormat:@"%lli",_amountField.text.longLongValue+1];
@@ -197,7 +195,7 @@
     // 键盘弹出--恢复默认视图偏移
     if ([_offSetView respondsToSelector:@selector(contentOffset)]) {
         // 滚动视图不作任何处理
-        [(UIScrollView *)_offSetView setContentOffset:_beginOffset animated:YES];
+        [(UIScrollView *)_offSetView setContentOffset: self->_beginOffset animated:YES];
     }
     else{
         [UIView animateWithDuration:0.25 animations:^{

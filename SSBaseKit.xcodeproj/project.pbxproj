@@ -179,6 +179,8 @@
 		CB6E2C9E20A42B2400724033 /* SSFont.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6E2C9B20A42B2400724033 /* SSFont.h */; };
 		CB7AE8501F4AF5A3005E8E1F /* SSLinkageView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */; };
 		CB81723720899E8A00776FB8 /* AMDBaseCellDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = CB81723620899E8A00776FB8 /* AMDBaseCellDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB8612FB20C6801000144BF4 /* AMDRootTableController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB8612F920C6801000144BF4 /* AMDRootTableController.h */; };
+		CB8612FC20C6801000144BF4 /* AMDRootTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8612FA20C6801000144BF4 /* AMDRootTableController.m */; };
 		CB9079E81FF4D9D400275296 /* AMDRootViewController+UMStatistic.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9079E71FF4D9D400275296 /* AMDRootViewController+UMStatistic.m */; };
 		CB9A69AC1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
 		CB9A69AD1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
@@ -331,6 +333,8 @@
 		CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLinkageView.h; sourceTree = "<group>"; };
 		CB7AE84F1F4AF5A3005E8E1F /* SSLinkageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLinkageView.m; sourceTree = "<group>"; };
 		CB81723620899E8A00776FB8 /* AMDBaseCellDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMDBaseCellDataSource.h; sourceTree = "<group>"; };
+		CB8612F920C6801000144BF4 /* AMDRootTableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMDRootTableController.h; sourceTree = "<group>"; };
+		CB8612FA20C6801000144BF4 /* AMDRootTableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMDRootTableController.m; sourceTree = "<group>"; };
 		CB9079E61FF4D9D300275296 /* AMDRootViewController+UMStatistic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AMDRootViewController+UMStatistic.h"; sourceTree = "<group>"; };
 		CB9079E71FF4D9D400275296 /* AMDRootViewController+UMStatistic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AMDRootViewController+UMStatistic.m"; sourceTree = "<group>"; };
 		CBD53CF51FA328FA006D3268 /* SSImageCropController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSImageCropController.h; sourceTree = "<group>"; };
@@ -473,6 +477,8 @@
 				CBD53CF61FA328FA006D3268 /* SSImageCropController.m */,
 				CB1CF7421FB939A600BB02CE /* SSNavigationController.h */,
 				CB1CF7411FB939A500BB02CE /* SSNavigationController.m */,
+				CB8612F920C6801000144BF4 /* AMDRootTableController.h */,
+				CB8612FA20C6801000144BF4 /* AMDRootTableController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -675,6 +681,7 @@
 				CB47CCA21EE6471A00D81CA3 /* AMDLabelTextView.h in Headers */,
 				CB47CC981EE6471A00D81CA3 /* AMDImgViewLabelView.h in Headers */,
 				CB47CCC71EE6471A00D81CA3 /* AMDBaseCell.h in Headers */,
+				CB8612FB20C6801000144BF4 /* AMDRootTableController.h in Headers */,
 				CB34AE171F18C5540006A562 /* AMDControllerTransitionDelegate.h in Headers */,
 				CB47CC9A1EE6471A00D81CA3 /* AMDKeyboradView.h in Headers */,
 				CB47CCE61EE6471A00D81CA3 /* CustomTableView.h in Headers */,
@@ -892,6 +899,7 @@
 				CB47CCD01EE6471A00D81CA3 /* AMDImageView.m in Sources */,
 				CB9A69AD1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */,
 				CB47CC9D1EE6471A00D81CA3 /* AMDLabelFieldView.m in Sources */,
+				CB8612FC20C6801000144BF4 /* AMDRootTableController.m in Sources */,
 				CB47CC991EE6471A00D81CA3 /* AMDImgViewLabelView.m in Sources */,
 				CB0C75941EEA54CC00E28AA3 /* AASRegionChoiceView.m in Sources */,
 				CB47CCAF1EE6471A00D81CA3 /* AMDRootViewController.m in Sources */,
