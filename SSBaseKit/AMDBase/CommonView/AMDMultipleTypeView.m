@@ -44,6 +44,20 @@
     return self;
 }
 
+
+- (void)didMoveToSuperview
+{
+    [super didMoveToSuperview];
+    // 选中第一个按钮
+    UIButton *_firstBt = (UIButton *)[self viewWithTag:1];
+    _currentClickIndex = 1;
+    [_firstBt setSelected:YES];
+    if ([self->_delegate respondsToSelector:@selector(messageChoiceView:fromButton:toButton:)]) {
+        [self->_delegate messageChoiceView:self fromButton:nil toButton:_firstBt];
+    }
+}
+
+
 //加载视图
 - (void)initViewWithTitles:(NSArray *)titles
 {
@@ -61,11 +75,6 @@
         bt.tag = i+1;
         [bt addTarget:self action:@selector(choiceActionButton:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:bt];
-        
-        if (i == 0) {
-            _currentClickIndex = 1;
-            [bt setSelected:YES];
-        }
     }
     //阴影
     self.layer.shadowOpacity = 0.08;
@@ -202,6 +211,8 @@
     } completion:^(BOOL finished) {
         if ([self->_delegate respondsToSelector:@selector(messageChoiceView:sender:)]) {
             [self->_delegate messageChoiceView:self sender:sender];
+        }
+        if ([self->_delegate respondsToSelector:@selector(messageChoiceView:fromButton:toButton:)]) {
             [self->_delegate messageChoiceView:self fromButton:_frombt toButton:sender];
         }
     }];
@@ -236,7 +247,20 @@
     
     UIButton *sender = (UIButton *)[self viewWithTag:index];
     
+    // 上一个选中的按钮
+    UIButton *_frombt = nil;
+    if (_currentClickIndex) {
+        _frombt = (UIButton *)[self viewWithTag:_currentClickIndex];
+    }
+    
     self.currentClickIndex = sender.tag;
+    
+    //下一个按钮
+    UIButton *_toBt = nil;
+    if (_currentClickIndex) {
+        _toBt = (UIButton *)[self viewWithTag:_currentClickIndex];
+    }
+    
     [sender setSelected:YES];
     
     //动画结束后调用回调事件
@@ -257,7 +281,10 @@
             shadowView.center = CGPointMake(sender.center.x, shadowView.center.y);
         }];
     }
-    
+    //返回相关按钮
+    if ([self->_delegate respondsToSelector:@selector(messageChoiceView:fromButton:toButton:)]) {
+        [self->_delegate messageChoiceView:self fromButton:_frombt toButton:_toBt];
+    }
 }
 
 - (UIButton *)buttonWithIndex:(NSInteger)index
@@ -313,12 +340,6 @@
         }];
         
         lastView = bt;
-        
-        if (i == 0) {
-            _currentClickIndex = 1;
-            [bt setSelected:YES];
-//            firstView = bt;
-        }
     }
     
     // 最后一个处理按钮

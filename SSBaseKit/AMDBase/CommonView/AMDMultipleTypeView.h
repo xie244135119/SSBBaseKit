@@ -16,8 +16,8 @@
                    sender:(UIButton * __nullable)sender;
 //
 - (void)messageChoiceView:(AMDMultipleTypeView * __nullable)view
-                   fromButton:(UIButton * __nullable)sender
-                        toButton:(UIButton * __nullable)sender;
+                   fromButton:(UIButton * __nullable)fromButton
+                        toButton:(UIButton * __nullable)toButton;
 @end
 
 @interface AMDMultipleTypeView : UIView
