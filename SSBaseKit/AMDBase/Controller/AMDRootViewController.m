@@ -88,8 +88,16 @@
 
 - (instancetype)init
 {
-    return [self initWithTitle:nil titileViewShow:YES tabBarShow:NO];
+    return [self initWithTitileViewShow:YES];
 }
+
+- (instancetype)initWithTitileViewShow:(BOOL)titleViewShow
+{
+    _titileViewHidden = !titleViewShow;
+    _loadFromNib = NO;
+    return self;
+}
+
 //
 - (instancetype)initWithTitle:(NSString *)title
 {
