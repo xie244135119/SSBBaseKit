@@ -720,7 +720,6 @@
 				CB47CC211EE6471000D81CA3 /* Frameworks */,
 				CB47CC221EE6471000D81CA3 /* Headers */,
 				CB47CC231EE6471000D81CA3 /* Resources */,
-				B72E6BE4EB53E9C51363C14F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -740,7 +739,6 @@
 				CB47CD111EE64DFE00D81CA3 /* Frameworks */,
 				CB47CD121EE64DFE00D81CA3 /* Resources */,
 				17CE330C4971A6B859621C2B /* [CP] Embed Pods Frameworks */,
-				50D5337605B2A468F3C56CD3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -855,36 +853,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		50D5337605B2A468F3C56CD3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios/Pods-ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B72E6BE4EB53E9C51363C14F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CAEBE1195A52C1D4B2027427 /* [CP] Check Pods Manifest.lock */ = {

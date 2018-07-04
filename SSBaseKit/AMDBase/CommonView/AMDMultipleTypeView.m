@@ -44,6 +44,20 @@
     return self;
 }
 
+
+- (void)didMoveToSuperview
+{
+    [super didMoveToSuperview];
+    // 选中第一个按钮
+    UIButton *_firstBt = (UIButton *)[self viewWithTag:1];
+    _currentClickIndex = 1;
+    [_firstBt setSelected:YES];
+    if ([self->_delegate respondsToSelector:@selector(messageChoiceView:fromButton:toButton:)]) {
+        [self->_delegate messageChoiceView:self fromButton:nil toButton:_firstBt];
+    }
+}
+
+
 //加载视图
 - (void)initViewWithTitles:(NSArray *)titles
 {
@@ -61,11 +75,6 @@
         bt.tag = i+1;
         [bt addTarget:self action:@selector(choiceActionButton:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:bt];
-        
-        if (i == 0) {
-            _currentClickIndex = 1;
-            [bt setSelected:YES];
-        }
     }
     //阴影
     self.layer.shadowOpacity = 0.08;
@@ -176,15 +185,36 @@
         return;
     }
     
+    // 上一个选中的按钮
+    UIButton *_frombt = nil;
+    if (_currentClickIndex) {
+       _frombt = (UIButton *)[self viewWithTag:_currentClickIndex];
+    }
+    
     self.currentClickIndex = sender.tag;
     [sender setSelected:YES];
     
     //动画结束后调用回调事件
     __weak UIView *shadowView = _shadowView;
     [UIView animateWithDuration:0.15 animations:^{
-        shadowView.center = CGPointMake(sender.center.x, shadowView.center.y);
+        if (self->_isAutoLayout) {
+            // 更新动画
+            [self->_shadowView mas_updateConstraints:^(MASConstraintMaker *make) {
+                // 调整左侧距离
+                make.left.equalTo(@(sender.frame.origin.x));
+            }];
+            [self->_shadowView.superview layoutIfNeeded];
+        }
+        else {
+            shadowView.center = CGPointMake(sender.center.x, shadowView.center.y);
+        }
     } completion:^(BOOL finished) {
-        [self->_delegate messageChoiceView:self sender:sender];
+        if ([self->_delegate respondsToSelector:@selector(messageChoiceView:sender:)]) {
+            [self->_delegate messageChoiceView:self sender:sender];
+        }
+        if ([self->_delegate respondsToSelector:@selector(messageChoiceView:fromButton:toButton:)]) {
+            [self->_delegate messageChoiceView:self fromButton:_frombt toButton:sender];
+        }
     }];
 }
 
@@ -217,7 +247,20 @@
     
     UIButton *sender = (UIButton *)[self viewWithTag:index];
     
+    // 上一个选中的按钮
+    UIButton *_frombt = nil;
+    if (_currentClickIndex) {
+        _frombt = (UIButton *)[self viewWithTag:_currentClickIndex];
+    }
+    
     self.currentClickIndex = sender.tag;
+    
+    //下一个按钮
+    UIButton *_toBt = nil;
+    if (_currentClickIndex) {
+        _toBt = (UIButton *)[self viewWithTag:_currentClickIndex];
+    }
+    
     [sender setSelected:YES];
     
     //动画结束后调用回调事件
@@ -238,7 +281,10 @@
             shadowView.center = CGPointMake(sender.center.x, shadowView.center.y);
         }];
     }
-    
+    //返回相关按钮
+    if ([self->_delegate respondsToSelector:@selector(messageChoiceView:fromButton:toButton:)]) {
+        [self->_delegate messageChoiceView:self fromButton:_frombt toButton:_toBt];
+    }
 }
 
 - (UIButton *)buttonWithIndex:(NSInteger)index
@@ -279,7 +325,7 @@
         [bt setTitleColor:SSColorWithRGB(119, 119, 119, 1) forState:UIControlStateNormal];
         bt.titleLabel.font = SSFontWithName(@"", 14);
         bt.tag = i+1;
-        [bt addTarget:self action:@selector(choiceActionButton2:) forControlEvents:UIControlEventTouchUpInside];
+        [bt addTarget:self action:@selector(choiceActionButton:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:bt];
         [bt mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self).with.offset(0);
@@ -294,12 +340,6 @@
         }];
         
         lastView = bt;
-        
-        if (i == 0) {
-            _currentClickIndex = 1;
-            [bt setSelected:YES];
-//            firstView = bt;
-        }
     }
     
     // 最后一个处理按钮
@@ -327,29 +367,29 @@
 }
 
 // AutoLayout下的选中处理
-- (void)choiceActionButton2:(UIButton *)sender
-{
-    if (sender.tag == _currentClickIndex) {
-        //防止二次点击
-        return;
-    }
-    
-    self.currentClickIndex = sender.tag;
-    [sender setSelected:YES];
-    
-
-    //动画结束后调用回调事件
-    [UIView animateWithDuration:0.15 animations:^{
-        // 更新动画
-        [self->_shadowView mas_updateConstraints:^(MASConstraintMaker *make) {
-            // 调整左侧距离
-            make.left.equalTo(@(sender.frame.origin.x));
-        }];
-         [self->_shadowView.superview layoutIfNeeded];
-    } completion:^(BOOL finished) {
-        [self->_delegate messageChoiceView:self sender:sender];
-    }];
-}
+//- (void)choiceActionButton2:(UIButton *)sender
+//{
+//    if (sender.tag == _currentClickIndex) {
+//        //防止二次点击
+//        return;
+//    }
+//
+//    self.currentClickIndex = sender.tag;
+//    [sender setSelected:YES];
+//
+//
+//    //动画结束后调用回调事件
+//    [UIView animateWithDuration:0.15 animations:^{
+//        // 更新动画
+//        [self->_shadowView mas_updateConstraints:^(MASConstraintMaker *make) {
+//            // 调整左侧距离
+//            make.left.equalTo(@(sender.frame.origin.x));
+//        }];
+//         [self->_shadowView.superview layoutIfNeeded];
+//    } completion:^(BOOL finished) {
+//        [self->_delegate messageChoiceView:self sender:sender];
+//    }];
+//}
 
 
 @end

@@ -12,9 +12,13 @@
 @protocol AMDMultipleTypeChoiceDelegate <NSObject>
 @required
 //sender:点击的响应控件  tag 按位置来 起始位置:1
-- (void)messageChoiceView:(AMDMultipleTypeView * __nullable)view sender:(UIButton * __nullable)sender;
+- (void)messageChoiceView:(AMDMultipleTypeView * __nullable)view
+                   sender:(UIButton * __nullable)sender;
+//
+- (void)messageChoiceView:(AMDMultipleTypeView * __nullable)view
+                   fromButton:(UIButton * __nullable)fromButton
+                        toButton:(UIButton * __nullable)toButton;
 @end
-
 
 @interface AMDMultipleTypeView : UIView
 // 少于4个均分 多于4个滚动

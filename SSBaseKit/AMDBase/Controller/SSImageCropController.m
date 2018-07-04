@@ -160,12 +160,10 @@
 - (void)setCropScale:(CGFloat)cropScale
 {
     _cropScale = cropScale;
-    
     // 设置剪裁比例
     if (cropScale > 0) {
-        
         CGFloat height = (CGFloat)SScreenWidth/cropScale;
-        _cropFrame = CGRectMake(0, (SScreenHeight-height)/2, SScreenWidth, SScreenHeight);
+        _cropFrame = CGRectMake(0, (SScreenHeight-height)/2, SScreenWidth, height);
     }
 }
 
