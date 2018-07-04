@@ -130,7 +130,6 @@
         }
         else{
             [self.tableView removeHeader];
-            [self.tableView removeFooter];
         }
     }
 }
@@ -159,6 +158,37 @@
         
         self.tableView.footerHidden = reachedTheEnd;
         if (!reachedTheEnd) {
+            [self.tableView addFooterWithTarget:self action:@selector(tableViewDidStartLoading:)];
+        }
+        else{
+            [self.tableView removeFooter];
+        }
+    }
+}
+
+#pragma mark - V2.0
+// 下拉刷新
+- (void)setDownRefresh:(BOOL)downRefresh
+{
+    if (_downRefresh != downRefresh) {
+        _downRefresh = downRefresh;
+        
+        if (downRefresh) {
+            [self.tableView addHeaderWithTarget:self action:@selector(tableViewDidStartRefreshing:)];
+        }
+        else{
+            [self.tableView removeHeader];
+        }
+    }
+}
+
+// 加载更多
+- (void)setUpLoadMore:(BOOL)upLoadMore
+{
+    if (_upLoadMore != upLoadMore) {
+        _upLoadMore = upLoadMore;
+        
+        if (upLoadMore) {
             [self.tableView addFooterWithTarget:self action:@selector(tableViewDidStartLoading:)];
         }
         else{
