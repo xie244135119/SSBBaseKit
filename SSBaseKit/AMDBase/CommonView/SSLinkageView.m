@@ -28,12 +28,15 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 
 @interface SSLinkageView()  <UIScrollViewDelegate>
 {
-//    __weak AMDImageView *_topImageView;         //顶部视图
+    //    __weak AMDImageView *_topImageView;         //顶部视图
     
     __weak SSLinkageImageView *_leftImageView;              //左侧视图
     __weak SSLinkageImageView *_middleImageView;            //中间视图
     __weak SSLinkageImageView *_rightImageView;             //右侧视图
     NSTimer *_currentTimer;                                 //当前定时器
+    
+    // 时间
+    NSInteger _timerDuration;   // 默认为0
 }
 
 @end
@@ -76,23 +79,21 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 - (void)invalidate
 {
     [_currentTimer invalidate];
-    _currentTimer = nil;
 }
 
 - (void)prepareLoad
 {
-    // 使之前的定时器无效
-    [self invalidate];
-    // 初始化配置
     [self config];
 }
 
 #pragma mark - 初始化
 - (void)config
 {
-    _currentTimer = [NSTimer scheduledTimerWithTimeInterval:_linkageDuration target:self selector:@selector(change:) userInfo:nil repeats:YES];
+    // 使之前的无效
+    _currentTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(change:) userInfo:nil repeats:YES];
     //避免滑动拖拽时造成timer停止工作
-    [[NSRunLoop currentRunLoop] addTimer:_currentTimer forMode:UITrackingRunLoopMode];
+    //    [[NSRunLoop currentRunLoop] addTimer:_currentTimer forMode:UITrackingRunLoopMode];
+    [[NSRunLoop currentRunLoop] addTimer:_currentTimer forMode:NSDefaultRunLoopMode];
     [self initView];
 }
 
@@ -168,6 +169,16 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     }
 }
 
+//增加一个显示的视图---目前么用
+//- (void)initTopShowView
+//{
+//    //底部视图
+//    AMDImageView *topimgView = [[AMDImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width,  self.frame.size.height)];
+//    [self addSubview:topimgView];
+//    topimgView.hidden = YES;
+//    _topImageView = topimgView;
+//}
+
 //pagecontrol效果
 - (void)initPageControlView
 {
@@ -198,8 +209,14 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 #pragma mark - 定时器处理
 - (void)change:(NSTimer *)timer
 {
-    NSInteger offset = _scrollView.contentOffset.x+self.frame.size.width;
-    [_scrollView setContentOffset:CGPointMake(offset, 0) animated:YES];
+    _timerDuration++;
+    
+    // 达到整点
+    if (_timerDuration == _linkageDuration) {
+        _timerDuration = 0;
+        NSInteger offset = _scrollView.contentOffset.x+self.frame.size.width;
+        [_scrollView setContentOffset:CGPointMake(offset, 0) animated:YES];
+    }
 }
 
 
@@ -221,20 +238,20 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 //加载一张页面显示视图--用于处理--加载后端处理操作
 - (void)dealInBackgroundWithType:(XQScrollLocationType)type
 {
-//    _topImageView.hidden = NO;
-//    _topImageView.layer.borderWidth = 1;
+    //    _topImageView.hidden = NO;
+    //    _topImageView.layer.borderWidth = 1;
     
     // 即将切换中间视图
     if ([_delegate respondsToSelector:@selector(linkPageView:willScrollToImage:atIndex:)]) {
         [_delegate linkPageView:self
-               willScrollToImage:_middleImageView
+              willScrollToImage:_middleImageView
                         atIndex:_middleImageView.imageIndex];
     }
     
     //后台处理图片的换位问题
     switch (type) {
         case SSScrollLocationTypeLeft:{
-//            _topImageView.image = _leftImageView.imageView.image;
+            //            _topImageView.image = _leftImageView.imageView.image;
             
             //设置右侧视图
             _rightImageView.imageIndex = _middleImageView.imageIndex;
@@ -257,11 +274,11 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
         }
             break;
         case SSScrollLocationTypeMiddle:{//中间
-//            _topImageView.image = _middleImageView.image;
+            //            _topImageView.image = _middleImageView.image;
         }
             break;
         case SSScrollLocationTypeRight:{
-//            _topImageView.image = _rightImageView.imageView.image;
+            //            _topImageView.image = _rightImageView.imageView.image;
             
             //设置左侧视图
             _leftImageView.imageIndex = _middleImageView.imageIndex;
@@ -284,7 +301,6 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
                 _rightImageView.imageIndex = rightIndex;
                 _rightImageView.imageURL = _imageURLs[rightIndex];
             }
-            
         }
             break;
             
@@ -305,25 +321,33 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 
 
 #pragma mark - UIScrollViewDelegate
-// 结束减速---即当scrollView滑动停止的时候
+// 结束减速---即当scrollView滑动停止的时候(手动滑动的时候需要)
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self dealOffSetX:scrollView.contentOffset.x];
 }
 
-// 结束动画的时候
+// 结束动画的时候(定时器滑动需要)
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    [self scrollViewDidEndDecelerating:scrollView];
+    [self dealOffSetX:scrollView.contentOffset.x];
 }
 
+// 开始拖动
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    _timerDuration = 0;
+}
+
+
+// 设置偏移量
 - (void)dealOffSetX:(CGFloat )offsetx
 {
     XQScrollLocationType type = 0;
-    if(offsetx > 320) {//右滑
+    if(offsetx > SScreenWidth) {//右滑
         type = SSScrollLocationTypeRight;
     }
-    else if(offsetx < 320){//左滑
+    else if(offsetx < SScreenWidth){//左滑
         type = SSScrollLocationTypeLeft;
     }
     else{//当前状态--不做任何处理
@@ -364,7 +388,6 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
         [_imageView setImageWithUrl:imageURL placeHolder:nil];
     }
 }
-
 
 @end
 
