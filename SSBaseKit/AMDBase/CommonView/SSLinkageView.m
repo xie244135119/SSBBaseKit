@@ -11,32 +11,42 @@
 #import "SSGlobalVar.h"
 #import <Masonry/Masonry.h>
 
-typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
-    SSScrollLocationTypeLeft,           //左侧
-    SSScrollLocationTypeMiddle,         //中间
-    SSScrollLocationTypeRight           //右侧
-};
+// 重用标识符
+static NSString *const kSSlinkageImageViewIder = @"kSSlinkageImageViewIder";
+// 最大重复数量
+static NSInteger const kSSLinkageRepeatCount = 200;
+
+//typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
+//    SSScrollLocationTypeLeft,           //左侧
+//    SSScrollLocationTypeMiddle,         //中间
+//    SSScrollLocationTypeRight           //右侧
+//};
 
 
-@interface SSLinkageImageView : UIControl
+@interface SSLinkageImageView : UICollectionViewCell
 
 @property(nonatomic, weak) AMDImageView *imageView;        //图片视图
 @property(nonatomic, strong) NSURL *imageURL;      //图片名称或url地址
-@property(nonatomic) NSInteger imageIndex;          //图片索引值
+//@property(nonatomic) NSInteger imageIndex;          //图片索引值
 
 @end
 
-@interface SSLinkageView()  <UIScrollViewDelegate>
+@interface SSLinkageView() <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
     //    __weak AMDImageView *_topImageView;         //顶部视图
     
-    __weak SSLinkageImageView *_leftImageView;              //左侧视图
-    __weak SSLinkageImageView *_middleImageView;            //中间视图
-    __weak SSLinkageImageView *_rightImageView;             //右侧视图
+    //    __weak SSLinkageImageView *_leftImageView;              //左侧视图
+    //    __weak SSLinkageImageView *_middleImageView;            //中间视图
+    //    __weak SSLinkageImageView *_rightImageView;             //右侧视图
     NSTimer *_currentTimer;                                 //当前定时器
     
-    // 时间
-    NSInteger _timerDuration;   // 默认为0
+    
+    // 集合视图
+    __weak UICollectionView *_collectionView;
+    // 时间  默认为0
+    NSInteger _timerDuration;
+    // 当前滑到到的位置
+    NSInteger _currentScrollIndex;
 }
 
 @end
@@ -45,6 +55,8 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 
 - (void)dealloc
 {
+    _collectionView.delegate = nil;
+    _collectionView.dataSource = nil;
     _imageURLs = nil;
     _currentTimer = nil;
 }
@@ -72,116 +84,186 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
     if(self = [super initWithFrame:frame]){
         // 默认滚动时间
         _linkageDuration = 5;
+        self.backgroundColor = [UIColor whiteColor];
+        
+        // 加载子视图
+        [self setupViews];
     }
     return self;
 }
 
+//
+- (void)willMoveToSuperview:(UIView *)newSuperview
+{
+    if (!newSuperview) {
+        [self invalidate];
+    }
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    // 滑动至
+    if (_imageURLs.count > 0) {
+        // 滑动
+        if (_currentScrollIndex == 0) {
+            _currentScrollIndex = _imageURLs.count*kSSLinkageRepeatCount*0.5;
+        }
+        
+        [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_currentScrollIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    }
+}
+
+
+#pragma mark - Public Api
+//
 - (void)invalidate
 {
     [_currentTimer invalidate];
 }
 
+//
 - (void)prepareLoad
 {
-    [self config];
-}
-
-#pragma mark - 初始化
-- (void)config
-{
-    // 使之前的无效
-    _currentTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(change:) userInfo:nil repeats:YES];
-    //避免滑动拖拽时造成timer停止工作
-    //    [[NSRunLoop currentRunLoop] addTimer:_currentTimer forMode:UITrackingRunLoopMode];
-    [[NSRunLoop currentRunLoop] addTimer:_currentTimer forMode:NSDefaultRunLoopMode];
-    [self initView];
-}
-
-
-#pragma mark - 视图加载
-//
-- (void)initView
-{
-    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:self.bounds];
-    scrollView.delegate = self;
-    scrollView.pagingEnabled = YES;
-    scrollView.bounces = NO;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.canCancelContentTouches = NO;
-    [self addSubview:scrollView];
-    _scrollView = scrollView;
+    _currentPageControl.numberOfPages = _imageURLs.count;
+    // 只有一页 不需要启动定时器
+    if (_imageURLs.count <= 1) {
+        _collectionView.scrollEnabled = NO;
+        [self invalidate];
+        return;
+    }
     
-    CGFloat width = self.frame.size.width;
-    CGFloat height = self.frame.size.height;
-    scrollView.contentSize = CGSizeMake(width*3, height);
-    [scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:NO];
-    //加载默认视图
-    for (NSInteger i = 0; i<3; i++) {
-        //
-        SSLinkageImageView *imgview = [[SSLinkageImageView alloc]initWithFrame:CGRectMake(width*i, 0, width, height)];
-        [imgview addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
-        [scrollView addSubview:imgview];
-        //
-        switch (i) {
-            case 0:{
-                _leftImageView = imgview;
-                imgview.imageURL = _imageURLs[_imageURLs.count-1];
-                imgview.imageIndex = _imageURLs.count-1;
-            }
-                break;
-            case 1:{
-                _middleImageView = imgview;
-                imgview.imageURL = _imageURLs[0];
-                imgview.imageIndex = 0;
-            }
-                break;
-            case 2:{
-                _rightImageView = imgview;
-                imgview.imageURL = _imageURLs.count>1?_imageURLs[1]:_imageURLs[0];
-                imgview.imageIndex = 1;
-            }
-                break;
-            default:
-                break;
+    _collectionView.scrollEnabled = YES;
+    __weak typeof(self) weakself = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [weakself _setupTimer];
+    });
+}
+
+
+#pragma mark - private api
+// 定时器启动
+- (void)_setupTimer
+{
+    // 先使之前的定时器无效
+    [_currentTimer invalidate];
+    
+    // 使之前的无效
+    _currentTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(_timerChange:) userInfo:nil repeats:YES];
+    //避免滑动拖拽时造成timer停止工作
+    [[NSRunLoop currentRunLoop] addTimer:_currentTimer forMode:NSDefaultRunLoopMode];
+}
+
+
+#pragma mark - SET
+- (void)setImageURLs:(NSArray<NSURL *> *)imageURLs
+{
+    if (_imageURLs != imageURLs) {
+        _imageURLs = imageURLs;
+        
+        if (imageURLs) {
+            [_collectionView reloadData];
         }
     }
-    
-    // 加载pageControl
-    [self initPageControlView];
-    
-    // 即将切换中间视图
-    if ([_delegate respondsToSelector:@selector(linkPageView:willScrollToImage:atIndex:)]) {
-        [_delegate linkPageView:self
-              willScrollToImage:_middleImageView
-                        atIndex:_middleImageView.imageIndex];
-    }
-    if ([_delegate respondsToSelector:@selector(linkPageView:didScrollToImage:atIndex:)]) {
-        [_delegate linkPageView:self
-               didScrollToImage:_middleImageView
-                        atIndex:_middleImageView.imageIndex];
-    }
-    
-    // 如果图片只有1张的情况下 不允许滚动
-    if (_imageURLs.count == 1) {
-        scrollView.scrollEnabled = NO;
-        _currentPageControl.hidden = YES;
-        [self invalidate];  //定时器无效
+}
+
+//
+- (void)setLinkageDuration:(NSInteger)linkageDuration
+{
+    if (_linkageDuration != linkageDuration) {
+        _linkageDuration = linkageDuration;
+        
+        // 如果已存在定时器 重开
+        if (_currentTimer) {
+            [self invalidate];
+            [self prepareLoad];
+        }
     }
 }
 
-//增加一个显示的视图---目前么用
-//- (void)initTopShowView
-//{
-//    //底部视图
-//    AMDImageView *topimgView = [[AMDImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width,  self.frame.size.height)];
-//    [self addSubview:topimgView];
-//    topimgView.hidden = YES;
-//    _topImageView = topimgView;
-//}
 
-//pagecontrol效果
-- (void)initPageControlView
+#pragma mark - 定时器处理
+- (void)_timerChange:(NSTimer *)timer
 {
+    _timerDuration++;
+    
+    // 达到整点
+    if (_timerDuration == _linkageDuration) {
+        _timerDuration = 0;
+        _currentScrollIndex += 1;
+        // 滑动
+        [self _scrollToIndex:_currentScrollIndex];
+    }
+}
+
+
+// 滑动到指定位置
+- (void)_scrollToIndex:(NSInteger)index
+{
+    _currentScrollIndex = index;
+    // 滑动到最后一页 直接无视图切换显示会有问题
+    if (index >= _imageURLs.count*kSSLinkageRepeatCount) {
+        // 目前只能这么取舍了 滑动至中间 防止左右滑动失败
+        NSInteger index = _currentScrollIndex*0.5;
+        [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+        return;
+    }
+    
+    // 正常滑动
+    [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_currentScrollIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+}
+
+// 转化为数组中的位置
+- (NSInteger)_pageIndexWithIndex:(NSInteger)index
+{
+    return index%_imageURLs.count;
+}
+
+
+#pragma mark - UIScrollViewDelegate
+// 结束减速---即当scrollView滑动停止的时候(手动滑动的时候需要)
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSInteger offsetx = scrollView.contentOffset.x/scrollView.frame.size.width;
+    [self _scrollToIndex:offsetx];
+}
+
+// 保证pageControl 精确性
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat offsetx = (CGFloat)scrollView.contentOffset.x/scrollView.frame.size.width + 0.5;
+    [_currentPageControl setCurrentPage:[self _pageIndexWithIndex:(NSInteger)offsetx]];
+}
+
+//
+// 开始拖动
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    _timerDuration = 0;
+}
+
+
+#pragma mark - V2.0改版
+// 视图初始化
+- (void)setupViews
+{
+    //
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+    layout.itemSize = self.frame.size;
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.minimumLineSpacing = 0;
+    
+    UICollectionView *collectView = [[UICollectionView alloc]initWithFrame:self.bounds collectionViewLayout:layout];
+    collectView.dataSource = self;
+    collectView.delegate = self;
+    collectView.pagingEnabled = YES;
+    collectView.showsHorizontalScrollIndicator = NO;
+    [self addSubview:collectView];
+    _scrollView = collectView;
+    _collectionView = collectView;
+    [collectView registerClass:[SSLinkageImageView class] forCellWithReuseIdentifier:kSSlinkageImageViewIder];
+    
+    // pagecontrol
     UIPageControl *control = [[UIPageControl alloc]initWithFrame:CGRectMake(0, self.frame.size.height-20, self.frame.size.width, 20)];
     control.numberOfPages = _imageURLs.count;
     control.currentPageIndicatorTintColor = [UIColor whiteColor];
@@ -192,173 +274,40 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 }
 
 
-#pragma mark - SET
-- (void)setimageURLs:(NSArray *)imageURLs
+#pragma mark - UICollectionViewDataSource
+//
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (_imageURLs != imageURLs) {
-        _imageURLs = imageURLs;
-        
-        if (imageURLs) {
-            [self config];
-        }
-    }
+    return _imageURLs.count*kSSLinkageRepeatCount;
 }
 
 
-
-#pragma mark - 定时器处理
-- (void)change:(NSTimer *)timer
+// cell
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    _timerDuration++;
-    
-    // 达到整点
-    if (_timerDuration == _linkageDuration) {
-        _timerDuration = 0;
-        NSInteger offset = _scrollView.contentOffset.x+self.frame.size.width;
-        [_scrollView setContentOffset:CGPointMake(offset, 0) animated:YES];
-    }
+    SSLinkageImageView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSSlinkageImageViewIder forIndexPath:indexPath];
+    NSInteger index = [self _pageIndexWithIndex:indexPath.row];
+    cell.imageURL = _imageURLs[index];
+    return cell;
 }
 
 
-#pragma mark - 按钮事件
-// 选中某一个图片视图
-- (void)clickAction:(SSLinkageImageView *)sender
+#pragma mark - UICollectionViewDelegate
+//
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger index = [self _pageIndexWithIndex:indexPath.row];
+    //
     if ([_delegate respondsToSelector:@selector(linkPageView:index:)]) {
-        [_delegate linkPageView:self index:sender.imageIndex];
+        [_delegate linkPageView:self index:index];
     }
     
     if ([_delegate respondsToSelector:@selector(linkPageView:actionAtIndex:)]) {
-        [_delegate linkPageView:self actionAtIndex:sender.imageIndex];
+        [_delegate linkPageView:self actionAtIndex:index];
     }
-}
-
-
-#pragma mark - 数据处理
-//加载一张页面显示视图--用于处理--加载后端处理操作
-- (void)dealInBackgroundWithType:(XQScrollLocationType)type
-{
-    //    _topImageView.hidden = NO;
-    //    _topImageView.layer.borderWidth = 1;
-    
-    // 即将切换中间视图
-    if ([_delegate respondsToSelector:@selector(linkPageView:willScrollToImage:atIndex:)]) {
-        [_delegate linkPageView:self
-              willScrollToImage:_middleImageView
-                        atIndex:_middleImageView.imageIndex];
-    }
-    
-    //后台处理图片的换位问题
-    switch (type) {
-        case SSScrollLocationTypeLeft:{
-            //            _topImageView.image = _leftImageView.imageView.image;
-            
-            //设置右侧视图
-            _rightImageView.imageIndex = _middleImageView.imageIndex;
-            _rightImageView.imageURL = _middleImageView.imageURL;
-            //设置中间视图
-            _middleImageView.imageIndex = _leftImageView.imageIndex;
-            _middleImageView.imageURL = _leftImageView.imageURL;
-            
-            //设置左侧视图的效果
-            NSInteger leftindex = _leftImageView.imageIndex;
-            if (leftindex == 0) {   //首页
-                leftindex = _imageURLs.count-1;
-            }
-            else{
-                leftindex--;
-            }
-            _leftImageView.imageIndex = leftindex;
-            _leftImageView.imageURL = _imageURLs[leftindex];
-            
-        }
-            break;
-        case SSScrollLocationTypeMiddle:{//中间
-            //            _topImageView.image = _middleImageView.image;
-        }
-            break;
-        case SSScrollLocationTypeRight:{
-            //            _topImageView.image = _rightImageView.imageView.image;
-            
-            //设置左侧视图
-            _leftImageView.imageIndex = _middleImageView.imageIndex;
-            _leftImageView.imageURL = _middleImageView.imageURL;
-            
-            //设置中间视图
-            _middleImageView.imageIndex = _rightImageView.imageIndex;
-            _middleImageView.imageURL = _rightImageView.imageURL;
-            
-            //设置左侧视图的效果
-            NSInteger rightIndex = _rightImageView.imageIndex;
-            if (rightIndex == _imageURLs.count-1) {   //
-                rightIndex = 0;
-            }
-            else {
-                rightIndex++;
-            }
-            
-            if (_imageURLs.count > rightIndex) {
-                _rightImageView.imageIndex = rightIndex;
-                _rightImageView.imageURL = _imageURLs[rightIndex];
-            }
-        }
-            break;
-            
-        default:
-            break;
-    }
-    
-    [_scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:NO];
-    [_currentPageControl setCurrentPage:_middleImageView.imageIndex];
-    
-    // 做滑动处理
-    if ([_delegate respondsToSelector:@selector(linkPageView:didScrollToImage:atIndex:)]) {
-        [_delegate linkPageView:self
-               didScrollToImage:_middleImageView
-                        atIndex:_middleImageView.imageIndex];
-    }
-}
-
-
-#pragma mark - UIScrollViewDelegate
-// 结束减速---即当scrollView滑动停止的时候(手动滑动的时候需要)
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    [self dealOffSetX:scrollView.contentOffset.x];
-}
-
-// 结束动画的时候(定时器滑动需要)
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-{
-    [self dealOffSetX:scrollView.contentOffset.x];
-}
-
-// 开始拖动
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    _timerDuration = 0;
-}
-
-
-// 设置偏移量
-- (void)dealOffSetX:(CGFloat )offsetx
-{
-    XQScrollLocationType type = 0;
-    if(offsetx > SScreenWidth) {//右滑
-        type = SSScrollLocationTypeRight;
-    }
-    else if(offsetx < SScreenWidth){//左滑
-        type = SSScrollLocationTypeLeft;
-    }
-    else{//当前状态--不做任何处理
-        type = SSScrollLocationTypeMiddle;
-    }
-    [self dealInBackgroundWithType:type];
 }
 
 @end
-
-
 
 
 @implementation SSLinkageImageView
@@ -390,13 +339,6 @@ typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
 }
 
 @end
-
-
-
-
-
-
-
 
 
 

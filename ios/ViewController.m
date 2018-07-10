@@ -218,6 +218,7 @@
 - (void)testLinkPageView
 {
     SSLinkageView *linkPageView = [[SSLinkageView alloc]initWithFrame:CGRectMake(0, 0, 300, 200) imageUrls:@[@"http://wdwd-prod.wdwdcdn.com/5ad81142d0d91.jpg", @"http://wdwd-prod.wdwdcdn.com/5ad8115ac02c4.jpg", @"http://wdwd-prod.wdwdcdn.com/5ad810080cb40.png", @"http://wdwd-prod.wdwdcdn.com/5ad806369fadb.png"]];
+//    linkPageView.linkageDuration = 1;
     [self.view addSubview:linkPageView];
 //    linkPageView.layer.borderWidth = 1;
     linkPageView.delegate = self;
