@@ -16,31 +16,18 @@ static NSString *const kSSlinkageImageViewIder = @"kSSlinkageImageViewIder";
 // 最大重复数量
 static NSInteger const kSSLinkageRepeatCount = 200;
 
-//typedef NS_ENUM(NSUInteger, XQScrollLocationType) {
-//    SSScrollLocationTypeLeft,           //左侧
-//    SSScrollLocationTypeMiddle,         //中间
-//    SSScrollLocationTypeRight           //右侧
-//};
-
 
 @interface SSLinkageImageView : UICollectionViewCell
 
 @property(nonatomic, weak) AMDImageView *imageView;        //图片视图
 @property(nonatomic, strong) NSURL *imageURL;      //图片名称或url地址
-//@property(nonatomic) NSInteger imageIndex;          //图片索引值
 
 @end
 
 @interface SSLinkageView() <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
-    //    __weak AMDImageView *_topImageView;         //顶部视图
-    
-    //    __weak SSLinkageImageView *_leftImageView;              //左侧视图
-    //    __weak SSLinkageImageView *_middleImageView;            //中间视图
-    //    __weak SSLinkageImageView *_rightImageView;             //右侧视图
     NSTimer *_currentTimer;                                 //当前定时器
-    
-    
+
     // 集合视图
     __weak UICollectionView *_collectionView;
     // 时间  默认为0
@@ -135,7 +122,7 @@ static NSInteger const kSSLinkageRepeatCount = 200;
     
     _collectionView.scrollEnabled = YES;
     __weak typeof(self) weakself = self;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         [weakself _setupTimer];
     });
 }
