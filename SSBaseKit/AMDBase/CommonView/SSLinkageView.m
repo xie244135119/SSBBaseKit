@@ -241,6 +241,7 @@ static NSInteger const kSSLinkageRepeatCount = 200;
     layout.minimumLineSpacing = 0;
     
     UICollectionView *collectView = [[UICollectionView alloc]initWithFrame:self.bounds collectionViewLayout:layout];
+    collectView.backgroundColor = [UIColor whiteColor];
     collectView.dataSource = self;
     collectView.delegate = self;
     collectView.pagingEnabled = YES;

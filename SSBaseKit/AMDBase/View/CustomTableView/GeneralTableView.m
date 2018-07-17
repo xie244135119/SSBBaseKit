@@ -39,14 +39,15 @@
     tab.dataSource = self;
     tab.backgroundColor = [UIColor clearColor];
     tab.separatorColor = [UIColor clearColor];
-    tab.tableFooterView = [UIView new];
     _tableView = tab;
     tab.delegate = self;
     [self addSubview:tab];
     tab.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    [tab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
-    }];
+    if (CGRectEqualToRect(CGRectZero, frame)) {
+        [tab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.insets(UIEdgeInsetsZero);
+        }];
+    }
     
     // 禁掉偏移量
     tab.estimatedSectionHeaderHeight = 0;

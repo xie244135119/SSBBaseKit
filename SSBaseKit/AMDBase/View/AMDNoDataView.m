@@ -98,6 +98,9 @@
         make.right.equalTo(@-75);
         make.height.equalTo(@40);
     }];
+    [bt.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.edges.insets(UIEdgeInsetsZero);
+    }];
 }
 
 
