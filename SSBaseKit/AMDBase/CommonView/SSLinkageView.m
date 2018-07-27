@@ -93,7 +93,7 @@ static NSInteger const kSSLinkageRepeatCount = 200;
     // 滑动至
     if (_imageURLs.count > 0) {
         // 滑动
-        if (_currentScrollIndex == 0) {
+        if (_currentScrollIndex == 0 || _currentScrollIndex >= [_collectionView numberOfItemsInSection:0]) {
             _currentScrollIndex = _imageURLs.count*kSSLinkageRepeatCount*0.5;
         }
         
@@ -187,15 +187,15 @@ static NSInteger const kSSLinkageRepeatCount = 200;
 // 滑动到指定位置
 - (void)_scrollToIndex:(NSInteger)index
 {
-    _currentScrollIndex = index;
     // 滑动到最后一页 直接无视图切换显示会有问题
     if (index >= _imageURLs.count*kSSLinkageRepeatCount) {
         // 目前只能这么取舍了 滑动至中间 防止左右滑动失败
-        NSInteger index = _currentScrollIndex*0.5;
-        [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+        _currentScrollIndex = index*0.5;
+        [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_currentScrollIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
         return;
     }
     
+    _currentScrollIndex = index;
     // 正常滑动
     [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_currentScrollIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
 }
