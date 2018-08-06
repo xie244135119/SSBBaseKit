@@ -48,12 +48,18 @@
 - (void)didMoveToSuperview
 {
     [super didMoveToSuperview];
-    // 选中第一个按钮
-    UIButton *_firstBt = (UIButton *)[self viewWithTag:1];
-    _currentClickIndex = 1;
-    [_firstBt setSelected:YES];
+    UIButton *_firstBt = (UIButton *)[self viewWithTag:_currentClickIndex];
+    if (_currentClickIndex == 0) {
+        // 选中第一个按钮
+        _firstBt = (UIButton *)[self viewWithTag:1];
+        _currentClickIndex = 1;
+        [_firstBt setSelected:YES];
+    }
     if ([self->_delegate respondsToSelector:@selector(messageChoiceView:fromButton:toButton:)]) {
         [self->_delegate messageChoiceView:self fromButton:nil toButton:_firstBt];
+    }
+    if ([self->_delegate respondsToSelector:@selector(messageChoiceView:sender:)]) {
+        [self->_delegate messageChoiceView:self sender:_firstBt];
     }
 }
 
@@ -136,7 +142,6 @@
         _shadowView.backgroundColor = textSelectColor;
     }
 }
-
 
 
 - (void)setMaxShadowWidth:(CGFloat)maxShadowWidth
