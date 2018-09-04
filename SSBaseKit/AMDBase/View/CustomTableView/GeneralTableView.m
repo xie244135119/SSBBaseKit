@@ -223,9 +223,21 @@
     return 0;
 }
 
+//
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 1;
+    if ([_delegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)]) {
+        return [_delegate tableView:tableView heightForHeaderInSection:section];
+    }
+    return 0.01;
+}
+//
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if ([_delegate respondsToSelector:@selector(tableView:heightForFooterInSection:)]) {
+        return [_delegate tableView:tableView heightForFooterInSection:section];
+    }
+    return 0.01;
 }
 
 @end

@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 @class AMDMultipleTypeView;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol AMDMultipleTypeChoiceDelegate <NSObject>
-@required
+
+@optional
 //sender:点击的响应控件  tag 按位置来 起始位置:1
 - (void)messageChoiceView:(AMDMultipleTypeView * __nullable)view
                    sender:(UIButton * __nullable)sender;
@@ -29,6 +32,8 @@
 @property(nonatomic, strong,readonly,nullable) NSArray *multitles;
 // 设置文本字体大小
 @property(nonatomic, strong, nullable) UIFont *titleFont;
+// 选中的时候文本字体
+@property(nonatomic, strong, nullable) UIFont *titleSelectFont;
 // 设置正常时候的文本
 @property(nonatomic, strong, nullable) UIColor *textNormalColor;
 // 选中时候的文本
@@ -70,6 +75,8 @@
 
 @end
 
+
+NS_ASSUME_NONNULL_END
 
 
 

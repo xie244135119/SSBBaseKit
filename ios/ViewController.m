@@ -22,10 +22,11 @@
 #import "SSLinkageView.h"
 #import "SSClassifyView.h"
 #import <Masonry/Masonry.h>
+#import "AMDMultipleTypeView.h"
 
 @interface ViewController ()<UINavigationControllerDelegate,
                                 UIGestureRecognizerDelegate,
-                                SSLinkageViewDelegate>
+                                SSLinkageViewDelegate, AMDMultipleTypeChoiceDelegate>
 {
     AMDButton *_currentBt;
 }
@@ -230,6 +231,27 @@
     }];
 }
 
+//
+- (IBAction)clickTestMultiView
+{
+    AMDMultipleTypeView *multiView = [[AMDMultipleTypeView alloc]initWithTitles:@[@"客服消息", @"团队消息"]];
+    multiView.delegate = self;
+    multiView.titleFont = SSFontWithName(@"", 14);
+    multiView.textNormalColor = SSColorWithRGB(156, 156, 156, 1);
+    multiView.textSelectColor = SSColorWithRGB(51, 51, 51, 1);
+    multiView.titleSelectFont = [UIFont boldSystemFontOfSize:20];
+    multiView.shadowColor = [UIColor clearColor];
+    [self.view addSubview:multiView];
+    multiView.layer.shadowOpacity = 0;
+    multiView.layer.shadowOffset = CGSizeMake(0, 0);
+    [multiView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@10);
+        make.right.bottom.equalTo(@0);
+        make.height.equalTo(@50);
+        make.top.equalTo(@350);
+    }];
+}
+
 
 -(IBAction)clickTest:(id)sender
 {
@@ -252,7 +274,6 @@
 //    codeVc.
     [self.navigationController pushViewController:codeVc animated:YES];
 }
-
 
 
 #pragma mark -
@@ -338,16 +359,24 @@
     }
     
     UILabel *label = [senderView viewWithTag:1001];
-    label.text = [NSString stringWithFormat:@"阿萨斯多发送方 %i",index];
+    label.text = [NSString stringWithFormat:@"阿萨斯多发送方 %li",(long)index];
 }
 
 //
 - (void)linkPageView:(SSLinkageView *)pageView actionAtIndex:(NSInteger)index
 {
-    NSLog(@" 按钮点击事件 %i ", index);
+    NSLog(@" 按钮点击事件 %li ",(long)index);
 }
 
 
+#pragma mark - AMDMultipleTypeChoiceDelegate
+// 选中处理
+- (void)messageChoiceView:(AMDMultipleTypeView * __nullable)view
+               fromButton:(UIButton * __nullable)fromButton
+                 toButton:(UIButton * __nullable)toButton
+{
+    NSLog(@" 选中按钮 ");
+}
 
 
 
