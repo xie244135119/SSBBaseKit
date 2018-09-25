@@ -95,8 +95,12 @@
         NSURL *imageurl = urls[i];
         AMDButton *bt = [[AMDButton alloc]init];
         bt.tag = i;
-        [bt setImageWithUrl:imageurl placeHolder:nil];
-        bt.imageView.image = images[i];
+       //优先取images里面的图片
+        if (images.count>0) {
+            bt.imageView.image = images[i];
+        }else{
+             [bt setImageWithUrl:imageurl placeHolder:nil];
+        }
         bt.titleLabel.text = titles[i];
         bt.titleLabel.textColor = _titleColor;
         bt.titleLabel.font = _titleFont;
