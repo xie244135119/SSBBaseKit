@@ -30,6 +30,9 @@
 {
     self.titleFont = nil;
     self.textNormalColor = nil;
+    self.titleSelectFont = nil;
+    self.textSelectColor = nil;
+    self.shadowColor = nil;
 }
 
 
@@ -48,12 +51,21 @@
 - (void)didMoveToSuperview
 {
     [super didMoveToSuperview];
-    // 选中第一个按钮
-    UIButton *_firstBt = (UIButton *)[self viewWithTag:1];
-    _currentClickIndex = 1;
-    [_firstBt setSelected:YES];
+    UIButton *_firstBt = (UIButton *)[self viewWithTag:_currentClickIndex];
+    if (_currentClickIndex == 0) {
+        // 选中第一个按钮
+        _firstBt = (UIButton *)[self viewWithTag:1];
+        _currentClickIndex = 1;
+        [_firstBt setSelected:YES];
+        if (_titleSelectFont) {
+            _firstBt.titleLabel.font = _titleSelectFont;
+        }
+    }
     if ([self->_delegate respondsToSelector:@selector(messageChoiceView:fromButton:toButton:)]) {
         [self->_delegate messageChoiceView:self fromButton:nil toButton:_firstBt];
+    }
+    if ([self->_delegate respondsToSelector:@selector(messageChoiceView:sender:)]) {
+        [self->_delegate messageChoiceView:self sender:_firstBt];
     }
 }
 
@@ -137,8 +149,7 @@
     }
 }
 
-
-
+//
 - (void)setMaxShadowWidth:(CGFloat)maxShadowWidth
 {
     _maxShadowWidth = maxShadowWidth;
@@ -150,7 +161,7 @@
     }
 }
 
-
+//
 - (void)setShadowColor:(UIColor *)shadowColor
 {
     if (_shadowColor != shadowColor) {
@@ -193,6 +204,10 @@
     
     self.currentClickIndex = sender.tag;
     [sender setSelected:YES];
+    // 设置选中字体
+    if (_titleSelectFont) {
+        sender.titleLabel.font = _titleSelectFont;
+    }
     
     //动画结束后调用回调事件
     __weak UIView *shadowView = _shadowView;
@@ -226,6 +241,9 @@
         UIButton *bt = (UIButton *)[self viewWithTag:_currentClickIndex];
         if ([bt isKindOfClass:[UIButton class]]) {
             [bt setSelected:NO];
+            if (_titleFont) {
+                bt.titleLabel.font = _titleFont;
+            }
         }
         
         _currentClickIndex = currentClickIndex;
@@ -262,6 +280,9 @@
     }
     
     [sender setSelected:YES];
+    if (_titleSelectFont) {
+        sender.titleLabel.font = _titleSelectFont;
+    }
     
     //动画结束后调用回调事件
     __weak UIView *shadowView = _shadowView;
@@ -280,10 +301,6 @@
         [UIView animateWithDuration:0.25 animations:^{
             shadowView.center = CGPointMake(sender.center.x, shadowView.center.y);
         }];
-    }
-    //返回相关按钮
-    if ([self->_delegate respondsToSelector:@selector(messageChoiceView:fromButton:toButton:)]) {
-        [self->_delegate messageChoiceView:self fromButton:_frombt toButton:_toBt];
     }
 }
 
@@ -366,30 +383,6 @@
     _shadowView = shadowView;
 }
 
-// AutoLayout下的选中处理
-//- (void)choiceActionButton2:(UIButton *)sender
-//{
-//    if (sender.tag == _currentClickIndex) {
-//        //防止二次点击
-//        return;
-//    }
-//
-//    self.currentClickIndex = sender.tag;
-//    [sender setSelected:YES];
-//
-//
-//    //动画结束后调用回调事件
-//    [UIView animateWithDuration:0.15 animations:^{
-//        // 更新动画
-//        [self->_shadowView mas_updateConstraints:^(MASConstraintMaker *make) {
-//            // 调整左侧距离
-//            make.left.equalTo(@(sender.frame.origin.x));
-//        }];
-//         [self->_shadowView.superview layoutIfNeeded];
-//    } completion:^(BOOL finished) {
-//        [self->_delegate messageChoiceView:self sender:sender];
-//    }];
-//}
 
 
 @end

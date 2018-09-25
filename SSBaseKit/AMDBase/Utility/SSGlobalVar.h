@@ -48,7 +48,7 @@
 // 线条高度
 #define SSLineHeight 0.5
 // 线条颜色
-#define SSLineColor SSColorWithRGB(230, 230, 230, 1)
+#define SSLineColor SSColorWithRGB(222,222,222, 1)
 
 
 

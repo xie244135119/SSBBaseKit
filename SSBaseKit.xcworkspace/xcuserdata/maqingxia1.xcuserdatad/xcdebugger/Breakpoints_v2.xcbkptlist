@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "308"
             endingLineNumber = "308"
-            landmarkName = "-initWithTitles:"
+            landmarkName = "-buttonWithIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
