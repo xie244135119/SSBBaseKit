@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1B4665530605D24E7EBBFF5C /* Pods_SSBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		725007F12190264000786CD3 /* SSSortButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 725007ED2190264000786CD3 /* SSSortButton.m */; };
+		725007F22190264000786CD3 /* SSSortButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 725007ED2190264000786CD3 /* SSSortButton.m */; };
+		725007F32190264000786CD3 /* SSSelectItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 725007EE2190264000786CD3 /* SSSelectItemView.m */; };
+		725007F42190264000786CD3 /* SSSelectItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 725007EE2190264000786CD3 /* SSSelectItemView.m */; };
+		725007F52190264000786CD3 /* SSSortButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 725007EF2190264000786CD3 /* SSSortButton.h */; };
+		725007F62190264000786CD3 /* SSSelectItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = 725007F02190264000786CD3 /* SSSelectItemView.h */; };
+		725007F921902A9700786CD3 /* SSArrowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 725007F721902A9700786CD3 /* SSArrowView.h */; };
+		725007FA21902A9700786CD3 /* SSArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 725007F821902A9700786CD3 /* SSArrowView.m */; };
+		725007FB21902A9700786CD3 /* SSArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 725007F821902A9700786CD3 /* SSArrowView.m */; };
 		AF261A7BEE59165292C8BFED /* Pods_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAAA301493F9EF28A3012B2 /* Pods_ios.framework */; };
 		CB0C75931EEA54CC00E28AA3 /* AASRegionChoiceView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB0C75911EEA54CC00E28AA3 /* AASRegionChoiceView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB0C75941EEA54CC00E28AA3 /* AASRegionChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */; };
@@ -191,6 +200,12 @@
 
 /* Begin PBXFileReference section */
 		6BA5DF9FE8CEC90D619B909F /* Pods-SSBaseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.release.xcconfig"; sourceTree = "<group>"; };
+		725007ED2190264000786CD3 /* SSSortButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSortButton.m; sourceTree = "<group>"; };
+		725007EE2190264000786CD3 /* SSSelectItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSelectItemView.m; sourceTree = "<group>"; };
+		725007EF2190264000786CD3 /* SSSortButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSortButton.h; sourceTree = "<group>"; };
+		725007F02190264000786CD3 /* SSSelectItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSelectItemView.h; sourceTree = "<group>"; };
+		725007F721902A9700786CD3 /* SSArrowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSArrowView.h; sourceTree = "<group>"; };
+		725007F821902A9700786CD3 /* SSArrowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSArrowView.m; sourceTree = "<group>"; };
 		7888E6B63D6D041C6E17ABE7 /* Pods-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios/Pods-ios.release.xcconfig"; sourceTree = "<group>"; };
 		8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DAAA301493F9EF28A3012B2 /* Pods_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -423,6 +438,10 @@
 		CB47CC341EE6471A00D81CA3 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				725007F02190264000786CD3 /* SSSelectItemView.h */,
+				725007EE2190264000786CD3 /* SSSelectItemView.m */,
+				725007EF2190264000786CD3 /* SSSortButton.h */,
+				725007ED2190264000786CD3 /* SSSortButton.m */,
 				CB6E2C9020A4272900724033 /* SSClassifyView.h */,
 				CB6E2C9120A4272900724033 /* SSClassifyView.m */,
 				CB7AE84E1F4AF5A3005E8E1F /* SSLinkageView.h */,
@@ -454,6 +473,8 @@
 				CB47CC4B1EE6471A00D81CA3 /* AMDWebViewDelegate.h */,
 				CB47CC4C1EE6471A00D81CA3 /* AMDWebViewPopverView.h */,
 				CB47CC4D1EE6471A00D81CA3 /* AMDWebViewPopverView.m */,
+				725007F721902A9700786CD3 /* SSArrowView.h */,
+				725007F821902A9700786CD3 /* SSArrowView.m */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -647,6 +668,7 @@
 			files = (
 				CB47CCB71EE6471A00D81CA3 /* AMDEntityProtocol.h in Headers */,
 				CB47CCAB1EE6471A00D81CA3 /* AMDWebViewPopverView.h in Headers */,
+				725007F52190264000786CD3 /* SSSortButton.h in Headers */,
 				CB47CCB41EE6471A00D81CA3 /* AMDWebViewController.h in Headers */,
 				CB47CCC11EE6471A00D81CA3 /* UIView+SSExtension.h in Headers */,
 				CB47CCEB1EE6471A00D81CA3 /* CustomTextView.h in Headers */,
@@ -668,11 +690,13 @@
 				CB47CCDB1EE6471A00D81CA3 /* AMDSegmentedControl.h in Headers */,
 				CB6E2C9220A4272900724033 /* SSClassifyView.h in Headers */,
 				CB47CCD91EE6471A00D81CA3 /* AMDScrollView.h in Headers */,
+				725007F62190264000786CD3 /* SSSelectItemView.h in Headers */,
 				CB47CCBA1EE6471A00D81CA3 /* AMDWebViewProgress.h in Headers */,
 				CB47CCA81EE6471A00D81CA3 /* AMDSetAmountView.h in Headers */,
 				CB47CCA01EE6471A00D81CA3 /* AMDLabelSwitchView.h in Headers */,
 				CB47CCA41EE6471A00D81CA3 /* AMDLoadingView.h in Headers */,
 				CB47CCCF1EE6471A00D81CA3 /* AMDImageView.h in Headers */,
+				725007F921902A9700786CD3 /* SSArrowView.h in Headers */,
 				CB47CCDD1EE6471A00D81CA3 /* AMDTextField.h in Headers */,
 				CB47CCCB1EE6471A00D81CA3 /* AMDButton.h in Headers */,
 				CB47CC9C1EE6471A00D81CA3 /* AMDLabelFieldView.h in Headers */,
@@ -881,9 +905,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB44376C1F3192DA00FF108C /* AMDSelectItemView.m in Sources */,
+				725007F12190264000786CD3 /* SSSortButton.m in Sources */,
 				CB47CD051EE6480B00D81CA3 /* AMDMJRefreshFooterView.m in Sources */,
 				CB47CCE01EE6471A00D81CA3 /* AYEActionSheetView.m in Sources */,
 				CB2D53431F15B5AC005A1B3F /* AMDSexSetView.m in Sources */,
+				725007F32190264000786CD3 /* SSSelectItemView.m in Sources */,
 				CB47CCE71EE6471A00D81CA3 /* CustomTableView.m in Sources */,
 				CB47CCEC1EE6471A00D81CA3 /* CustomTextView.m in Sources */,
 				CB6E2C9320A4272900724033 /* SSClassifyView.m in Sources */,
@@ -893,6 +919,7 @@
 				CB47CC9F1EE6471A00D81CA3 /* AMDLabelShowView.m in Sources */,
 				CB47CCBB1EE6471A00D81CA3 /* AMDWebViewProgress.m in Sources */,
 				CB47CCA91EE6471A00D81CA3 /* AMDSetAmountView.m in Sources */,
+				725007FA21902A9700786CD3 /* SSArrowView.m in Sources */,
 				CB47CCB51EE6471A00D81CA3 /* AMDWebViewController.m in Sources */,
 				CB47CCC21EE6471A00D81CA3 /* UIView+SSExtension.m in Sources */,
 				CB47CCE21EE6471A00D81CA3 /* AYESheetCell.m in Sources */,
@@ -976,7 +1003,9 @@
 				CB45E3CD1F2B3479009BB7C6 /* AMDWebViewController.m in Sources */,
 				CB45E3D11F2B3484009BB7C6 /* AMDKeyboradView.m in Sources */,
 				CB47BE351F7B628400F1BA65 /* TestController.m in Sources */,
+				725007F22190264000786CD3 /* SSSortButton.m in Sources */,
 				CB45E3D31F2B3489009BB7C6 /* AMDLabelShowView.m in Sources */,
+				725007F42190264000786CD3 /* SSSelectItemView.m in Sources */,
 				CB6E2C9D20A42B2400724033 /* SSFont.m in Sources */,
 				CB45E3EC1F2B34CC009BB7C6 /* CustomTextView.m in Sources */,
 				CB45E3E21F2B34B8009BB7C6 /* AMDImageView.m in Sources */,
@@ -991,6 +1020,7 @@
 				CB45E3D61F2B348E009BB7C6 /* AMDLoadingView.m in Sources */,
 				CB45E3DB1F2B34A7009BB7C6 /* AMDWebViewProgress.m in Sources */,
 				CB6C8FF820A978740081AC1A /* AMDImageView+ImageCache.m in Sources */,
+				725007FB21902A9700786CD3 /* SSArrowView.m in Sources */,
 				CB45E3CC1F2B3477009BB7C6 /* AMDTabbarItem.m in Sources */,
 				CB45E3E71F2B34C2009BB7C6 /* AMDScrollView.m in Sources */,
 				CB45E3E81F2B34C4009BB7C6 /* AMDSegmentedControl.m in Sources */,

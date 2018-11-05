@@ -23,12 +23,15 @@
 #import "SSClassifyView.h"
 #import <Masonry/Masonry.h>
 #import "AMDMultipleTypeView.h"
+#import "SSSelectItemView.h"
+
 
 @interface ViewController ()<UINavigationControllerDelegate,
                                 UIGestureRecognizerDelegate,
                                 SSLinkageViewDelegate, AMDMultipleTypeChoiceDelegate>
 {
     AMDButton *_currentBt;
+    SSSelectItemView *_selectView;
 }
 @end
 
@@ -36,6 +39,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    //选项栏
+//    SSSelectItemView *selectView = [[SSSelectItemView alloc] initWithFrame:CGRectMake(0, 100, SScreenWidth, 44)];
+//    _selectView = selectView;
+//
+//    selectView.backgroundColor = [UIColor whiteColor];;
+//    selectView.titleFont = [UIFont systemFontOfSize:15];
+//    selectView.titleColor = [UIColor redColor];
+//    selectView.titleSelectedColor = [UIColor greenColor];
+//    selectView.titles = @[@"综合",@"价格",@"销量"];
+//    selectView.sortIndexs = @[@0,@1,@2];
+//    selectView.arrowColor = [UIColor grayColor];
+//    selectView.arrowSelectColor = [UIColor redColor];
+//    [self.view addSubview:selectView];
+//    [selectView prepareView];
+//    selectView.completion = ^(NSInteger index, NSUInteger sortStatus) {
+//        NSLog(@"index = %ld,sort = %lu",(long)index,(unsigned long)sortStatus);
+//
+//    };
+//    return;
+//
     self.navigationController.navigationBarHidden = YES;
     self.navigationController.delegate = self;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
