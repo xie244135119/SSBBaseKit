@@ -11,8 +11,11 @@
 
 @interface SSSortButton : UIControl
 
-//是否支持排序
+//是否支持排序(双标)
 @property (nonatomic, assign)BOOL sort;
+
+//是否支持排序(单标)
+@property (nonatomic, assign)BOOL aloneSort;
 
 //title
 @property (nonatomic, strong)UILabel *titleLabel;
@@ -20,6 +23,7 @@
 //排序状态 （0、默认无序 1、升序  2、降序）
 @property (nonatomic, assign)NSUInteger status;
 
+//未选中颜色
 @property (nonatomic, strong)UIColor *arrowColor;
 
 /**

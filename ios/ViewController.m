@@ -24,7 +24,7 @@
 #import <Masonry/Masonry.h>
 #import "AMDMultipleTypeView.h"
 #import "SSSelectItemView.h"
-
+#import "SSTextField.h"
 
 @interface ViewController ()<UINavigationControllerDelegate,
                                 UIGestureRecognizerDelegate,
@@ -39,7 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
 //    //选项栏
 //    SSSelectItemView *selectView = [[SSSelectItemView alloc] initWithFrame:CGRectMake(0, 100, SScreenWidth, 44)];
 //    _selectView = selectView;

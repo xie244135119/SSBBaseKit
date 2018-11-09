@@ -17,6 +17,9 @@
 		725007F921902A9700786CD3 /* SSArrowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 725007F721902A9700786CD3 /* SSArrowView.h */; };
 		725007FA21902A9700786CD3 /* SSArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 725007F821902A9700786CD3 /* SSArrowView.m */; };
 		725007FB21902A9700786CD3 /* SSArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 725007F821902A9700786CD3 /* SSArrowView.m */; };
+		72925BBC21952BC1001D0DEB /* SSTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 72925BBA21952BC1001D0DEB /* SSTextField.h */; };
+		72925BBD21952BC1001D0DEB /* SSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 72925BBB21952BC1001D0DEB /* SSTextField.m */; };
+		72925BBE21952BC1001D0DEB /* SSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 72925BBB21952BC1001D0DEB /* SSTextField.m */; };
 		AF261A7BEE59165292C8BFED /* Pods_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAAA301493F9EF28A3012B2 /* Pods_ios.framework */; };
 		CB0C75931EEA54CC00E28AA3 /* AASRegionChoiceView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB0C75911EEA54CC00E28AA3 /* AASRegionChoiceView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB0C75941EEA54CC00E28AA3 /* AASRegionChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C75921EEA54CC00E28AA3 /* AASRegionChoiceView.m */; };
@@ -206,6 +209,8 @@
 		725007F02190264000786CD3 /* SSSelectItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSelectItemView.h; sourceTree = "<group>"; };
 		725007F721902A9700786CD3 /* SSArrowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSArrowView.h; sourceTree = "<group>"; };
 		725007F821902A9700786CD3 /* SSArrowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSArrowView.m; sourceTree = "<group>"; };
+		72925BBA21952BC1001D0DEB /* SSTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSTextField.h; sourceTree = "<group>"; };
+		72925BBB21952BC1001D0DEB /* SSTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSTextField.m; sourceTree = "<group>"; };
 		7888E6B63D6D041C6E17ABE7 /* Pods-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios/Pods-ios.release.xcconfig"; sourceTree = "<group>"; };
 		8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DAAA301493F9EF28A3012B2 /* Pods_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -475,6 +480,8 @@
 				CB47CC4D1EE6471A00D81CA3 /* AMDWebViewPopverView.m */,
 				725007F721902A9700786CD3 /* SSArrowView.h */,
 				725007F821902A9700786CD3 /* SSArrowView.m */,
+				72925BBA21952BC1001D0DEB /* SSTextField.h */,
+				72925BBB21952BC1001D0DEB /* SSTextField.m */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -684,6 +691,7 @@
 				CB47CCD31EE6471A00D81CA3 /* AMDNoDataView.h in Headers */,
 				CB53B2D41F4D1D0B0083A31B /* UIButton+SSBackground.h in Headers */,
 				CB47CCC91EE6471A00D81CA3 /* AMDBaseView.h in Headers */,
+				72925BBC21952BC1001D0DEB /* SSTextField.h in Headers */,
 				CB4724F51F95FEFB00F14E87 /* AMDCloseControl.h in Headers */,
 				CB47CCCD1EE6471A00D81CA3 /* AMDCopyLabel.h in Headers */,
 				CB47CCD71EE6471A00D81CA3 /* AMDRootNavgationBar.h in Headers */,
@@ -943,6 +951,7 @@
 				CB47CCDA1EE6471A00D81CA3 /* AMDScrollView.m in Sources */,
 				CB47CCAC1EE6471A00D81CA3 /* AMDWebViewPopverView.m in Sources */,
 				CB47CD091EE6480B00D81CA3 /* UIScrollView+AMDMJExtension.m in Sources */,
+				72925BBD21952BC1001D0DEB /* SSTextField.m in Sources */,
 				CB47CCA71EE6471A00D81CA3 /* AMDMultipleTypeView.m in Sources */,
 				CB47CCA51EE6471A00D81CA3 /* AMDLoadingView.m in Sources */,
 				CB47CC9B1EE6471A00D81CA3 /* AMDKeyboradView.m in Sources */,
@@ -1013,6 +1022,7 @@
 				CB45E3D71F2B3491009BB7C6 /* AMDMultipleTypeView.m in Sources */,
 				CB45E3E11F2B34B6009BB7C6 /* AMDCopyLabel.m in Sources */,
 				CB45E3D41F2B348B009BB7C6 /* AMDLabelSwitchView.m in Sources */,
+				72925BBE21952BC1001D0DEB /* SSTextField.m in Sources */,
 				CB45E3EE1F2B34D0009BB7C6 /* GeneralTableView.m in Sources */,
 				CB1CF7431FB939A800BB02CE /* SSNavigationController.m in Sources */,
 				CB4724F91F9602CB00F14E87 /* UIView+AMDMJExtension.m in Sources */,

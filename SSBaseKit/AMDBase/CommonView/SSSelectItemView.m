@@ -10,10 +10,23 @@
 #import <Masonry/Masonry.h>
 #import "SSSortButton.h"
 #import <objc/runtime.h>
+#import "CustomTableView.h"
+#import "SSGlobalVar.h"
 
 
-//#define SSColorWithRGB(r,g,b,a) [UIColor colorWithRed:(float)r/255 green:(float)g/255 blue:(float)b/255 alpha:a]
 #define CurrentBeforeSender @"CurrentBeforeSender"
+
+
+@interface SSSelectItemView()<CustomTableViewDelegate>
+{
+    UIView *_currentMenuView;  //综合菜单栏
+    UIView *_currentMenuBackView;  //半透明灰色视图
+    NSMutableArray *_sourceArray;
+    CustomTableView *_currentTableView;
+    SSSortButton *_currentBt;
+    NSUInteger _currentIndex;
+}
+@end
 
 
 @implementation SSSelectItemView
@@ -32,6 +45,8 @@
 
 
 - (void)initContentView{
+    _sourceArray = [[NSMutableArray alloc] init];
+    
     //按钮
     __weak SSSortButton *lastView = nil;
     for (NSInteger i =0 ;i<_titles.count; i++) {
@@ -46,6 +61,7 @@
             objc_setAssociatedObject(self, (__bridge const void *_Nonnull)(CurrentBeforeSender), bt, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             bt.titleLabel.textColor = _titleSelectedColor;
         }
+        
         [bt addTarget:self action:@selector(choiceActionButton:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:bt];
         [bt mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -65,6 +81,28 @@
         for (NSNumber *index in _sortIndexs) {
             if (index.integerValue == i) {
                 bt.sort = YES;
+                if (!_currentMenuView) {
+                    [self menuView];
+                }
+            }
+        }
+        
+        //是否支持单标排序
+        for (NSDictionary *dic in _aloneSortIndexs){
+            NSNumber *index = dic[@"index"];
+            if (index.integerValue == i) {
+                bt.aloneSort = YES;
+                //解除之前绑定的target
+                [bt removeTarget:self
+                          action:@selector(choiceActionButton:)
+                forControlEvents:UIControlEventTouchUpInside];
+                //重新绑定target
+                [bt addTarget:self
+                       action:@selector(choiceAloneActionButton:)
+             forControlEvents:UIControlEventTouchUpInside];
+                if (i == 0) {
+                    bt.status = 2;
+                }
             }
         }
     }
@@ -87,18 +125,16 @@
     //每个item的宽度
     CGFloat itemWith = self.frame.size.width/_maxCount;
     scrollView.contentSize = CGSizeMake(itemWith*_titles.count,self.frame.size.height);
-
+    
     //背景视图
     UIView *contentBack = [[UIView alloc] init];
-//    contentBack.backgroundColor = [UIColor redColor];
-//    contentBack.layer.borderWidth = 1;
     [scrollView addSubview:contentBack];
     [contentBack mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.offset(0);
         make.width.offset(itemWith*self->_titles.count);
         make.height.offset(self.frame.size.height);
     }];
-
+    
     //按钮
     __weak SSSortButton *lastView = nil;
     for (NSInteger i =0 ;i<_titles.count; i++) {
@@ -138,14 +174,44 @@
 
 
 #pragma mark - 点击事件
+//单标点击事件
+- (void)choiceAloneActionButton:(SSSortButton *)sender{
+    _currentBt = sender;
+    NSDictionary *dic = _aloneSortIndexs[sender.tag];
+    [_sourceArray removeAllObjects];
+    [_sourceArray addObjectsFromArray:dic[@"items"]];
+    if (sender.selected == NO) {
+        if (!_currentMenuView) {
+            [self menuView];
+        }else{
+            [_currentTableView.tableView reloadData];
+            [self show];
+        }
+        sender.selected = YES;
+    }else{
+        sender.status = 2;
+        [self hidden];
+        sender.selected = NO;
+    }
+}
+
+//双标点击事件
 - (void)choiceActionButton:(SSSortButton *)sender{
-    
     //获取之前的label
     SSSortButton *beforeLB = objc_getAssociatedObject(self,  (__bridge const void *_Nonnull)(CurrentBeforeSender));
     if (beforeLB) {
         if (sender != beforeLB) {
+            _currentBt.status = 2;
+            [self hidden];
+            _currentBt.selected = NO;
             beforeLB.titleLabel.textColor = _titleColor;
             beforeLB.status = 0;
+            _currentIndex = 0;
+            //更换综合标题
+            NSDictionary *dic = _aloneSortIndexs[_currentBt.tag];
+            NSArray *items = dic[@"items"];
+            _currentBt.titleLabel.text = items[_currentIndex];
+            _currentBt = nil;
         }
     }
     
@@ -157,15 +223,133 @@
         if (sender.status == 0 || sender.status == 2) {
             sender.status = 1;
         }else{
-                sender.status = 2;
+            sender.status = 2;
         }
     }
     
     if (_completion) {
         _completion(sender.tag,sender.status);
     }
-    
 }
 
+
+//综合下的菜单栏
+- (void)menuView{
+    //菜单背景图
+    UIView *menuBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _senderView.frame.size.width, _senderView.frame.size.height)];
+    _currentMenuView = menuBackView;
+    menuBackView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
+    //    menuBackView.backgroundColor = [UIColor redColor];
+    [_senderView addSubview:menuBackView];
+    [menuBackView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.offset(0);
+        make.top.equalTo(self.mas_bottom);
+    }];
+    menuBackView.hidden = YES;
+    
+    //菜单栏
+    CustomTableView *tableView = [[CustomTableView alloc] initWithType:kCustomTableViewTypeGeneral];
+    _currentTableView = tableView;
+    tableView.delegate = self;
+    [menuBackView addSubview:tableView];
+    tableView.sourceData = _sourceArray;
+    
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.offset(0);
+        make.height.offset(0);
+    }];
+}
+
+
+#pragma mark - CustomTableViewDelegate
+- (UITableViewCell *)tableView:(UITableView *)tableView CellAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellIdentifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:13];
+        UIView *line = [[UIView alloc] init];
+        line.backgroundColor = SSLineColor;
+        [cell addSubview:line];
+        [line mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset(15);
+            make.right.bottom.offset(0);
+            make.height.offset(SSLineHeight);
+        }];
+    }
+    //改变选中色
+    if (_currentIndex == indexPath.row) {
+        cell.textLabel.textColor = _titleSelectedColor;
+    }else{
+        cell.textLabel.textColor = _titleColor;
+    }
+    cell.textLabel.text = _sourceArray[indexPath.row];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 40;
+}
+
+// 选中某一行执行的操作
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //获取之前的label
+    SSSortButton *beforeLB = objc_getAssociatedObject(self,  (__bridge const void *_Nonnull)(CurrentBeforeSender));
+    if (beforeLB) {
+        if (_currentBt != beforeLB) {
+            beforeLB.titleLabel.textColor = _titleColor;
+            beforeLB.status = 0;
+        }
+    }
+    
+    //存储当前label
+    objc_setAssociatedObject(self, (__bridge const void *_Nonnull)(CurrentBeforeSender), _currentBt, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    _currentBt.titleLabel.textColor = _titleSelectedColor;
+    _currentBt.status = 1;
+    
+    //更换综合标题
+    NSDictionary *dic = _aloneSortIndexs[_currentBt.tag];
+    NSArray *items = dic[@"items"];
+    _currentBt.titleLabel.text = items[indexPath.row];
+    
+    //隐藏动画
+    _currentBt.selected = NO;
+    [self hidden];
+    
+    NSNumber *index = dic[@"index"];
+    _currentIndex = indexPath.row;
+    //返回值
+    if(_aloneCompletion){
+        _aloneCompletion(index.integerValue,indexPath.row);
+    }
+}
+
+
+#pragma mark - 动画
+- (void)show{
+    [_senderView bringSubviewToFront:_currentMenuView];
+    _currentMenuView.hidden = NO;
+    [UIView animateWithDuration:.25 animations:^{
+        self->_currentMenuView.backgroundColor = [UIColor colorWithWhite:0 alpha:.3];
+        [self->_currentTableView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.offset(self->_sourceArray.count*40);
+        }];
+        [self->_senderView layoutIfNeeded];
+    }];
+}
+
+- (void)hidden{
+    [UIView animateWithDuration:.25 animations:^{
+        self->_currentMenuView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
+        [self->_currentTableView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.offset(0);
+        }];
+        [self->_senderView layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        self->_currentMenuView.hidden = YES;
+    }];
+}
 
 @end

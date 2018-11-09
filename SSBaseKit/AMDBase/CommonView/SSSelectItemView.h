@@ -46,10 +46,9 @@
 @property (nonatomic, strong)NSArray<NSString *> *titles;
 
 /**
- 支持排序的按钮下标从零开始
+ 支持排序的按钮下标从零开始 （双标排序）
  */
 @property (nonatomic, strong)NSArray<NSNumber *>* sortIndexs;
-
 /**
  点击返回相应item坐标以及升降序状态
  */
@@ -59,6 +58,21 @@
  开始渲染
  */
 - (void)prepareView;
+
+
+#pragma mark - 支持单标
+/**
+ 支持排序下标从零开始 @[@{@"index":0,@"items":@[@"",@"",@""]}]（单标排序,如果与双标冲突将覆盖双标）
+ */
+@property (nonatomic, strong)NSArray<NSDictionary *>* aloneSortIndexs;
+/**
+ 承载菜单视图的父视图（如果需要支持单标，此属性必须赋值）
+ */
+@property (nonatomic, strong)UIView *senderView;
+/**
+ 点击返回相应index以及相应被选择item的下标
+ */
+@property (nonatomic, copy)void(^aloneCompletion)(NSInteger index,NSUInteger sortStatus);
 
 
 @end
