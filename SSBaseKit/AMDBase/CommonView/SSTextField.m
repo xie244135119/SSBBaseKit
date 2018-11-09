@@ -26,25 +26,29 @@
 
 
 
-- (instancetype)init{
-    if (self = [super init]) {
-        [self initContentView];
-    }
-    return self;
-}
+//- (instancetype)init{
+//    if (self = [super init]) {
+//        [self initContentView];
+//    }
+//    return self;
+//}
+//
+//- (instancetype)initWithFrame:(CGRect)frame{
+//    if (self = [super initWithFrame:frame]) {
+//        [self initContentView];
+//    }
+//    return self;
+//}
 
-- (instancetype)initWithFrame:(CGRect)frame{
-    if (self = [super initWithFrame:frame]) {
-        [self initContentView];
-    }
-    return self;
+-(void)prepareView{
+    [self initContentView];
 }
-
 
 - (void)initContentView{
     //搜索框
     UITextField *searchBar = [[UITextField alloc] init];
     _textField = searchBar;
+    searchBar.placeholder = _placeholder;
     searchBar.layer.cornerRadius = 15.0f;//设置圆角具体根据实际情况来设置
     searchBar.textColor = SSColorWithRGB(119, 119, 119, 1);
     searchBar.font = [UIFont systemFontOfSize:14];
@@ -53,11 +57,25 @@
     [searchBar setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     searchBar.font = [UIFont systemFontOfSize:14];
     [self addSubview:searchBar];
+    
     [searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.offset(15);
-        make.right.offset(-15);
-        make.height.offset(30);
-        make.centerY.equalTo(self.mas_centerY);
+        if (_adaptation) {
+            make.left.top.bottom.offset(0);
+            if (_showCancel) {
+                make.right.offset(-40);
+            }else{
+                make.right.offset(0);
+            }
+        }else{
+            make.left.offset(15);
+            if (_showCancel) {
+                make.right.offset(-55);
+            }else{
+                make.right.offset(-15);
+            }
+            make.height.offset(30);
+            make.centerY.equalTo(self.mas_centerY);
+        }
     }];
     
     //放大镜图标
@@ -71,8 +89,8 @@
     //取消按钮
     UIButton *bt = [[UIButton alloc] init];
     _cancelBt = bt;
-//    bt.layer.borderWidth = 1;
-    bt.hidden = YES;
+    //    bt.layer.borderWidth = 1;
+    bt.hidden = !_showCancel;
     [bt setTitle:@"取消" forState:UIControlStateNormal];
     [bt addTarget:self action:@selector(clickCancel) forControlEvents:UIControlEventTouchUpInside];
     bt.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -86,70 +104,70 @@
 }
 
 
-#pragma mark - 赋值
-- (void)showCancel:(BOOL)showCancel
-           animate:(BOOL)animate{
-    _showCancel = showCancel;
-    if (showCancel) {
-        if (animate) {
-            [UIView animateWithDuration:.25 animations:^{
-                [_textField mas_updateConstraints:^(MASConstraintMaker *make) {
-                    if (_adaptation) {
-                        make.right.offset(-40);
-                    }else
-                    make.right.offset(-55);
-                }];
-                [self layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                _cancelBt.hidden = NO;
-            }];
-        }else{
-            [_textField mas_updateConstraints:^(MASConstraintMaker *make) {
-                if (_adaptation) {
-                    make.right.offset(-40);
-                }else
-                    make.right.offset(-55);
-            }];
-            _cancelBt.hidden = NO;
-        }
+//#pragma mark - 赋值
+//- (void)showCancel:(BOOL)showCancel
+//           animate:(BOOL)animate{
+//    _showCancel = showCancel;
+//    if (showCancel) {
+//        if (animate) {
+//            [UIView animateWithDuration:.25 animations:^{
+//                [_textField mas_updateConstraints:^(MASConstraintMaker *make) {
+//                    if (_adaptation) {
+//                        make.right.offset(-40);
+//                    }else
+//                    make.right.offset(-55);
+//                }];
+//                [self layoutIfNeeded];
+//            } completion:^(BOOL finished) {
+//                _cancelBt.hidden = NO;
+//            }];
+//        }else{
+//            [_textField mas_updateConstraints:^(MASConstraintMaker *make) {
+//                if (_adaptation) {
+//                    make.right.offset(-40);
+//                }else
+//                    make.right.offset(-55);
+//            }];
+//            _cancelBt.hidden = NO;
+//        }
+//
+//    }else{
+//        if (animate) {
+//            [UIView animateWithDuration:.25 animations:^{
+//                [_textField mas_updateConstraints:^(MASConstraintMaker *make) {
+//                    make.right.offset(0);
+//                }];
+//                [self layoutIfNeeded];
+//            } completion:^(BOOL finished) {
+//                _cancelBt.hidden = YES;
+//            }];
+//        }else{
+//            [_textField mas_updateConstraints:^(MASConstraintMaker *make) {
+//                if (_adaptation) {
+//                    make.right.offset(0);
+//                }else{
+//                    make.right.offset(-15);
+//                }
+//            }];
+//            _cancelBt.hidden = YES;
+//        }
+//    }
+//}
 
-    }else{
-        if (animate) {
-            [UIView animateWithDuration:.25 animations:^{
-                [_textField mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.right.offset(0);
-                }];
-                [self layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                _cancelBt.hidden = YES;
-            }];
-        }else{
-            [_textField mas_updateConstraints:^(MASConstraintMaker *make) {
-                if (_adaptation) {
-                    make.right.offset(0);
-                }else{
-                    make.right.offset(-15);
-                }
-            }];
-            _cancelBt.hidden = YES;
-        }
-    }
-}
-
-//重新渲染视图
--(void)setAdaptation:(BOOL)adaptation{
-    _adaptation = adaptation;
-    if (adaptation) {
-        [_textField mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.bottom.offset(0);
-            if (_showCancel) {
-                make.right.offset(-40);
-            }else{
-                make.right.offset(0);
-            }
-        }];
-    }
-}
+////重新渲染视图
+//-(void)setAdaptation:(BOOL)adaptation{
+//    _adaptation = adaptation;
+//    if (adaptation) {
+//        [_textField mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.left.top.bottom.offset(0);
+//            if (_showCancel) {
+//                make.right.offset(-40);
+//            }else{
+//                make.right.offset(0);
+//            }
+//        }];
+//    }
+//}
 
 #pragma mark - 点击事件
 - (void)clickCancel{

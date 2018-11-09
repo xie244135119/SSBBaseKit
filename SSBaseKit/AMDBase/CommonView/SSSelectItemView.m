@@ -176,11 +176,21 @@
 #pragma mark - 点击事件
 //单标点击事件
 - (void)choiceAloneActionButton:(SSSortButton *)sender{
-    _currentBt = sender;
+    if (_currentBt!=sender) {
+        if (_currentBt) {
+            sender.status = -1;
+        }else{
+            sender.status = 1;
+        }
+        _currentBt = sender;
+    }else{
+        sender.status = 1;
+    }
     NSDictionary *dic = _aloneSortIndexs[sender.tag];
     [_sourceArray removeAllObjects];
     [_sourceArray addObjectsFromArray:dic[@"items"]];
     if (sender.selected == NO) {
+        
         if (!_currentMenuView) {
             [self menuView];
         }else{
@@ -189,7 +199,7 @@
         }
         sender.selected = YES;
     }else{
-        sender.status = 2;
+        //        sender.status = 1;
         [self hidden];
         sender.selected = NO;
     }
@@ -201,17 +211,19 @@
     SSSortButton *beforeLB = objc_getAssociatedObject(self,  (__bridge const void *_Nonnull)(CurrentBeforeSender));
     if (beforeLB) {
         if (sender != beforeLB) {
-            _currentBt.status = 2;
+            _currentBt.status = 0;
             [self hidden];
             _currentBt.selected = NO;
             beforeLB.titleLabel.textColor = _titleColor;
             beforeLB.status = 0;
             _currentIndex = 0;
-            //更换综合标题
-            NSDictionary *dic = _aloneSortIndexs[_currentBt.tag];
-            NSArray *items = dic[@"items"];
-            _currentBt.titleLabel.text = items[_currentIndex];
-            _currentBt = nil;
+            if (_currentBt.aloneSort) {
+                //更换综合标题
+                NSDictionary *dic = _aloneSortIndexs[_currentBt.tag];
+                NSArray *items = dic[@"items"];
+                _currentBt.titleLabel.text = items[_currentIndex];
+            }
+            _currentBt = sender;
         }
     }
     
@@ -307,7 +319,7 @@
     //存储当前label
     objc_setAssociatedObject(self, (__bridge const void *_Nonnull)(CurrentBeforeSender), _currentBt, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     _currentBt.titleLabel.textColor = _titleSelectedColor;
-    _currentBt.status = 1;
+    _currentBt.status = 2;
     
     //更换综合标题
     NSDictionary *dic = _aloneSortIndexs[_currentBt.tag];

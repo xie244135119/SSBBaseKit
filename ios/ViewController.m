@@ -39,7 +39,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+//    self.view.backgroundColor = [UIColor greenColor];
+//    //搜索框
+//    SSTextField *textField = [[SSTextField alloc] init];
+////    textField.showCancel = YES;
+////    textField.adaptation = YES;
+//    textField.placeholder = @"搜索商品";
+//    textField.textField.layer.borderWidth = 1;
+//    [self.view addSubview:textField];
+//    [textField mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.left.offset(0);
+//        make.right.offset(0);
+//        make.height.offset(30);
+//        make.bottom.equalTo(@-8);
+//    }];
+//    [textField prepareView];
+//
+//    return;
 //    //选项栏
 //    SSSelectItemView *selectView = [[SSSelectItemView alloc] initWithFrame:CGRectMake(0, 100, SScreenWidth, 44)];
 //    _selectView = selectView;

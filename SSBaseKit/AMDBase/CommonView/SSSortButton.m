@@ -118,6 +118,12 @@
 - (void)setStatus:(NSUInteger)status{
     _status = status;
     switch (status) {
+        case -1://降序未选中状态
+        {
+            _centerArrow.backgroundColor = _arrowColor;
+            [_centerArrow prepareViewWithDirection:SSArrowViewDirectionTop];
+        }
+            break;
         case 1://升序
         {
             if (_aloneSort) {

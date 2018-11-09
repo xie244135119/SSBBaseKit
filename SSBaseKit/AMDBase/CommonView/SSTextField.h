@@ -20,23 +20,29 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic)BOOL adaptation;
 
 /**
- 搜索框
+ 搜索框提示文字
  */
-@property (nonatomic, weak)UITextField *textField;
+@property (nonatomic, copy)NSString *placeholder;
 
 /**
- 是否支持取消按钮 (默认不显示)
-
- @param showCancel 是否展示
- @param animate 是否需要加载动画
+ 搜索框
  */
-- (void)showCancel:(BOOL)showCancel
-           animate:(BOOL)animate;
+@property (nonatomic, strong)UITextField *textField;
+
+/**
+ 支持取消按钮
+ */
+@property (nonatomic)BOOL showCancel;
 
 /**
  点击取消触发事件
  */
 @property (nonatomic, copy)void(^clickCancelCompletion)(void);
+
+/**
+ 试图渲染
+ */
+- (void)prepareView;
 
 @end
 

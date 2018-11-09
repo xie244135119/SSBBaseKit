@@ -20,8 +20,9 @@
 //title
 @property (nonatomic, strong)UILabel *titleLabel;
 
-//排序状态 （0、默认无序 1、升序  2、降序）
+//排序状态 （-1、降序未选中状态（仅单标） 0、默认无序 1、升序  2、降序）
 @property (nonatomic, assign)NSUInteger status;
+
 
 //未选中颜色
 @property (nonatomic, strong)UIColor *arrowColor;
