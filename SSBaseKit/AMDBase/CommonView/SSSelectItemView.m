@@ -15,6 +15,7 @@
 
 
 #define CurrentBeforeSender @"CurrentBeforeSender"
+#define CurrentSortBeforeSender @"CurrentSortBeforeSender"
 
 
 @interface SSSelectItemView()<CustomTableViewDelegate>
@@ -23,8 +24,8 @@
     UIView *_currentMenuBackView;  //半透明灰色视图
     NSMutableArray *_sourceArray;
     CustomTableView *_currentTableView;
-    SSSortButton *_currentBt;
-    NSUInteger _currentIndex;
+    //    SSSortButton *_currentBt;
+    NSUInteger _currentIndex;  //记录单标列表的index
 }
 @end
 
@@ -176,30 +177,34 @@
 #pragma mark - 点击事件
 //单标点击事件
 - (void)choiceAloneActionButton:(SSSortButton *)sender{
-    if (_currentBt!=sender) {
-        if (_currentBt) {
-            sender.status = -1;
-        }else{
-            sender.status = 1;
-        }
-        _currentBt = sender;
-    }else{
-        sender.status = 1;
-    }
+    
+    objc_setAssociatedObject(self, (__bridge const void *_Nonnull)(CurrentSortBeforeSender), sender, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    //获取上一个按钮
+    SSSortButton *beforeLB = objc_getAssociatedObject(self,  (__bridge const void *_Nonnull)(CurrentBeforeSender));
+    
     NSDictionary *dic = _aloneSortIndexs[sender.tag];
     [_sourceArray removeAllObjects];
     [_sourceArray addObjectsFromArray:dic[@"items"]];
     if (sender.selected == NO) {
-        
-        if (!_currentMenuView) {
-            [self menuView];
-        }else{
-            [_currentTableView.tableView reloadData];
-            [self show];
-        }
+        //改变选中状态
         sender.selected = YES;
+        
+        //刷新列表数据
+        [_currentTableView.tableView reloadData];
+        [self show];
+        
+        if (beforeLB!=sender) {
+            sender.status = -1;
+        }else{
+            sender.status = 1;
+        }
     }else{
-        //        sender.status = 1;
+        if (beforeLB!=sender) {
+            sender.status = 0;
+        }else{
+            sender.status = 1;
+        }
         [self hidden];
         sender.selected = NO;
     }
@@ -207,23 +212,28 @@
 
 //双标点击事件
 - (void)choiceActionButton:(SSSortButton *)sender{
+    //更新单标按钮
+    SSSortButton *beforeSortLB = objc_getAssociatedObject(self,  (__bridge const void *_Nonnull)(CurrentSortBeforeSender));
+    if (beforeSortLB) {
+        beforeSortLB.status = 0;
+        beforeSortLB.selected = NO;
+        beforeSortLB.titleLabel.textColor = _titleColor;
+        //隐藏单标按钮视图
+        [self hidden];
+        //更换综合标题
+        NSDictionary *dic = _aloneSortIndexs[beforeSortLB.tag?beforeSortLB.tag:0];
+        NSArray *items = dic[@"items"];
+        _currentIndex = 0;
+        beforeSortLB.titleLabel.text = items[_currentIndex];
+    }
+    
     //获取之前的label
     SSSortButton *beforeLB = objc_getAssociatedObject(self,  (__bridge const void *_Nonnull)(CurrentBeforeSender));
     if (beforeLB) {
         if (sender != beforeLB) {
-            _currentBt.status = 0;
-            [self hidden];
-            _currentBt.selected = NO;
             beforeLB.titleLabel.textColor = _titleColor;
             beforeLB.status = 0;
             _currentIndex = 0;
-            if (_currentBt.aloneSort) {
-                //更换综合标题
-                NSDictionary *dic = _aloneSortIndexs[_currentBt.tag];
-                NSArray *items = dic[@"items"];
-                _currentBt.titleLabel.text = items[_currentIndex];
-            }
-            _currentBt = sender;
         }
     }
     
@@ -306,28 +316,29 @@
 
 // 选中某一行执行的操作
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    SSSortButton *sortLB = objc_getAssociatedObject(self,  (__bridge const void *_Nonnull)(CurrentSortBeforeSender));
     
     //获取之前的label
     SSSortButton *beforeLB = objc_getAssociatedObject(self,  (__bridge const void *_Nonnull)(CurrentBeforeSender));
     if (beforeLB) {
-        if (_currentBt != beforeLB) {
+        if (sortLB != beforeLB) {
             beforeLB.titleLabel.textColor = _titleColor;
             beforeLB.status = 0;
         }
     }
     
     //存储当前label
-    objc_setAssociatedObject(self, (__bridge const void *_Nonnull)(CurrentBeforeSender), _currentBt, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    _currentBt.titleLabel.textColor = _titleSelectedColor;
-    _currentBt.status = 2;
+    objc_setAssociatedObject(self, (__bridge const void *_Nonnull)(CurrentBeforeSender), sortLB, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    sortLB.titleLabel.textColor = _titleSelectedColor;
+    sortLB.status = 2;
     
     //更换综合标题
-    NSDictionary *dic = _aloneSortIndexs[_currentBt.tag];
+    NSDictionary *dic = _aloneSortIndexs[sortLB.tag];
     NSArray *items = dic[@"items"];
-    _currentBt.titleLabel.text = items[indexPath.row];
+    sortLB.titleLabel.text = items[indexPath.row];
     
     //隐藏动画
-    _currentBt.selected = NO;
+    sortLB.selected = NO;
     [self hidden];
     
     NSNumber *index = dic[@"index"];
