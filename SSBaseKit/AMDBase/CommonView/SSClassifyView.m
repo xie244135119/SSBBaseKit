@@ -108,7 +108,9 @@
         [self addSubview:bt];
         if (titles.count == 0) {
             [bt.imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.left.top.bottom.right.offset(0);
+                make.center.equalTo(bt);
+                make.width.offset(self->_imageSize.width);
+                make.height.offset(self->_imageSize.height);
             }];
         }else{
             bt.imageView.layer.cornerRadius = _imageCornerRadius;
