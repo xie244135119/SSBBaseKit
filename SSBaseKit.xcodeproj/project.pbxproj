@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1B4665530605D24E7EBBFF5C /* Pods_SSBaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAB8292968023680995BEF7 /* Pods_SSBaseKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		720D5BB321D0800A00AC425B /* UIImage+TintColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 720D5BB121D0800A00AC425B /* UIImage+TintColor.h */; };
+		720D5BB421D0800A00AC425B /* UIImage+TintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 720D5BB221D0800A00AC425B /* UIImage+TintColor.m */; };
+		720D5BB521D0800A00AC425B /* UIImage+TintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 720D5BB221D0800A00AC425B /* UIImage+TintColor.m */; };
 		725007F12190264000786CD3 /* SSSortButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 725007ED2190264000786CD3 /* SSSortButton.m */; };
 		725007F22190264000786CD3 /* SSSortButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 725007ED2190264000786CD3 /* SSSortButton.m */; };
 		725007F32190264000786CD3 /* SSSelectItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 725007EE2190264000786CD3 /* SSSelectItemView.m */; };
@@ -203,6 +206,8 @@
 
 /* Begin PBXFileReference section */
 		6BA5DF9FE8CEC90D619B909F /* Pods-SSBaseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.release.xcconfig"; sourceTree = "<group>"; };
+		720D5BB121D0800A00AC425B /* UIImage+TintColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TintColor.h"; sourceTree = "<group>"; };
+		720D5BB221D0800A00AC425B /* UIImage+TintColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TintColor.m"; sourceTree = "<group>"; };
 		725007ED2190264000786CD3 /* SSSortButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSortButton.m; sourceTree = "<group>"; };
 		725007EE2190264000786CD3 /* SSSelectItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSelectItemView.m; sourceTree = "<group>"; };
 		725007EF2190264000786CD3 /* SSSortButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSortButton.h; sourceTree = "<group>"; };
@@ -514,6 +519,8 @@
 		CB47CC581EE6471A00D81CA3 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				720D5BB121D0800A00AC425B /* UIImage+TintColor.h */,
+				720D5BB221D0800A00AC425B /* UIImage+TintColor.m */,
 				CB6E2C9B20A42B2400724033 /* SSFont.h */,
 				CB6E2C9A20A42B2400724033 /* SSFont.m */,
 				CB47CC5A1EE6471A00D81CA3 /* AMDEntityProtocol.h */,
@@ -692,6 +699,7 @@
 				CB53B2D41F4D1D0B0083A31B /* UIButton+SSBackground.h in Headers */,
 				CB47CCC91EE6471A00D81CA3 /* AMDBaseView.h in Headers */,
 				72925BBC21952BC1001D0DEB /* SSTextField.h in Headers */,
+				720D5BB321D0800A00AC425B /* UIImage+TintColor.h in Headers */,
 				CB4724F51F95FEFB00F14E87 /* AMDCloseControl.h in Headers */,
 				CB47CCCD1EE6471A00D81CA3 /* AMDCopyLabel.h in Headers */,
 				CB47CCD71EE6471A00D81CA3 /* AMDRootNavgationBar.h in Headers */,
@@ -924,6 +932,7 @@
 				CB47CCCA1EE6471A00D81CA3 /* AMDBaseView.m in Sources */,
 				CB47CD071EE6480B00D81CA3 /* AMDMJRefreshHeaderView.m in Sources */,
 				CB47CCD81EE6471A00D81CA3 /* AMDRootNavgationBar.m in Sources */,
+				720D5BB421D0800A00AC425B /* UIImage+TintColor.m in Sources */,
 				CB47CC9F1EE6471A00D81CA3 /* AMDLabelShowView.m in Sources */,
 				CB47CCBB1EE6471A00D81CA3 /* AMDWebViewProgress.m in Sources */,
 				CB47CCA91EE6471A00D81CA3 /* AMDSetAmountView.m in Sources */,
@@ -1023,6 +1032,7 @@
 				CB45E3E11F2B34B6009BB7C6 /* AMDCopyLabel.m in Sources */,
 				CB45E3D41F2B348B009BB7C6 /* AMDLabelSwitchView.m in Sources */,
 				72925BBE21952BC1001D0DEB /* SSTextField.m in Sources */,
+				720D5BB521D0800A00AC425B /* UIImage+TintColor.m in Sources */,
 				CB45E3EE1F2B34D0009BB7C6 /* GeneralTableView.m in Sources */,
 				CB1CF7431FB939A800BB02CE /* SSNavigationController.m in Sources */,
 				CB4724F91F9602CB00F14E87 /* UIView+AMDMJExtension.m in Sources */,
