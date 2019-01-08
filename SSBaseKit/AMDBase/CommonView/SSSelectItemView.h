@@ -10,6 +10,26 @@
 
 @interface SSSelectItemView : UIView
 
+
+/**
+ 是否展示阴影
+ */
+@property (nonatomic, assign)BOOL showShadow;
+
+/**
+ 是否显示分割线
+ */
+@property (nonatomic, assign)BOOL showDividingLine;
+
+/**
+ 分割线高度 默认15
+ */
+@property (nonatomic)NSUInteger dividingLineHeight;
+
+/**
+ 分割线颜色
+ */
+@property (nonatomic,strong)UIColor *dividingLineColor;
 /**
  文字大小
  */

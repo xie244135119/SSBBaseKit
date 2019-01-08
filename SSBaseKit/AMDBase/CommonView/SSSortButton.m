@@ -42,7 +42,7 @@
     _titleLabel = titleLabel;
     [self addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.mas_centerX);
+        make.centerX.equalTo(self.mas_centerX).offset(-2.5);
         make.top.bottom.offset(0);
     }];
 }
@@ -56,7 +56,7 @@
     topArrow.backgroundColor = _arrowColor;
     [self addSubview:topArrow];
     [topArrow mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self->_titleLabel.mas_right);
+        make.left.equalTo(self->_titleLabel.mas_right).offset(5);
         make.centerY.equalTo(self ->_titleLabel.mas_centerY).offset(-2.5);
         make.width.offset(8);
         make.height.offset(4);
@@ -70,7 +70,7 @@
     bottomArrow.backgroundColor = _arrowColor;
     [self addSubview:bottomArrow];
     [bottomArrow mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self->_titleLabel.mas_right);
+        make.left.equalTo(self->_titleLabel.mas_right).offset(5);
         make.centerY.equalTo(self->_titleLabel.mas_centerY).offset(2.5);
         make.width.offset(8);
         make.height.offset(4);
@@ -89,7 +89,7 @@
     bottomArrow.backgroundColor = _arrowColor;
     [self addSubview:bottomArrow];
     [bottomArrow mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self->_titleLabel.mas_right);
+        make.left.equalTo(self->_titleLabel.mas_right).offset(5);
         make.centerY.equalTo(self->_titleLabel.mas_centerY);
         make.width.offset(8);
         make.height.offset(4);

@@ -77,6 +77,21 @@
             }
         }];
         
+        //展示分割线
+        if (_showDividingLine) {
+            if (i != _titles.count-1){
+                UIView *line = [[UIView alloc] init];
+                line.backgroundColor = _dividingLineColor?_dividingLineColor:SSLineColor;
+                [bt addSubview:line];
+                [line mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.right.offset(0);
+                    make.centerY.equalTo(bt.mas_centerY);
+                    make.width.offset(SSLineHeight);
+                    make.height.offset(self->_dividingLineHeight>0?self->_dividingLineHeight:15);
+                }];
+            }
+        }
+        
         lastView = bt;
         //是否支持升降序
         for (NSNumber *index in _sortIndexs) {
@@ -112,6 +127,13 @@
         make.top.bottom.equalTo(self).with.offset(0);
         make.right.equalTo(self);
     }];
+    
+    //展示阴影
+    if (_showShadow) {
+        //阴影
+        self.layer.shadowOpacity = 0.08;
+        self.layer.shadowOffset = CGSizeMake(0, 3);
+    }
 }
 
 
