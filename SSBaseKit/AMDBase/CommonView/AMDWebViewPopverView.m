@@ -21,13 +21,13 @@
 - (id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        [self initContentView];
+        [self p_setupContentView];
     }
     return self;
 }
 
 
-- (void)initContentView
+- (void)p_setupContentView
 {
     UIView *middleView = [[UIView alloc]init];
     middleView.layer.borderWidth = 1;

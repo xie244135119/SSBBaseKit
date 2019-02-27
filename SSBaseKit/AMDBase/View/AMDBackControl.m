@@ -41,7 +41,7 @@
 //- (id)init
 //{
 //    if (self = [super init]) {
-//        [self initContentView2];
+//        [self p_setupContentView2];
 //    }
 //    return self;
 //}
@@ -51,10 +51,10 @@
 {
     if (self = [super initWithFrame:frame]) {
         if (CGRectEqualToRect(frame, CGRectZero)) {
-            [self initContentView2];
+            [self p_setupContentView2];
         }
         else {
-           [self initContentView];
+           [self p_setupContentView];
         }
         
         // 配置默认后退颜色
@@ -66,7 +66,7 @@
     return self;
 }
 
-- (void)initContentView
+- (void)p_setupContentView
 {
     // 对号显示视图
     CGSize imgsize = CGSizeMake(12, 20);
@@ -83,7 +83,7 @@
     _mesRemindLabel = messagecountlb;
 }
 
-- (void)initContentView2
+- (void)p_setupContentView2
 {
     CGSize imgsize = CGSizeMake(12, 20);
     AMDBackImgView *imgView = [[AMDBackImgView alloc]init];

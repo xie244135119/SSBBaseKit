@@ -26,25 +26,11 @@
 
 
 
-//- (instancetype)init{
-//    if (self = [super init]) {
-//        [self initContentView];
-//    }
-//    return self;
-//}
-//
-//- (instancetype)initWithFrame:(CGRect)frame{
-//    if (self = [super initWithFrame:frame]) {
-//        [self initContentView];
-//    }
-//    return self;
-//}
-
 -(void)prepareView{
-    [self initContentView];
+    [self p_setupContentView];
 }
 
-- (void)initContentView{
+- (void)p_setupContentView{
     //搜索框
     UITextField *searchBar = [[UITextField alloc] init];
     _textField = searchBar;

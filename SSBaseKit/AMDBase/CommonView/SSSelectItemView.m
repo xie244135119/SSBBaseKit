@@ -40,12 +40,12 @@
     if(_maxCount>_titles.count){
         [self initScrollContentView];
     }else{
-        [self initContentView];
+        [self p_setupContentView];
     }
 }
 
 
-- (void)initContentView{
+- (void)p_setupContentView{
     _sourceArray = [[NSMutableArray alloc] init];
     
     //按钮

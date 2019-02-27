@@ -40,14 +40,14 @@
     [super viewDidLoad];
     
     @autoreleasepool {
-        [self performSelectorOnMainThread:@selector(initContentView) withObject:nil waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(p_setupContentView) withObject:nil waitUntilDone:NO];
     }
 }
 
 
 #pragma mark - 视图加载
 //
-- (void)initContentView
+- (void)p_setupContentView
 {
     // 遮罩效果
     [self initPopverView];

@@ -47,7 +47,7 @@
 
 
 //搭建内容视图
-- (void)initContentView{
+- (void)p_setupContentView{
     NSArray *titles = nil;
     NSArray<NSURL *> *imageUrls = nil;
     NSArray<UIImage *> *images = nil;
@@ -64,7 +64,7 @@
         imageUrls = [_dataSource classifyImageUrls];
     }
     // 加载
-    [self _initContentViewWithTitles:titles
+    [self _p_setupContentViewWithTitles:titles
                            imageUrls:imageUrls
                               images:images];
 }
@@ -73,7 +73,7 @@
 
 #pragma mark - 本地方法
 //初始化内容视图
-- (void)_initContentViewWithTitles:(NSArray *)titles
+- (void)_p_setupContentViewWithTitles:(NSArray *)titles
                          imageUrls:(NSArray<NSURL *> *)urls
                             images:(NSArray<UIImage *> *)images
 {
@@ -196,7 +196,7 @@
 //预加载
 - (void)prepareForLoad
 {
-    [self initContentView];
+    [self p_setupContentView];
 }
 
 

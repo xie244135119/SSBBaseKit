@@ -29,14 +29,14 @@
 #pragma mark - 初始化方法
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        [self initContentView];
+        [self p_setupContentView];
     }
     return self;
 }
 
 
 #pragma mark - 视图搭建
-- (void)initContentView{
+- (void)p_setupContentView{
     //标题
     UILabel *titleLabel = [[UILabel alloc] init];
     _titleLabel = titleLabel;

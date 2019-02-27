@@ -45,7 +45,7 @@
 
 #pragma mark - 视图
 //
-- (void)initContentView
+- (void)p_setupContentView
 {
     
 }

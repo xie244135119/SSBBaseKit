@@ -24,17 +24,17 @@
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = SSColorWithRGB(246, 246, 246, 1);
         if (CGRectEqualToRect(frame, CGRectZero)) {
-            [self initContentView_AutoLayout];
+            [self p_setupContentView_AutoLayout];
         }
         else {
-            [self initContentView];
+            [self p_setupContentView];
         }
     }
     return self;
 }
 
 //视图加载
-- (void)initContentView
+- (void)p_setupContentView
 {
     //无数据的时候显示 视图
     CGFloat width = self.frame.size.width;
@@ -60,7 +60,7 @@
 }
 
 //视图加载
-- (void)initContentView_AutoLayout
+- (void)p_setupContentView_AutoLayout
 {
     //无数据的时候显示 视图
     UIImageView *imgView = [[UIImageView alloc]init];

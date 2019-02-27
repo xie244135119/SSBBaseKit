@@ -27,10 +27,10 @@
         _maxStoreAmount = -1;
         
         if (_isAutoLayout) {
-            [self initContentView_autoLayout];
+            [self p_setupContentView_autoLayout];
         }
         else{
-            [self initContentView];
+            [self p_setupContentView];
         }
     }
     return self;
@@ -43,7 +43,7 @@
 }
 
 
-- (void)initContentView
+- (void)p_setupContentView
 {
     self.layer.borderWidth = 1;
     self.layer.borderColor = [SSLineColor CGColor];
@@ -86,7 +86,7 @@
 }
 
 
-- (void)initContentView_autoLayout
+- (void)p_setupContentView_autoLayout
 {
     self.layer.borderWidth = 1;
     self.layer.borderColor = [SSLineColor CGColor];

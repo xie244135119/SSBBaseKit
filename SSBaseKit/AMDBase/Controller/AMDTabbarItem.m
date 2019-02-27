@@ -58,10 +58,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         if (_autoLayout) {
-            [self initContentView_autoLayout];
+            [self p_setupContentView_autoLayout];
         }
         else {
-            [self initContentView];
+            [self p_setupContentView];
         }
     }
     return self;
@@ -131,7 +131,7 @@
 
 
 #pragma mark - 视图初始化
--(void)initContentView
+-(void)p_setupContentView
 {
     NSInteger width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height;
@@ -158,7 +158,7 @@
 }
 
 
-- (void)initContentView_autoLayout
+- (void)p_setupContentView_autoLayout
 {
     if (_itemTitleLabel == nil) {
         //标题

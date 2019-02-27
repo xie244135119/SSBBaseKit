@@ -96,7 +96,7 @@
 //    self.supportBackBt = YES;
 //    self.backItem.layer.borderWidth = 1;
 //    self.backItem.imgStrokeColor = SSColorWithRGB(75, 75, 75, 1);
-//    [self initContentView];
+//    [self p_setupContentView];
 //    [self testLinkPageView];
 //    self.contentView.layer.borderWidth = 1;
 //    self.view.layer.borderWidth = 1;
@@ -110,7 +110,7 @@
     
 //    self.titleView.title = @"阿萨帝发送到发送到发送方的";
 //    [self testLineItemView];
-//    [self performSelector:@selector(initContentView) withObject:nil afterDelay:0.5];
+//    [self performSelector:@selector(p_setupContentView) withObject:nil afterDelay:0.5];
 //    [self testTextFieldView];
 //    [self testBackView];
     //
@@ -155,7 +155,7 @@
 
 
 // 视图加载
-- (void)initContentView
+- (void)p_setupContentView
 {
     SSClassifyView *view = [[SSClassifyView alloc]init];
     view.delegate = self;
