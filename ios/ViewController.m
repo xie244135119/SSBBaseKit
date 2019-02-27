@@ -26,7 +26,10 @@
 
 @interface ViewController ()<UINavigationControllerDelegate,
                                 UIGestureRecognizerDelegate,
-                                SSLinkageViewDelegate, AMDMultipleTypeChoiceDelegate>
+                                SSLinkageViewDelegate,
+                                AMDMultipleTypeChoiceDelegate,
+                                SSClassifyDelegate, SSClassifyDataSource,
+                                AYEActionSheetViewDelegate>
 {
     AMDButton *_currentBt;
 }
@@ -36,23 +39,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBarHidden = YES;
-    self.navigationController.delegate = self;
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    
-    // 文本颜色
-    UIColor *backitemcolor = [self preferredStatusBarStyle]==UIStatusBarStyleDefault?[UIColor colorWithRed:(CGFloat)75/255 green:(CGFloat)75/255 blue:(CGFloat)75/255 alpha:1]:[UIColor whiteColor];
-    [[UINavigationBar appearance] setTintColor:backitemcolor];
-    // 导航默认颜色 和 文本颜色
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
+    // 默认配置
+    [self p_setupConfig];
     //
     
 //    self.supportBackBt = YES;
 //    self.backItem.layer.borderWidth = 1;
 //    self.backItem.imgStrokeColor = SSColorWithRGB(75, 75, 75, 1);
 //    [self initContentView];
-    [self testLinkPageView];
+//    [self testLinkPageView];
 //    self.contentView.layer.borderWidth = 1;
 //    self.view.layer.borderWidth = 1;
 //    self.view.layer.borderColor = [UIColor redColor].CGColor;
@@ -82,27 +77,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+
+// 默认配置
+- (void)p_setupConfig {
+    //    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.delegate = self;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     
-//    UIEdgeInsets inset = self.view.safeAreaInsets;
+    // 文本颜色
+    UIColor *backitemcolor = [self preferredStatusBarStyle]==UIStatusBarStyleDefault?[UIColor colorWithRed:(CGFloat)75/255 green:(CGFloat)75/255 blue:(CGFloat)75/255 alpha:1]:[UIColor whiteColor];
+    [[UINavigationBar appearance] setTintColor:backitemcolor];
+    // 导航默认颜色 和 文本颜色
+    //    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+
+#pragma mark - 按钮事件
+// 测试新构造的Controller
+- (IBAction)clickConstructor:(id)sender {
     
-//    UIEdgeInsets inset = self.view.safeAreaInsets;
+    AMDRootViewController *vc = [[AMDRootViewController alloc]initWithDefault];
+    vc.title = @"使用默认导航";
+    [self.navigationController pushViewController:vc animated:YES];
 }
-
-
-//- (void)viewSafeAreaInsetsDidChange
-//{
-//    //
-//    [super viewSafeAreaInsetsDidChange];
-//
-//}
 
 
 
@@ -186,10 +184,14 @@
 // 底部tabbar
 - (void)testTabBar
 {
-    TestController *webVC = [[TestController alloc]initWithTitle:@"阿生的"];
-    AMDRootViewController *webVC2 = [[AMDRootViewController alloc]initWithTitle:@"测试"];
-     AMDRootViewController *webVC3 = [[AMDRootViewController alloc]initWithTitle:@"测试"];
-     AMDRootViewController *webVC4 = [[AMDRootViewController alloc]initWithTitle:@"测试"];
+    TestController *webVC = [[TestController alloc]init];
+    webVC.title = @"陌生的";
+    AMDRootViewController *webVC2 = [[AMDRootViewController alloc]init];
+    webVC2.title = @"测试";
+     AMDRootViewController *webVC3 = [[AMDRootViewController alloc]init];
+    webVC3.title = @"测试";
+     AMDRootViewController *webVC4 = [[AMDRootViewController alloc]init];
+    webVC4.title = @"测试";
     
     AMDTabbarController *tabbarVc = [[AMDTabbarController alloc]initWithItemsTitles:@[@"asdf",@"aswew",@"232",@"234asdfa"] itemImages:@[[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"], [UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"],[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"],[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"]] itemSelctImages:@[[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"], [UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"],[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"],[UIImage imageNamed:@"SSBaseKit.bundle/topicinfo_more_select.png"]]];
 //    UITabBarController *tabbarVc = [[UITabBarController alloc]init];
@@ -259,7 +261,7 @@
     return;
     
     [self testActionSheet];
-    return;
+
 //    NSInteger count = random()*100;
 //    [_currentBt setUnreadCount:count];
     [self testTabBar];
@@ -284,12 +286,12 @@
 
 - (void)AYEActionSheetView:(AYEActionSheetView *)sheetView DidTapWithIndex:(NSInteger)index
 {
-    NSLog(@" 选中了某一个index:%i ",index);
+    NSLog(@" 选中了某一个index:%li ",(long)index);
 }
 
 - (void)AYEActionSheetView:(AYEActionSheetView *)sheetView willDismissWithIndex:(NSInteger)index
 {
-    NSLog(@" 取消选中了某一个index:%i ",index);
+    NSLog(@" 取消选中了某一个index:%li ",(long)index);
 }
 
 
@@ -327,7 +329,8 @@
  @return 一组分类图片地址
  */
 - (NSArray<NSURL *> *)classifyImageUrls{
-    return @[@"",@"",@""];
+//    return @[@"",@"",@""];
+    return nil;
 }
 
 - (void)classiftView:(SSClassifyView *)view didSelectAtIndex:(NSInteger)index{

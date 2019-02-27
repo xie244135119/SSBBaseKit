@@ -31,6 +31,8 @@ typedef NS_ENUM(NSUInteger, AMDControllerShowType) {
 // 默认为YES
 @property(nonatomic) BOOL supportBack;
 
+
+#pragma mark - 一期支持
 /*
  * 控制器实例化 (尽量不要调用)
  * @param1 标题
@@ -42,6 +44,15 @@ typedef NS_ENUM(NSUInteger, AMDControllerShowType) {
 - (instancetype)initWithTitle:(NSString *)title
                titileViewShow:(BOOL)titleViewShow
                    tabBarShow:(BOOL)tabbar NS_DEPRECATED_IOS(2_0, 8_0) ;
+
+
+
+#pragma mark - 二期改造
+// 只用默认导航栏处理
+- (instancetype)initWithDefault;
+
+
+
 
 #pragma mark - 进去页面方式
 /**
@@ -57,8 +68,8 @@ typedef NS_ENUM(NSUInteger, AMDControllerShowType) {
 - (BOOL)controllerShowAnimate;
 
 
-@end
 
+@end
 
 
 

@@ -181,12 +181,14 @@
 		CB81723720899E8A00776FB8 /* AMDBaseCellDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = CB81723620899E8A00776FB8 /* AMDBaseCellDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB8612FB20C6801000144BF4 /* AMDRootTableController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB8612F920C6801000144BF4 /* AMDRootTableController.h */; };
 		CB8612FC20C6801000144BF4 /* AMDRootTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8612FA20C6801000144BF4 /* AMDRootTableController.m */; };
-		CB9079E81FF4D9D400275296 /* AMDRootViewController+UMStatistic.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9079E71FF4D9D400275296 /* AMDRootViewController+UMStatistic.m */; };
 		CB9A69AC1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
 		CB9A69AD1F9F48BA00B306E5 /* AMDQrcodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */; };
 		CB9A69AE1F9F507E00B306E5 /* AMDQrcodeController.h in Headers */ = {isa = PBXBuildFile; fileRef = CB58B3C21F99CAFB00360891 /* AMDQrcodeController.h */; };
 		CBD53CF71FA32912006D3268 /* SSImageCropController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD53CF61FA328FA006D3268 /* SSImageCropController.m */; };
 		CBD53CF81FA32912006D3268 /* SSImageCropController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD53CF61FA328FA006D3268 /* SSImageCropController.m */; };
+		CBF15A3521F030C200D408B1 /* SSPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CBF15A3321F030C200D408B1 /* SSPageViewController.h */; };
+		CBF15A3621F030C200D408B1 /* SSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF15A3421F030C200D408B1 /* SSPageViewController.m */; };
+		CBF15A3721F030C200D408B1 /* SSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF15A3421F030C200D408B1 /* SSPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -339,6 +341,8 @@
 		CB9079E71FF4D9D400275296 /* AMDRootViewController+UMStatistic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AMDRootViewController+UMStatistic.m"; sourceTree = "<group>"; };
 		CBD53CF51FA328FA006D3268 /* SSImageCropController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSImageCropController.h; sourceTree = "<group>"; };
 		CBD53CF61FA328FA006D3268 /* SSImageCropController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSImageCropController.m; sourceTree = "<group>"; };
+		CBF15A3321F030C200D408B1 /* SSPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPageViewController.h; sourceTree = "<group>"; };
+		CBF15A3421F030C200D408B1 /* SSPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPageViewController.m; sourceTree = "<group>"; };
 		DF4D764CA25168F83786CBD9 /* Pods-SSBaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSBaseKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSBaseKit/Pods-SSBaseKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -475,6 +479,8 @@
 				CB58B3C31F99CAFB00360891 /* AMDQrcodeController.m */,
 				CBD53CF51FA328FA006D3268 /* SSImageCropController.h */,
 				CBD53CF61FA328FA006D3268 /* SSImageCropController.m */,
+				CBF15A3321F030C200D408B1 /* SSPageViewController.h */,
+				CBF15A3421F030C200D408B1 /* SSPageViewController.m */,
 				CB1CF7421FB939A600BB02CE /* SSNavigationController.h */,
 				CB1CF7411FB939A500BB02CE /* SSNavigationController.m */,
 				CB8612F920C6801000144BF4 /* AMDRootTableController.h */,
@@ -666,6 +672,7 @@
 				CB47CCCD1EE6471A00D81CA3 /* AMDCopyLabel.h in Headers */,
 				CB47CCD71EE6471A00D81CA3 /* AMDRootNavgationBar.h in Headers */,
 				CB47CCDB1EE6471A00D81CA3 /* AMDSegmentedControl.h in Headers */,
+				CBF15A3521F030C200D408B1 /* SSPageViewController.h in Headers */,
 				CB6E2C9220A4272900724033 /* SSClassifyView.h in Headers */,
 				CB47CCD91EE6471A00D81CA3 /* AMDScrollView.h in Headers */,
 				CB47CCBA1EE6471A00D81CA3 /* AMDWebViewProgress.h in Headers */,
@@ -755,7 +762,7 @@
 		CB47CC1C1EE6471000D81CA3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = SunSet;
 				TargetAttributes = {
 					CB47CC241EE6471000D81CA3 = {
@@ -913,6 +920,7 @@
 				CB47CCA31EE6471A00D81CA3 /* AMDLabelTextView.m in Sources */,
 				CB47CD011EE6480B00D81CA3 /* AMDMJRefreshBaseView.m in Sources */,
 				CB47CCB11EE6471A00D81CA3 /* AMDTabbarController.m in Sources */,
+				CBF15A3621F030C200D408B1 /* SSPageViewController.m in Sources */,
 				CB47CCDA1EE6471A00D81CA3 /* AMDScrollView.m in Sources */,
 				CB47CCAC1EE6471A00D81CA3 /* AMDWebViewPopverView.m in Sources */,
 				CB47CD091EE6480B00D81CA3 /* UIScrollView+AMDMJExtension.m in Sources */,
@@ -986,8 +994,8 @@
 				CB45E3D41F2B348B009BB7C6 /* AMDLabelSwitchView.m in Sources */,
 				CB45E3EE1F2B34D0009BB7C6 /* GeneralTableView.m in Sources */,
 				CB1CF7431FB939A800BB02CE /* SSNavigationController.m in Sources */,
+				CBF15A3721F030C200D408B1 /* SSPageViewController.m in Sources */,
 				CB4724F91F9602CB00F14E87 /* UIView+AMDMJExtension.m in Sources */,
-				CB9079E81FF4D9D400275296 /* AMDRootViewController+UMStatistic.m in Sources */,
 				CB45E3D61F2B348E009BB7C6 /* AMDLoadingView.m in Sources */,
 				CB45E3DB1F2B34A7009BB7C6 /* AMDWebViewProgress.m in Sources */,
 				CB6C8FF820A978740081AC1A /* AMDImageView+ImageCache.m in Sources */,
@@ -1033,6 +1041,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1040,6 +1049,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1091,6 +1101,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1098,6 +1109,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

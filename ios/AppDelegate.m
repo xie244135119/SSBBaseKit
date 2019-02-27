@@ -17,6 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    double launchTime = (CFAbsoluteTimeGetCurrent() - StartTime);
+    NSLog(@" 启动时间 time:%.2f ",launchTime);
+    
     return YES;
 }
 

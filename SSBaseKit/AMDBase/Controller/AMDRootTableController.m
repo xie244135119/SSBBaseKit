@@ -8,7 +8,7 @@
 
 #import "AMDRootTableController.h"
 #import <Masonry/Masonry.h>
-#import "UIScrollView+AMDMJRefresh.h"
+
 
 @interface AMDRootTableController ()<UITableViewDelegate, UITableViewDataSource>
 

@@ -36,7 +36,7 @@
 {
     [self amd_viewWillAppear:animate];
     //
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
     
     // uMeng统计
 //    [SSUMMobService beginLogPageView:[[self class] description]];
