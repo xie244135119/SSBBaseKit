@@ -91,7 +91,6 @@
     // 导航默认颜色 和 文本颜色
 //    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
->>>>>>> 5ab807341c50439b0748205e4205ac62334fcd1e
     //
     
 //    self.supportBackBt = YES;

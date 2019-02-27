@@ -59,16 +59,16 @@
     [self addSubview:searchBar];
     
     [searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        if (_adaptation) {
+        if (self->_adaptation) {
             make.left.top.bottom.offset(0);
-            if (_showCancel) {
+            if (self->_showCancel) {
                 make.right.offset(-40);
             }else{
                 make.right.offset(0);
             }
         }else{
             make.left.offset(15);
-            if (_showCancel) {
+            if (self->_showCancel) {
                 make.right.offset(-55);
             }else{
                 make.right.offset(-15);

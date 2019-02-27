@@ -15,19 +15,15 @@
 
 @required
 //
-- (void)messageChoiceView:(AMDMultipleTypeView * __nullable)view
-               fromButton:(UIButton * __nullable)fromButton
-                 toButton:(UIButton * __nullable)toButton;
+- (void)messageChoiceView:(AMDMultipleTypeView *)view
+               fromButton:(UIButton *)fromButton
+                 toButton:(UIButton *)toButton;
 
 
 @optional
 //sender:点击的响应控件  tag 按位置来 起始位置:1
 - (void)messageChoiceView:(AMDMultipleTypeView *)view
                    sender:(UIButton *)sender;
-//
-- (void)messageChoiceView:(AMDMultipleTypeView *)view
-               fromButton:(UIButton *)fromButton
-                 toButton:(UIButton *)toButton;
 @end
 
 @interface AMDMultipleTypeView : UIView
