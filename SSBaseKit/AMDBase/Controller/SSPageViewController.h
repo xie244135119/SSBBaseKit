@@ -37,7 +37,7 @@
 @optional
 // 当视图发生改变的时候
 - (void)controller:(SSPageViewController *)controller
-visableControllerChanged:(UIViewController *)controller
+visableControllerChanged:(UIViewController *)visableController
       visableIndex:(NSInteger)index;
 
 

@@ -155,7 +155,7 @@
             break;
         case UIControlStateNormal:
             _titleLabel.alpha = 1;
-             self.maskHighlightView.hidden = YES;
+            self.maskHighlightView.hidden = YES;
             self.backgroundColor = _normalBackgroundColor?_normalBackgroundColor:[UIColor clearColor];
             if (_normalTitleColor) {
                 _titleLabel.textColor = _normalTitleColor;
@@ -252,11 +252,11 @@
     
     //文字描述
     UILabel *titleLb = [[UILabel alloc]initWithFrame:self.bounds];
-//    UILabel *titleLb = [[UILabel alloc]init];
+    //    UILabel *titleLb = [[UILabel alloc]init];
     titleLb.backgroundColor = [UIColor clearColor];
     titleLb.textAlignment = NSTextAlignmentCenter;
     titleLb.font = SSFontWithName(@"", 14);
-//    titleLb.textColor = SSColorWithRGB(153, 153, 153, 1);
+    //    titleLb.textColor = SSColorWithRGB(153, 153, 153, 1);
     titleLb.textColor = [UIColor whiteColor];
     [self addSubview:titleLb];
     _titleLabel = titleLb;
@@ -266,7 +266,7 @@
 - (void)initContentView2
 {
     //图像
-//    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+    //    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
     UIImageView *imgView = [[UIImageView alloc]init];
     [self addSubview:imgView];
     _imageView = imgView;
@@ -344,7 +344,7 @@
         default:
             break;
     }
-//    self.backgroundColor = _normalBackgroundColor?_normalBackgroundColor:[UIColor clearColor];
+    //    self.backgroundColor = _normalBackgroundColor?_normalBackgroundColor:[UIColor clearColor];
 }
 
 - (void)setTitleColor:(UIColor *)titlecolor forState:(UIControlState)state
@@ -409,6 +409,9 @@
         case UIControlStateHighlighted:
             _higlhtedImage = image;
             break;
+        case UIControlStateDisabled:
+            _disabledImage = image;
+            break;
         default:
             break;
     }
@@ -434,6 +437,9 @@
             break;
         case UIControlStateHighlighted:
             _higlhtedImage = image;
+            break;
+        case UIControlStateDisabled:
+            _disabledImage = image;
             break;
         default:
             break;
@@ -481,6 +487,10 @@
         self.titleLabel.text = enabled?_normalTitle:_disabledTitle;
     }
     
+    if (_disabledImage) {
+        _imageView.image = enabled ? _normalImage:_disabledImage;
+    }
+    
     if (_disabledBorderColor) {
         self.layer.borderColor = enabled?[_normalBorderColor CGColor]:[_disabledBorderColor CGColor];
     }
@@ -526,45 +536,45 @@
 {
     _currentUnreadCount = unreadcount;
     // 使用自动布局处理
-//    if (_autoLayout) {
-//        [self _setAutoLayoutUnreadCount:unreadcount];
-//        return;
-//    }
+    //    if (_autoLayout) {
+    //        [self _setAutoLayoutUnreadCount:unreadcount];
+    //        return;
+    //    }
     
     [self _setAutoLayoutUnreadCount:unreadcount];
-//    return;
-//    
-//    // 下方的逐渐废弃
-//    // 意思是只显示红框 不显示数量
-//    UIImageView *senderimgView = (UIImageView *)_unreadLb.superview;
-////    CGFloat width = self.frame.size.width;
-//    if (unreadcount == -2) {
-//        _unreadLb.text = @"";
-//        senderimgView.hidden = NO;
-//        senderimgView.frame = CGRectMake(_imageView.frame.origin.x+_imageView.frame.size.width-5, _imageView.frame.origin.y-5, 7, 7);
-//        senderimgView.layer.cornerRadius = 3.5;
-//        senderimgView.layer.masksToBounds = YES;
-//        return;
-//    }
-//    
-//    if (unreadcount <= 0) {
-//        senderimgView.hidden = YES;
-//    }
-//    else {
-//        senderimgView.hidden = NO;
-//        senderimgView.frame = CGRectMake(_imageView.frame.origin.x+_imageView.frame.size.width-3, _imageView.frame.origin.y-5, 14, 14);
-//        senderimgView.layer.cornerRadius = 7;
-//        senderimgView.layer.masksToBounds = YES;
-//        _unreadLb.text = [NSString stringWithFormat:@"%li",(long)unreadcount];
-//        // 超过99条
-//        if (unreadcount >= 10) {
-//            senderimgView.frame = CGRectMake(senderimgView.frame.origin.x-3, senderimgView.frame.origin.y, 20, 14);
-//            // 超过99的话
-//            if (unreadcount > 99) {
-//                _unreadLb.text = @"99+";
-//            }
-//        }
-//    }
+    //    return;
+    //
+    //    // 下方的逐渐废弃
+    //    // 意思是只显示红框 不显示数量
+    //    UIImageView *senderimgView = (UIImageView *)_unreadLb.superview;
+    ////    CGFloat width = self.frame.size.width;
+    //    if (unreadcount == -2) {
+    //        _unreadLb.text = @"";
+    //        senderimgView.hidden = NO;
+    //        senderimgView.frame = CGRectMake(_imageView.frame.origin.x+_imageView.frame.size.width-5, _imageView.frame.origin.y-5, 7, 7);
+    //        senderimgView.layer.cornerRadius = 3.5;
+    //        senderimgView.layer.masksToBounds = YES;
+    //        return;
+    //    }
+    //
+    //    if (unreadcount <= 0) {
+    //        senderimgView.hidden = YES;
+    //    }
+    //    else {
+    //        senderimgView.hidden = NO;
+    //        senderimgView.frame = CGRectMake(_imageView.frame.origin.x+_imageView.frame.size.width-3, _imageView.frame.origin.y-5, 14, 14);
+    //        senderimgView.layer.cornerRadius = 7;
+    //        senderimgView.layer.masksToBounds = YES;
+    //        _unreadLb.text = [NSString stringWithFormat:@"%li",(long)unreadcount];
+    //        // 超过99条
+    //        if (unreadcount >= 10) {
+    //            senderimgView.frame = CGRectMake(senderimgView.frame.origin.x-3, senderimgView.frame.origin.y, 20, 14);
+    //            // 超过99的话
+    //            if (unreadcount > 99) {
+    //                _unreadLb.text = @"99+";
+    //            }
+    //        }
+    //    }
 }
 
 // 自动布局下处理
@@ -617,7 +627,7 @@
             placeHolder:(UIImage *)placeHolder
 {
     // override
-//    [self setImageWithUrl:url placeHolder:placeHolder completion:nil];
+    //    [self setImageWithUrl:url placeHolder:placeHolder completion:nil];
 }
 
 - (void)setImageWithUrl:(NSURL *)url
@@ -625,7 +635,7 @@
              completion:(void (^)(UIImage *, NSError *))completion
 {
     // override
-//    self.imageView.image = placeHolder;
+    //    self.imageView.image = placeHolder;
 }
 
 
@@ -633,7 +643,7 @@
              placeHolder:(UIImage *)placeHolder
 {
     // override
-//    [self setImageWithUrl:[NSURL fileURLWithPath:path] placeHolder:placeHolder];
+    //    [self setImageWithUrl:[NSURL fileURLWithPath:path] placeHolder:placeHolder];
     
 }
 
@@ -678,7 +688,7 @@
     [super layoutSubviews];
     [super layoutIfNeeded];
     
-//    self.layer.cornerRadius = self.frame.size.width/2;
+    //    self.layer.cornerRadius = self.frame.size.width/2;
 }
 
 

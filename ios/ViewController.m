@@ -23,6 +23,8 @@
 #import "SSClassifyView.h"
 #import <Masonry/Masonry.h>
 #import "AMDMultipleTypeView.h"
+#import "SSSelectItemView.h"
+#import "SSTextField.h"
 
 @interface ViewController ()<UINavigationControllerDelegate,
                                 UIGestureRecognizerDelegate,
@@ -32,6 +34,7 @@
                                 AYEActionSheetViewDelegate>
 {
     AMDButton *_currentBt;
+    SSSelectItemView *_selectView;
 }
 @end
 
@@ -41,6 +44,54 @@
     [super viewDidLoad];
     // 默认配置
     [self p_setupConfig];
+//    self.view.backgroundColor = [UIColor greenColor];
+//    //搜索框
+//    SSTextField *textField = [[SSTextField alloc] init];
+////    textField.showCancel = YES;
+////    textField.adaptation = YES;
+//    textField.placeholder = @"搜索商品";
+//    textField.textField.layer.borderWidth = 1;
+//    [self.view addSubview:textField];
+//    [textField mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.left.offset(0);
+//        make.right.offset(0);
+//        make.height.offset(30);
+//        make.bottom.equalTo(@-8);
+//    }];
+//    [textField prepareView];
+//
+//    return;
+//    //选项栏
+//    SSSelectItemView *selectView = [[SSSelectItemView alloc] initWithFrame:CGRectMake(0, 100, SScreenWidth, 44)];
+//    _selectView = selectView;
+//
+//    selectView.backgroundColor = [UIColor whiteColor];;
+//    selectView.titleFont = [UIFont systemFontOfSize:15];
+//    selectView.titleColor = [UIColor redColor];
+//    selectView.titleSelectedColor = [UIColor greenColor];
+//    selectView.titles = @[@"综合",@"价格",@"销量"];
+//    selectView.sortIndexs = @[@0,@1,@2];
+//    selectView.arrowColor = [UIColor grayColor];
+//    selectView.arrowSelectColor = [UIColor redColor];
+//    [self.view addSubview:selectView];
+//    [selectView prepareView];
+//    selectView.completion = ^(NSInteger index, NSUInteger sortStatus) {
+//        NSLog(@"index = %ld,sort = %lu",(long)index,(unsigned long)sortStatus);
+//
+//    };
+//    return;
+//
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.delegate = self;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+    // 文本颜色
+    UIColor *backitemcolor = [self preferredStatusBarStyle]==UIStatusBarStyleDefault?[UIColor colorWithRed:(CGFloat)75/255 green:(CGFloat)75/255 blue:(CGFloat)75/255 alpha:1]:[UIColor whiteColor];
+    [[UINavigationBar appearance] setTintColor:backitemcolor];
+    // 导航默认颜色 和 文本颜色
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
+>>>>>>> 5ab807341c50439b0748205e4205ac62334fcd1e
     //
     
 //    self.supportBackBt = YES;
