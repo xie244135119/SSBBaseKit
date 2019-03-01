@@ -18,19 +18,18 @@
  */
 + (UIFont *)ssSystemFontOfSize:(CGFloat)fontSize
 {
-    return [UIFont fontWithName:@"HiraginoSansGB-W3" size:fontSize];
+    return [UIFont fontWithName:@"HiraginoSansGB-W3" size:fontSize] ?: [UIFont systemFontOfSize:fontSize];
 }
 
-
+//
 + (UIFont *)boldSystemFontOfSize:(CGFloat)fontSize
 {
-    return [UIFont fontWithName:@"HiraginoSansGB-W3" size:fontSize];
+    return [UIFont fontWithName:@"HiraginoSansGB-W3" size:fontSize] ?: [UIFont boldSystemFontOfSize:fontSize];
 }
 
 
 
 @end
-
 
 
 
