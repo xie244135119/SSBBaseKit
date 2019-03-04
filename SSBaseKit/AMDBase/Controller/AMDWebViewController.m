@@ -83,12 +83,7 @@
         WEAKSELF
         if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
             animationView.finishLoadAction_WK = ^(WKWebView *webView){
-<<<<<<< HEAD
                 weakSelf.titleView.title = webView.title;
-=======
-//                weakself.titleView.title = webView.title;
-                weakself.title = webView.title;
->>>>>>> 7c999473f21e5145b1c38faf0e05a148ab451ebd
             };
         }
     }
