@@ -22,7 +22,7 @@
             [self initAutoLayoutView];
         }
         else {
-            [self initContentView];
+            [self p_setupContentView];
         }
     }
     return self;
@@ -40,7 +40,7 @@
 }
 
 
-- (void)initContentView
+- (void)p_setupContentView
 {
     CGFloat h = self.frame.size.height;
     CGFloat w = self.frame.size.width;

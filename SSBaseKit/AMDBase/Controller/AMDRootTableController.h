@@ -8,6 +8,7 @@
 
 #import "AMDRootViewController.h"
 #import <UIKit/UIKit.h>
+#import "UIScrollView+AMDMJRefresh.h"
 
 @interface AMDRootTableController : AMDRootViewController
 

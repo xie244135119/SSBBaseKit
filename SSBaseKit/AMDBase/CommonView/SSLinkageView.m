@@ -258,6 +258,7 @@ static NSInteger const kSSLinkageRepeatCount = 200;
     control.numberOfPages = _imageURLs.count;
     control.currentPageIndicatorTintColor = [UIColor whiteColor];
     control.pageIndicatorTintColor = SSColorWithRGB(60, 53, 53, 1);
+    control.hidesForSinglePage = YES;
     [self addSubview:control];
     control.enabled = NO;
     _currentPageControl = control;

@@ -94,10 +94,10 @@
 {
     if (self = [super initWithFrame:frame]) {
         if (_autoLayout) {
-            [self initContentView2];
+            [self p_setupContentView2];
         }
         else {
-            [self initContentView];
+            [self p_setupContentView];
         }
     }
     return self;
@@ -243,7 +243,7 @@
 }
 
 //视图加载
-- (void)initContentView
+- (void)p_setupContentView
 {
     //图像
     UIImageView *imgView = [[UIImageView alloc]initWithFrame:self.bounds];
@@ -263,7 +263,7 @@
 }
 
 //视图加载
-- (void)initContentView2
+- (void)p_setupContentView2
 {
     //图像
     //    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];

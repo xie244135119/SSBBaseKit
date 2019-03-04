@@ -42,17 +42,17 @@
 {
     if (self = [super initWithFrame:frame]) {
         if (CGRectEqualToRect(frame, CGRectZero)) {
-            [self initContentView_AutoLayout];
+            [self p_setupContentView_AutoLayout];
         }
         else{
-            [self initContentView];
+            [self p_setupContentView];
         }
     }
     return self;
 }
 
 
-- (void)initContentView
+- (void)p_setupContentView
 {
     CGFloat h = self.frame.size.height;
     // 名称 左侧展示
@@ -76,7 +76,7 @@
 }
 
 //视图加载
-- (void)initContentView_AutoLayout
+- (void)p_setupContentView_AutoLayout
 {
     // 名称 左侧展示
     UILabel *titleLable = [[UILabel alloc]init];

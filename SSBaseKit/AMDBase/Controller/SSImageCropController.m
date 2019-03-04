@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      [self initData];
-    [self initContentView];
+    [self p_setupContentView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +46,7 @@
 
 #pragma mark  
 #pragma mark 视图初始化
-- (void)initContentView
+- (void)p_setupContentView
 {
     self.view.backgroundColor = [UIColor blackColor];
     

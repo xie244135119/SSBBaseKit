@@ -20,7 +20,7 @@
 - (id)initWithFrame:(CGRect)frame
 {
     if(self = [super initWithFrame:frame]){
-        [self initContentView];
+        [self p_setupContentView];
     }
     return self;
 }
@@ -47,7 +47,7 @@
 }
 
 
-- (void)initContentView
+- (void)p_setupContentView
 {
     // 两段
 }

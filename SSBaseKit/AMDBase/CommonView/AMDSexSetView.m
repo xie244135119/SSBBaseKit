@@ -36,13 +36,13 @@
 {
     CGSize size = [UIScreen mainScreen].bounds.size;
     if (self = [super initWithFrame:CGRectMake(0, 0, size.width, size.height)]) {
-        [self initContentView];
+        [self p_setupContentView];
     }
     return self;
 }
 
 // 视图加载
-- (void)initContentView
+- (void)p_setupContentView
 {
     CGSize size = [UIScreen mainScreen].bounds.size;
     self.backgroundColor = SSColorWithRGB(0, 0, 0, 0);

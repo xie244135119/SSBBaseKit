@@ -13,7 +13,10 @@
 #import "SSGlobalVar.h"
 
 
-@interface AMDRootViewController ()
+@interface AMDRootViewController () {
+    // 是否使用系统导航
+    BOOL _isUseSystemNav;
+}
 // 从xib中加载的话
 @property(nonatomic) BOOL loadFromNib;
 // 导航是否展示
@@ -26,14 +29,15 @@
 {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         // 从xib中加载
-        _loadFromNib = YES;
+        if (nibNameOrNil != nil) {
+            _loadFromNib = YES;
+        }
     }
     return self;
 }
 
 - (void)dealloc
 {
-    //    _backControl = nil;
     NSLog(@"%@ %s",[self class],__FUNCTION__);
 }
 
@@ -44,16 +48,20 @@
     
     //当从nib中加载的时候 不加载导航
     if (!_loadFromNib) {
-        [self initRootContentView];
+        if (_isUseSystemNav) {
+            // 改造新页面
+            [self p_setupRootViews];
+        } else{
+            [self _setupRootContentViews];
+        }
     }
     
-    //禁止7.0以后自动调位置 TableView滑动
-    self.automaticallyAdjustsScrollViewInsets=NO;
+    //
+    [self p_setupRootPerferences];
 }
 
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
@@ -62,7 +70,6 @@
         self.view = nil;// 目的是再次进入时能够重新加载调用viewDidLoad函数。
     }
 }
-
 
 // 状态栏颜色
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -88,6 +95,9 @@
 
 - (instancetype)init
 {
+    if (_isUseSystemNav) {
+        return [super init];
+    }
     return [self initWithTitileViewShow:YES];
 }
 
@@ -120,7 +130,7 @@
     return self;
 }
 
-- (void)initRootContentView
+- (void)_setupRootContentViews
 {
     // 标题
     WEAKSELF
@@ -275,6 +285,44 @@
     // 设置标题
     self.titleView.title = title;
 }
+
+
+#pragma mark
+#pragma mark - 二期改版
+// 初始化方法
+- (instancetype)initWithDefault {
+    _isUseSystemNav = YES;
+    return [super init];
+}
+
+
+#pragma mark - 视图加载
+// 加载内容
+// 只使用
+- (void)p_setupRootViews {
+    //内部视图
+    UIView *contentvw = [[UIView alloc]init];
+    _contentView = contentvw;
+    contentvw.backgroundColor = SSColorWithRGB(246, 246, 246, 1);
+    [self.view addSubview:contentvw];
+    //    __weak typeof(self) wealself = self;
+    [contentvw mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(@0);
+        make.bottom.equalTo(@0);
+        make.top.equalTo(@0);
+    }];
+    self.view.multipleTouchEnabled = NO;
+    self.view.backgroundColor = contentvw.backgroundColor;
+}
+
+
+// 加载初始化配置
+- (void)p_setupRootPerferences {
+    //禁止7.0以后自动调位置 TableView滑动
+    self.automaticallyAdjustsScrollViewInsets = NO;
+}
+
+
 
 
 @end

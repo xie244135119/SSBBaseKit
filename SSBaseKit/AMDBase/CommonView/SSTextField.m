@@ -26,25 +26,11 @@
 
 
 
-//- (instancetype)init{
-//    if (self = [super init]) {
-//        [self initContentView];
-//    }
-//    return self;
-//}
-//
-//- (instancetype)initWithFrame:(CGRect)frame{
-//    if (self = [super initWithFrame:frame]) {
-//        [self initContentView];
-//    }
-//    return self;
-//}
-
 -(void)prepareView{
-    [self initContentView];
+    [self p_setupContentView];
 }
 
-- (void)initContentView{
+- (void)p_setupContentView{
     //搜索框
     UITextField *searchBar = [[UITextField alloc] init];
     _textField = searchBar;
@@ -59,16 +45,16 @@
     [self addSubview:searchBar];
     
     [searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        if (_adaptation) {
+        if (self->_adaptation) {
             make.left.top.bottom.offset(0);
-            if (_showCancel) {
+            if (self->_showCancel) {
                 make.right.offset(-40);
             }else{
                 make.right.offset(0);
             }
         }else{
             make.left.offset(15);
-            if (_showCancel) {
+            if (self->_showCancel) {
                 make.right.offset(-55);
             }else{
                 make.right.offset(-15);

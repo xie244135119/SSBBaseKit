@@ -37,8 +37,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self initContentView];
-    [self initNavView];
+    [self p_setupContentViews];
+    [self p_setupNavView];
 }
 
 
@@ -46,16 +46,13 @@
 // 页面刷新
 - (void)preReload
 {
-//    [_currentAnimationView.uiWebView reload];
     [_currentAnimationView.wkWebView reload];
 }
 
-
-
 #pragma mark - 视图加载
-- (void)initContentView
+//
+- (void)p_setupContentViews
 {
-    self.titleView.title = @"";
     //加载框
     AMDAnimationWebView *animationView = [[AMDAnimationWebView alloc]init];
     animationView.requestWithSignURL = _requestWithSignURL;
@@ -86,14 +83,19 @@
         WEAKSELF
         if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
             animationView.finishLoadAction_WK = ^(WKWebView *webView){
+<<<<<<< HEAD
                 weakSelf.titleView.title = webView.title;
+=======
+//                weakself.titleView.title = webView.title;
+                weakself.title = webView.title;
+>>>>>>> 7c999473f21e5145b1c38faf0e05a148ab451ebd
             };
         }
     }
 }
 
 // 加载导航
-- (void)initNavView
+- (void)p_setupNavView
 {
     // 压栈
     if (self.supportBack) {
@@ -106,6 +108,9 @@
         [morebt addTarget:self action:@selector(clickMoreAction:) forControlEvents:UIControlEventTouchUpInside];
         morebt.tag = 4;
         self.titleView.rightViews = @[morebt];
+        
+//        UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:morebt];
+//        self.navigationItem.rightBarButtonItem = item;
 #endif
         return;
     }
@@ -118,6 +123,9 @@
         [closebt addTarget:self action:@selector(clickBackAction:) forControlEvents:UIControlEventTouchUpInside];
         self.titleView.leftViews = @[closebt];
         _currentCloseBt = closebt;
+        
+//        UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:closebt];
+//        self.navigationItem.leftBarButtonItem = item;
         return;
     }
     
@@ -261,12 +269,12 @@
 {
     if ([keyPath isEqualToString:@"title"]) {
         // 当用户后退的时候
-        if (_currentAnimationView.wkWebView.backForwardList.forwardList.count > 0) {
+//        if (_currentAnimationView.wkWebView.backForwardList.forwardList.count > 0) {
             // 如果后退数组中还存在页面 显示关闭按钮
 //            if (_currentAnimationView.wkWebView.backForwardList.backList.count > 0) {
                 [self initCloseBt];
 //            }
-        }
+//        }
     }
 }
 
@@ -277,9 +285,9 @@
 - (void)_pushWebViewWithUrl:(NSString *)aUrl
 {
     AMDWebViewController *webVc = [[AMDWebViewController alloc]init];
-    webVc.requestWithSignURL = aUrl;
+//    webVc.requestWithSignURL = aUrl;
     webVc.webViewURL = [NSURL URLWithString:aUrl];
-    webVc.supportBack = YES;
+//    webVc.supportBack = YES;
     [self.navigationController pushViewController:webVc animated:YES];
 }
 

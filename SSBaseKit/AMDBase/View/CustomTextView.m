@@ -70,16 +70,16 @@
 //        self.textContainerInset = UIEdgeInsetsMake(5, 0, 5, 0);
         
         if (_autoLayout) {
-            [self initContentView2];
+            [self p_setupContentView2];
         }
         else {
-            [self initContentView];
+            [self p_setupContentView];
         }
     }
     return self;
 }
 
-- (void)initContentView
+- (void)p_setupContentView
 {
     UILabel *lb = [[UILabel alloc]initWithFrame:CGRectMake(6, 6,self.frame.size.width-10, 20)];
     lb.backgroundColor = [UIColor clearColor];
@@ -95,7 +95,7 @@
     _initHeight = _customTextViewHeight = self.frame.size.height;
 }
 
-- (void)initContentView2
+- (void)p_setupContentView2
 {
     UILabel *lb = [[UILabel alloc]init];
     lb.backgroundColor = [UIColor clearColor];
