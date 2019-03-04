@@ -83,10 +83,10 @@
     }
     else {
         // 获取html标题
-        __weak typeof(self) weakself = self;
+        WEAKSELF
         if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
             animationView.finishLoadAction_WK = ^(WKWebView *webView){
-                weakself.titleView.title = webView.title;
+                weakSelf.titleView.title = webView.title;
             };
         }
     }

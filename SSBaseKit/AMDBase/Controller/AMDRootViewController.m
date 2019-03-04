@@ -123,7 +123,7 @@
 - (void)initRootContentView
 {
     // 标题
-    __weak typeof(self) weakself = self;
+    WEAKSELF
     if (!_titileViewHidden) {
         AMDRootNavgationBar *bar = [[AMDRootNavgationBar alloc]init];
         _titleView = bar;
@@ -133,7 +133,7 @@
             make.left.right.equalTo(@0);
             make.top.equalTo(@0);
             // 底部距离规定的高度一直未44
-            make.bottom.equalTo(weakself.mas_topLayoutGuide).with.offset(44);
+            make.bottom.equalTo(weakSelf.mas_topLayoutGuide).with.offset(44);
         }];
         
         // 加载后退按钮
@@ -154,8 +154,8 @@
     [contentvw mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(@0);
         make.bottom.equalTo(@0);
-        if (weakself.titleView)
-            make.top.equalTo(weakself.titleView.mas_bottom).with.offset(0);
+        if (weakSelf.titleView)
+            make.top.equalTo(weakSelf.titleView.mas_bottom).with.offset(0);
         else
 //            make.top.equalTo(self.mas_topLayoutGuide);
             make.top.equalTo(@0);
@@ -185,13 +185,13 @@
         self.titleView.hidden = titileViewHidden;
         _titileViewHidden = titileViewHidden;
         
-        __weak typeof(self) weakself = self;
+        WEAKSELF
         [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
             if (titileViewHidden)
 //                make.top.equalTo(self.mas_topLayoutGuide);
                 make.top.equalTo(@0);
             else
-                make.top.equalTo(weakself.titleView.mas_bottom).with.offset(0);
+                make.top.equalTo(weakSelf.titleView.mas_bottom).with.offset(0);
         }];
     }
 }
@@ -214,9 +214,9 @@
     [super viewSafeAreaInsetsDidChange];
     
     // 做安全区域兼容
-    __weak typeof(self) weakself = self;
+    WEAKSELF
     [_contentView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(@(-weakself.view.safeAreaInsets.bottom));
+        make.bottom.equalTo(@(-weakSelf.view.safeAreaInsets.bottom));
     }];
 }
 

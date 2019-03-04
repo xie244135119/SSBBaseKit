@@ -215,7 +215,7 @@
     }
     
     if (_supportAnimation) {
-        __weak typeof(self) weakself = self;
+        WEAKSELF
         //添加选中动画
         if (selected) {
             //么有添加动画的时候
@@ -223,7 +223,7 @@
                 _implementAnimated = YES;
                 [UIView animateWithDuration:0.25 animations:^{
                     //图片放大
-                    self->_itemImageView.frame = CGRectMake((weakself.frame.size.width-40)/2, (49-40)/2, 40, 40);
+                    self->_itemImageView.frame = CGRectMake((weakSelf.frame.size.width-40)/2, (49-40)/2, 40, 40);
                     //文字渐渐消失
                     self->_itemTitleLabel.alpha = 0;
                     self->_itemTitleLabel.center = CGPointMake(self->_itemTitleLabel.center.x, self->_itemTitleLabel.center.y-50);
@@ -241,10 +241,10 @@
                 
                 [UIView animateWithDuration:0.25 animations:^{
                     //图片放大
-                    self->_itemImageView.frame = CGRectMake((weakself.frame.size.width-30)/2, 2, 30, 30);
+                    self->_itemImageView.frame = CGRectMake((weakSelf.frame.size.width-30)/2, 2, 30, 30);
                     //文字渐渐消失
                     self->_itemTitleLabel.alpha = 1;
-                    self->_itemTitleLabel.frame = CGRectMake(0, weakself.frame.size.height-20+2, weakself.frame.size.width, 15);
+                    self->_itemTitleLabel.frame = CGRectMake(0, weakSelf.frame.size.height-20+2, weakSelf.frame.size.width, 15);
                 }completion:^(BOOL finished) {
                 }];
             }

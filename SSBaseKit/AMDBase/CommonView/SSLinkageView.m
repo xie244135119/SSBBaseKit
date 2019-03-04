@@ -121,9 +121,11 @@ static NSInteger const kSSLinkageRepeatCount = 200;
     }
     
     _collectionView.scrollEnabled = YES;
-    __weak typeof(self) weakself = self;
+//    __weak typeof(self) weakself = self;
+
+    WEAKSELF
     dispatch_async(dispatch_get_main_queue(), ^{
-        [weakself _setupTimer];
+        [weakSelf _setupTimer];
     });
 }
 

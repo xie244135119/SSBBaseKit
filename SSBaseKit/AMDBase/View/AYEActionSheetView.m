@@ -202,23 +202,23 @@
 // 显示视图
 - (void)_show
 {
-    __weak typeof(self) weakself = self;
-    weakself.backgroundColor = SSColorWithRGB(0, 0, 0, 0);
+    WEAKSELF
+    weakSelf.backgroundColor = SSColorWithRGB(0, 0, 0, 0);
     [UIView animateWithDuration:0.25 animations:^{
         self->_middleView.frame = CGRectMake(0, SScreenHeight-self->_middleView.frame.size.height, self->_middleView.frame.size.width, self->_middleView.frame.size.height);
-        weakself.backgroundColor = SSColorWithRGB(0, 0, 0, kBackColorAlpha);
+        weakSelf.backgroundColor = SSColorWithRGB(0, 0, 0, kBackColorAlpha);
     }];
 }
 
 // 隐藏视图
 - (void)_hide
 {
-    __weak typeof(self) weakself = self;
+    WEAKSELF
     [UIView animateWithDuration:0.2 animations:^{
         self->_middleView.frame = CGRectMake(0, SScreenHeight, self->_middleView.frame.size.width, self->_middleView.frame.size.height);
-        weakself.backgroundColor = SSColorWithRGB(0, 0, 0, 0);
+        weakSelf.backgroundColor = SSColorWithRGB(0, 0, 0, 0);
     } completion:^(BOOL finished) {
-        [weakself removeFromSuperview];
+        [weakSelf removeFromSuperview];
     }];
 }
 

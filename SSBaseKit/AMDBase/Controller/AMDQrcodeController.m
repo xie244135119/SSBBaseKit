@@ -185,7 +185,7 @@
 {
     [self.captureSession stopRunning];
     
-    __weak typeof(self) weakself = self;
+    WEAKSELF
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         NSString *codeValue = nil;
@@ -193,7 +193,7 @@
             if ([object isKindOfClass:[AVMetadataMachineReadableCodeObject class]]) {
                 AVMetadataMachineReadableCodeObject *a = (AVMetadataMachineReadableCodeObject *)object;
                 codeValue = a.stringValue;
-                [weakself.captureSession stopRunning];
+                [weakSelf.captureSession stopRunning];
                 break;
             }
         }
@@ -207,7 +207,7 @@
                 if (self->_scanAction) {
                     self->_scanAction(codeValue, nil);
                 }
-                [weakself.navigationController popViewControllerAnimated:YES];
+                [weakSelf.navigationController popViewControllerAnimated:YES];
             }
         });
     });

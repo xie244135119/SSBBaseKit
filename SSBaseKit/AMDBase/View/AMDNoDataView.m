@@ -66,11 +66,11 @@
     UIImageView *imgView = [[UIImageView alloc]init];
     [self addSubview:imgView];
     _nodataImageView = imgView;
-    __weak typeof(self) weakself = self;
+    WEAKSELF
     [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.width.equalTo(@120);
         make.top.equalTo(@(45+15));
-        make.centerX.equalTo(weakself.mas_centerX);
+        make.centerX.equalTo(weakSelf.mas_centerX);
     }];
     
     //文本内容展示

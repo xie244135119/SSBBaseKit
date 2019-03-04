@@ -42,6 +42,11 @@
 #define SScreenWidth [UIScreen mainScreen].bounds.size.width
 #define SScreenHeight [UIScreen mainScreen].bounds.size.height
 
+//弱引用self
+#define WEAKSELF __weak typeof(self) weakSelf = self;
+//弱引用任何对象
+#define WeakObj(o) __weak typeof(o) o##Weak = o
+
 
 
 // 统一配置
